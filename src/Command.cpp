@@ -47,6 +47,31 @@ Command* Command::getCommand(unsigned int id)
     return it->second;
 }
 
+unsigned int Command::getAliasId(std::string alias)
+{
+    std::map<std::string, unsigned int>::iterator it = aliasAidMap.find(alias);
+
+    if(it == aliasAidMap.end())
+    {
+        return 0;
+    }
+
+    return it->second;
+}
+
+std::string Command::getAlias(unsigned int aid)
+{
+    for(std::map<std::string, unsigned int>::iterator it = aliasAidMap.begin(); it != aliasAidMap.end(); ++ it)
+    {
+        if(it->second == aid)
+        {
+            return it->first;
+        }
+    }
+
+    return "ERRONEOUS";
+}
+
 // Adds an alias
 Command* Command::addAlias(unsigned int aid, std::string name)
 {

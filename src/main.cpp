@@ -35,7 +35,11 @@ int main()
 {
     // Commands
     Command::newCommand(0)->setEroneous();
-    Command::newCommand(1)->addAlias(0, "eat");
+    Command::newCommand(1)->addAlias(0, "eat")->addAlias(1, "consume")->addAlias(2, "swallow")->addAlias(3, "drink");
+    Command::newCommand(2)->addAlias(0, "jump")->addAlias(1, "hop")->addAlias(2, "leap");
+    Command::newCommand(3)->addAlias(0, "dance");
+    Command::newCommand(4)->addAlias(0, "sing");
+
 
     std::cout << "Fuzzy Computing Machine" << std::endl;
 
@@ -46,6 +50,7 @@ int main()
     while(running)
     {
         std::cout << "Enter something:" << std::endl;
+        std::cout << ">";
         getInput(v);
         std::cout << std::endl;
         std::cout << "You entered:" << std::endl;
@@ -61,6 +66,14 @@ int main()
         else
         {
             std::cout << "Command recognized!" << std::endl;
+
+            unsigned int cmdId = theCmd->getId();
+            std::string cmdName = theCmd->getAlias(0);
+            unsigned int aliasId = theCmd->getAliasId(v->at(0));
+            std::string aliasName = theCmd->getAlias(aliasId);
+
+            std::cout << "\tCommand Id: " << cmdId << " (" << cmdName << ")" << std::endl;
+            std::cout << "\tAlias used: " << aliasId << " (" << aliasName << ")" << std::endl;
         }
 
         std::cout << std::endl;

@@ -15,6 +15,9 @@ class Command
 
         static Command* Erroneous(){ return ERRONEOUS; }
 
+        unsigned int getAliasId(std::string alias);
+        std::string getAlias(unsigned int aid);
+
         Command* setEroneous();
 
         unsigned int getId(){ return id; }
