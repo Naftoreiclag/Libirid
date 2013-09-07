@@ -31,15 +31,38 @@ void printVec(std::vector<std::string>* v)
     }
 }
 
+class CmdEat: public Command
+{
+    public:
+        void execute()
+        {
+            std::cout << "munch munch munch" << std::endl;
+        }
+};
+
+class CmdErroneous: public Command
+{
+    public:
+        void execute()
+        {
+            std::cout << "This is an erroneous statement!" << std::endl;
+        }
+};
+
 int main()
 {
-    // Commands
-    Command::newCommand(0)->setEroneous();
-    Command::newCommand(1)->addAlias(0, "eat")->addAlias(1, "consume")->addAlias(2, "swallow")->addAlias(3, "drink");
-    Command::newCommand(2)->addAlias(0, "jump")->addAlias(1, "hop")->addAlias(2, "leap");
-    Command::newCommand(3)->addAlias(0, "dance");
-    Command::newCommand(4)->addAlias(0, "sing");
+    //CommandFunction cf = new
 
+    // Commands
+
+
+    (new CmdErroneous())->setErroneous();
+    (new CmdEat())->addAlias(0, "hi");
+
+    Command* cm = Command::getCommand("hi");
+    cm->execute();
+    cm = Command::getCommand("Aaron");
+    cm->execute();
 
     std::cout << "Fuzzy Computing Machine" << std::endl;
 
@@ -57,9 +80,9 @@ int main()
         printVec(v);
         std::cout << std::endl;
         std::cout << "Trying to recognize command..." << std::endl;
-        Command* theCmd = Command::getCommand(v->at(0));
+        /*Command* theCmd = Command::getCommand(v->at(0));
 
-        if(theCmd == Command::Erroneous())
+        if(theCmd == Command::erroneous())
         {
             std::cout << "Failed!" << std::endl;
         }
@@ -74,7 +97,7 @@ int main()
 
             std::cout << "\tCommand Id: " << cmdId << " (" << cmdName << ")" << std::endl;
             std::cout << "\tAlias used: " << aliasId << " (" << aliasName << ")" << std::endl;
-        }
+        }*/
 
         std::cout << std::endl;
     }

@@ -1,47 +1,31 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include <string>
 #include <map>
+#include <string>
 
 class Command
 {
     public:
-        // Creates and registers a new command
-        static Command* newCommand(unsigned int id);
+        static Command* getCommand(std::string aliasName);
 
-        static Command* getCommand(std::string alias);
-        static Command* getCommand(unsigned int id);
+        static Command* generateErroneous();
 
-        static Command* Erroneous(){ return ERRONEOUS; }
+        Command* addAlias(unsigned int aliasId, std::string aliasName);
+        Command* setErroneous();
 
-        unsigned int getAliasId(std::string alias);
-        std::string getAlias(unsigned int aid);
+        unsigned int getAlias(std::string aliasName);
 
-        Command* setEroneous();
-
-        unsigned int getId(){ return id; }
-
-        // Makes a new alias
-        Command* addAlias(unsigned int aid, std::string name);
+        virtual void execute() {}
     protected:
+        Command();
     private:
-        // Find a command based on id
-        static std::map<unsigned int, Command*> idCommandMap;
+        static std::map<std::string, Command*> commandByAliasLookup;
 
-        // Find an id based on alias
-        static std::map<std::string, unsigned int> aliasIdMap;
-
-        // The erroneous;
         static Command* ERRONEOUS;
 
-        // Find an alias id based on alias for command
-        std::map<std::string, unsigned int> aliasAidMap;
+        std::map<std::string, unsigned int> aliasIdLookup;
 
-        // Constructor
-        Command(unsigned int id);
-
-        // Id
         unsigned int id;
 };
 

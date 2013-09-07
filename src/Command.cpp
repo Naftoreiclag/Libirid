@@ -1,45 +1,16 @@
 #include <map>
-#include <string>
 
 #include "Command.h"
 
-std::map<unsigned int, Command*> Command::idCommandMap;
-std::map<std::string, unsigned int> Command::aliasIdMap;
+std::map<std::string, Command*> Command::commandByAliasLookup;
+
 Command* Command::ERRONEOUS;
 
-Command* Command::newCommand(unsigned int id)
+Command* Command::getCommand(std::string aliasName)
 {
-    Command* newCmd = new Command(id);
+    std::map<std::string, Command*>::iterator it = commandByAliasLookup.find(aliasName);
 
-    idCommandMap.insert(std::pair<unsigned int, Command*>(id, newCmd));
-
-    return newCmd;
-}
-
-Command* Command::setEroneous()
-{
-    ERRONEOUS = this;
-
-    return this;
-}
-
-Command* Command::getCommand(std::string alias)
-{
-    std::map<std::string, unsigned int>::iterator it = aliasIdMap.find(alias);
-
-    if(it == aliasIdMap.end())
-    {
-        return ERRONEOUS;
-    }
-
-    return getCommand(it->second);
-}
-
-Command* Command::getCommand(unsigned int id)
-{
-    std::map<unsigned int, Command*>::iterator it = idCommandMap.find(id);
-
-    if(it == idCommandMap.end())
+    if(it == commandByAliasLookup.end())
     {
         return ERRONEOUS;
     }
@@ -47,11 +18,11 @@ Command* Command::getCommand(unsigned int id)
     return it->second;
 }
 
-unsigned int Command::getAliasId(std::string alias)
+unsigned int Command::getAlias(std::string aliasName)
 {
-    std::map<std::string, unsigned int>::iterator it = aliasAidMap.find(alias);
+    std::map<std::string, unsigned int>::iterator it = aliasIdLookup.find(aliasName);
 
-    if(it == aliasAidMap.end())
+    if(it == aliasIdLookup.end())
     {
         return 0;
     }
@@ -59,34 +30,23 @@ unsigned int Command::getAliasId(std::string alias)
     return it->second;
 }
 
-std::string Command::getAlias(unsigned int aid)
+Command* Command::addAlias(unsigned int aliasId, std::string aliasName)
 {
-    for(std::map<std::string, unsigned int>::iterator it = aliasAidMap.begin(); it != aliasAidMap.end(); ++ it)
-    {
-        if(it->second == aid)
-        {
-            return it->first;
-        }
-    }
+    Command::commandByAliasLookup.insert(std::pair<std::string, Command*>(aliasName, this));
 
-    return "ERRONEOUS";
-}
+    aliasIdLookup.insert(std::pair<std::string, unsigned int>(aliasName, aliasId));
 
-// Adds an alias
-Command* Command::addAlias(unsigned int aid, std::string name)
-{
-    // Add an entry to the static map to point to this command
-    aliasIdMap.insert(std::pair<std::string, unsigned int>(name, this->id));
-
-    // Add an entry to local map to get the aid
-    aliasAidMap.insert(std::pair<std::string, unsigned int>(name, aid));
-
-    // Return this
     return this;
 }
 
-Command::Command(unsigned int id)
-: id(id)
+Command* Command::setErroneous()
+{
+    Command::ERRONEOUS = this;
+
+    return this;
+}
+
+Command::Command()
 {
     //ctor
 }
