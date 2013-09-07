@@ -1,10 +1,11 @@
 # Code::Blocks stuff
+*.cbTEMP
 *.depend
 *.layout
 *.mode1v3
 *.pbxuser
-obj/
-bin/
+src/bin/
+src/obj/
 
 # Compiled Object files
 *.slo
