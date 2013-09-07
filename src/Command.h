@@ -8,6 +8,7 @@ class Command
 {
     public:
         static Command* getCommand(std::string aliasName);
+        static Command* erroneous() { return ERRONEOUS; }
 
         static Command* generateErroneous();
 
