@@ -34,18 +34,28 @@ void printVec(std::vector<std::string>* v)
 class CmdEat: public Command
 {
     public:
-        void execute()
+        unsigned int execute(std::vector<std::string>* v)
         {
-            std::cout << "munch munch munch" << std::endl;
+            if(v->size() < 2)
+            {
+                std::cout << "You ate nothing!" << std::endl;
+
+                return 0;
+            }
+            std::cout << "You munched on a " << v->at(1) << std::endl;
+
+            return 100;
         }
 };
 
 class CmdErroneous: public Command
 {
     public:
-        void execute()
+        unsigned int execute(std::vector<std::string>* v)
         {
             std::cout << "This is an erroneous statement!" << std::endl;
+
+            return 666;
         }
 };
 
@@ -66,7 +76,7 @@ int main()
     while(running)
     {
         std::cout << "Enter something:" << std::endl;
-        std::cout << "FCM:\>";
+        std::cout << "FCM:\\>";
         getInput(v);
         std::cout << std::endl;
         std::cout << "You entered:" << std::endl;
@@ -84,7 +94,7 @@ int main()
         {
             std::cout << "Command recognized!" << std::endl;
 
-            theCmd->execute();
+            theCmd->execute(v);
         }
 
         std::cout << std::endl;

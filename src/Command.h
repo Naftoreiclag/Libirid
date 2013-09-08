@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <vector>
 
 class Command
 {
@@ -17,7 +18,7 @@ class Command
 
         unsigned int getAlias(std::string aliasName);
 
-        virtual void execute() {}
+        virtual unsigned int execute(std::vector<std::string>* v) {}
     protected:
         Command();
     private:

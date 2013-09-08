@@ -1,4 +1,6 @@
 #include <map>
+#include <string>
+#include <vector>
 
 #include "Command.h"
 
