@@ -7,6 +7,9 @@
 src/bin/
 src/obj/
 
+# Gource
+gource.bat
+
 # Compiled Object files
 *.slo
 *.lo
