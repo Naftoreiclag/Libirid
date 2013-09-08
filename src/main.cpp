@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 
-#include "Command.h"
+#include "util/SequencedMap.h"
 
 void getInput(std::vector<std::string>* v)
 {
@@ -59,7 +59,7 @@ bool alistatify(std::vector<std::string>* words)
         //
         std::cout << "- Testing for " << cait->first << std::endl;
 
-        // get the words in its name
+        // get the words in its namecmdByAlias
         std::vector<std::string> cmdsWords;
         splitWords(cait->first, &cmdsWords);
 
@@ -103,6 +103,16 @@ bool alistatify(std::vector<std::string>* words)
 
 int main()
 {
+    SequencedMap<std::string, int> seqm;
+    seqm.append("cherry", 6);
+    seqm.append("watermelon", 10);
+    seqm.append("egg", 3);
+
+    for(unsigned int i = 0; i < seqm.size(); ++ i)
+    {
+        std::cout << seqm.at(i) << std::endl;
+    }
+
     cmdByAlias.insert(std::pair<std::string, std::string>("eat", "MUNCH!"));
     cmdByAlias.insert(std::pair<std::string, std::string>("two words", "DOUBLE TROUBLE!"));
     cmdByAlias.insert(std::pair<std::string, std::string>("take", "KLEPTOMANIA!"));
