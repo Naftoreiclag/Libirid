@@ -44,7 +44,7 @@ void printVec(std::vector<std::string>* v)
     }
 }
 
-std::map<std::string, std::string> cmdByAlias;
+SequencedMap<std::string, std::string> cmdByAlias;
 
 bool alistatify(std::vector<std::string>* words)
 {
@@ -54,14 +54,14 @@ bool alistatify(std::vector<std::string>* words)
     }
 
     // loop through all commands
-    for(std::map<std::string, std::string>::iterator cait = cmdByAlias.begin(); cait != cmdByAlias.end(); ++ cait)
+    for(unsigned int cait = 0; cait < cmdByAlias.size(); ++ cait)
     {
         //
-        std::cout << "- Testing for " << cait->first << std::endl;
+        std::cout << " Testing for " << cmdByAlias.first(cait) << std::endl;
 
         // get the words in its namecmdByAlias
         std::vector<std::string> cmdsWords;
-        splitWords(cait->first, &cmdsWords);
+        splitWords(cmdByAlias.first(cait), &cmdsWords);
 
         // check if we don't have enough input for this to be it
         if(words->size() < cmdsWords.size())
@@ -93,7 +93,7 @@ bool alistatify(std::vector<std::string>* words)
         if(itIs)
         {
             // Do whatever
-            std::cout << cait->second << std::endl;
+            std::cout << cmdByAlias.second(cait) << std::endl;
 
             // We did something!
             break;
@@ -110,13 +110,13 @@ int main()
 
     for(unsigned int i = 0; i < seqm.size(); ++ i)
     {
-        std::cout << seqm.at(i) << std::endl;
+        std::cout << seqm.second(i) << std::endl;
     }
 
-    cmdByAlias.insert(std::pair<std::string, std::string>("eat", "MUNCH!"));
-    cmdByAlias.insert(std::pair<std::string, std::string>("two words", "DOUBLE TROUBLE!"));
-    cmdByAlias.insert(std::pair<std::string, std::string>("take", "KLEPTOMANIA!"));
-    cmdByAlias.insert(std::pair<std::string, std::string>("take a dump", "PLOP!"));
+    cmdByAlias.append("eat", "MUNCH!");
+    cmdByAlias.append("two words", "DOUBLE TROUBLE!");
+    cmdByAlias.append("take a dump", "PLOP!");
+    cmdByAlias.append("take", "KLEPTOMANIA!");
 
     std::cout << "Fuzzy Computing Machine" << std::endl;
 

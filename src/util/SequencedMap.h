@@ -17,11 +17,13 @@ class SequencedMap
         {
             return insertionOrder.size();
         }
-        V at(unsigned int location)
+        K first(unsigned int location)
         {
-            K key = insertionOrder[location];
-
-            return lookupTable.find(key)->second;
+            return insertionOrder.at(location);
+        }
+        V second(unsigned int location)
+        {
+            return lookupTable.find(insertionOrder.at(location))->second;
         }
         SequencedMap() {}
     private:
