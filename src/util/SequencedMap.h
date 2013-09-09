@@ -27,7 +27,7 @@ class SequencedMap
         }
 
         // The number of keys in the map
-        size_t size()
+        std::size_t size()
         {
             return insertionOrder.size();
         }
