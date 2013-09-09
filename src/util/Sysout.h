@@ -1,6 +1,8 @@
 #ifndef SYSOUT_H
 #define SYSOUT_H
 
+#include <string>
+
 /* std::cout made generic!
  */
 
@@ -11,9 +13,9 @@ class Sysout
     // and don't even get me started on automatic garbage collection...
     // The Java libraries are amazing though.
     public:
-        void print(std::string str)
-        void println(std::string str)
-        void println()
+        static void print(std::string str);
+        static void println(std::string str);
+        static void println();
     protected:
     private:
         // Private, because we'll never instantiate this.

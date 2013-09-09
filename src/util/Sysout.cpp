@@ -1,6 +1,7 @@
 #include "Sysout.h"
 
 #include <iostream>
+#include <string>
 
 void Sysout::print(std::string str)
 {
@@ -17,4 +18,4 @@ void Sysout::println()
     std::cout << std::endl;
 }
 
-Sysout() {}
+Sysout::Sysout() {}
