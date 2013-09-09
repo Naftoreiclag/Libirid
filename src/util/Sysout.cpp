@@ -16,3 +16,5 @@ void Sysout::println()
 {
     std::cout << std::endl;
 }
+
+Sysout() {}

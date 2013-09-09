@@ -1,22 +1,23 @@
 #ifndef SYSOUT_H
 #define SYSOUT_H
 
-#include <string>
-
-/* Just some auxiliary functions for std::cout.
- * That way, I'll have a generic way to output stuff to the screen.
+/* std::cout made generic!
  */
 
 class Sysout
 {
+    // These remind me of my Java days... Horrible!
+    // ...pleasing, but still HORRIBLE!!! I mean, no pointers!?
+    // and don't even get me started on automatic garbage collection...
+    // The Java libraries are amazing though.
     public:
-        static void print(std::string str);
-        static void println(std::string str);
-        static void println();
+        void print(std::string str)
+        void println(std::string str)
+        void println()
     protected:
     private:
-        // Never need to instantiate this
-        Sysout() {}
+        // Private, because we'll never instantiate this.
+        Sysout();
 };
 
 #endif // SYSOUT_H
