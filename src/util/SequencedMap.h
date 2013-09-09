@@ -8,6 +8,13 @@
  * "indexes" the keys by the order they were added.
  */
 
+/* Note: I'm putting everything in the header file, since
+ *       that is the STL for C++. If I put it in a definition
+ *       file, then I'd have to explicitly state EVERY
+ *       type I plan on using. The only downside to putting
+ *       everything in the header is the compile time.
+ */
+
 template <class K, class V>
 class SequencedMap
 {
@@ -42,6 +49,8 @@ class SequencedMap
         {
             return lookupTable.find(insertionOrder.at(location))->second;
         }
+
+        //
         SequencedMap() {}
     private:
         // Keeps track of the order the keys were added
