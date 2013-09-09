@@ -1,31 +1,14 @@
-#include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
+#include <vector>
 #include <vector>
 #include <map>
 
 #include "util/SequencedMap.h"
 #include "util/Sysout.h"
+#include "util/Sysin.h"
 
 #include "Language.h"
-
-void getInput(std::vector<std::string>* v)
-{
-    // Clear out the vector
-    v->clear();
-
-    // Extract a buffer for the input
-    std::string line;
-    std::getline(std::cin, line);
-    std::stringstream sBuffer(line);
-
-    // Get words
-    std::string word;
-    while(sBuffer >> word)
-    {
-        v->push_back(word);
-    }
-}
 
 void splitWords(std::string str, std::vector<std::string>* v)
 {
@@ -131,7 +114,7 @@ int main()
     {
         Sysout::println("Enter something:");
         Sysout::print("FCM:\\>");
-        getInput(&v);
+        Sysin::getWords(&v);
         Sysout::println();
         Sysout::println("You entered:");
         printVec(&v);
@@ -140,7 +123,7 @@ int main()
 
         alistatify(&v);
 
-        std::cout << std::endl;
+        Sysout::println();
     }
 
     return 0;
