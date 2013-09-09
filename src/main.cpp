@@ -6,6 +6,8 @@
 
 #include "util/SequencedMap.h"
 
+#include "Language.h"
+
 void getInput(std::vector<std::string>* v)
 {
     // Clear out the vector
@@ -93,7 +95,6 @@ bool alistatify(std::vector<std::string>* words)
         if(itIs)
         {
             // Do whatever
-            std::cout << cmdByAlias.second(cait) << std::endl;
 
             // We did something!
             break;
@@ -103,15 +104,12 @@ bool alistatify(std::vector<std::string>* words)
 
 int main()
 {
-    SequencedMap<std::string, int> seqm;
-    seqm.append("cherry", 6);
-    seqm.append("watermelon", 10);
-    seqm.append("egg", 3);
+    Sentence stnc;
+    stnc.push_back("I");
+    stnc.push_back("love");
+    stnc.push_back("tuna");
 
-    for(unsigned int i = 0; i < seqm.size(); ++ i)
-    {
-        std::cout << seqm.second(i) << std::endl;
-    }
+    std::cout << stnc.at(0) << stnc.at(1) << stnc.at(2) << std::endl;
 
     cmdByAlias.append("eat", "MUNCH!");
     cmdByAlias.append("two words", "DOUBLE TROUBLE!");
