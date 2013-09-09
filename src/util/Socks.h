@@ -1,6 +1,10 @@
 #ifndef SOCKS_H
 #define SOCKS_H
 
+/* This class demonstrates the complexities needed
+ * to have both a .h and .cpp for a template class.
+ */
+
 template <class A, class B>
 class Socks
 {

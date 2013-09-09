@@ -1,5 +1,7 @@
 #include "Socks.h"
 
+// Look at all that!
+
 template <class A, class B>
 A Socks<A, B>::getA()
 {
@@ -26,3 +28,5 @@ Socks<A, B>::Socks()
 {
     //ctor
 }
+
+// Put every needed type here...
