@@ -6,13 +6,20 @@
 //
 enum PhraseType
 {
-    indirectObject,
-    directObject,
+    indirectNoun,
+    directNoun,
     adjunctGenerical,
     adjunctAbove, // on, over, on top of
     adjunctTargetting, // to, at
     adjunctInside, // into
-    prepositionalObject
+    prepositionalNoun
+};
+
+//
+enum ArticleType
+{
+    definite, // the, that, this, those
+    indefinite // a, some
 };
 
 // Sentences

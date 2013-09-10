@@ -34,7 +34,7 @@
 		</Compiler>
 		<Unit filename="Command.cpp" />
 		<Unit filename="Command.h" />
-		<Unit filename="Grammar.h" />
+		<Unit filename="language/Grammar.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="util/SequencedMap.h" />
 		<Unit filename="util/Socks.cpp" />
