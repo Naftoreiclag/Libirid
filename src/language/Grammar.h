@@ -2,10 +2,6 @@
 #define GRAMMAR_H
 
 #include <vector>
-#include "PhraseType.h"
-
-// Sentences
-typedef std::vector<PhraseType*> SentenceStructure;
 
 //
 enum PhraseType
@@ -18,6 +14,9 @@ enum PhraseType
     adjunctInside, // into
     prepositionalObject
 };
+
+// Sentences
+typedef std::vector<PhraseType> SentenceStructure;
 
 class Grammar
 {

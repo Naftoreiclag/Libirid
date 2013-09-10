@@ -8,7 +8,7 @@
 #include "util/Sysout.h"
 #include "util/Sysin.h"
 
-#include "Grammar.h"
+#include "language/Grammar.h"
 
 SequencedMap<std::string, std::string> cmdByAlias;
 
