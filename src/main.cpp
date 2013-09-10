@@ -33,11 +33,11 @@ bool alistatify(std::vector<std::string>* inputWords)
         Sysout::println(cmdByAlias.first(cait));
 
         // Split the command's alias into a vector of individual words
-        std::vector<std::string> cmdsWords;
-        Sysin::splitWords(cmdByAlias.first(cait), &cmdsWords);
+        std::vector<std::string>* cmdsWords = new std::vector<std::string>();
+        Sysin::splitWords(cmdByAlias.first(cait), cmdsWords);
 
         // Check if we have enough input for it to be possible
-        if(inputWords->size() < cmdsWords.size())
+        if(inputWords->size() < cmdsWords->size())
         {
             // [It cannot be this command]
 
@@ -49,13 +49,13 @@ bool alistatify(std::vector<std::string>* inputWords)
         bool commandMatches = true;
 
         // Get iterator for command words
-        std::vector<std::string>::iterator commandWordFocus = cmdsWords.begin();
+        std::vector<std::string>::iterator commandWordFocus = cmdsWords->begin();
 
         // Iterate through the input words parallel
         std::vector<std::string>::iterator inputWordFocus = inputWords->begin();
 
         // Iterate through the command words
-        while(commandWordFocus != cmdsWords.end())
+        while(commandWordFocus != cmdsWords->end())
         {
             // Check if this word is different
             if(*commandWordFocus != *inputWordFocus)
@@ -77,12 +77,26 @@ bool alistatify(std::vector<std::string>* inputWords)
         // If the command matches
         if(commandMatches)
         {
-            // Loop through that command's sentence structures
-            // To see if they fit.
+            // Get the command arguments
+            std::vector<std::string>* cmdArgs = new std::vector<std::string>(*inputWords);
+            cmdArgs->erase(cmdArgs->begin(), cmdArgs->begin() + cmdsWords->size());
+
+            // <Get the argument sentence structure>
+
+            // <Loop through that command's sentence structures to see if they fit.>
+            //
+
+            // Delete the argument container
+            delete cmdArgs;
 
             // Return successful
             return true;
         }
+
+        // [The command did not match]
+
+        // Delete our command word interpreter.
+        delete cmdsWords;
     }
 
     // [None of the commands matched]
@@ -115,9 +129,10 @@ int main()
         Sysin::getWords(lastInput);
         Sysout::println();
 
+        // Example of how to make vector clones
         std::vector<std::string> vc(*lastInput);
         Sysout::print("The copy of the vector is: ");
-        Sysout::println(vc);
+        Sysout::println(&vc);
         Sysout::println();
 
         Sysout::print("You entered:");
