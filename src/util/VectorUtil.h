@@ -2,8 +2,11 @@
 #define VECTORUTIL_H
 
 #include <vector>
+#include <algorithm>
 
 // THIS STUFF IS BROKEN DON'T USE IT
+// And it is redundant.
+// Just use std::vector<T> duplicate(original);
 
 template <class T>
 class VectorUtil
@@ -25,7 +28,16 @@ class VectorUtil
             // Return
             return &duplicate;*/
 
+            //std::vector<T> duplicate(*original);
+            //return &duplicate;
+
+            //std::vector<T> duped(*original);
+            //std::vector<T>* duplicate = &duped;
+
+            //std::copy(original->begin(), original->end(), duped);
+
             std::vector<T> duplicate(*original);
+
             return &duplicate;
         }
 

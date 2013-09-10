@@ -7,7 +7,6 @@
 #include "util/SequencedMap.h"
 #include "util/Sysout.h"
 #include "util/Sysin.h"
-#include "util/VectorUtil.h"
 
 #include "language/Grammar.h"
 
@@ -105,7 +104,7 @@ int main()
     bool running = true;
 
     // Last input vector
-    std::vector<std::string> lastInput;
+    std::vector<std::string>* lastInput = new std::vector<std::string>();
 
     // While running, run!
     while(running)
@@ -113,20 +112,25 @@ int main()
         Sysout::println("Enter something:");
 
         Sysout::print("FCM:\\>");
-        Sysin::getWords(&lastInput);
+        Sysin::getWords(lastInput);
         Sysout::println();
 
-        //VectorUtil<std::string>::clone(&lastInput);
+        std::vector<std::string> vc(*lastInput);
+        Sysout::print("The copy of the vector is: ");
+        Sysout::println(vc);
+        Sysout::println();
 
         Sysout::print("You entered:");
-        Sysout::println(&lastInput);
+        Sysout::println(lastInput);
 
         Sysout::println("Trying to recognize command...");
 
-        alistatify(&lastInput);
+        alistatify(lastInput);
 
         Sysout::println();
     }
+
+    delete lastInput;
 
     // Died quietly
     return 0;
