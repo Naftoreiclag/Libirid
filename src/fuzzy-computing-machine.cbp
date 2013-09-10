@@ -32,11 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Language.h" />
+		<Unit filename="Command.cpp" />
+		<Unit filename="Command.h" />
+		<Unit filename="Grammar.h" />
 		<Unit filename="Phrase.cpp" />
 		<Unit filename="Phrase.h" />
-		<Unit filename="Sentence.cpp" />
-		<Unit filename="Sentence.h" />
+		<Unit filename="PhraseType.cpp" />
+		<Unit filename="PhraseType.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="util/SequencedMap.h" />
 		<Unit filename="util/Socks.cpp" />

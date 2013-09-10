@@ -8,123 +8,123 @@
 #include "util/Sysout.h"
 #include "util/Sysin.h"
 
-#include "Language.h"
-
-void splitWords(std::string str, std::vector<std::string>* v)
-{
-    v->clear();
-
-    std::stringstream sBuffer(str);
-    std::string word;
-    while(sBuffer >> word)
-    {
-        v->push_back(word);
-    }
-}
-
-void printVec(std::vector<std::string>* v)
-{
-    for(std::vector<std::string>::iterator it = v->begin(); it != v->end(); ++ it)
-    {
-        Sysout::println(*it);
-    }
-}
+#include "Grammar.h"
 
 SequencedMap<std::string, std::string> cmdByAlias;
 
-bool alistatify(std::vector<std::string>* words)
+bool alistatify(std::vector<std::string>* inputWords)
 {
-    if(words->size() == 0)
+    // If we have no words
+    if(inputWords->size() == 0)
     {
+        // Then obviously it cannot match anything
+
+        // Return unsuccessful
         return false;
     }
 
-    // loop through all commands
+    // Loop through all commands
     for(unsigned int cait = 0; cait < cmdByAlias.size(); ++ cait)
     {
-        //
+        // Info
         Sysout::print(" Testing for ");
         Sysout::println(cmdByAlias.first(cait));
 
-        // get the words in its namecmdByAlias
+        // Split the command's alias into a vector of individual words
         std::vector<std::string> cmdsWords;
-        splitWords(cmdByAlias.first(cait), &cmdsWords);
+        Sysin::splitWords(cmdByAlias.first(cait), &cmdsWords);
 
-        // check if we don't have enough input for this to be it
-        if(words->size() < cmdsWords.size())
+        // Check if we have enough input for it to be possible
+        if(inputWords->size() < cmdsWords.size())
         {
-            // skip
+            // [It cannot be this command]
+
+            // Skip this one
             continue;
         }
 
-        //
-        bool itIs = true;
+        // Keeps track if the command comparison proves the input to start with the needed command
+        bool commandMatches = true;
 
-        // loop through all command words
-        std::vector<std::string>::iterator cmdsWordIt = cmdsWords.begin();
-        std::vector<std::string>::iterator wordIt = words->begin();
-        while(cmdsWordIt != cmdsWords.end())
+        // Get iterator for command words
+        std::vector<std::string>::iterator commandWordFocus = cmdsWords.begin();
+
+        // Iterate through the input words parallel
+        std::vector<std::string>::iterator inputWordFocus = inputWords->begin();
+
+        // Iterate through the command words
+        while(commandWordFocus != cmdsWords.end())
         {
-            // compare it to the input
-            if(*cmdsWordIt != *wordIt)
+            // Check if this word is different
+            if(*commandWordFocus != *inputWordFocus)
             {
-                itIs = false;
+                // [It is not]
+
+                // The command therefore does not match
+                commandMatches = false;
+
+                // Stop checking, because it cannot possibly be it anymore
                 break;
             }
 
-            ++ cmdsWordIt;
-            ++ wordIt;
+            // Next
+            ++ commandWordFocus;
+            ++ inputWordFocus;
         }
 
-        //
-        if(itIs)
+        // If the command matches
+        if(commandMatches)
         {
-            // Do whatever
+            // Loop through that command's sentence structures
+            // To see if they fit.
 
-            // We did something!
-            break;
+            // Return successful
+            return true;
         }
     }
+
+    // [None of the commands matched]
+
+    // Return unsuccessful
+    return false;
 }
 
 int main()
 {
-    Sentence stnc;
-    stnc.push_back("I");
-    stnc.push_back("love");
-    stnc.push_back("tuna");
-
-    Sysout::print(stnc.at(0));
-    Sysout::print(stnc.at(1));
-    Sysout::print(stnc.at(2));
-    Sysout::println();
-
+    // Register commands
     cmdByAlias.append("eat", "MUNCH!");
     cmdByAlias.append("two words", "DOUBLE TROUBLE!");
     cmdByAlias.append("take a dump", "PLOP!");
     cmdByAlias.append("take", "KLEPTOMANIA!");
 
+    // Legend
     Sysout::println("Fuzzy Computing Machine");
 
+    // Running
     bool running = true;
 
-    std::vector<std::string> v;
+    // Last input vector
+    std::vector<std::string> lastInput;
 
+    // While running, run!
     while(running)
     {
         Sysout::println("Enter something:");
+
         Sysout::print("FCM:\\>");
-        Sysin::getWords(&v);
+        Sysin::getWords(&lastInput);
         Sysout::println();
-        Sysout::println("You entered:");
-        printVec(&v);
-        Sysout::println();
+
+        Sysout::print("You entered:");
+        Sysout::println(&lastInput);
+
         Sysout::println("Trying to recognize command...");
 
-        alistatify(&v);
+        alistatify(&lastInput);
 
         Sysout::println();
     }
 
+    // Died quietly
     return 0;
 }

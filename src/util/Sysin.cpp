@@ -5,6 +5,20 @@
 #include <sstream>
 #include <vector>
 
+void Sysin::splitWords(std::string rawInput, std::vector<std::string>* wordContainer)
+{
+    // Clear
+    wordContainer->clear();
+
+    // Split
+    std::stringstream sBuffer(rawInput);
+    std::string word;
+    while(sBuffer >> word)
+    {
+        wordContainer->push_back(word);
+    }
+}
+
 void Sysin::getWords(std::vector<std::string>* wordList)
 {
     // Clear out the vector
