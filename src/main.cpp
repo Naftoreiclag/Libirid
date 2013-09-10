@@ -17,7 +17,7 @@ bool alistatify(std::vector<std::string>* inputWords)
     // If we have no words
     if(inputWords->size() == 0)
     {
-        // Then obviously it cannot match anything
+        // [Then obviously it cannot match anything]
 
         // Return unsuccessful
         return false;
