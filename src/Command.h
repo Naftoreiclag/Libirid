@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "Grammar.h"
+#include "language/Grammar.h"
 
 class Command
 {

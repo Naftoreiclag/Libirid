@@ -7,10 +7,13 @@
 #include "util/SequencedMap.h"
 #include "util/Sysout.h"
 #include "util/Sysin.h"
+#include "util/VectorUtil.h"
 
 #include "language/Grammar.h"
 
-SequencedMap<std::string, std::string> cmdByAlias;
+#include "Command.h"
+
+SequencedMap<std::string, Command*> cmdByAlias;
 
 bool alistatify(std::vector<std::string>* inputWords)
 {
@@ -92,10 +95,8 @@ bool alistatify(std::vector<std::string>* inputWords)
 int main()
 {
     // Register commands
-    cmdByAlias.append("eat", "MUNCH!");
-    cmdByAlias.append("two words", "DOUBLE TROUBLE!");
-    cmdByAlias.append("take a dump", "PLOP!");
-    cmdByAlias.append("take", "KLEPTOMANIA!");
+    Command* cmdEat = new Command();
+    cmdByAlias.append("eat", cmdEat);
 
     // Legend
     Sysout::println("Fuzzy Computing Machine");
@@ -114,6 +115,8 @@ int main()
         Sysout::print("FCM:\\>");
         Sysin::getWords(&lastInput);
         Sysout::println();
+
+        //VectorUtil<std::string>::clone(&lastInput);
 
         Sysout::print("You entered:");
         Sysout::println(&lastInput);
