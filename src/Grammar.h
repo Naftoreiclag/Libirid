@@ -7,11 +7,16 @@
 // Sentences
 typedef std::vector<PhraseType*> SentenceStructure;
 
-// Part of speech
-enum PartOfSpeech
+//
+enum PhraseType
 {
+    indirectObject,
     directObject,
-    prepositionObject
+    adjunctGenerical,
+    adjunctAbove, // on, over, on top of
+    adjunctTargetting, // to, at
+    adjunctInside, // into
+    prepositionalObject
 };
 
 class Grammar
