@@ -7,31 +7,57 @@
 enum PhraseType
 {
     noun,
-    adjunctGenerical,
-    adjunctAbove, // on, over, on top of
-    adjunctTargetting, // to, at
-    adjunctInside // into
+    adjunct
 };
 
 // Articles
 enum ArticleType
 {
     definite, // the, that, this, those
-    indefinite // a, some
+    indefinite, // a, some
+    unspecified //
 };
 
-//
+// Noun pointer
 typedef unsigned int NounId;
+
+// Modifier pointer
+typedef unsigned int ModifierId;
+
+//
+typedef std::vector<ModifierId> ModifierList;
+
+// Adjunct pointer
+typedef unsigned int AdjunctId;
 
 // Noun vector
 struct NounState
 {
     ArticleType article;
+    ModifierList modifiers;
     NounId id;
 };
 
+//
+struct PrepositionState
+{
+    AdjunctId adjunct;
+    NounState prepositionalNoun;
+};
+
+//
+typedef std::vector<NounState> NounStateList;
+
 // Sentences
 typedef std::vector<PhraseType> SentenceStructure;
+
+// Sentences
+struct SentenceState
+{
+    NounStateList nouns;
+    bool hasPreposition;
+    PrepositionState preposition;
+};
 
 class Grammar
 {

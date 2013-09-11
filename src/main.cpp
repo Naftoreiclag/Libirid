@@ -85,6 +85,7 @@ bool alistatify(std::vector<std::string>* inputWords)
 
             // <Get the argument sentence structure>
 
+
             // <Loop through that command's sentence structures to see if they fit.>
             //
 
@@ -110,22 +111,17 @@ bool alistatify(std::vector<std::string>* inputWords)
 int main()
 {
     // Register commands
-    Command* cmdEat = new Command();
-    cmdByAlias.append("eat", cmdEat);
+    cmdByAlias.append("eat", new Command());
+    cmdByAlias.append("chow down", new Command());
+    cmdByAlias.append("take a dump", new Command());
+    cmdByAlias.append("dance", new Command());
+    cmdByAlias.append("take", new Command());
 
     //
-    NounWord nwEgg = NounWord("egg");
-    NounWord nwCactus = NounWord("cactus", "cacti");
-
-    std::cout << Dictionary::addNoun(&nwEgg) << std::endl;
-    std::cout << Dictionary::addNoun(&nwCactus) << std::endl;
+    std::cout << Dictionary::addNoun(new NounWord("egg")) << std::endl;
+    std::cout << Dictionary::addNoun(new NounWord("cactus", "cacti")) << std::endl;
 
     std::cout << Dictionary::getNoun(1)->getSingularForm() << std::endl;
-
-    Sysout::println(nwEgg.getSingularForm());
-    Sysout::println(nwEgg.getPluralForm());
-    Sysout::println(nwCactus.getSingularForm());
-    Sysout::println(nwCactus.getPluralForm());
 
     // Size of fun
     std::cout << sizeof(NounState) << std::endl;
