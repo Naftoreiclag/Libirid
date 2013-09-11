@@ -34,7 +34,11 @@
 		</Compiler>
 		<Unit filename="Command.cpp" />
 		<Unit filename="Command.h" />
+		<Unit filename="language/Dictionary.cpp" />
+		<Unit filename="language/Dictionary.h" />
 		<Unit filename="language/Grammar.h" />
+		<Unit filename="language/NounWord.cpp" />
+		<Unit filename="language/NounWord.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="util/SequencedMap.h" />
 		<Unit filename="util/Socks.cpp" />

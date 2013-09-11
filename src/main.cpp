@@ -1,6 +1,6 @@
 #include <string>
 #include <sstream>
-#include <vector>
+#include <iostream>
 #include <vector>
 #include <map>
 
@@ -110,6 +110,10 @@ int main()
     // Register commands
     Command* cmdEat = new Command();
     cmdByAlias.append("eat", cmdEat);
+
+    // Size of fun
+    std::cout << sizeof(NounState) << std::endl;
+    Sysout::println();
 
     // Legend
     Sysout::println("Fuzzy Computing Machine");

@@ -3,23 +3,31 @@
 
 #include <vector>
 
-//
+// Phrase types
 enum PhraseType
 {
-    indirectNoun,
-    directNoun,
+    noun,
     adjunctGenerical,
     adjunctAbove, // on, over, on top of
     adjunctTargetting, // to, at
-    adjunctInside, // into
-    prepositionalNoun
+    adjunctInside // into
 };
 
-//
+// Articles
 enum ArticleType
 {
     definite, // the, that, this, those
     indefinite // a, some
+};
+
+//
+typedef unsigned int NounId;
+
+// Noun vector
+struct NounState
+{
+    ArticleType article;
+    NounId id;
 };
 
 // Sentences
