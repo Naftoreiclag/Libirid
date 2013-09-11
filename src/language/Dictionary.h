@@ -10,12 +10,12 @@
 class Dictionary
 {
     public:
-        static NounWord getNoun(NounId);
+        static NounWord* getNoun(NounId nounId);
         static std::size_t numNouns();
-        static NounId addNoun(NounWord newNoun);
+        static NounId addNoun(NounWord* newNoun);
     protected:
     private:
-        static std::vector<NounWord> registeredNouns();
+        static std::vector<NounWord*> registeredNouns;
         Dictionary();
 };
 

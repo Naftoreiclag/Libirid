@@ -9,6 +9,7 @@
 #include "util/Sysin.h"
 
 #include "language/Grammar.h"
+#include "language/Dictionary.h"
 #include "language/NounWord.h"
 
 #include "Command.h"
@@ -115,6 +116,11 @@ int main()
     //
     NounWord nwEgg = NounWord("egg");
     NounWord nwCactus = NounWord("cactus", "cacti");
+
+    std::cout << Dictionary::addNoun(&nwEgg) << std::endl;
+    std::cout << Dictionary::addNoun(&nwCactus) << std::endl;
+
+    std::cout << Dictionary::getNoun(1)->getSingularForm() << std::endl;
 
     Sysout::println(nwEgg.getSingularForm());
     Sysout::println(nwEgg.getPluralForm());
