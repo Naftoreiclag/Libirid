@@ -9,6 +9,7 @@
 #include "util/Sysin.h"
 
 #include "language/Grammar.h"
+#include "language/NounWord.h"
 
 #include "Command.h"
 
@@ -110,6 +111,15 @@ int main()
     // Register commands
     Command* cmdEat = new Command();
     cmdByAlias.append("eat", cmdEat);
+
+    //
+    NounWord nwEgg = NounWord("egg");
+    NounWord nwCactus = NounWord("cactus", "cacti");
+
+    Sysout::println(nwEgg.getSingularForm());
+    Sysout::println(nwEgg.getPluralForm());
+    Sysout::println(nwCactus.getSingularForm());
+    Sysout::println(nwCactus.getPluralForm());
 
     // Size of fun
     std::cout << sizeof(NounState) << std::endl;
