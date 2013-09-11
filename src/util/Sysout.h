@@ -15,6 +15,7 @@ class Sysout
     // The Java libraries are amazing though.
     public:
         static std::string toFriendlyString(std::vector<std::string>* wordList);
+        static void printSlow(std::string str);
         static void print(std::string str);
         static void print(std::vector<std::string>* wordList);
         static void println(std::string str);
