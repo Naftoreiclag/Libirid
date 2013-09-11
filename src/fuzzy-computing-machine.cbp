@@ -34,17 +34,17 @@
 		</Compiler>
 		<Unit filename="Command.cpp" />
 		<Unit filename="Command.h" />
-		<Unit filename="language/AdjunctWord.cpp" />
-		<Unit filename="language/AdjunctWord.h" />
 		<Unit filename="language/Dictionary.cpp" />
 		<Unit filename="language/Dictionary.h" />
 		<Unit filename="language/Grammar.h" />
-		<Unit filename="language/ModifierWord.cpp" />
-		<Unit filename="language/ModifierWord.h" />
-		<Unit filename="language/NounWord.cpp" />
-		<Unit filename="language/NounWord.h" />
 		<Unit filename="language/Thesaurus.cpp" />
 		<Unit filename="language/Thesaurus.h" />
+		<Unit filename="language/WordAdjunct.cpp" />
+		<Unit filename="language/WordAdjunct.h" />
+		<Unit filename="language/WordModifier.cpp" />
+		<Unit filename="language/WordModifier.h" />
+		<Unit filename="language/WordNoun.cpp" />
+		<Unit filename="language/WordNoun.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="util/SequencedMap.h" />
 		<Unit filename="util/Socks.cpp" />
