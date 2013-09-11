@@ -39,6 +39,8 @@
 		<Unit filename="language/Grammar.h" />
 		<Unit filename="language/NounWord.cpp" />
 		<Unit filename="language/NounWord.h" />
+		<Unit filename="language/Thesaurus.cpp" />
+		<Unit filename="language/Thesaurus.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="util/SequencedMap.h" />
 		<Unit filename="util/Socks.cpp" />
