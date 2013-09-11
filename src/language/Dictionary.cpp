@@ -3,12 +3,12 @@
 #include <string>
 #include <vector>
 
-#include "NounWord.h"
+#include "WordNoun.h"
 #include "Grammar.h"
 
-std::vector<NounWord*> Dictionary::registeredNouns;
+std::vector<WordNoun*> Dictionary::registeredNouns;
 
-NounId Dictionary::addNoun(NounWord* newNoun)
+NounId Dictionary::addNoun(WordNoun* newNoun)
 {
     registeredNouns.push_back(newNoun);
 
@@ -20,7 +20,7 @@ std::size_t Dictionary::numNouns()
     return registeredNouns.size();
 }
 
-NounWord* Dictionary::getNoun(NounId nounId)
+WordNoun* Dictionary::getNoun(NounId nounId)
 {
     return registeredNouns.at(nounId);
 }

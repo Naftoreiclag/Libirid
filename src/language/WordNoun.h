@@ -1,20 +1,20 @@
-#ifndef NOUNWORD_H
-#define NOUNWORD_H
+#ifndef WordNoun_H
+#define WordNoun_H
 
 #include <string>
 
-class NounWord
+class WordNoun
 {
     public:
         static std::string generatePluralForm(std::string word);
         std::string getSingularForm();
         std::string getPluralForm();
-        NounWord(std::string singularForm);
-        NounWord(std::string singularForm, std::string pluralForm);
+        WordNoun(std::string singularForm);
+        WordNoun(std::string singularForm, std::string pluralForm);
     protected:
     private:
         std::string singularForm;
         std::string pluralForm;
 };
 
-#endif // NOUNWORD_H
+#endif // WordNoun_H

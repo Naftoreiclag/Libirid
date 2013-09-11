@@ -1,28 +1,28 @@
-#include "NounWord.h"
+#include "WordNoun.h"
 
 // Make this better. Does not work for "bus"
-std::string NounWord::generatePluralForm(std::string word)
+std::string WordNoun::generatePluralForm(std::string word)
 {
     return word + "s";
 }
 
-std::string NounWord::getSingularForm()
+std::string WordNoun::getSingularForm()
 {
     return singularForm;
 }
 
-std::string NounWord::getPluralForm()
+std::string WordNoun::getPluralForm()
 {
     return pluralForm;
 }
 
-NounWord::NounWord(std::string singularForm)
+WordNoun::WordNoun(std::string singularForm)
 : singularForm(singularForm)
 {
     pluralForm = generatePluralForm(singularForm);
 }
 
-NounWord::NounWord(std::string singularForm, std::string pluralForm)
+WordNoun::WordNoun(std::string singularForm, std::string pluralForm)
 : singularForm(singularForm),
 pluralForm(pluralForm)
 {

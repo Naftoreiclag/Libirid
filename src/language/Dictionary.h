@@ -4,18 +4,18 @@
 #include <string>
 #include <vector>
 
-#include "NounWord.h"
+#include "WordNoun.h"
 #include "Grammar.h"
 
 class Dictionary
 {
     public:
-        static NounWord* getNoun(NounId nounId);
+        static WordNoun* getNoun(NounId nounId);
         static std::size_t numNouns();
-        static NounId addNoun(NounWord* newNoun);
+        static NounId addNoun(WordNoun* newNoun);
     protected:
     private:
-        static std::vector<NounWord*> registeredNouns;
+        static std::vector<WordNoun*> registeredNouns;
         Dictionary();
 };
 

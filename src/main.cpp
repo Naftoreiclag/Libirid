@@ -10,7 +10,7 @@
 
 #include "language/Grammar.h"
 #include "language/Dictionary.h"
-#include "language/NounWord.h"
+#include "language/WordNoun.h"
 
 #include "Command.h"
 
@@ -118,8 +118,8 @@ int main()
     cmdByAlias.append("take", new Command());
 
     //
-    std::cout << Dictionary::addNoun(new NounWord("egg")) << std::endl;
-    std::cout << Dictionary::addNoun(new NounWord("cactus", "cacti")) << std::endl;
+    std::cout << Dictionary::addNoun(new WordNoun("egg")) << std::endl;
+    std::cout << Dictionary::addNoun(new WordNoun("cactus", "cacti")) << std::endl;
 
     std::cout << Dictionary::getNoun(1)->getSingularForm() << std::endl;
 
