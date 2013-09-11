@@ -3,6 +3,12 @@
 
 #include <vector>
 
+/* Everything that has to do with grammar and the interpretation
+ * of it.
+ */
+
+// Maybe I should put this in a name space?
+
 // Phrase types
 enum PhraseType
 {
@@ -15,7 +21,7 @@ enum ArticleType
 {
     definite, // the, that, this, those
     indefinite, // a, some
-    unspecified //
+    erroneous // erroneous
 };
 
 // Noun pointer
@@ -57,14 +63,6 @@ struct SentenceState
     NounStateList nouns;
     bool hasPreposition;
     PrepositionState preposition;
-};
-
-class Grammar
-{
-    public:
-    protected:
-    private:
-        Grammar() {}
 };
 
 #endif // GRAMMAR_H

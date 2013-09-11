@@ -1,9 +1,10 @@
 #ifndef THESAURUS_H
 #define THESAURUS_H
 
-// This is going to hold all the synonyms for nouns.
-// E.g. Dog = canine
-//      Potato = tater
+/* Holds aliases (aka synonyms) for different words.
+ * (That way, we won't need to keep a vector in every word with
+ *  a list of different synonyms!)
+ */
 
 class Thesaurus
 {

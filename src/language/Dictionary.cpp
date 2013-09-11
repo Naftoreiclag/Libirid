@@ -2,8 +2,11 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "WordNoun.h"
+#include "WordAdjunct.h"
+#include "WordModifier.h"
 #include "Grammar.h"
 
 // We will never instantiate you
@@ -88,4 +91,27 @@ WordModifier* Dictionary::getModifier(ModifierId modifierId)
 std::size_t Dictionary::numModifiers()
 {
     return registeredModifiers.size();
+}
+
+// ========
+// Articles
+// ========
+
+// Add by name
+void Dictionary::addArticle(std::string name, ArticleType type)
+{
+    registeredArticles.insert(name, type);
+}
+
+// Get by name
+ArticleType Dictionary::getArticle(std::string name)
+{
+    std::map<std::string, ArticleType>::iterator focus = registeredArticles.find(name);
+
+    if(focus == registeredArticles.end())
+    {
+        return ArticleType.erroneous;
+    }
+
+    return focus->second;
 }

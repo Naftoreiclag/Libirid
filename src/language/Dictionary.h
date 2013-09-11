@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "WordNoun.h"
 #include "WordAdjunct.h"
@@ -30,6 +31,10 @@ class Dictionary
         static ModifierId addModifier(WordModifier* newModifier);
         static WordModifier* getModifier(ModifierId modifierId);
         static std::size_t numModifiers();
+
+        // Articles
+        static void addArticle(std::string name, ArticleType type);
+        static ArticleType getArticle(std::string name);
     private:
         // Nouns
         static std::vector<WordNoun*> registeredNouns;
@@ -40,7 +45,11 @@ class Dictionary
         // Modifier
         static std::vector<WordModifier*> registeredModifiers;
 
+        // Articles
+        static std::map<std::string, ArticleType> registeredArticles;
+
         // Private, because we'll never instantiate this.
+        // Maybe someday we'll have separate dictionaries...?
         Dictionary();
 };
 
