@@ -17,6 +17,9 @@ void Lexicographer::graph()
     Dictionary::addNoun(new WordNoun("potato"));
     Dictionary::addNoun(new WordNoun("sheep", "sheep"));
     Dictionary::addNoun(new WordNoun("couch"));
+    Dictionary::addNoun(new WordNoun("sock"));
+    Dictionary::addNoun(new WordNoun("shoe"));
+    Dictionary::addNoun(new WordNoun("tomato"));
 
     // Adjuncts
     Dictionary::addAdjunct(new WordAdjunct("above", gmr::above));
