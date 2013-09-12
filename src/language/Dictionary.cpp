@@ -4,6 +4,8 @@
 #include <vector>
 #include <map>
 
+#include "../util/Sysout.h"
+
 #include "WordNoun.h"
 #include "WordAdjunct.h"
 #include "WordModifier.h"
@@ -11,6 +13,21 @@
 
 // We will never instantiate you
 Dictionary::Dictionary() {}
+
+//
+void Dictionary::listContents()
+{
+    Sysout::print(registeredNouns.size());
+    Sysout::println(" nouns registered:");
+    for(std::vector<WordNoun*>::iterator nounFocus = registeredNouns.begin(); nounFocus != registeredNouns.end(); ++ nounFocus)
+    {
+        Sysout::print((*nounFocus)->getSingularForm());
+        Sysout::print(" ");
+    }
+    Sysout::println();
+
+    Sysout::println();
+}
 
 // =====
 // Nouns
@@ -114,8 +131,7 @@ gmr::ArticleType Dictionary::getArticle(std::string name)
     if(focus == registeredArticles.end())
     {
         // Dis is broken fix me
-        //gmr::ArticleType r = erroneous;
-        //return r;
+        return gmr::arroneous;
     }
 
     return focus->second;

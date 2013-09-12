@@ -37,11 +37,11 @@
 		<Unit filename="language/Dictionary.cpp" />
 		<Unit filename="language/Dictionary.h" />
 		<Unit filename="language/Grammar.h" />
+		<Unit filename="language/Lexicographer.cpp" />
+		<Unit filename="language/Lexicographer.h" />
 		<Unit filename="language/Thesaurus.cpp" />
 		<Unit filename="language/Thesaurus.h" />
 		<Unit filename="language/WordAdjunct.cpp" />
-		<Unit filename="language/WordAdjunct.h" />
-		<Unit filename="language/WordArticle.h" />
 		<Unit filename="language/WordModifier.cpp" />
 		<Unit filename="language/WordModifier.h" />
 		<Unit filename="language/WordNoun.cpp" />

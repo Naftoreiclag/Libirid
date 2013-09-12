@@ -66,6 +66,16 @@ void Sysout::println(std::vector<std::string>* wordList)
     std::cout << toFriendlyString(wordList) << std::endl;
 }
 
+void Sysout::print(int i)
+{
+    std::cout << i;
+}
+
+void Sysout::println(int i)
+{
+    std::cout << i << std::endl;
+}
+
 void Sysout::println()
 {
     std::cout << std::endl;

@@ -21,7 +21,7 @@ namespace gmr
     {
         definite, // the, that, this, those
         indefinite, // a, some
-        erroneous // erroneous
+        arroneous // erroneous
     };
 
     // Noun pointer

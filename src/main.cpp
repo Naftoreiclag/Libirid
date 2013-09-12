@@ -1,6 +1,5 @@
 #include <string>
-#include <sstream>
-#include <iostream>
+#include <sstream>d
 #include <vector>
 #include <map>
 
@@ -10,7 +9,7 @@
 
 #include "language/Grammar.h"
 #include "language/Dictionary.h"
-#include "language/WordNoun.h"
+#include "language/Lexicographer.h"
 
 #include "Command.h"
 
@@ -110,6 +109,10 @@ bool alistatify(std::vector<std::string>* inputWords)
 
 int main()
 {
+    Lexicographer::graph();
+
+    Dictionary::listContents();
+
     // Register commands
     cmdByAlias.append("eat", new Command());
     cmdByAlias.append("chow down", new Command());
@@ -117,25 +120,12 @@ int main()
     cmdByAlias.append("dance", new Command());
     cmdByAlias.append("take", new Command());
 
-    //
-    std::cout << Dictionary::addNoun(new WordNoun("egg")) << std::endl;
-    std::cout << Dictionary::addNoun(new WordNoun("cactus", "cacti")) << std::endl;
-
-    std::cout << Dictionary::getNoun(1)->getSingularForm() << std::endl;
-
-    // Size of fun
-    std::cout << sizeof(gmr::NounState) << std::endl;
-    Sysout::println();
-
     // Legend
     Sysout::println("Fuzzy Computing Machine");
     Sysout::println();
 
     Sysout::printSlow("Print me character by character please...");
     Sysout::println();
-
-    std::cout << WordNoun::generatePluralForm("bus") << std::endl;
-    std::cout << WordNoun::generatePluralForm("jelly") << std::endl;
 
     // Running
     bool running = true;

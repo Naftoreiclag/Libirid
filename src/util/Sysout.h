@@ -18,8 +18,10 @@ class Sysout
         static void printSlow(std::string str);
         static void print(std::string str);
         static void print(std::vector<std::string>* wordList);
+        static void print(int i);
         static void println(std::string str);
         static void println(std::vector<std::string>* wordList);
+        static void println(int i);
         static void println();
     protected:
     private:

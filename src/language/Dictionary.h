@@ -17,6 +17,9 @@
 class Dictionary
 {
     public:
+        // Statistical
+        static void listContents();
+
         // Nouns
         static gmr::NounId addNoun(WordNoun* newNoun);
         static WordNoun* getNoun(gmr::NounId nounId);
