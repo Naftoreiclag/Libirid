@@ -118,8 +118,11 @@ gmr::ArticleProperties Dictionary::getArticle(std::string name)
 
     if(focus == registeredArticles.end())
     {
-        // Dis is broken fix me
-        //return //
+        // Returns a default value
+        gmr::ArticleProperties erroneous;
+        erroneous.type = gmr::indefinite;
+        erroneous.quantity = gmr::mas;
+        return erroneous;
     }
 
     return focus->second;
