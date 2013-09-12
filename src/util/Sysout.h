@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "../language/Grammar.h"
+
 /* std::cout made generic!
  */
 
@@ -15,6 +17,7 @@ class Sysout
     // The Java libraries are amazing though.
     public:
         static void printDictionaryEntries();
+        static std::string toFriendlyString(gmr::WordType wordType);
         static std::string toFriendlyString(std::vector<std::string>* wordList);
         static void printSlow(std::string str);
         static void print(std::string str);

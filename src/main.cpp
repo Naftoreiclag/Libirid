@@ -11,7 +11,7 @@
 #include "language/Dictionary.h"
 #include "language/Lexicographer.h"
 
-#include "Command.h"
+#include "command/Command.h"
 
 SequencedMap<std::string, Command*> cmdByAlias;
 
@@ -109,9 +109,17 @@ bool alistatify(std::vector<std::string>* inputWords)
 
 int main()
 {
+    // Legend
+    Sysout::println("Fuzzy Computing Machine");
+    Sysout::println();
+
     Lexicographer::graph();
 
     Sysout::printDictionaryEntries();
+    Sysout::println();
+
+    // YESS SWEET SUCCESSS!!!!
+    Sysout::println(Sysout::toFriendlyString(Dictionary::identifyWordType("bunny")));
 
     // Register commands
     cmdByAlias.append("eat", new Command());
@@ -119,13 +127,6 @@ int main()
     cmdByAlias.append("take a dump", new Command());
     cmdByAlias.append("dance", new Command());
     cmdByAlias.append("take", new Command());
-
-    // Legend
-    Sysout::println("Fuzzy Computing Machine");
-    Sysout::println();
-
-    Sysout::printSlow("Print me character by character please...");
-    Sysout::println();
 
     // Running
     bool running = true;

@@ -5,21 +5,47 @@
 #include <unistd.h>
 
 #include "../language/Dictionary.h"
+#include "../language/Grammar.h"
 
 void Sysout::printDictionaryEntries()
 {
-    std::cout << Dictionary::numNouns() << " nouns registered:" << std::endl;
+    std::cout << Dictionary::numNouns() << " nouns registered:";
     for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
     {
-        std::cout << Dictionary::getNoun(nounFocus)->getPluralForm() << " ";
+        std::cout << " " << Dictionary::getNoun(nounFocus)->getPluralForm();
     }
     std::cout << std::endl;
-    std::cout << Dictionary::numAdjuncts() << " adjuncts registered:" << std::endl;
+    std::cout << Dictionary::numAdjuncts() << " adjuncts registered:";
     for(unsigned int adjunctFocus = 0; adjunctFocus < Dictionary::numAdjuncts(); ++ adjunctFocus)
     {
-        std::cout << Dictionary::getAdjunct(adjunctFocus)->getForm() << " ";
+        std::cout << " " << Dictionary::getAdjunct(adjunctFocus)->getForm();
     }
     std::cout << std::endl;
+}
+
+std::string Sysout::toFriendlyString(gmr::WordType wordType)
+{
+    if(wordType == gmr::noun)
+    {
+        return "noun";
+    }
+    if(wordType == gmr::adjunct)
+    {
+        return "adjunct";
+    }
+    if(wordType == gmr::modifier)
+    {
+        return "modifier";
+    }
+    if(wordType == gmr::article)
+    {
+        return "article";
+    }
+    if(wordType == gmr::gibberish)
+    {
+        return "gibberish";
+    }
+    return "hyper-gibberish";
 }
 
 std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)

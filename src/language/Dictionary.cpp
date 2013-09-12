@@ -102,7 +102,7 @@ std::size_t Dictionary::numModifiers()
 std::map<std::string, gmr::ArticleProperties> Dictionary::registeredArticles;
 
 // Add by name
-void Dictionary::addArticle(std::string name, gmr::ArticleType mtype, gmr::ArticleQuantity mquantity)
+void Dictionary::addArticle(std::string name, gmr::ArticleType mtype, gmr::Plurality mquantity)
 {
     gmr::ArticleProperties a;
     a.type = mtype;
@@ -121,9 +121,50 @@ gmr::ArticleProperties Dictionary::getArticle(std::string name)
         // Returns a default value
         gmr::ArticleProperties erroneous;
         erroneous.type = gmr::indefinite;
-        erroneous.quantity = gmr::mas;
+        erroneous.quantity = gmr::muchos;
         return erroneous;
     }
 
     return focus->second;
+}
+
+// ==============
+// Identification
+// ==============
+
+gmr::WordType Dictionary::identifyWordType(std::string victim)
+{
+    // Test for nouns
+    for(gmr::NounId testNounId = 0; testNounId < numNouns(); ++ testNounId)
+    {
+        // Does it match the singular form?
+        if(victim == registeredNouns.at(testNounId)->getSingularForm())
+        {
+            // It is a noun
+            return gmr::noun;
+        }
+
+        // Does it match the plural form?
+        if(victim == registeredNouns.at(testNounId)->getPluralForm())
+        {
+            // It is a noun
+            return gmr::noun;
+        }
+    }
+
+    // Test for adjuncts
+    for(gmr::AdjunctId testAdjunctId = 0; testAdjunctId < numAdjuncts(); ++ testAdjunctId)
+    {
+        // Does it match?
+        if(victim == registeredAdjuncts.at(testAdjunctId)->getForm())
+        {
+            // It is an adjunct
+            return gmr::adjunct;
+        }
+    }
+
+    // [None of the tests were successful]
+
+    // It's gibberish
+    return gmr::gibberish;
 }

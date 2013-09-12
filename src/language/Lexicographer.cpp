@@ -24,12 +24,12 @@ void Lexicographer::graph()
 
     // Meaningless modifiers
     Dictionary::addArticle("a", gmr::indefinite, gmr::solo);
-    Dictionary::addArticle("some", gmr::indefinite, gmr::mas);
+    Dictionary::addArticle("some", gmr::indefinite, gmr::muchos);
     Dictionary::addArticle("the", gmr::definite, gmr::solo);
     Dictionary::addArticle("this", gmr::definite, gmr::solo);
     Dictionary::addArticle("that", gmr::definite, gmr::solo);
-    Dictionary::addArticle("these", gmr::definite, gmr::mas);
-    Dictionary::addArticle("those", gmr::definite, gmr::mas);
+    Dictionary::addArticle("these", gmr::definite, gmr::muchos);
+    Dictionary::addArticle("those", gmr::definite, gmr::muchos);
 }
 
 Lexicographer::Lexicographer()

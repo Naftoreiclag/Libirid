@@ -17,6 +17,9 @@
 class Dictionary
 {
     public:
+        //
+        static gmr::WordType identifyWordType(std::string victim);
+
         // Nouns
         static gmr::NounId addNoun(WordNoun* newNoun);
         static WordNoun* getNoun(gmr::NounId nounId);
@@ -27,13 +30,13 @@ class Dictionary
         static WordAdjunct* getAdjunct(gmr::AdjunctId adjunctId);
         static std::size_t numAdjuncts();
 
-        // Adjuncts
+        // Modifiers
         static gmr::ModifierId addModifier(WordModifier* newModifier);
         static WordModifier* getModifier(gmr::ModifierId modifierId);
         static std::size_t numModifiers();
 
         // Articles
-        static void addArticle(std::string name, gmr::ArticleType type, gmr::ArticleQuantity quantity);
+        static void addArticle(std::string name, gmr::ArticleType type, gmr::Plurality quantity);
         static gmr::ArticleProperties getArticle(std::string name);
     private:
         // Nouns
