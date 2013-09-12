@@ -1,15 +1,12 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include <vector>
-
-#include "language/Grammar.h"
 
 class Command
 {
     public:
-        std::vector<gmr::SentenceStructure*> structures;
         Command();
+        virtual ~Command();
     protected:
     private:
 };

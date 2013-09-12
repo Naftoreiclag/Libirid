@@ -1,8 +1,11 @@
 #include "Command.h"
 
-#include <vector>
-
 Command::Command()
 {
     //ctor
+}
+
+Command::~Command()
+{
+    //dtor
 }

@@ -32,8 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Command.cpp" />
-		<Unit filename="Command.h" />
+		<Unit filename="command/Command.cpp" />
+		<Unit filename="command/Command.h" />
 		<Unit filename="language/Dictionary.cpp" />
 		<Unit filename="language/Dictionary.h" />
 		<Unit filename="language/Grammar.h" />
