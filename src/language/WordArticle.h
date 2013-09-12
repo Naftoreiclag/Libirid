@@ -3,7 +3,7 @@
 
 struct WordArticle
 {
-    ArticleType type;
+    gmr::ArticleType type;
     std::name name;
 };
 

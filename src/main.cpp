@@ -124,7 +124,7 @@ int main()
     std::cout << Dictionary::getNoun(1)->getSingularForm() << std::endl;
 
     // Size of fun
-    std::cout << sizeof(NounState) << std::endl;
+    std::cout << sizeof(gmr::NounState) << std::endl;
     Sysout::println();
 
     // Legend

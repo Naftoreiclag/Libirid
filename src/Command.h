@@ -8,7 +8,7 @@
 class Command
 {
     public:
-        std::vector<SentenceStructure*> structures;
+        std::vector<gmr::SentenceStructure*> structures;
         Command();
     protected:
     private:

@@ -7,62 +7,63 @@
  * of it.
  */
 
-// Maybe I should put this in a name space?
-
-// Phrase types
-enum PhraseType
+namespace gmr
 {
-    noun,
-    adjunct
-};
+    // Phrase types
+    enum PhraseType
+    {
+        noun,
+        adjunct
+    };
 
-// Articles
-enum ArticleType
-{
-    definite, // the, that, this, those
-    indefinite, // a, some
-    erroneous // erroneous
-};
+    // Articles
+    enum ArticleType
+    {
+        definite, // the, that, this, those
+        indefinite, // a, some
+        erroneous // erroneous
+    };
 
-// Noun pointer
-typedef unsigned int NounId;
+    // Noun pointer
+    typedef unsigned int NounId;
 
-// Modifier pointer
-typedef unsigned int ModifierId;
+    // Modifier pointer
+    typedef unsigned int ModifierId;
 
-//
-typedef std::vector<ModifierId> ModifierList;
+    //
+    typedef std::vector<ModifierId> ModifierList;
 
-// Adjunct pointer
-typedef unsigned int AdjunctId;
+    // Adjunct pointer
+    typedef unsigned int AdjunctId;
 
-// Noun vector
-struct NounState
-{
-    ArticleType article;
-    ModifierList modifiers;
-    NounId id;
-};
+    // Noun vector
+    struct NounState
+    {
+        ArticleType article;
+        ModifierList modifiers;
+        NounId id;
+    };
 
-//
-struct PrepositionState
-{
-    AdjunctId adjunct;
-    NounState prepositionalNoun;
-};
+    //
+    struct PrepositionState
+    {
+        AdjunctId adjunct;
+        NounState prepositionalNoun;
+    };
 
-//
-typedef std::vector<NounState> NounStateList;
+    //
+    typedef std::vector<NounState> NounStateList;
 
-// Sentences
-typedef std::vector<PhraseType> SentenceStructure;
+    // Sentences
+    typedef std::vector<PhraseType> SentenceStructure;
 
-// Sentences
-struct SentenceState
-{
-    NounStateList nouns;
-    bool hasPreposition;
-    PrepositionState preposition;
-};
+    // Sentences
+    struct SentenceState
+    {
+        NounStateList nouns;
+        bool hasPreposition;
+        PrepositionState preposition;
+    };
+}
 
 #endif // GRAMMAR_H

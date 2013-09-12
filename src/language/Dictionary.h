@@ -18,23 +18,23 @@ class Dictionary
 {
     public:
         // Nouns
-        static NounId addNoun(WordNoun* newNoun);
-        static WordNoun* getNoun(NounId nounId);
+        static gmr::NounId addNoun(WordNoun* newNoun);
+        static WordNoun* getNoun(gmr::NounId nounId);
         static std::size_t numNouns();
 
         // Adjuncts
-        static AdjunctId addAdjunct(WordAdjunct* newAdjunct);
-        static WordAdjunct* getAdjunct(AdjunctId adjunctId);
+        static gmr::AdjunctId addAdjunct(WordAdjunct* newAdjunct);
+        static WordAdjunct* getAdjunct(gmr::AdjunctId adjunctId);
         static std::size_t numAdjuncts();
 
         // Adjuncts
-        static ModifierId addModifier(WordModifier* newModifier);
-        static WordModifier* getModifier(ModifierId modifierId);
+        static gmr::ModifierId addModifier(WordModifier* newModifier);
+        static WordModifier* getModifier(gmr::ModifierId modifierId);
         static std::size_t numModifiers();
 
         // Articles
-        static void addArticle(std::string name, ArticleType type);
-        static ArticleType getArticle(std::string name);
+        static void addArticle(std::string name, gmr::ArticleType type);
+        static gmr::ArticleType getArticle(std::string name);
     private:
         // Nouns
         static std::vector<WordNoun*> registeredNouns;
@@ -46,7 +46,7 @@ class Dictionary
         static std::vector<WordModifier*> registeredModifiers;
 
         // Articles
-        static std::map<std::string, ArticleType> registeredArticles;
+        static std::map<std::string, gmr::ArticleType> registeredArticles;
 
         // Private, because we'll never instantiate this.
         // Maybe someday we'll have separate dictionaries...?

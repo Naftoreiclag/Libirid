@@ -20,7 +20,7 @@ Dictionary::Dictionary() {}
 std::vector<WordNoun*> Dictionary::registeredNouns;
 
 // Add
-NounId Dictionary::addNoun(WordNoun* newNoun)
+gmr::NounId Dictionary::addNoun(WordNoun* newNoun)
 {
     registeredNouns.push_back(newNoun);
 
@@ -28,7 +28,7 @@ NounId Dictionary::addNoun(WordNoun* newNoun)
 }
 
 // Get
-WordNoun* Dictionary::getNoun(NounId nounId)
+WordNoun* Dictionary::getNoun(gmr::NounId nounId)
 {
     return registeredNouns.at(nounId);
 }
@@ -47,7 +47,7 @@ std::size_t Dictionary::numNouns()
 std::vector<WordAdjunct*> Dictionary::registeredAdjuncts;
 
 // Add
-AdjunctId Dictionary::addAdjunct(WordAdjunct* newAdjunct)
+gmr::AdjunctId Dictionary::addAdjunct(WordAdjunct* newAdjunct)
 {
     registeredAdjuncts.push_back(newAdjunct);
 
@@ -55,7 +55,7 @@ AdjunctId Dictionary::addAdjunct(WordAdjunct* newAdjunct)
 }
 
 // Get
-WordAdjunct* Dictionary::getAdjunct(AdjunctId adjunctId)
+WordAdjunct* Dictionary::getAdjunct(gmr::AdjunctId adjunctId)
 {
     return registeredAdjuncts.at(adjunctId);
 }
@@ -74,7 +74,7 @@ std::size_t Dictionary::numAdjuncts()
 std::vector<WordModifier*> Dictionary::registeredModifiers;
 
 // Add
-ModifierId Dictionary::addModifier(WordModifier* newModifier)
+gmr::ModifierId Dictionary::addModifier(WordModifier* newModifier)
 {
     registeredModifiers.push_back(newModifier);
 
@@ -82,7 +82,7 @@ ModifierId Dictionary::addModifier(WordModifier* newModifier)
 }
 
 // Get
-WordModifier* Dictionary::getModifier(ModifierId modifierId)
+WordModifier* Dictionary::getModifier(gmr::ModifierId modifierId)
 {
     return registeredModifiers.at(modifierId);
 }
@@ -98,23 +98,23 @@ std::size_t Dictionary::numModifiers()
 // ========
 
 // Vector
-std::map<std::string, ArticleType> Dictionary::registeredArticles;
+std::map<std::string, gmr::ArticleType> Dictionary::registeredArticles;
 
 // Add by name
-void Dictionary::addArticle(std::string name, ArticleType type)
+void Dictionary::addArticle(std::string name, gmr::ArticleType type)
 {
-    registeredArticles.insert(std::pair<std::string, ArticleType>(name, type));
+    registeredArticles.insert(std::pair<std::string, gmr::ArticleType>(name, type));
 }
 
 // Get by name
-ArticleType Dictionary::getArticle(std::string name)
+gmr::ArticleType Dictionary::getArticle(std::string name)
 {
-    std::map<std::string, ArticleType>::iterator focus = registeredArticles.find(name);
+    std::map<std::string, gmr::ArticleType>::iterator focus = registeredArticles.find(name);
 
     if(focus == registeredArticles.end())
     {
         // Dis is broken fix me
-        //ArticleType r = erroneous;
+        //gmr::ArticleType r = erroneous;
         //return r;
     }
 
