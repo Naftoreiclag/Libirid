@@ -5,7 +5,6 @@
 
 /* A noun. Just the word of it. No meaning or anything.
  * Keeps separate plural and singular forms.
- * 'cause saying "buss" does not really work...
  */
 
 class WordNoun

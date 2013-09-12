@@ -24,6 +24,13 @@ namespace gmr
         arroneous // erroneous
     };
 
+    // Adjuncts
+    enum AdjunctType
+    {
+        above,
+        below
+    };
+
     // Noun pointer
     typedef unsigned int NounId;
 

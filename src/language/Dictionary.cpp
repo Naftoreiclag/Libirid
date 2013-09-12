@@ -4,8 +4,6 @@
 #include <vector>
 #include <map>
 
-#include "../util/Sysout.h"
-
 #include "WordNoun.h"
 #include "WordAdjunct.h"
 #include "WordModifier.h"
@@ -13,21 +11,6 @@
 
 // We will never instantiate you
 Dictionary::Dictionary() {}
-
-//
-void Dictionary::listContents()
-{
-    Sysout::print(registeredNouns.size());
-    Sysout::println(" nouns registered:");
-    for(std::vector<WordNoun*>::iterator nounFocus = registeredNouns.begin(); nounFocus != registeredNouns.end(); ++ nounFocus)
-    {
-        Sysout::print((*nounFocus)->getPluralForm());
-        Sysout::print(" ");
-    }
-    Sysout::println();
-
-    Sysout::println();
-}
 
 // =====
 // Nouns

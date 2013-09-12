@@ -4,6 +4,24 @@
 #include <string>
 #include <unistd.h>
 
+#include "../language/Dictionary.h"
+
+void Sysout::printDictionaryEntries()
+{
+    std::cout << Dictionary::numNouns() << " nouns registered:" << std::endl;
+    for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
+    {
+        std::cout << Dictionary::getNoun(nounFocus)->getPluralForm() << " ";
+    }
+    std::cout << std::endl;
+    std::cout << Dictionary::numAdjuncts() << " adjuncts registered:" << std::endl;
+    for(unsigned int adjunctFocus = 0; adjunctFocus < Dictionary::numAdjuncts(); ++ adjunctFocus)
+    {
+        std::cout << Dictionary::getAdjunct(adjunctFocus)->getForm() << " ";
+    }
+    std::cout << std::endl;
+}
+
 std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 {
     std::string returnVal = "[";

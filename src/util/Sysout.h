@@ -14,6 +14,7 @@ class Sysout
     // and don't even get me started on automatic garbage collection...
     // The Java libraries are amazing though.
     public:
+        static void printDictionaryEntries();
         static std::string toFriendlyString(std::vector<std::string>* wordList);
         static void printSlow(std::string str);
         static void print(std::string str);

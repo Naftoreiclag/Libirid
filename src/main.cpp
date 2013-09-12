@@ -111,7 +111,7 @@ int main()
 {
     Lexicographer::graph();
 
-    Dictionary::listContents();
+    Sysout::printDictionaryEntries();
 
     // Register commands
     cmdByAlias.append("eat", new Command());
