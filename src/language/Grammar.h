@@ -13,7 +13,9 @@ namespace gmr
     enum PhraseType
     {
         noun,
-        adjunct
+        adjunct,
+        modifier,
+        article
     };
 
     // Articles
