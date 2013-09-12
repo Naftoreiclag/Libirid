@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
 
 std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 {
@@ -30,19 +31,15 @@ std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 
 void Sysout::printSlow(std::string str)
 {
-    // This is pseudo code, since I am not in my IDE at the moment
-    
-    /*
     unsigned int index = 0;
     while(index < str.length())
     {
         // Print out one char
-        std::cout << str.substring(index, index ++) << std::endl;
-        
+        std::cout << str.substr(index, index ++) << std::endl;
+
         // Wait for some amount of time
-        System.wait(1000);
+        usleep(1000);
     }
-    */
 }
 
 void Sysout::print(std::string str)

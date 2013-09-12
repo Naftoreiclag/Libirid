@@ -130,6 +130,9 @@ int main()
     // Legend
     Sysout::println("Fuzzy Computing Machine");
 
+    // Gee, this is broken too!
+    Sysout::printSlow("Print me character by character please...");
+
     // Running
     bool running = true;
 

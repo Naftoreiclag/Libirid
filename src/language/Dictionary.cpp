@@ -97,10 +97,13 @@ std::size_t Dictionary::numModifiers()
 // Articles
 // ========
 
+// Vector
+std::map<std::string, ArticleType> Dictionary::registeredArticles;
+
 // Add by name
 void Dictionary::addArticle(std::string name, ArticleType type)
 {
-    registeredArticles.insert(name, type);
+    registeredArticles.insert(std::pair<std::string, ArticleType>(name, type));
 }
 
 // Get by name
@@ -110,7 +113,9 @@ ArticleType Dictionary::getArticle(std::string name)
 
     if(focus == registeredArticles.end())
     {
-        return ArticleType.erroneous;
+        // Dis is broken fix me
+        //ArticleType r = erroneous;
+        //return r;
     }
 
     return focus->second;
