@@ -1,6 +1,8 @@
 #include "WordModifier.h"
 
-WordModifier::WordModifier()
+#include <string>
+
+WordModifier::WordModifier(std::string form)
+: form(form)
 {
-    //ctor
 }
