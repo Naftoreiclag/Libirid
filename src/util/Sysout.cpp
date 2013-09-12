@@ -31,14 +31,18 @@ std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 
 void Sysout::printSlow(std::string str)
 {
-    unsigned int index = 0;
-    while(index < str.length())
+    for(unsigned int index = 0; index < str.length(); ++ index)
     {
         // Print out one char
-        std::cout << str.substr(index, index ++) << std::endl;
+        std::cout << str.substr(index, 1);
 
         // Wait for some amount of time
-        usleep(1000);
+        usleep(12500);
+
+        //100000 = super slow
+        // 50000 = slow
+        // 25000 = medium
+        // 12500 = fast
     }
 }
 
