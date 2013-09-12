@@ -9,6 +9,13 @@ std::string WordNoun::generatePluralForm(std::string word)
         return word + "es";
     }
 
+    // If it ends in "o"
+    if(word.at(word.size() - 1) == 'o')
+    {
+        // Add "es"
+        return word + "es";
+    }
+
     // If it ends in "y"
     if(word.at(word.size() - 1) == 'y')
     {
