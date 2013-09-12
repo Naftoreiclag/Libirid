@@ -118,9 +118,6 @@ int main()
     Sysout::printDictionaryEntries();
     Sysout::println();
 
-    // YESS SWEET SUCCESSS!!!!
-    Sysout::println(Sysout::toFriendlyString(Dictionary::identifyWordType("bunny")));
-
     // Register commands
     cmdByAlias.append("eat", new Command());
     cmdByAlias.append("chow down", new Command());
@@ -147,6 +144,12 @@ int main()
         std::vector<std::string> vc(*lastInput);
         Sysout::print("The copy of the vector is: ");
         Sysout::println(&vc);
+        Sysout::println();
+
+        // This is going to crash the program since there's no check to see if lastInput has anything. But who cares!?
+        Sysout::print("The first word is a: ");
+        Sysout::print(Sysout::toFriendlyString(Dictionary::identifyWordType(lastInput->at(0))));
+        Sysout::println();
         Sysout::println();
 
         Sysout::print("You entered:");
