@@ -134,6 +134,9 @@ int main()
     Sysout::printSlow("Print me character by character please...");
     Sysout::println();
 
+    std::cout << WordNoun::generatePluralForm("bus") << std::endl;
+    std::cout << WordNoun::generatePluralForm("jelly") << std::endl;
+
     // Running
     bool running = true;
 

@@ -1,8 +1,22 @@
 #include "WordNoun.h"
 
-// Make this better. Does not work for "bus"
 std::string WordNoun::generatePluralForm(std::string word)
 {
+    // If it ends in "s"
+    if(word.at(word.size() - 1) == 's')
+    {
+        // Add "es"
+        return word + "es";
+    }
+
+    // If it ends in "y"
+    if(word.at(word.size() - 1) == 'y')
+    {
+        // Drop the "y" and add "ies"
+        return word.substr(0, word.size() - 1) + "ies";
+    }
+
+    // Just add "s"
     return word + "s";
 }
 
