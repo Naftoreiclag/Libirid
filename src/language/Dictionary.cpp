@@ -21,7 +21,7 @@ void Dictionary::listContents()
     Sysout::println(" nouns registered:");
     for(std::vector<WordNoun*>::iterator nounFocus = registeredNouns.begin(); nounFocus != registeredNouns.end(); ++ nounFocus)
     {
-        Sysout::print((*nounFocus)->getSingularForm());
+        Sysout::print((*nounFocus)->getPluralForm());
         Sysout::print(" ");
     }
     Sysout::println();

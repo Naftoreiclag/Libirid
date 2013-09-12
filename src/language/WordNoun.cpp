@@ -16,20 +16,6 @@ std::string WordNoun::generatePluralForm(std::string word)
         return word + "es";
     }
 
-    // If it ends in "sh"
-    if(word.at(word.size() - 2) == 'sh')
-    {
-        // Add "es"
-        return word + "es";
-    }
-
-    // If it ends in "ch"
-    if(word.at(word.size() - 2) == 'ch')
-    {
-        // Add "es"
-        return word + "es";
-    }
-
     // If it ends in "z"
     if(word.at(word.size() - 1) == 'z')
     {
@@ -39,6 +25,20 @@ std::string WordNoun::generatePluralForm(std::string word)
 
     // If it ends in "x"
     if(word.at(word.size() - 1) == 'x')
+    {
+        // Add "es"
+        return word + "es";
+    }
+
+    // If it ends in "sh"
+    if(word.substr(word.size() - 2, 2) == "sh")
+    {
+        // Add "es"
+        return word + "es";
+    }
+
+    // If it ends in "ch"
+    if(word.substr(word.size() - 2, 2) == "ch")
     {
         // Add "es"
         return word + "es";
