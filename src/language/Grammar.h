@@ -20,8 +20,21 @@ namespace gmr
     enum ArticleType
     {
         definite, // the, that, this, those
-        indefinite, // a, some
-        arroneous // erroneous
+        indefinite // a, some
+    };
+
+    //
+    enum ArticleQuantity
+    {
+        solo,
+        mas
+    };
+
+    //
+    struct ArticleProperties
+    {
+        ArticleType type;
+        ArticleQuantity quantity;
     };
 
     // Adjuncts

@@ -7,19 +7,21 @@
 #include "WordAdjunct.h"
 #include "WordModifier.h"
 
-#define D Dictionary
-
 void Lexicographer::graph()
 {
-    D::addNoun(new WordNoun("cupcake"));
-    D::addNoun(new WordNoun("bunny"));
-    D::addNoun(new WordNoun("cookie"));
-    D::addNoun(new WordNoun("potato"));
-    D::addNoun(new WordNoun("sheep", "sheep"));
-    D::addNoun(new WordNoun("couch"));
+    Dictionary::addNoun(new WordNoun("cupcake"));
+    Dictionary::addNoun(new WordNoun("bunny"));
+    Dictionary::addNoun(new WordNoun("cookie"));
+    Dictionary::addNoun(new WordNoun("potato"));
+    Dictionary::addNoun(new WordNoun("sheep", "sheep"));
+    Dictionary::addNoun(new WordNoun("couch"));
 
-    D::addAdjunct(new WordAdjunct("above", gmr::above));
-    D::addAdjunct(new WordAdjunct("below", gmr::below));
+    Dictionary::addAdjunct(new WordAdjunct("above", gmr::above));
+    Dictionary::addAdjunct(new WordAdjunct("below", gmr::below));
+
+    Dictionary::addArticle("a", gmr::definite, gmr::solo);
+    Dictionary::addArticle("some", gmr::definite, gmr::mas);
+    Dictionary::addArticle("the", gmr::definite, gmr::solo);
 }
 
 Lexicographer::Lexicographer()

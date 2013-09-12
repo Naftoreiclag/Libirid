@@ -33,8 +33,8 @@ class Dictionary
         static std::size_t numModifiers();
 
         // Articles
-        static void addArticle(std::string name, gmr::ArticleType type);
-        static gmr::ArticleType getArticle(std::string name);
+        static void addArticle(std::string name, gmr::ArticleType type, gmr::ArticleQuantity quantity);
+        static gmr::ArticleProperties getArticle(std::string name);
     private:
         // Nouns
         static std::vector<WordNoun*> registeredNouns;
@@ -46,7 +46,7 @@ class Dictionary
         static std::vector<WordModifier*> registeredModifiers;
 
         // Articles
-        static std::map<std::string, gmr::ArticleType> registeredArticles;
+        static std::map<std::string, gmr::ArticleProperties> registeredArticles;
 
         // Private, because we'll never instantiate this.
         // Maybe someday we'll have separate dictionaries...?

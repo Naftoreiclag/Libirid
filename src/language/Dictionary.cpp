@@ -96,25 +96,30 @@ std::size_t Dictionary::numModifiers()
 // ========
 // Articles
 // ========
+// I'm different!
 
 // Vector
-std::map<std::string, gmr::ArticleType> Dictionary::registeredArticles;
+std::map<std::string, gmr::ArticleProperties> Dictionary::registeredArticles;
 
 // Add by name
-void Dictionary::addArticle(std::string name, gmr::ArticleType type)
+void Dictionary::addArticle(std::string name, gmr::ArticleType mtype, gmr::ArticleQuantity mquantity)
 {
-    registeredArticles.insert(std::pair<std::string, gmr::ArticleType>(name, type));
+    gmr::ArticleProperties a;
+    a.type = mtype;
+    a.quantity = mquantity;
+
+    registeredArticles.insert(std::pair<std::string, gmr::ArticleProperties>(name, a));
 }
 
 // Get by name
-gmr::ArticleType Dictionary::getArticle(std::string name)
+gmr::ArticleProperties Dictionary::getArticle(std::string name)
 {
-    std::map<std::string, gmr::ArticleType>::iterator focus = registeredArticles.find(name);
+    std::map<std::string, gmr::ArticleProperties>::iterator focus = registeredArticles.find(name);
 
     if(focus == registeredArticles.end())
     {
         // Dis is broken fix me
-        return gmr::arroneous;
+        //return //
     }
 
     return focus->second;
