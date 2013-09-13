@@ -77,17 +77,25 @@ bool alistatify(std::vector<std::string>* inputWords)
         // If the command matches
         if(commandMatches)
         {
-            // space
-            Sysout::println();
-
             // Get the command arguments
             std::vector<std::string>* cmdArgs = new std::vector<std::string>(*inputWords);
             cmdArgs->erase(cmdArgs->begin(), cmdArgs->begin() + cmdsWords->size());
 
+            NounState ns;
+
+            Sysout::print("  Found:");
             for(std::vector<std::string>::iterator argFocus = cmdArgs->begin(); argFocus != cmdArgs->end(); ++ argFocus)
             {
                 Sysout::print(" ");
                 Sysout::print(Sysout::toFriendlyString(Dictionary::identifyWordType(*argFocus)));
+
+                switch(Dictionary::identifyWordType(*argFocus))
+                {
+                    case gmr::noun:
+                    {
+
+                    }
+                }
             }
 
             // <Get the argument sentence structure>

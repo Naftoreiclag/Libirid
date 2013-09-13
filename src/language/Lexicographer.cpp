@@ -12,6 +12,7 @@ void Lexicographer::graph()
     // Na-Ooh-Nu-S
     Dictionary::addNoun(new WordNoun("cupcake"));
     Dictionary::addNoun(new WordNoun("bunny"));
+    Dictionary::addNoun(new WordNoun("egg"));
     Dictionary::addNoun(new WordNoun("mouse", "mice"));
     Dictionary::addNoun(new WordNoun("cookie"));
     Dictionary::addNoun(new WordNoun("potato"));
