@@ -42,6 +42,7 @@ class Dictionary
         // Articles
         static void addArticle(std::string name, gmr::ArticleType type, gmr::Plurality quantity);
         static gmr::ArticleProperties getArticle(std::string name);
+        static std::size_t numArticles();
     private:
         // Nouns
         static std::vector<WordNoun*> registeredNouns;

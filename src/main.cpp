@@ -1,5 +1,4 @@
 #include <string>
-#include <sstream>d
 #include <vector>
 #include <map>
 
@@ -78,9 +77,18 @@ bool alistatify(std::vector<std::string>* inputWords)
         // If the command matches
         if(commandMatches)
         {
+            // space
+            Sysout::println();
+
             // Get the command arguments
             std::vector<std::string>* cmdArgs = new std::vector<std::string>(*inputWords);
             cmdArgs->erase(cmdArgs->begin(), cmdArgs->begin() + cmdsWords->size());
+
+            for(std::vector<std::string>::iterator argFocus = cmdArgs->begin(); argFocus != cmdArgs->end(); ++ argFocus)
+            {
+                Sysout::print(" ");
+                Sysout::print(Sysout::toFriendlyString(Dictionary::identifyWordType(*argFocus)));
+            }
 
             // <Get the argument sentence structure>
 
@@ -90,6 +98,9 @@ bool alistatify(std::vector<std::string>* inputWords)
 
             // Delete the argument container
             delete cmdArgs;
+
+            // space
+            Sysout::println();
 
             // Return successful
             return true;

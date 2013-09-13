@@ -27,6 +27,7 @@ void Lexicographer::graph()
 
     // Meaningless modifiers
     Dictionary::addArticle("a", gmr::indefinite, gmr::solo);
+    Dictionary::addArticle("an", gmr::indefinite, gmr::solo);
     Dictionary::addArticle("some", gmr::indefinite, gmr::muchos);
     Dictionary::addArticle("the", gmr::definite, gmr::solo);
     Dictionary::addArticle("this", gmr::definite, gmr::solo);
