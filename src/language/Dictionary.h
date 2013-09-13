@@ -19,10 +19,10 @@ class Dictionary
     public:
         // Identifying the word type
         static gmr::WordType identifyWordType(std::string victim);
-        
+
         // Getting noun state
         static gmr::NounState getNounState(std::string victim);
-        static gmr::AdjunctState getAdjunctState(std::string victim);
+        //static gmr::AdjunctState getAdjunctState(std::string victim);
 
         // Nouns
         static gmr::NounId addNoun(WordNoun* newNoun);
