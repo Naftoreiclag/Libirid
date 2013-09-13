@@ -62,6 +62,7 @@ namespace gmr
     {
         NounId id;
         Plurality quantity;
+        NounState(): id(0), quantity(ambiguo){}
     };
 
     //

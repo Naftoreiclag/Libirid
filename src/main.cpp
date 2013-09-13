@@ -81,21 +81,64 @@ bool alistatify(std::vector<std::string>* inputWords)
             std::vector<std::string>* cmdArgs = new std::vector<std::string>(*inputWords);
             cmdArgs->erase(cmdArgs->begin(), cmdArgs->begin() + cmdsWords->size());
 
-            NounState ns;
+            std::vector<gmr::NounState*> allOfTheNouns;
+
+            gmr::NounState* nounWorkshop = new gmr::NounState();
 
             Sysout::print("  Found:");
             for(std::vector<std::string>::iterator argFocus = cmdArgs->begin(); argFocus != cmdArgs->end(); ++ argFocus)
             {
+
                 Sysout::print(" ");
                 Sysout::print(Sysout::toFriendlyString(Dictionary::identifyWordType(*argFocus)));
 
-                switch(Dictionary::identifyWordType(*argFocus))
+                // Test for nouns
+                for(gmr::NounId testNounId = 0; testNounId < Dictionary::numNouns(); ++ testNounId)
                 {
-                    case gmr::noun:
+                    // Does it match the singular form?
+                    if(*argFocus == Dictionary::getNoun(testNounId)->getSingularForm())
                     {
+                        // It is a noun
+                        nounWorkshop->id = testNounId;
+                        nounWorkshop->quantity = gmr::solo;
 
+                        //
+                        gmr::NounState* pushMe = new gmr::NounState();
+                        pushMe->id = nounWorkshop->id;
+                        pushMe->quantity = nounWorkshop->quantity;
+                        allOfTheNouns.push_back(pushMe);
+
+                        //
+                        gmr::NounState* nounWorkshop = new gmr::NounState();
+                    }
+
+                    // Does it match the plural form?
+                    if(*argFocus == Dictionary::getNoun(testNounId)->getPluralForm())
+                    {
+                        // It is a noun
+                        nounWorkshop->id = testNounId;
+                        nounWorkshop->quantity = gmr::muchos;
+
+                        //
+                        gmr::NounState* pushMe = new gmr::NounState();
+                        pushMe->id = nounWorkshop->id;
+                        pushMe->quantity = nounWorkshop->quantity;
+                        allOfTheNouns.push_back(pushMe);
+
+                        //
+                        gmr::NounState* nounWorkshop = new gmr::NounState();
                     }
                 }
+            }
+
+            Sysout::println();
+            Sysout::println();
+            for(std::vector<gmr::NounState*>::iterator thisOneNoun = allOfTheNouns.begin(); thisOneNoun != allOfTheNouns.end(); ++ thisOneNoun)
+            {
+                Sysout::print((*thisOneNoun)->id);
+                Sysout::print((*thisOneNoun)->quantity);
+
+                Sysout::print(" ");
             }
 
             // <Get the argument sentence structure>
@@ -106,9 +149,6 @@ bool alistatify(std::vector<std::string>* inputWords)
 
             // Delete the argument container
             delete cmdArgs;
-
-            // space
-            Sysout::println();
 
             // Return successful
             return true;
