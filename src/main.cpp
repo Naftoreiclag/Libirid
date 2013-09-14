@@ -82,7 +82,7 @@ bool alistatify(std::vector<std::string>* inputWords)
             arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
 
             // The return
-            std::vector<gmr::NounState*> snscw;
+            std::vector<gmr::NounState*> sentenceNounStateCollectionWorkshop;
 
             // Storage for nouns
             gmr::NounState* nounStateWorkshop = new gmr::NounState();
@@ -109,33 +109,17 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                         // Clone over all the values
                         gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
-                        Sysout::print("cloning modifiers...");
-                        for(std::vector<gmr::ModifierId>::iterator parentModifier = nounStateWorkshop->modifiers->begin(); parentModifier != nounStateWorkshop->modifiers->end(); ++ parentModifier)
-                        {
-                            Sysout::print("adding" + Dictionary::getModifier(*parentModifier)->getForm());
-                            Sysout::print("wegaveit(:");
-                            Sysout::print(*parentModifier);
-                            Sysout::print(":)");
-                            pushMe.modifiers->push_back(*parentModifier);
-                            Sysout::print("ithasnow(:");
-                            Sysout::print(pushMe.modifiers->at(0));
-                            Sysout::print(":)");
-                        }
-
-                        snscw.push_back(&pushMe);
-                        Sysout::print("collsaysithas(:");
-                        Sysout::print(snscw.at(0)->modifiers->at(0));
-                        Sysout::print(":)");
+                        sentenceNounStateCollectionWorkshop.push_back(&pushMe);
 
                         // Clear out the workshop
                         nounStateWorkshop = new gmr::NounState();
 
                         // Continue to next word
-                        //continue;
+                        continue;
                     }
 
                     // Does it match the plural form?
-                    else if(*argFocus == Dictionary::getNoun(testNounId)->getPluralForm())
+                    if(*argFocus == Dictionary::getNoun(testNounId)->getPluralForm())
                     {
                         // It must be this id then
                         nounStateWorkshop->id = testNounId;
@@ -151,17 +135,13 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                         // Clone over all the values
                         gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
-                        for(std::vector<gmr::ModifierId>::iterator parentModifier = nounStateWorkshop->modifiers->begin(); parentModifier != nounStateWorkshop->modifiers->end(); ++ parentModifier)
-                        {
-                            pushMe.modifiers->push_back(*parentModifier);
-                        }
-                        snscw.push_back(&pushMe);
+                        sentenceNounStateCollectionWorkshop.push_back(&pushMe);
 
                         // Clear out the workshop
                         nounStateWorkshop = new gmr::NounState();
 
                         // Continue to next word
-                        //continue;
+                        continue;
                     }
                 }
 
@@ -179,46 +159,22 @@ bool alistatify(std::vector<std::string>* inputWords)
                     }
 
                     // Continue to next word
-                    //continue;
+                    continue;
                 }
 
                 // Test for modifiers
-                for(gmr::ModifierId testModifierId = 0; testModifierId < Dictionary::numModifiers(); ++ testModifierId)
-                {
-
-                    //Sysout::println("testing if " + *argFocus + " equals " + Dictionary::getModifier(testModifierId)->getForm());
-                    // If it matches the form
-                    if(*argFocus == Dictionary::getModifier(testModifierId)->getForm())
-                    {
-                        Sysout::println("it worked! " + *argFocus + " equals " + Dictionary::getModifier(testModifierId)->getForm() + "!");
-                        // Add this to the current noun
-                        nounStateWorkshop->modifiers->push_back(testModifierId);
-                        Sysout::println(Dictionary::getModifier(nounStateWorkshop->modifiers->at(0))->getForm());
-
-                        //continue;
-                    }
-                }
             }
 
-            //gmr::SentenceState sentenceState(&snscw);
+            gmr::SentenceState sentenceState(&sentenceNounStateCollectionWorkshop);
 
             Sysout::println();
             Sysout::println();
-            for(std::vector<gmr::NounState*>::iterator thisOneNoun = snscw.begin(); thisOneNoun != snscw.end(); ++ thisOneNoun)
+            for(std::vector<gmr::NounState*>::iterator thisOneNoun = sentenceNounStateCollectionWorkshop.begin(); thisOneNoun != sentenceNounStateCollectionWorkshop.end(); ++ thisOneNoun)
             {
                 Sysout::print("[");
                 Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
                 Sysout::print("-");
                 Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->plurality));
-                //for(std::vector<gmr::ModifierId>::iterator thisOneModifier = (*thisOneNoun)->modifiers->begin(); thisOneModifier != (*thisOneNoun)->modifiers->end(); ++ thisOneModifier)
-                for(unsigned int thisOneModifier = 0; thisOneModifier < (*thisOneNoun)->modifiers->size(); ++ thisOneModifier)
-                {
-                    Sysout::print(":");
-                    Sysout::print("(:");
-                    Sysout::print((*thisOneNoun)->modifiers->at(thisOneModifier));
-                    Sysout::print(":)");
-                    //Sysout::print(Dictionary::getModifier(*thisOneModifier)->getForm());
-                }
                 Sysout::print("]");
 
                 Sysout::print(" ");

@@ -64,13 +64,11 @@ namespace gmr
         public:
             NounId id;
             Plurality plurality;
-            std::vector<ModifierId>* modifiers;
             NounState();
             NounState(NounId id, Plurality plurality);
     };
 
     // Modifier
-    // I really don't think we will ever use this...
     class ModifierState
     {
         public:
