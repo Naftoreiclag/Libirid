@@ -32,7 +32,7 @@ namespace gmr
     {
         singular,
         plural,
-        ambiguo
+        ambiguous
     };
 
     //
@@ -51,41 +51,19 @@ namespace gmr
 
     // Noun pointer
     typedef unsigned int NounId;
-
-    // Modifier pointer
-    typedef unsigned int ModifierId;
+    const NounId erroneousNounId = 0;
 
     // Adjunct pointer
     typedef unsigned int AdjunctId;
 
-    // Noun vector
-    struct NounState
+    // Noun
+    class NounState
     {
-        NounId id;
-        Plurality quantity;
-        NounState(): id(0), quantity(ambiguo){}
-        NounState(NounId id, Plurality quantity): id(id), quantity(quantity){}
-    };
-
-    //
-    struct PrepositionState
-    {
-        AdjunctId adjunct;
-        NounState prepositionalNoun;
-    };
-
-    //
-    typedef std::vector<NounState> NounStateList;
-
-    // Sentences
-    //typedef std::vector<PhraseType> SentenceStructure;
-
-    // Sentences
-    struct SentenceState
-    {
-        NounStateList nouns;
-        bool hasPreposition;
-        PrepositionState preposition;
+        public:
+            NounId id;
+            Plurality plurality;
+            NounState();
+            NounState(NounId id, Plurality plurality);
     };
 }
 

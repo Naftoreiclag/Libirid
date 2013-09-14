@@ -102,13 +102,13 @@ bool alistatify(std::vector<std::string>* inputWords)
                         {
                             Sysout::println("The was not ambig");
                             // It must be singular
-                            nounStateWorkshop->quantity = gmr::singular;
+                            nounStateWorkshop->plurality = gmr::singular;
                         }
 
                         // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
 
                         // Clone over all the values
-                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->quantity);
+                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
                         sntc.push_back(&pushMe);
 
                         // Clear out the workshop
@@ -126,15 +126,15 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                         if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
                         {
-                            Sysout::println("The was not ambig");
+                            Sysout::println("Tgmr::he was not ambig");
                             // It must be singular
-                            nounStateWorkshop->quantity = gmr::plural;
+                            nounStateWorkshop->plurality = gmr::plural;
                         }
 
                         // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
 
                         // Clone over all the values
-                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->quantity);
+                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
                         sntc.push_back(&pushMe);
 
                         // Clear out the workshop
@@ -150,9 +150,9 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                 if(testArticleProperties.type != gmr::erron)
                 {
-                    if(nounStateWorkshop->quantity == gmr::ambiguo)
+                    if(nounStateWorkshop->plurality == gmr::ambiguous)
                     {
-                        nounStateWorkshop->quantity = testArticleProperties.quantity;
+                        nounStateWorkshop->plurality = testArticleProperties.quantity;
                     }
 
                     // Continue to next word
@@ -167,7 +167,7 @@ bool alistatify(std::vector<std::string>* inputWords)
                 Sysout::print("[");
                 Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
                 Sysout::print("-");
-                Sysout::print((*thisOneNoun)->quantity == gmr::singular ? "singular" : (*thisOneNoun)->quantity == gmr::ambiguo ? "ambiguous" : "plural");
+                Sysout::print((*thisOneNoun)->plurality == gmr::singular ? "singular" : (*thisOneNoun)->plurality == gmr::ambiguous ? "ambiguous" : "plural");
                 Sysout::print("]");
 
                 Sysout::print(" ");

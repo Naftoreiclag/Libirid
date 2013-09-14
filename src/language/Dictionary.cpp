@@ -19,6 +19,9 @@ Dictionary::Dictionary() {}
 // Vector
 std::vector<NounDefinition*> Dictionary::registeredNouns;
 
+//
+gmr::NounId Dictionary::erroneousNounId;
+
 // Add
 gmr::NounId Dictionary::addNoun(NounDefinition* newNoun)
 {
@@ -27,10 +30,25 @@ gmr::NounId Dictionary::addNoun(NounDefinition* newNoun)
     return registeredNouns.size() - 1;
 }
 
+// Add
+gmr::NounId Dictionary::addNounAsErroneous(NounDefinition* newNoun)
+{
+    registeredNouns.push_back(newNoun);
+
+    erroneousNounId = registeredNouns.size() - 1;
+
+    return registeredNouns.size() - 1;
+}
+
 // Get
 NounDefinition* Dictionary::getNoun(gmr::NounId nounId)
 {
     return registeredNouns.at(nounId);
+}
+
+gmr::NounId Dictionary::getErroneousNounId()
+{
+    return erroneousNounId;
 }
 
 // Number of
@@ -70,7 +88,7 @@ std::size_t Dictionary::numAdjuncts()
 // Modifiers
 // =========
 
-// Vector
+/*// Vector
 std::vector<ModifierDefinition*> Dictionary::registeredModifiers;
 
 // Add
@@ -91,7 +109,7 @@ ModifierDefinition* Dictionary::getModifier(gmr::ModifierId modifierId)
 std::size_t Dictionary::numModifiers()
 {
     return registeredModifiers.size();
-}
+}*/
 
 // ========
 // Articles
@@ -121,7 +139,7 @@ gmr::ArticleProperties Dictionary::getArticle(std::string name)
         // Returns a default value
         gmr::ArticleProperties erroneous;
         erroneous.type = gmr::indefinite;
-        erroneous.quantity = gmr::ambiguo;
+        erroneous.quantity = gmr::ambiguous;
         return erroneous;
     }
 

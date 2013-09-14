@@ -26,7 +26,9 @@ class Dictionary
 
         // Nouns
         static gmr::NounId addNoun(NounDefinition* newNoun);
+        static gmr::NounId addNounAsErroneous(NounDefinition* newNoun);
         static NounDefinition* getNoun(gmr::NounId nounId);
+        static gmr::NounId getErroneousNounId();
         static std::size_t numNouns();
 
         // Adjuncts
@@ -35,22 +37,25 @@ class Dictionary
         static std::size_t numAdjuncts();
 
         // Modifiers
-        static gmr::ModifierId addModifier(ModifierDefinition* newModifier);
+        /*static gmr::ModifierId addModifier(ModifierDefinition* newModifier);
         static ModifierDefinition* getModifier(gmr::ModifierId modifierId);
-        static std::size_t numModifiers();
+        static std::size_t numModifiers();*/
 
         // Articles
         static void addArticle(std::string name, gmr::ArticleType type, gmr::Plurality quantity);
         static gmr::ArticleProperties getArticle(std::string name);
         static std::size_t numArticles();
     private:
+        //
+        static gmr::NounId erroneousNounId;
+
         // Nouns
         static std::vector<NounDefinition*> registeredNouns;
 
         // Adjuncts
         static std::vector<AdjunctDefinition*> registeredAdjuncts;
 
-        // Modifier
+        // Modifiergmr::NounId erroneousNounId;
         static std::vector<ModifierDefinition*> registeredModifiers;
 
         // Articles
