@@ -1,5 +1,5 @@
-#ifndef WordNoun_H
-#define WordNoun_H
+#ifndef WDEFNOUN_H
+#define WDEFNOUN_H
 
 #include <string>
 
@@ -7,7 +7,7 @@
  * Keeps separate plural and singular forms.
  */
 
-class WordNoun
+class WordDefinitionNoun
 {
     public:
         // Auto-generates a plural form (tacks an "s" at the end)
@@ -21,10 +21,10 @@ class WordNoun
         bool hasAmbiguousPlurality();
 
         // Make a word and auto-generate the plural form.
-        WordNoun(std::string singularForm);
+        WordDefinitionNoun(std::string singularForm);
 
         // Make a word and specify the plural form
-        WordNoun(std::string singularForm, std::string pluralForm);
+        WordDefinitionNoun(std::string singularForm, std::string pluralForm);
     protected:
     private:
         // Forms
@@ -32,4 +32,4 @@ class WordNoun
         std::string pluralForm;
 };
 
-#endif // WordNoun_H
+#endif // WordDefinitionNoun_H

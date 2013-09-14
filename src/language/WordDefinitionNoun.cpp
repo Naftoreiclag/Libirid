@@ -1,6 +1,6 @@
-#include "WordNoun.h"
+#include "WordDefinitionNoun.h"
 
-std::string WordNoun::generatePluralForm(std::string word)
+std::string WordDefinitionNoun::generatePluralForm(std::string word)
 {
     // If it ends in "s"
     if(word.at(word.size() - 1) == 's')
@@ -55,28 +55,28 @@ std::string WordNoun::generatePluralForm(std::string word)
     return word + "s";
 }
 
-std::string WordNoun::getSingularForm()
+std::string WordDefinitionNoun::getSingularForm()
 {
     return singularForm;
 }
 
-std::string WordNoun::getPluralForm()
+std::string WordDefinitionNoun::getPluralForm()
 {
     return pluralForm;
 }
 
-bool WordNoun::hasAmbiguousPlurality()
+bool WordDefinitionNoun::hasAmbiguousPlurality()
 {
     return singularForm == pluralForm;
 }
 
-WordNoun::WordNoun(std::string singularForm)
+WordDefinitionNoun::WordDefinitionNoun(std::string singularForm)
 : singularForm(singularForm)
 {
     pluralForm = generatePluralForm(singularForm);
 }
 
-WordNoun::WordNoun(std::string singularForm, std::string pluralForm)
+WordDefinitionNoun::WordDefinitionNoun(std::string singularForm, std::string pluralForm)
 : singularForm(singularForm),
 pluralForm(pluralForm)
 {

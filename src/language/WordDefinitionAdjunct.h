@@ -10,11 +10,11 @@
  * enough to be its own class.
  */
 
-class WordAdjunct
+class WordDefinitionAdjunct
 {
     public:
         std::string getForm();
-        WordAdjunct(std::string form, gmr::AdjunctType type);
+        WordDefinitionAdjunct(std::string form, gmr::AdjunctType type);
     protected:
     private:
         //

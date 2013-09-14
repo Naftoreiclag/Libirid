@@ -5,9 +5,9 @@
 #include <vector>
 #include <map>
 
-#include "WordNoun.h"
-#include "WordAdjunct.h"
-#include "WordModifier.h"
+#include "WordDefinitionNoun.h"
+#include "WordDefinitionAdjunct.h"
+#include "WordDefinitionModifier.h"
 #include "Grammar.h"
 
 /* Pretty much just a dynamic lib for the different kinds
@@ -25,18 +25,18 @@ class Dictionary
         //static gmr::AdjunctState getAdjunctState(std::string victim);
 
         // Nouns
-        static gmr::NounId addNoun(WordNoun* newNoun);
-        static WordNoun* getNoun(gmr::NounId nounId);
+        static gmr::NounId addNoun(WordDefinitionNoun* newNoun);
+        static WordDefinitionNoun* getNoun(gmr::NounId nounId);
         static std::size_t numNouns();
 
         // Adjuncts
-        static gmr::AdjunctId addAdjunct(WordAdjunct* newAdjunct);
-        static WordAdjunct* getAdjunct(gmr::AdjunctId adjunctId);
+        static gmr::AdjunctId addAdjunct(WordDefinitionAdjunct* newAdjunct);
+        static WordDefinitionAdjunct* getAdjunct(gmr::AdjunctId adjunctId);
         static std::size_t numAdjuncts();
 
         // Modifiers
-        static gmr::ModifierId addModifier(WordModifier* newModifier);
-        static WordModifier* getModifier(gmr::ModifierId modifierId);
+        static gmr::ModifierId addModifier(WordDefinitionModifier* newModifier);
+        static WordDefinitionModifier* getModifier(gmr::ModifierId modifierId);
         static std::size_t numModifiers();
 
         // Articles
@@ -45,13 +45,13 @@ class Dictionary
         static std::size_t numArticles();
     private:
         // Nouns
-        static std::vector<WordNoun*> registeredNouns;
+        static std::vector<WordDefinitionNoun*> registeredNouns;
 
         // Adjuncts
-        static std::vector<WordAdjunct*> registeredAdjuncts;
+        static std::vector<WordDefinitionAdjunct*> registeredAdjuncts;
 
         // Modifier
-        static std::vector<WordModifier*> registeredModifiers;
+        static std::vector<WordDefinitionModifier*> registeredModifiers;
 
         // Articles
         static std::map<std::string, gmr::ArticleProperties> registeredArticles;

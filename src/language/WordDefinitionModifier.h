@@ -4,10 +4,10 @@
 #include <vector>
 #include <string>
 
-class WordModifier
+class WordDefinitionModifier
 {
     public:
-        WordModifier(std::string form);
+        WordDefinitionModifier(std::string form);
     private:
         std::string form;
 };
