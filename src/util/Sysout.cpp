@@ -48,6 +48,11 @@ std::string Sysout::toFriendlyString(gmr::WordType wordType)
     return "hyper-gibberish";
 }
 
+std::string Sysout::toFriendlyString(gmr::Plurality plurality)
+{
+    return plurality == gmr::singular ? "singular" : plurality == gmr::plural ? "plural" : plurality == gmr::ambiguous ? "ambiguous" : "lolwut???";
+}
+
 std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 {
     std::string returnVal = "[";
