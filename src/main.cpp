@@ -98,6 +98,7 @@ bool alistatify(std::vector<std::string>* inputWords)
                         // It must be this id then
                         nounStateWorkshop->id = testNounId;
 
+                        // If we can clearly tell that it is singular for this form,
                         if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
                         {
                             // It must be singular
@@ -123,9 +124,10 @@ bool alistatify(std::vector<std::string>* inputWords)
                         // It must be this id then
                         nounStateWorkshop->id = testNounId;
 
+                        // If we can clearly tell that it is plural for this form,
                         if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
                         {
-                            // It must be singular
+                            // It must be plural
                             nounStateWorkshop->plurality = gmr::plural;
                         }
 
@@ -146,16 +148,21 @@ bool alistatify(std::vector<std::string>* inputWords)
                 // Test for articles
                 gmr::ArticleProperties testArticleProperties = Dictionary::getArticle(*argFocus);
 
-                if(testArticleProperties.type != gmr::erron)
+                // If this article type is not erroneous
+                if(testArticleProperties.type != gmr::undefinite)
                 {
+                    // If the plurality is ambiguous
                     if(nounStateWorkshop->plurality == gmr::ambiguous)
                     {
+                        // Then correct it
                         nounStateWorkshop->plurality = testArticleProperties.quantity;
                     }
 
                     // Continue to next word
                     continue;
                 }
+
+                // Test for modifiers
             }
 
             gmr::SentenceState sentenceState(&sentenceNounStateCollectionWorkshop);

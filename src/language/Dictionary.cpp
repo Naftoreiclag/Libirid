@@ -105,8 +105,10 @@ std::size_t Dictionary::numAdjuncts()
 // Modifiers
 // =========
 
-/*// Vector
+// Vector
 std::vector<ModifierDefinition*> Dictionary::registeredModifiers;
+//
+gmr::ModifierId Dictionary::erroneousModifierId;
 
 // Add
 gmr::ModifierId Dictionary::addModifier(ModifierDefinition* newModifier)
@@ -122,11 +124,27 @@ ModifierDefinition* Dictionary::getModifier(gmr::ModifierId modifierId)
     return registeredModifiers.at(modifierId);
 }
 
+// Add Erroneous
+gmr::ModifierId Dictionary::addModifierAsErroneous(ModifierDefinition* newModifier)
+{
+    registeredModifiers.push_back(newModifier);
+
+    erroneousModifierId = registeredModifiers.size() - 1;
+
+    return registeredModifiers.size() - 1;
+}
+
+// Get Erroneous
+gmr::ModifierId Dictionary::getErroneousModifierId()
+{
+    return erroneousModifierId;
+}
+
 // Number of
 std::size_t Dictionary::numModifiers()
 {
     return registeredModifiers.size();
-}*/
+}
 
 // ========
 // Articles

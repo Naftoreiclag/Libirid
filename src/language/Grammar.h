@@ -24,22 +24,15 @@ namespace gmr
     {
         definite, // the, that, this, those
         indefinite, // a, some
-        erron,
+        undefinite // only used for the erroneous return
     };
 
     //
     enum Plurality
     {
-        singular,
-        plural,
-        ambiguous
-    };
-
-    //
-    struct ArticleProperties
-    {
-        ArticleType type;
-        Plurality quantity;
+        singular, // One
+        plural, // Two or more
+        ambiguous // Cannot be locally determined (e.g. sheep or fish)
     };
 
     // Adjuncts
@@ -49,12 +42,21 @@ namespace gmr
         below
     };
 
+    //
+    struct ArticleProperties
+    {
+        ArticleType type;
+        Plurality quantity;
+    };
+
     // Noun pointer
     typedef unsigned int NounId;
-    const NounId erroneousNounId = 0;
 
     // Adjunct pointer
     typedef unsigned int AdjunctId;
+
+    // Modifier pointer
+    typedef unsigned int ModifierId;
 
     // Noun
     class NounState
@@ -64,6 +66,15 @@ namespace gmr
             Plurality plurality;
             NounState();
             NounState(NounId id, Plurality plurality);
+    };
+
+    // Modifier
+    class ModifierState
+    {
+        public:
+            ModifierId id;
+            ModifierState();
+            ModifierState(ModifierId id);
     };
 
     //

@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/fcm" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/fcm-debug" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/fcm" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/fcm-release" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -44,6 +44,7 @@
 		<Unit filename="language/Lexicographer.h" />
 		<Unit filename="language/ModifierDefinition.cpp" />
 		<Unit filename="language/ModifierDefinition.h" />
+		<Unit filename="language/ModifierState.cpp" />
 		<Unit filename="language/NounDefinition.cpp" />
 		<Unit filename="language/NounDefinition.h" />
 		<Unit filename="language/NounState.cpp" />

@@ -1,4 +1,5 @@
 #include "Grammar.h"
+
 #include "Dictionary.h"
 
 gmr::NounState::NounState()
