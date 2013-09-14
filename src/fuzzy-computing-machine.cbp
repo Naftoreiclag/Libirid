@@ -47,6 +47,7 @@
 		<Unit filename="language/NounDefinition.cpp" />
 		<Unit filename="language/NounDefinition.h" />
 		<Unit filename="language/NounState.cpp" />
+		<Unit filename="language/SentenceState.cpp" />
 		<Unit filename="language/Thesaurus.cpp" />
 		<Unit filename="language/Thesaurus.h" />
 		<Unit filename="main.cpp" />
