@@ -158,7 +158,7 @@ bool alistatify(std::vector<std::string>* inputWords)
                 }
             }
 
-            gmr::SentenceState sentenceState(stnc);
+            gmr::SentenceState sentenceState(&sentenceNounStateCollectionWorkshop);
 
             Sysout::println();
             Sysout::println();
