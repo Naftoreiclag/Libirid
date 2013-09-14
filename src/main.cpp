@@ -10,9 +10,100 @@
 #include "language/Dictionary.h"
 #include "language/Lexicographer.h"
 
+#include "language/SentenceStateBuilder.h"
+
 #include "command/Command.h"
 
 SequencedMap<std::string, Command*> cmdByAlias;
+
+void processStatement(std::vector<std::string>* statement)
+{
+    //
+    SentenceStateBuilder* ssbuilder = new SentenceStateBuilder();
+
+    // The return
+    std::vector<gmr::NounState*> sentenceNounStateCollectionWorkshop;
+
+    // Storage for nouns
+    gmr::NounState* nounStateWorkshop = new gmr::NounState();
+
+    for(std::vector<std::string>::iterator wordPtr = statement->begin(); wordPtr != statement->end(); ++ wordPtr)
+    {
+        /* === Testing for nouns === */
+
+        // Remembers if this word is a noun
+        bool isNoun = false;
+
+        // Test for nouns
+        for(gmr::NounId possiblyMatchingNounId = 0; possiblyMatchingNounId < Dictionary::numNouns(); ++ possiblyMatchingNounId)
+        {
+            // Does it match the singular form?
+            if(*wordPtr == Dictionary::getNoun(possiblyMatchingNounId)->getSingularForm())
+            {
+                // Process it
+                ssbuilder->processNoun(possiblyMatchingNounId, gmr::singular);
+
+                // It is a noun
+                isNoun = true;
+
+                // Do not test for the other nouns
+                break;
+            }
+
+            // Does it match the plural form?
+            else if(*wordPtr == Dictionary::getNoun(possiblyMatchingNounId)->getPluralForm())
+            {
+                // Process it
+                ssbuilder->processNoun(possiblyMatchingNounId, gmr::plural);
+
+                // It is a noun
+                isNoun = true;
+
+                // Do not test for the other nouns
+                break;
+            }
+        }
+
+        // If it is a noun, then obviously it can't be anything else,
+        // So stop analyzing this word and look at the next word
+        if(isNoun) { continue; }
+
+        /* === Testing for articles === */
+
+        // Test for articles
+        gmr::ArticleProperties testArticleProperties = Dictionary::getArticle(*wordPtr);
+
+        // If this article type is not erroneous
+        if(testArticleProperties.type != gmr::undefinite)
+        {
+
+
+            // Continue to next word
+            continue;
+        }
+
+        /* === Testing for modifiers === */
+
+        // Put something here
+    }
+
+    delete ssbuilder;
+
+    gmr::SentenceState sentenceState(&sentenceNounStateCollectionWorkshop);
+
+    Sysout::println();
+    Sysout::println();
+    for(std::vector<gmr::NounState*>::iterator thisOneNoun = sentenceNounStateCollectionWorkshop.begin(); thisOneNoun != sentenceNounStateCollectionWorkshop.end(); ++ thisOneNoun)
+    {
+        Sysout::print("[");
+        Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
+        Sysout::print("-");
+        Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->plurality));
+        Sysout::print("]");
+
+        Sysout::print(" ");
+    }
+}
 
 bool alistatify(std::vector<std::string>* inputWords)
 {
@@ -28,10 +119,6 @@ bool alistatify(std::vector<std::string>* inputWords)
     // Loop through all commands
     for(unsigned int testCommandId = 0; testCommandId < cmdByAlias.size(); ++ testCommandId)
     {
-        // Info
-        Sysout::print(" Testing for ");
-        Sysout::println(cmdByAlias.first(testCommandId));
-
         // Split the command's alias into a vector of individual words
         std::vector<std::string>* commandWords = new std::vector<std::string>();
         Sysin::splitWords(cmdByAlias.first(testCommandId), commandWords);
@@ -81,113 +168,13 @@ bool alistatify(std::vector<std::string>* inputWords)
             std::vector<std::string>* arguementWords = new std::vector<std::string>(*inputWords);
             arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
 
-            // The return
-            std::vector<gmr::NounState*> sentenceNounStateCollectionWorkshop;
+            // Process them
+            processStatement(arguementWords);
 
-            // Storage for nouns
-            gmr::NounState* nounStateWorkshop = new gmr::NounState();
-
-            for(std::vector<std::string>::iterator argFocus = arguementWords->begin(); argFocus != arguementWords->end(); ++ argFocus)
-            {
-                // Test for nouns
-                for(gmr::NounId testNounId = 0; testNounId < Dictionary::numNouns(); ++ testNounId)
-                {
-                    // Does it match the singular form?
-                    if(*argFocus == Dictionary::getNoun(testNounId)->getSingularForm())
-                    {
-                        // It must be this id then
-                        nounStateWorkshop->id = testNounId;
-
-                        // If we can clearly tell that it is singular for this form,
-                        if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
-                        {
-                            // It must be singular
-                            nounStateWorkshop->plurality = gmr::singular;
-                        }
-
-                        // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
-
-                        // Clone over all the values
-                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
-                        sentenceNounStateCollectionWorkshop.push_back(&pushMe);
-
-                        // Clear out the workshop
-                        nounStateWorkshop = new gmr::NounState();
-
-                        // Continue to next word
-                        continue;
-                    }
-
-                    // Does it match the plural form?
-                    if(*argFocus == Dictionary::getNoun(testNounId)->getPluralForm())
-                    {
-                        // It must be this id then
-                        nounStateWorkshop->id = testNounId;
-
-                        // If we can clearly tell that it is plural for this form,
-                        if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
-                        {
-                            // It must be plural
-                            nounStateWorkshop->plurality = gmr::plural;
-                        }
-
-                        // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
-
-                        // Clone over all the values
-                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
-                        sentenceNounStateCollectionWorkshop.push_back(&pushMe);
-
-                        // Clear out the workshop
-                        nounStateWorkshop = new gmr::NounState();
-
-                        // Continue to next word
-                        continue;
-                    }
-                }
-
-                // Test for articles
-                gmr::ArticleProperties testArticleProperties = Dictionary::getArticle(*argFocus);
-
-                // If this article type is not erroneous
-                if(testArticleProperties.type != gmr::undefinite)
-                {
-                    // If the plurality is ambiguous
-                    if(nounStateWorkshop->plurality == gmr::ambiguous)
-                    {
-                        // Then correct it
-                        nounStateWorkshop->plurality = testArticleProperties.quantity;
-                    }
-
-                    // Continue to next word
-                    continue;
-                }
-
-                // Test for modifiers
-            }
-
-            gmr::SentenceState sentenceState(&sentenceNounStateCollectionWorkshop);
-
-            Sysout::println();
-            Sysout::println();
-            for(std::vector<gmr::NounState*>::iterator thisOneNoun = sentenceNounStateCollectionWorkshop.begin(); thisOneNoun != sentenceNounStateCollectionWorkshop.end(); ++ thisOneNoun)
-            {
-                Sysout::print("[");
-                Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
-                Sysout::print("-");
-                Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->plurality));
-                Sysout::print("]");
-
-                Sysout::print(" ");
-            }
-
-            // <Get the argument sentence structure>
-
-
-            // <Loop through that command's sentence structures to see if they fit.>
-            //
-
-            // Delete the argument container
+            // Delete them, since they are no longer needed.
             delete arguementWords;
+
+            /* Put something here! */
 
             // Return successful
             return true;
@@ -211,17 +198,15 @@ int main()
     Sysout::println("Fuzzy Computing Machine");
     Sysout::println();
 
+    // Add all the words
     Lexicographer::graph();
 
+    // Print out the dictionary entries
     Sysout::printDictionaryEntries();
     Sysout::println();
 
     // Register commands
     cmdByAlias.append("eat", new Command());
-    cmdByAlias.append("chow down", new Command());
-    cmdByAlias.append("take a dump", new Command());
-    cmdByAlias.append("dance", new Command());
-    cmdByAlias.append("take", new Command());
 
     // Running
     bool running = true;
@@ -232,34 +217,15 @@ int main()
     // While running, run!
     while(running)
     {
-        Sysout::println("Enter something:");
-
-        Sysout::print("FCM:\\>");
-        Sysin::getWords(lastInput);
+        Sysout::print("FCM:\\>"); Sysin::getWords(lastInput);
         Sysout::println();
-
-        // Example of how to make vector clones
-        std::vector<std::string> vc(*lastInput);
-        Sysout::print("The copy of the vector is: ");
-        Sysout::println(&vc);
-        Sysout::println();
-
-        // This is going to crash the program since there's no check to see if lastInput has anything. But who cares!?
-        Sysout::print("The first word is a: ");
-        Sysout::print(Sysout::toFriendlyString(Dictionary::identifyWordType(lastInput->at(0))));
-        Sysout::println();
-        Sysout::println();
-
-        Sysout::print("You entered:");
-        Sysout::println(lastInput);
-
-        Sysout::println("Trying to recognize command...");
 
         alistatify(lastInput);
 
         Sysout::println();
     }
 
+    // Delete our storage for the last container
     delete lastInput;
 
     // Died quietly
