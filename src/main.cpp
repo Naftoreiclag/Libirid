@@ -82,7 +82,7 @@ bool alistatify(std::vector<std::string>* inputWords)
             arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
 
             // The return
-            std::vector<gmr::NounState*> sntc;
+            std::vector<gmr::NounState*> sentenceNounStateCollectionWorkshop;
 
             // Storage for nouns
             gmr::NounState* nounStateWorkshop = new gmr::NounState();
@@ -108,7 +108,7 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                         // Clone over all the values
                         gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
-                        sntc.push_back(&pushMe);
+                        sentenceNounStateCollectionWorkshop.push_back(&pushMe);
 
                         // Clear out the workshop
                         nounStateWorkshop = new gmr::NounState();
@@ -133,7 +133,7 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                         // Clone over all the values
                         gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->plurality);
-                        sntc.push_back(&pushMe);
+                        sentenceNounStateCollectionWorkshop.push_back(&pushMe);
 
                         // Clear out the workshop
                         nounStateWorkshop = new gmr::NounState();
@@ -158,9 +158,11 @@ bool alistatify(std::vector<std::string>* inputWords)
                 }
             }
 
+            gmr::SentenceState sentenceState(stnc);
+
             Sysout::println();
             Sysout::println();
-            for(std::vector<gmr::NounState*>::iterator thisOneNoun = sntc.begin(); thisOneNoun != sntc.end(); ++ thisOneNoun)
+            for(std::vector<gmr::NounState*>::iterator thisOneNoun = sentenceNounStateCollectionWorkshop.begin(); thisOneNoun != sentenceNounStateCollectionWorkshop.end(); ++ thisOneNoun)
             {
                 Sysout::print("[");
                 Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
@@ -223,15 +225,6 @@ int main()
     // While running, run!
     while(running)
     {
-        if(Dictionary::getNoun(1)->hasAmbiguousPlurality())
-        {
-            Sysout::println("fish is fish");
-        }
-        if("potato" == "potato")
-        {
-            Sysout::println("potato is potato");
-        }
-
         Sysout::println("Enter something:");
 
         Sysout::print("FCM:\\>");

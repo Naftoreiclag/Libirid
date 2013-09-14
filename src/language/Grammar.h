@@ -70,10 +70,10 @@ namespace gmr
     class SentenceState
     {
         public:
-            SentenceState(std::vector<NounState> nounStates, bool)
-        private:
-            std::vector<NounState> nounStates;
-
+            bool has;
+            NounState* prepositionalNoun;
+            std::vector<NounState*>* nounStates;
+            SentenceState(std::vector<NounState*>* nounStates);
     };
 }
 

@@ -33,7 +33,9 @@ class Dictionary
 
         // Adjuncts
         static gmr::AdjunctId addAdjunct(AdjunctDefinition* newAdjunct);
+        static gmr::AdjunctId addAdjunctAsErroneous(AdjunctDefinition* newAdjunct);
         static AdjunctDefinition* getAdjunct(gmr::AdjunctId adjunctId);
+        static gmr::AdjunctId getErroneousAdjunctId();
         static std::size_t numAdjuncts();
 
         // Modifiers
@@ -48,6 +50,8 @@ class Dictionary
     private:
         //
         static gmr::NounId erroneousNounId;
+        //
+        static gmr::AdjunctId erroneousAdjunctId;
 
         // Nouns
         static std::vector<NounDefinition*> registeredNouns;

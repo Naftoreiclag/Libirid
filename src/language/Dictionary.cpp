@@ -63,6 +63,8 @@ std::size_t Dictionary::numNouns()
 
 // Vector
 std::vector<AdjunctDefinition*> Dictionary::registeredAdjuncts;
+//
+gmr::AdjunctId Dictionary::erroneousAdjunctId;
 
 // Add
 gmr::AdjunctId Dictionary::addAdjunct(AdjunctDefinition* newAdjunct)
@@ -72,10 +74,25 @@ gmr::AdjunctId Dictionary::addAdjunct(AdjunctDefinition* newAdjunct)
     return registeredAdjuncts.size() - 1;
 }
 
+// Add
+gmr::AdjunctId Dictionary::addAdjunctAsErroneous(AdjunctDefinition* newAdjunct)
+{
+    registeredAdjuncts.push_back(newAdjunct);
+
+    erroneousAdjunctId = registeredAdjuncts.size() - 1;
+
+    return registeredAdjuncts.size() - 1;
+}
+
 // Get
 AdjunctDefinition* Dictionary::getAdjunct(gmr::AdjunctId adjunctId)
 {
     return registeredAdjuncts.at(adjunctId);
+}
+
+gmr::AdjunctId Dictionary::getErroneousAdjunctId()
+{
+    return erroneousAdjunctId;
 }
 
 // Number of
