@@ -30,7 +30,7 @@ namespace gmr
     //
     enum Plurality
     {
-        solo,
+        singular,
         muchos,
         ambiguo
     };

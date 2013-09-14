@@ -29,14 +29,14 @@ void Lexicographer::graph()
     Dictionary::addAdjunct(new WordDefinitionAdjunct("below", gmr::below));
 
     // Meaningless modifiers
-    Dictionary::addArticle("a", gmr::indefinite, gmr::solo);
-    Dictionary::addArticle("an", gmr::indefinite, gmr::solo);
-    Dictionary::addArticle("some", gmr::indefinite, gmr::muchos);
-    Dictionary::addArticle("the", gmr::definite, gmr::solo);
-    Dictionary::addArticle("this", gmr::definite, gmr::solo);
-    Dictionary::addArticle("that", gmr::definite, gmr::solo);
-    Dictionary::addArticle("these", gmr::definite, gmr::muchos);
-    Dictionary::addArticle("those", gmr::definite, gmr::muchos);
+    Dictionary::addArticle("a", gmr::indefinite, singular);
+    Dictionary::addArticle("an", gmr::indefinite, singular);
+    Dictionary::addArticle("some", gmr::indefinite, plural);
+    Dictionary::addArticle("the", gmr::definite, singular);
+    Dictionary::addArticle("this", gmr::definite, singular);
+    Dictionary::addArticle("that", gmr::definite, singular);
+    Dictionary::addArticle("these", gmr::definite, plural);
+    Dictionary::addArticle("those", gmr::definite, plural);
 }
 
 Lexicographer::Lexicographer()
