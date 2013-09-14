@@ -102,7 +102,7 @@ bool alistatify(std::vector<std::string>* inputWords)
                         {
                             Sysout::println("The was not ambig");
                             // It must be singular
-                            nounStateWorkshop->quantity = singular;
+                            nounStateWorkshop->quantity = gmr::singular;
                         }
 
                         // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
@@ -128,7 +128,7 @@ bool alistatify(std::vector<std::string>* inputWords)
                         {
                             Sysout::println("The was not ambig");
                             // It must be singular
-                            nounStateWorkshop->quantity = plural;
+                            nounStateWorkshop->quantity = gmr::plural;
                         }
 
                         // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
@@ -167,7 +167,7 @@ bool alistatify(std::vector<std::string>* inputWords)
                 Sysout::print("[");
                 Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
                 Sysout::print("-");
-                Sysout::print((*thisOneNoun)->quantity == singular ? "singular" : (*thisOneNoun)->quantity == gmr::ambiguo ? "ambiguous" : "plural");
+                Sysout::print((*thisOneNoun)->quantity == gmr::singular ? "singular" : (*thisOneNoun)->quantity == gmr::ambiguo ? "ambiguous" : "plural");
                 Sysout::print("]");
 
                 Sysout::print(" ");

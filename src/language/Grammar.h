@@ -31,7 +31,7 @@ namespace gmr
     enum Plurality
     {
         singular,
-        muchos,
+        plural,
         ambiguo
     };
 
