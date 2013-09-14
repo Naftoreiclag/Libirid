@@ -21,6 +21,12 @@ void Sysout::printDictionaryEntries()
         std::cout << " " << Dictionary::getAdjunct(adjunctFocus)->getForm();
     }
     std::cout << std::endl;
+    std::cout << Dictionary::numModifiers() << " modifiers registered:";
+    for(unsigned int modifierFocus = 0; modifierFocus < Dictionary::numModifiers(); ++ modifierFocus)
+    {
+        std::cout << " " << Dictionary::getModifier(modifierFocus)->getForm();
+    }
+    std::cout << std::endl;
 }
 
 std::string Sysout::toFriendlyString(gmr::WordType wordType)

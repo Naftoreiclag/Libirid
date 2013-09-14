@@ -9,7 +9,7 @@
 
 void Lexicographer::graph()
 {
-    // Na-Ooh-Nu-S
+    // Nouns
     Dictionary::addNoun(new NounDefinition("fish", "fish"));
     Dictionary::addNoun(new NounDefinition("cupcake"));
     Dictionary::addNoun(new NounDefinition("bunny"));
@@ -22,13 +22,19 @@ void Lexicographer::graph()
     Dictionary::addNoun(new NounDefinition("sock"));
     Dictionary::addNoun(new NounDefinition("shoe"));
     Dictionary::addNoun(new NounDefinition("tomato"));
-    Dictionary::addNounAsErroneous(new NounDefinition("ERRONEOUS"));
+    Dictionary::addNounAsErroneous(new NounDefinition("ERROR"));
 
     // Adjuncts
     Dictionary::addAdjunct(new AdjunctDefinition("above", gmr::above));
     Dictionary::addAdjunct(new AdjunctDefinition("below", gmr::below));
 
-    // Meaningless modifiers
+    // Modifiers
+    Dictionary::addModifier(new ModifierDefinition("blue"));
+    Dictionary::addModifier(new ModifierDefinition("red"));
+    Dictionary::addModifier(new ModifierDefinition("green"));
+    Dictionary::addModifierAsErroneous(new ModifierDefinition("ERRONEOUS"));
+
+    // Articles
     Dictionary::addArticle("a", gmr::indefinite, gmr::singular);
     Dictionary::addArticle("an", gmr::indefinite, gmr::singular);
     Dictionary::addArticle("some", gmr::indefinite, gmr::plural);
