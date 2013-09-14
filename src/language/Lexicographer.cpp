@@ -3,30 +3,30 @@
 #include "Dictionary.h"
 #include "Grammar.h"
 
-#include "WordDefinitionNoun.h"
-#include "WordDefinitionAdjunct.h"
-#include "WordDefinitionModifier.h"
+#include "NounDefinition.h"
+#include "AdjunctDefinition.h"
+#include "ModifierDefinition.h"
 
 void Lexicographer::graph()
 {
     // Na-Ooh-Nu-S
-    Dictionary::addNoun(new WordDefinitionNoun("erroneous"));
-    Dictionary::addNoun(new WordDefinitionNoun("fish", "fish"));
-    Dictionary::addNoun(new WordDefinitionNoun("cupcake"));
-    Dictionary::addNoun(new WordDefinitionNoun("bunny"));
-    Dictionary::addNoun(new WordDefinitionNoun("egg"));
-    Dictionary::addNoun(new WordDefinitionNoun("mouse", "mice"));
-    Dictionary::addNoun(new WordDefinitionNoun("cookie"));
-    Dictionary::addNoun(new WordDefinitionNoun("potato"));
-    Dictionary::addNoun(new WordDefinitionNoun("sheep", "sheep"));
-    Dictionary::addNoun(new WordDefinitionNoun("couch"));
-    Dictionary::addNoun(new WordDefinitionNoun("sock"));
-    Dictionary::addNoun(new WordDefinitionNoun("shoe"));
-    Dictionary::addNoun(new WordDefinitionNoun("tomato"));
+    Dictionary::addNoun(new NounDefinition("erroneous"));
+    Dictionary::addNoun(new NounDefinition("fish", "fish"));
+    Dictionary::addNoun(new NounDefinition("cupcake"));
+    Dictionary::addNoun(new NounDefinition("bunny"));
+    Dictionary::addNoun(new NounDefinition("egg"));
+    Dictionary::addNoun(new NounDefinition("mouse", "mice"));
+    Dictionary::addNoun(new NounDefinition("cookie"));
+    Dictionary::addNoun(new NounDefinition("potato"));
+    Dictionary::addNoun(new NounDefinition("sheep", "sheep"));
+    Dictionary::addNoun(new NounDefinition("couch"));
+    Dictionary::addNoun(new NounDefinition("sock"));
+    Dictionary::addNoun(new NounDefinition("shoe"));
+    Dictionary::addNoun(new NounDefinition("tomato"));
 
     // Adjuncts
-    Dictionary::addAdjunct(new WordDefinitionAdjunct("above", gmr::above));
-    Dictionary::addAdjunct(new WordDefinitionAdjunct("below", gmr::below));
+    Dictionary::addAdjunct(new AdjunctDefinition("above", gmr::above));
+    Dictionary::addAdjunct(new AdjunctDefinition("below", gmr::below));
 
     // Meaningless modifiers
     Dictionary::addArticle("a", gmr::indefinite, singular);

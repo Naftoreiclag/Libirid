@@ -1,5 +1,5 @@
-#ifndef WORDDEFINITIONADJUNCT_H
-#define WORDDEFINITIONADJUNCT_H
+#ifndef ADJUNCTDEFINITION_H
+#define ADJUNCTDEFINITION_H
 
 #include <string>
 
@@ -10,11 +10,11 @@
  * enough to be its own class.
  */
 
-class WordDefinitionAdjunct
+class AdjunctDefinition
 {
     public:
         std::string getForm();
-        WordDefinitionAdjunct(std::string form, gmr::AdjunctType type);
+        AdjunctDefinition(std::string form, gmr::AdjunctType type);
     protected:
     private:
         //

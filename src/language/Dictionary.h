@@ -5,9 +5,9 @@
 #include <vector>
 #include <map>
 
-#include "WordDefinitionNoun.h"
-#include "WordDefinitionAdjunct.h"
-#include "WordDefinitionModifier.h"
+#include "NounDefinition.h"
+#include "AdjunctDefinition.h"
+#include "ModifierDefinition.h"
 #include "Grammar.h"
 
 /* Pretty much just a dynamic lib for the different kinds
@@ -25,18 +25,18 @@ class Dictionary
         //static gmr::AdjunctState getAdjunctState(std::string victim);
 
         // Nouns
-        static gmr::NounId addNoun(WordDefinitionNoun* newNoun);
-        static WordDefinitionNoun* getNoun(gmr::NounId nounId);
+        static gmr::NounId addNoun(NounDefinition* newNoun);
+        static NounDefinition* getNoun(gmr::NounId nounId);
         static std::size_t numNouns();
 
         // Adjuncts
-        static gmr::AdjunctId addAdjunct(WordDefinitionAdjunct* newAdjunct);
-        static WordDefinitionAdjunct* getAdjunct(gmr::AdjunctId adjunctId);
+        static gmr::AdjunctId addAdjunct(AdjunctDefinition* newAdjunct);
+        static AdjunctDefinition* getAdjunct(gmr::AdjunctId adjunctId);
         static std::size_t numAdjuncts();
 
         // Modifiers
-        static gmr::ModifierId addModifier(WordDefinitionModifier* newModifier);
-        static WordDefinitionModifier* getModifier(gmr::ModifierId modifierId);
+        static gmr::ModifierId addModifier(ModifierDefinition* newModifier);
+        static ModifierDefinition* getModifier(gmr::ModifierId modifierId);
         static std::size_t numModifiers();
 
         // Articles
@@ -45,13 +45,13 @@ class Dictionary
         static std::size_t numArticles();
     private:
         // Nouns
-        static std::vector<WordDefinitionNoun*> registeredNouns;
+        static std::vector<NounDefinition*> registeredNouns;
 
         // Adjuncts
-        static std::vector<WordDefinitionAdjunct*> registeredAdjuncts;
+        static std::vector<AdjunctDefinition*> registeredAdjuncts;
 
         // Modifier
-        static std::vector<WordDefinitionModifier*> registeredModifiers;
+        static std::vector<ModifierDefinition*> registeredModifiers;
 
         // Articles
         static std::map<std::string, gmr::ArticleProperties> registeredArticles;

@@ -4,9 +4,9 @@
 #include <vector>
 #include <map>
 
-#include "WordDefinitionNoun.h"
-#include "WordDefinitionAdjunct.h"
-#include "WordDefinitionModifier.h"
+#include "NounDefinition.h"
+#include "AdjunctDefinition.h"
+#include "ModifierDefinition.h"
 #include "Grammar.h"
 
 // We will never instantiate you
@@ -17,10 +17,10 @@ Dictionary::Dictionary() {}
 // =====
 
 // Vector
-std::vector<WordDefinitionNoun*> Dictionary::registeredNouns;
+std::vector<NounDefinition*> Dictionary::registeredNouns;
 
 // Add
-gmr::NounId Dictionary::addNoun(WordDefinitionNoun* newNoun)
+gmr::NounId Dictionary::addNoun(NounDefinition* newNoun)
 {
     registeredNouns.push_back(newNoun);
 
@@ -28,7 +28,7 @@ gmr::NounId Dictionary::addNoun(WordDefinitionNoun* newNoun)
 }
 
 // Get
-WordDefinitionNoun* Dictionary::getNoun(gmr::NounId nounId)
+NounDefinition* Dictionary::getNoun(gmr::NounId nounId)
 {
     return registeredNouns.at(nounId);
 }
@@ -44,10 +44,10 @@ std::size_t Dictionary::numNouns()
 // ========
 
 // Vector
-std::vector<WordDefinitionAdjunct*> Dictionary::registeredAdjuncts;
+std::vector<AdjunctDefinition*> Dictionary::registeredAdjuncts;
 
 // Add
-gmr::AdjunctId Dictionary::addAdjunct(WordDefinitionAdjunct* newAdjunct)
+gmr::AdjunctId Dictionary::addAdjunct(AdjunctDefinition* newAdjunct)
 {
     registeredAdjuncts.push_back(newAdjunct);
 
@@ -55,7 +55,7 @@ gmr::AdjunctId Dictionary::addAdjunct(WordDefinitionAdjunct* newAdjunct)
 }
 
 // Get
-WordDefinitionAdjunct* Dictionary::getAdjunct(gmr::AdjunctId adjunctId)
+AdjunctDefinition* Dictionary::getAdjunct(gmr::AdjunctId adjunctId)
 {
     return registeredAdjuncts.at(adjunctId);
 }
@@ -71,10 +71,10 @@ std::size_t Dictionary::numAdjuncts()
 // =========
 
 // Vector
-std::vector<WordDefinitionModifier*> Dictionary::registeredModifiers;
+std::vector<ModifierDefinition*> Dictionary::registeredModifiers;
 
 // Add
-gmr::ModifierId Dictionary::addModifier(WordDefinitionModifier* newModifier)
+gmr::ModifierId Dictionary::addModifier(ModifierDefinition* newModifier)
 {
     registeredModifiers.push_back(newModifier);
 
@@ -82,7 +82,7 @@ gmr::ModifierId Dictionary::addModifier(WordDefinitionModifier* newModifier)
 }
 
 // Get
-WordDefinitionModifier* Dictionary::getModifier(gmr::ModifierId modifierId)
+ModifierDefinition* Dictionary::getModifier(gmr::ModifierId modifierId)
 {
     return registeredModifiers.at(modifierId);
 }
