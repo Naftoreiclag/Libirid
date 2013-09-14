@@ -26,18 +26,18 @@ bool alistatify(std::vector<std::string>* inputWords)
     }
 
     // Loop through all commands
-    for(unsigned int cait = 0; cait < cmdByAlias.size(); ++ cait)
+    for(unsigned int testCommandId = 0; testCommandId < cmdByAlias.size(); ++ testCommandId)
     {
         // Info
         Sysout::print(" Testing for ");
-        Sysout::println(cmdByAlias.first(cait));
+        Sysout::println(cmdByAlias.first(testCommandId));
 
         // Split the command's alias into a vector of individual words
-        std::vector<std::string>* cmdsWords = new std::vector<std::string>();
-        Sysin::splitWords(cmdByAlias.first(cait), cmdsWords);
+        std::vector<std::string>* commandWords = new std::vector<std::string>();
+        Sysin::splitWords(cmdByAlias.first(testCommandId), commandWords);
 
         // Check if we have enough input for it to be possible
-        if(inputWords->size() < cmdsWords->size())
+        if(inputWords->size() < commandWords->size())
         {
             // [It cannot be this command]
 
@@ -49,13 +49,13 @@ bool alistatify(std::vector<std::string>* inputWords)
         bool commandMatches = true;
 
         // Get iterator for command words
-        std::vector<std::string>::iterator commandWordFocus = cmdsWords->begin();
+        std::vector<std::string>::iterator commandWordFocus = commandWords->begin();
 
         // Iterate through the input words parallel
         std::vector<std::string>::iterator inputWordFocus = inputWords->begin();
 
         // Iterate through the command words
-        while(commandWordFocus != cmdsWords->end())
+        while(commandWordFocus != commandWords->end())
         {
             // Check if this word is different
             if(*commandWordFocus != *inputWordFocus)
@@ -78,65 +78,97 @@ bool alistatify(std::vector<std::string>* inputWords)
         if(commandMatches)
         {
             // Get the command arguments
-            std::vector<std::string>* cmdArgs = new std::vector<std::string>(*inputWords);
-            cmdArgs->erase(cmdArgs->begin(), cmdArgs->begin() + cmdsWords->size());
+            std::vector<std::string>* arguementWords = new std::vector<std::string>(*inputWords);
+            arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
 
-            std::vector<gmr::NounState*> allOfTheNouns;
+            //
+            std::vector<gmr::NounState*> sntc;
 
-            gmr::NounState* nounWorkshop = new gmr::NounState();
+            // Storage for nouns
+            gmr::NounState* nounStateWorkshop = new gmr::NounState();
 
-            Sysout::print("  Found:");
-            for(std::vector<std::string>::iterator argFocus = cmdArgs->begin(); argFocus != cmdArgs->end(); ++ argFocus)
+            for(std::vector<std::string>::iterator argFocus = arguementWords->begin(); argFocus != arguementWords->end(); ++ argFocus)
             {
-
-                Sysout::print(" ");
-                Sysout::print(Sysout::toFriendlyString(Dictionary::identifyWordType(*argFocus)));
-
                 // Test for nouns
                 for(gmr::NounId testNounId = 0; testNounId < Dictionary::numNouns(); ++ testNounId)
                 {
                     // Does it match the singular form?
                     if(*argFocus == Dictionary::getNoun(testNounId)->getSingularForm())
                     {
-                        // It is a noun
-                        nounWorkshop->id = testNounId;
-                        nounWorkshop->quantity = gmr::solo;
+                        // It must be this id then
+                        nounStateWorkshop->id = testNounId;
 
-                        //
-                        gmr::NounState* pushMe = new gmr::NounState();
-                        pushMe->id = nounWorkshop->id;
-                        pushMe->quantity = nounWorkshop->quantity;
-                        allOfTheNouns.push_back(pushMe);
+                        if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
+                        {
+                            Sysout::println("The was not ambig");
+                            // It must be singular
+                            nounStateWorkshop->quantity = gmr::solo;
+                        }
 
-                        //
-                        gmr::NounState* nounWorkshop = new gmr::NounState();
+                        // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
+
+                        // Clone over all the values
+                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->quantity);
+                        sntc.push_back(&pushMe);
+
+                        // Clear out the workshop
+                        nounStateWorkshop = new gmr::NounState();
+
+                        // Continue to next word
+                        continue;
                     }
 
                     // Does it match the plural form?
                     if(*argFocus == Dictionary::getNoun(testNounId)->getPluralForm())
                     {
-                        // It is a noun
-                        nounWorkshop->id = testNounId;
-                        nounWorkshop->quantity = gmr::muchos;
+                        // It must be this id then
+                        nounStateWorkshop->id = testNounId;
 
-                        //
-                        gmr::NounState* pushMe = new gmr::NounState();
-                        pushMe->id = nounWorkshop->id;
-                        pushMe->quantity = nounWorkshop->quantity;
-                        allOfTheNouns.push_back(pushMe);
+                        if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
+                        {
+                            Sysout::println("The was not ambig");
+                            // It must be singular
+                            nounStateWorkshop->quantity = gmr::muchos;
+                        }
 
-                        //
-                        gmr::NounState* nounWorkshop = new gmr::NounState();
+                        // [At this point, the NounState must be complete, so let's finalize it and prepare a new workshop.]
+
+                        // Clone over all the values
+                        gmr::NounState pushMe(nounStateWorkshop->id, nounStateWorkshop->quantity);
+                        sntc.push_back(&pushMe);
+
+                        // Clear out the workshop
+                        nounStateWorkshop = new gmr::NounState();
+
+                        // Continue to next word
+                        continue;
                     }
+                }
+
+                // Test for articles
+                gmr::ArticleProperties testArticleProperties = Dictionary::getArticle(*argFocus);
+
+                if(testArticleProperties.type != gmr::erron)
+                {
+                    if(nounStateWorkshop->quantity == gmr::ambiguo)
+                    {
+                        nounStateWorkshop->quantity = testArticleProperties.quantity;
+                    }
+
+                    // Continue to next word
+                    continue;
                 }
             }
 
             Sysout::println();
             Sysout::println();
-            for(std::vector<gmr::NounState*>::iterator thisOneNoun = allOfTheNouns.begin(); thisOneNoun != allOfTheNouns.end(); ++ thisOneNoun)
+            for(std::vector<gmr::NounState*>::iterator thisOneNoun = sntc.begin(); thisOneNoun != sntc.end(); ++ thisOneNoun)
             {
-                Sysout::print((*thisOneNoun)->id);
-                Sysout::print((*thisOneNoun)->quantity);
+                Sysout::print("[");
+                Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
+                Sysout::print("-");
+                Sysout::print((*thisOneNoun)->quantity == gmr::solo ? "singular" : (*thisOneNoun)->quantity == gmr::ambiguo ? "ambiguous" : "plural");
+                Sysout::print("]");
 
                 Sysout::print(" ");
             }
@@ -148,7 +180,7 @@ bool alistatify(std::vector<std::string>* inputWords)
             //
 
             // Delete the argument container
-            delete cmdArgs;
+            delete arguementWords;
 
             // Return successful
             return true;
@@ -157,7 +189,7 @@ bool alistatify(std::vector<std::string>* inputWords)
         // [The command did not match]
 
         // Delete our command word interpreter.
-        delete cmdsWords;
+        delete commandWords;
     }
 
     // [None of the commands matched]
@@ -193,6 +225,15 @@ int main()
     // While running, run!
     while(running)
     {
+        if(Dictionary::getNoun(1)->hasAmbiguousPlurality())
+        {
+            Sysout::println("fish is fish");
+        }
+        if("potato" == "potato")
+        {
+            Sysout::println("potato is potato");
+        }
+
         Sysout::println("Enter something:");
 
         Sysout::print("FCM:\\>");

@@ -17,6 +17,9 @@ class WordNoun
         std::string getSingularForm();
         std::string getPluralForm();
 
+        //
+        bool hasAmbiguousPlurality();
+
         // Make a word and auto-generate the plural form.
         WordNoun(std::string singularForm);
 

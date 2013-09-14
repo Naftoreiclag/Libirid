@@ -23,7 +23,8 @@ namespace gmr
     enum ArticleType
     {
         definite, // the, that, this, those
-        indefinite // a, some
+        indefinite, // a, some
+        erron,
     };
 
     //
@@ -63,6 +64,7 @@ namespace gmr
         NounId id;
         Plurality quantity;
         NounState(): id(0), quantity(ambiguo){}
+        NounState(NounId id, Plurality quantity): id(id), quantity(quantity){}
     };
 
     //

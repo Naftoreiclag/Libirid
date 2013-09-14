@@ -65,6 +65,11 @@ std::string WordNoun::getPluralForm()
     return pluralForm;
 }
 
+bool WordNoun::hasAmbiguousPlurality()
+{
+    return singularForm == pluralForm;
+}
+
 WordNoun::WordNoun(std::string singularForm)
 : singularForm(singularForm)
 {

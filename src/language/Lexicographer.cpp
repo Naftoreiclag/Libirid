@@ -11,6 +11,7 @@ void Lexicographer::graph()
 {
     // Na-Ooh-Nu-S
     Dictionary::addNoun(new WordNoun("erroneous"));
+    Dictionary::addNoun(new WordNoun("fish", "fish"));
     Dictionary::addNoun(new WordNoun("cupcake"));
     Dictionary::addNoun(new WordNoun("bunny"));
     Dictionary::addNoun(new WordNoun("egg"));
