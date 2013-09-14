@@ -1,5 +1,5 @@
-#ifndef WDEFNOUN_H
-#define WDEFNOUN_H
+#ifndef WORDDEFINITIONNOUN_H
+#define WORDDEFINITIONNOUN_H
 
 #include <string>
 

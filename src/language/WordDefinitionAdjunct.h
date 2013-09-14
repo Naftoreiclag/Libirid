@@ -1,5 +1,5 @@
-#ifndef WORDADJUNCT_H
-#define WORDADJUNCT_H
+#ifndef WORDDEFINITIONADJUNCT_H
+#define WORDDEFINITIONADJUNCT_H
 
 #include <string>
 

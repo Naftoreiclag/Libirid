@@ -1,5 +1,5 @@
-#ifndef WORDMODIFIER_H
-#define WORDMODIFIER_H
+#ifndef WORDDEFINITIONMODIFIER_H
+#define WORDDEFINITIONMODIFIER_H
 
 #include <vector>
 #include <string>
