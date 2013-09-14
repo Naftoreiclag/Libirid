@@ -65,6 +65,16 @@ namespace gmr
             NounState();
             NounState(NounId id, Plurality plurality);
     };
+
+    //
+    class SentenceState
+    {
+        public:
+            SentenceState(std::vector<NounState> nounStates, bool)
+        private:
+            std::vector<NounState> nounStates;
+
+    };
 }
 
 #endif // GRAMMAR_H

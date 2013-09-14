@@ -81,7 +81,7 @@ bool alistatify(std::vector<std::string>* inputWords)
             std::vector<std::string>* arguementWords = new std::vector<std::string>(*inputWords);
             arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
 
-            //
+            // The return
             std::vector<gmr::NounState*> sntc;
 
             // Storage for nouns
@@ -100,7 +100,6 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                         if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
                         {
-                            Sysout::println("The was not ambig");
                             // It must be singular
                             nounStateWorkshop->plurality = gmr::singular;
                         }
@@ -126,7 +125,6 @@ bool alistatify(std::vector<std::string>* inputWords)
 
                         if(!Dictionary::getNoun(testNounId)->hasAmbiguousPlurality())
                         {
-                            Sysout::println("Tgmr::he was not ambig");
                             // It must be singular
                             nounStateWorkshop->plurality = gmr::plural;
                         }
@@ -167,7 +165,7 @@ bool alistatify(std::vector<std::string>* inputWords)
                 Sysout::print("[");
                 Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
                 Sysout::print("-");
-                Sysout::print((*thisOneNoun)->plurality == gmr::singular ? "singular" : (*thisOneNoun)->plurality == gmr::ambiguous ? "ambiguous" : "plural");
+                Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->plurality));
                 Sysout::print("]");
 
                 Sysout::print(" ");
