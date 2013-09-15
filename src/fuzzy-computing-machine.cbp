@@ -36,6 +36,8 @@
 		<Unit filename="Oneint.h" />
 		<Unit filename="command/Command.cpp" />
 		<Unit filename="command/Command.h" />
+		<Unit filename="command/CommandEat.cpp" />
+		<Unit filename="command/CommandEat.h" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
 		<Unit filename="language/AdjunctDefinition.h" />
 		<Unit filename="language/AdjunctState.cpp" />

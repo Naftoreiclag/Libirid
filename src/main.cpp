@@ -13,6 +13,7 @@
 #include "language/SentenceStateBuilder.h"
 
 #include "command/Command.h"
+#include "command/CommandEat.h"
 
 #include "Oneint.h"
 
@@ -189,6 +190,8 @@ bool alistatify(std::vector<std::string>* inputWords)
             // Print stuff
             Sysout::print(Sysout::toFriendlyString(stncState));
 
+            cmdByAlias.second(testCommandId)->execute(stncState);
+
             // Return successful
             return true;
         }
@@ -224,7 +227,7 @@ int main()
     //Sysout::println();
 
     // Register commands
-    cmdByAlias.append("eat", new Command());
+    cmdByAlias.append("eat", new CommandEat());
 
     // Running
     bool running = true;
@@ -235,11 +238,12 @@ int main()
     // While running, run!
     while(running)
     {
+        // Prompt
+        Sysout::println();
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
 
+        // Alistatify
         alistatify(lastInput);
-
-        Sysout::println();
     }
 
     // Delete our storage for the last container

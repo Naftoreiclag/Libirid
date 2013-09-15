@@ -1,15 +1,14 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+#include "../language/Grammar.h"
 
 class Command
 {
     public:
-        bool execute();
-        Command();
-        virtual ~Command();
+        virtual bool execute(gmr::SentenceState* stnc);
     protected:
-    private:
+        Command();
 };
 
 #endif // COMMAND_H

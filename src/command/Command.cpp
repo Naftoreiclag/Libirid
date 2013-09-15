@@ -1,11 +1,10 @@
 #include "Command.h"
 
-Command::Command()
+bool Command::execute(gmr::SentenceState* stnc)
 {
-    //ctor
+
 }
 
-Command::~Command()
+Command::Command()
 {
-    //dtor
 }
