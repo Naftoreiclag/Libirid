@@ -13,6 +13,7 @@ class SentenceStateBuilder
         std::vector<gmr::NounState*>* completedNouns;
         void processNoun(gmr::NounId id, gmr::Plurality plurality);
         void processArticle(gmr::ArticleProperties properties);
+        void processModifier(gmr::ModifierId modifierId);
         SentenceStateBuilder();
     protected:
     private:

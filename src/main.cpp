@@ -25,6 +25,9 @@ void processStatement(std::vector<std::string>* statement)
 
     for(std::vector<std::string>::iterator wordPtr = statement->begin(); wordPtr != statement->end(); ++ wordPtr)
     {
+        Sysout::println(*wordPtr);
+        Sysout::println("testing for nouns");
+
         /* === Testing for nouns === */
 
         // Remembers if this word is a noun
@@ -63,6 +66,7 @@ void processStatement(std::vector<std::string>* statement)
         // If it is a noun, then obviously it can't be anything else,
         // So stop analyzing this word and look at the next word
         if(isNoun) { continue; }
+        Sysout::println("testing for articles");
 
         /* === Testing for articles === */
 
@@ -70,6 +74,7 @@ void processStatement(std::vector<std::string>* statement)
         gmr::ArticleProperties testArticleProperties = Dictionary::getArticle(*wordPtr);
 
         // If this article type is not erroneous
+        Sysout::println(Sysout::toFriendlyString(testArticleProperties.type));
         if(testArticleProperties.type != gmr::undefinite)
         {
             ssbuilder->processArticle(testArticleProperties);
@@ -78,9 +83,33 @@ void processStatement(std::vector<std::string>* statement)
             continue;
         }
 
+        Sysout::println("testing for modifiers");
         /* === Testing for modifiers === */
 
-        // Put something here
+        // Remembers if this word is a noun
+        bool isModifier = false;
+
+        // Test for nouns
+        for(gmr::ModifierId possiblyMatchingModifierId = 0; possiblyMatchingModifierId < Dictionary::numModifiers(); ++ possiblyMatchingModifierId)
+        {
+            Sysout::println("trying " + Dictionary::getModifier(possiblyMatchingModifierId)->getForm());
+            // Does it match the singular form?
+            if(*wordPtr == Dictionary::getModifier(possiblyMatchingModifierId)->getForm())
+            {
+                // Process it
+                ssbuilder->processModifier(possiblyMatchingModifierId);
+
+                // It is a noun
+                isModifier = true;
+
+                // Do not test for the other nouns
+                break;
+            }
+        }
+
+        // If it is a noun, then obviously it can't be anything else,
+        // So stop analyzing this word and look at the next word
+        if(isModifier) { continue; }
     }
 
     // The return

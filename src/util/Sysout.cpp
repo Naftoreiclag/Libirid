@@ -67,6 +67,10 @@ std::string Sysout::toFriendlyString(gmr::NounState* nounState)
     returnVal += Sysout::toFriendlyString(nounState->plurality);
     returnVal += "_";
     returnVal += Sysout::toFriendlyString(nounState->definity);
+    for(unsigned int modifierIndex = 0; modifierIndex < nounState->modifiers->size(); ++ modifierIndex)
+    {
+        returnVal += ":" + Dictionary::getModifier(nounState->modifiers->at(modifierIndex))->getForm();
+    }
 
     return returnVal + "]";
 }

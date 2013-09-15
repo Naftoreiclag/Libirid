@@ -42,6 +42,25 @@ void SentenceStateBuilder::processArticle(gmr::ArticleProperties properties)
     wipNoun->definity = properties.type;
 }
 
+void SentenceStateBuilder::processModifier(gmr::ModifierId modifierId)
+{
+    bool alreadyHas = false;
+    for(unsigned int indexOffset = 0; indexOffset < wipNoun->modifiers->size(); ++ indexOffset)
+    {
+        if(wipNoun->modifiers->at(indexOffset) == modifierId)
+        {
+            alreadyHas = true;
+            break;
+        }
+    }
+
+
+    if(!alreadyHas)
+    {
+        wipNoun->modifiers->push_back(modifierId);
+    }
+}
+
 SentenceStateBuilder::SentenceStateBuilder()
 {
     wipNoun = new gmr::NounState(); // The space we will build our work in progress (WIP) noun

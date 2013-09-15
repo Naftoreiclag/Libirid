@@ -173,7 +173,7 @@ gmr::ArticleProperties Dictionary::getArticle(std::string name)
     {
         // Returns a default value
         gmr::ArticleProperties erroneous;
-        erroneous.type = gmr::indefinite;
+        erroneous.type = gmr::undefinite;
         erroneous.plurality = gmr::ambiguous;
         return erroneous;
     }

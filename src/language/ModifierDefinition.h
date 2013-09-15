@@ -7,6 +7,7 @@
 class ModifierDefinition
 {
     public:
+        std::string getForm();
         ModifierDefinition(std::string form);
     private:
         std::string form;

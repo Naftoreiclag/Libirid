@@ -28,6 +28,14 @@ void Lexicographer::graph()
     Dictionary::addAdjunct(new AdjunctDefinition("above", gmr::above));
     Dictionary::addAdjunct(new AdjunctDefinition("below", gmr::below));
 
+    // Modifiers
+    Dictionary::addModifier(new ModifierDefinition("funny"));
+    Dictionary::addModifier(new ModifierDefinition("musical"));
+    Dictionary::addModifier(new ModifierDefinition("red"));
+    Dictionary::addModifier(new ModifierDefinition("brainy"));
+    Dictionary::addModifier(new ModifierDefinition("rhythmic"));
+    Dictionary::addModifier(new ModifierDefinition("undesirable"));
+
     // Meaningless modifiers
     Dictionary::addArticle("a", gmr::indefinite, gmr::singular);
     Dictionary::addArticle("an", gmr::indefinite, gmr::singular);
