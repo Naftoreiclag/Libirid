@@ -5,6 +5,11 @@
 #include "Grammar.h"
 #include "Dictionary.h"
 
+gmr::SentenceState* SentenceStateBuilder::finish()
+{
+    return new gmr::SentenceState(completedNouns);
+}
+
 void SentenceStateBuilder::publishNoun()
 {
     // Add the workspace address to the collection of addresses of completed nouns

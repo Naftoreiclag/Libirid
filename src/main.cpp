@@ -18,7 +18,7 @@
 
 SequencedMap<std::string, Command*> cmdByAlias;
 
-SentenceStateBuilder* processStatement(std::vector<std::string>* statement)
+gmr::SentenceState* processStatement(std::vector<std::string>* statement)
 {
     // Make a new builder
     SentenceStateBuilder* ssbuilder = new SentenceStateBuilder();
@@ -110,7 +110,11 @@ SentenceStateBuilder* processStatement(std::vector<std::string>* statement)
         // Put something here
     }
 
-    return ssbuilder;
+    gmr::SentenceState* sntcState = ssbuilder->finish();
+
+    delete ssbuilder;
+
+    return sntcState;
 }
 
 bool alistatify(std::vector<std::string>* inputWords)
@@ -177,12 +181,10 @@ bool alistatify(std::vector<std::string>* inputWords)
             arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
 
             // Process them
-            processStatement(arguementWords);
+            gmr::SentenceState* stncState = processStatement(arguementWords);
 
             // Delete them, since they are no longer needed.
             delete arguementWords;
-
-            /* Put something here! */
 
             // Return successful
             return true;

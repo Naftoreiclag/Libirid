@@ -83,8 +83,6 @@ namespace gmr
     class SentenceState
     {
         public:
-            bool has;
-            NounState* prepositionalNoun;
             std::vector<NounState*>* nounStates;
             SentenceState(std::vector<NounState*>* nounStates);
     };

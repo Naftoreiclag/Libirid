@@ -5,6 +5,7 @@
 class Command
 {
     public:
+        bool execute();
         Command();
         virtual ~Command();
     protected:
