@@ -159,7 +159,7 @@ void Dictionary::addArticle(std::string name, gmr::ArticleType mtype, gmr::Plura
 {
     gmr::ArticleProperties a;
     a.type = mtype;
-    a.quantity = mquantity;
+    a.plurality = mquantity;
 
     registeredArticles.insert(std::pair<std::string, gmr::ArticleProperties>(name, a));
 }
@@ -174,7 +174,7 @@ gmr::ArticleProperties Dictionary::getArticle(std::string name)
         // Returns a default value
         gmr::ArticleProperties erroneous;
         erroneous.type = gmr::indefinite;
-        erroneous.quantity = gmr::ambiguous;
+        erroneous.plurality = gmr::ambiguous;
         return erroneous;
     }
 

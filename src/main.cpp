@@ -23,12 +23,6 @@ void processStatement(std::vector<std::string>* statement)
     //
     SentenceStateBuilder* ssbuilder = new SentenceStateBuilder();
 
-    // The return
-    std::vector<gmr::NounState*> sentenceNounStateCollectionWorkshop;
-
-    // Storage for nouns
-    gmr::NounState* nounStateWorkshop = new gmr::NounState();
-
     for(std::vector<std::string>::iterator wordPtr = statement->begin(); wordPtr != statement->end(); ++ wordPtr)
     {
         /* === Testing for nouns === */
@@ -78,7 +72,7 @@ void processStatement(std::vector<std::string>* statement)
         // If this article type is not erroneous
         if(testArticleProperties.type != gmr::undefinite)
         {
-
+            ssbuilder->processArticle(testArticleProperties);
 
             // Continue to next word
             continue;
@@ -88,6 +82,9 @@ void processStatement(std::vector<std::string>* statement)
 
         // Put something here
     }
+
+    // The return
+    std::vector<gmr::NounState*> sentenceNounStateCollectionWorkshop(*(ssbuilder->completedNouns));
 
     delete ssbuilder;
 
@@ -101,6 +98,8 @@ void processStatement(std::vector<std::string>* statement)
         Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
         Sysout::print("-");
         Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->plurality));
+        Sysout::print("_");
+        Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->definity));
         Sysout::print("]");
 
         Sysout::print(" ");
@@ -200,11 +199,24 @@ int main()
 
     // Put something here, k?
 
-    Oneint* apple = new Oneint(1);
+    // If I middle click, it auto pastes for me!
+
+    /*Oneint* apple = new Oneint(1);
     Oneint* banana = apple;
     apple = new Oneint(2);
-    Sysout::print(banana->getInt()); // I predict that it will print "1"
+    Sysout::print(banana->getInt()); // I predict that it will print "1"*/
     // I was right!
+
+    std::vector<Oneint*>* lotsoints = new std::vector<Oneint*>();
+
+    Oneint* wipOneint = new Oneint(1);
+    lotsoints->push_back(wipOneint);
+    wipOneint = new Oneint(2);
+
+    // I predict that it will print "1"
+
+    Sysout::print(lotsoints->at(0)->getInt());
+    //YAY!
 
     /* === Actual program === */
     // Legend

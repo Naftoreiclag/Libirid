@@ -2,12 +2,9 @@
 
 #include "Dictionary.h"
 
+// By default, the noun has an erroneous id, ambiguous plurality, and is definite
 gmr::NounState::NounState()
-: id(Dictionary::getErroneousNounId()), plurality(ambiguous)
+: id(Dictionary::getErroneousNounId()), plurality(ambiguous), definity(gmr::definite)
 {
-}
-
-gmr::NounState::NounState(NounId id, Plurality plurality)
-: id(id), plurality(plurality)
-{
+    modifiers = new std::vector<gmr::ModifierId>();
 }

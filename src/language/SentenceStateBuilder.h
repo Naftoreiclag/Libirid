@@ -10,6 +10,7 @@
 class SentenceStateBuilder
 {
     public:
+        std::vector<gmr::NounState*>* completedNouns;
         void processNoun(gmr::NounId id, gmr::Plurality plurality);
         void processArticle(gmr::ArticleProperties properties);
         SentenceStateBuilder();
@@ -17,7 +18,6 @@ class SentenceStateBuilder
     private:
         void publishNoun();
         gmr::NounState* wipNoun;
-        std::vector<gmr::NounState*>* completedNouns;
 };
 
 #endif // SENTENCESTATEBUILDER_H

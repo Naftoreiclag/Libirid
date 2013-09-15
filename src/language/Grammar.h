@@ -46,7 +46,7 @@ namespace gmr
     struct ArticleProperties
     {
         ArticleType type;
-        Plurality quantity;
+        Plurality plurality;
     };
 
     // Noun pointer
@@ -64,9 +64,9 @@ namespace gmr
         public:
             NounId id;
             Plurality plurality;
+            ArticleType definity;
             std::vector<gmr::ModifierId>* modifiers;
             NounState();
-            NounState(NounId id, Plurality plurality);
     };
 
     // Modifier

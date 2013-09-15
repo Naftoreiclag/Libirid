@@ -53,6 +53,11 @@ std::string Sysout::toFriendlyString(gmr::Plurality plurality)
     return plurality == gmr::singular ? "singular" : plurality == gmr::plural ? "plural" : plurality == gmr::ambiguous ? "ambiguous" : "lolwut???";
 }
 
+std::string Sysout::toFriendlyString(gmr::ArticleType definity)
+{
+    return definity == gmr::definite ? "definite" : definity == gmr::indefinite ? "indefinite" : definity == gmr::undefinite ? "undefined" : "lolwut???";
+}
+
 std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 {
     std::string returnVal = "[";
