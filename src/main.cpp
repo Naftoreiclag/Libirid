@@ -186,6 +186,9 @@ bool alistatify(std::vector<std::string>* inputWords)
             // Delete them, since they are no longer needed.
             delete arguementWords;
 
+            // Print stuff
+            Sysout::print(Sysout::toFriendlyString(stncState));
+
             // Return successful
             return true;
         }

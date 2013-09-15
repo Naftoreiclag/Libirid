@@ -100,6 +100,18 @@ std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
     return returnVal + "]";
 }
 
+std::string Sysout::toFriendlyString(gmr::SentenceState* stncState)
+{
+    std::string returnVal = "{";
+
+    for(unsigned int nounIndex = 0; nounIndex < stncState->nounStates->size(); ++ nounIndex)
+    {
+        returnVal += toFriendlyString(stncState->nounStates->at(nounIndex));
+    }
+
+    return returnVal + "}";
+}
+
 void Sysout::printSlow(std::string str)
 {
     for(unsigned int index = 0; index < str.length(); ++ index)
