@@ -58,6 +58,19 @@ std::string Sysout::toFriendlyString(gmr::ArticleType definity)
     return definity == gmr::definite ? "definite" : definity == gmr::indefinite ? "indefinite" : definity == gmr::undefinite ? "undefined" : "lolwut???";
 }
 
+std::string Sysout::toFriendlyString(gmr::NounState* nounState)
+{
+    std::string returnVal = "[";
+
+    returnVal += Dictionary::getNoun(nounState->id)->getSingularForm();
+    returnVal += "-";
+    returnVal += Sysout::toFriendlyString(nounState->plurality);
+    returnVal += "_";
+    returnVal += Sysout::toFriendlyString(nounState->definity);
+
+    return returnVal + "]";
+}
+
 std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 {
     std::string returnVal = "[";

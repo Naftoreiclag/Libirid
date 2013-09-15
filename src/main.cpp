@@ -90,17 +90,9 @@ void processStatement(std::vector<std::string>* statement)
 
     gmr::SentenceState sentenceState(&sentenceNounStateCollectionWorkshop);
 
-    Sysout::println();
-    Sysout::println();
     for(std::vector<gmr::NounState*>::iterator thisOneNoun = sentenceNounStateCollectionWorkshop.begin(); thisOneNoun != sentenceNounStateCollectionWorkshop.end(); ++ thisOneNoun)
     {
-        Sysout::print("[");
-        Sysout::print(Dictionary::getNoun((*thisOneNoun)->id)->getSingularForm());
-        Sysout::print("-");
-        Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->plurality));
-        Sysout::print("_");
-        Sysout::print(Sysout::toFriendlyString((*thisOneNoun)->definity));
-        Sysout::print("]");
+        Sysout::print(Sysout::toFriendlyString(*thisOneNoun));
 
         Sysout::print(" ");
     }
