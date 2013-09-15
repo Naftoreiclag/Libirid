@@ -64,6 +64,7 @@ namespace gmr
         public:
             NounId id;
             Plurality plurality;
+            std::vector<gmr::ModifierId>* modifiers;
             NounState();
             NounState(NounId id, Plurality plurality);
     };

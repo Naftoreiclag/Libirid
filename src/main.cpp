@@ -14,6 +14,8 @@
 
 #include "command/Command.h"
 
+#include "Oneint.h"
+
 SequencedMap<std::string, Command*> cmdByAlias;
 
 void processStatement(std::vector<std::string>* statement)
@@ -194,6 +196,17 @@ bool alistatify(std::vector<std::string>* inputWords)
 
 int main()
 {
+    /* === Testing === */
+
+    // Put something here, k?
+
+    Oneint* apple = new Oneint(1);
+    Oneint* banana = apple;
+    apple = new Oneint(2);
+    Sysout::print(banana->getInt()); // I predict that it will print "1"
+    // I was right!
+
+    /* === Actual program === */
     // Legend
     Sysout::println("Fuzzy Computing Machine");
     Sysout::println();

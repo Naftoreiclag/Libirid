@@ -10,6 +10,7 @@ void SentenceStateBuilder::publishNoun()
     gmr::NounState* nounProduct = new gmr::NounState();
     nounProduct->id = wipNoun->id; // Same id
     nounProduct->plurality = wipNoun->plurality; // Same plurality
+    nounProduct->modifiers = wipNoun->modifiers;
 }
 
 void SentenceStateBuilder::processNoun(gmr::NounId id, gmr::Plurality plurality)
