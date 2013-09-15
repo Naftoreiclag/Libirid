@@ -39,7 +39,8 @@ namespace gmr
     enum AdjunctType
     {
         above,
-        below
+        below,
+        withurmom
     };
 
     //

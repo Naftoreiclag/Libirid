@@ -18,17 +18,15 @@
 
 SequencedMap<std::string, Command*> cmdByAlias;
 
-void processStatement(std::vector<std::string>* statement)
+SentenceStateBuilder* processStatement(std::vector<std::string>* statement)
 {
-    //
+    // Make a new builder
     SentenceStateBuilder* ssbuilder = new SentenceStateBuilder();
 
+    // Loop through all the words
     for(std::vector<std::string>::iterator wordPtr = statement->begin(); wordPtr != statement->end(); ++ wordPtr)
     {
-        Sysout::println(*wordPtr);
-        Sysout::println("testing for nouns");
-
-        /* === Testing for nouns === */
+    /* === Testing for nouns === */
 
         // Remembers if this word is a noun
         bool isNoun = false;
@@ -66,15 +64,13 @@ void processStatement(std::vector<std::string>* statement)
         // If it is a noun, then obviously it can't be anything else,
         // So stop analyzing this word and look at the next word
         if(isNoun) { continue; }
-        Sysout::println("testing for articles");
 
-        /* === Testing for articles === */
+    /* === Testing for articles === */
 
         // Test for articles
         gmr::ArticleProperties testArticleProperties = Dictionary::getArticle(*wordPtr);
 
         // If this article type is not erroneous
-        Sysout::println(Sysout::toFriendlyString(testArticleProperties.type));
         if(testArticleProperties.type != gmr::undefinite)
         {
             ssbuilder->processArticle(testArticleProperties);
@@ -83,8 +79,7 @@ void processStatement(std::vector<std::string>* statement)
             continue;
         }
 
-        Sysout::println("testing for modifiers");
-        /* === Testing for modifiers === */
+    /* === Testing for modifiers === */
 
         // Remembers if this word is a noun
         bool isModifier = false;
@@ -92,7 +87,6 @@ void processStatement(std::vector<std::string>* statement)
         // Test for nouns
         for(gmr::ModifierId possiblyMatchingModifierId = 0; possiblyMatchingModifierId < Dictionary::numModifiers(); ++ possiblyMatchingModifierId)
         {
-            Sysout::println("trying " + Dictionary::getModifier(possiblyMatchingModifierId)->getForm());
             // Does it match the singular form?
             if(*wordPtr == Dictionary::getModifier(possiblyMatchingModifierId)->getForm())
             {
@@ -110,21 +104,13 @@ void processStatement(std::vector<std::string>* statement)
         // If it is a noun, then obviously it can't be anything else,
         // So stop analyzing this word and look at the next word
         if(isModifier) { continue; }
+
+    /* === Testing for adjuncts === */
+
+        // Put something here
     }
 
-    // The return
-    std::vector<gmr::NounState*> sentenceNounStateCollectionWorkshop(*(ssbuilder->completedNouns));
-
-    delete ssbuilder;
-
-    gmr::SentenceState sentenceState(&sentenceNounStateCollectionWorkshop);
-
-    for(std::vector<gmr::NounState*>::iterator thisOneNoun = sentenceNounStateCollectionWorkshop.begin(); thisOneNoun != sentenceNounStateCollectionWorkshop.end(); ++ thisOneNoun)
-    {
-        Sysout::print(Sysout::toFriendlyString(*thisOneNoun));
-
-        Sysout::print(" ");
-    }
+    return ssbuilder;
 }
 
 bool alistatify(std::vector<std::string>* inputWords)
@@ -220,25 +206,6 @@ int main()
 
     // Put something here, k?
 
-    // If I middle click, it auto pastes for me!
-
-    /*Oneint* apple = new Oneint(1);
-    Oneint* banana = apple;
-    apple = new Oneint(2);
-    Sysout::print(banana->getInt()); // I predict that it will print "1"*/
-    // I was right!
-
-    std::vector<Oneint*>* lotsoints = new std::vector<Oneint*>();
-
-    Oneint* wipOneint = new Oneint(1);
-    lotsoints->push_back(wipOneint);
-    wipOneint = new Oneint(2);
-
-    // I predict that it will print "1"
-
-    Sysout::print(lotsoints->at(0)->getInt());
-    //YAY!
-
     /* === Actual program === */
     // Legend
     Sysout::println("Fuzzy Computing Machine");
@@ -248,8 +215,8 @@ int main()
     Lexicographer::graph();
 
     // Print out the dictionary entries
-    Sysout::printDictionaryEntries();
-    Sysout::println();
+    //Sysout::printDictionaryEntries();
+    //Sysout::println();
 
     // Register commands
     cmdByAlias.append("eat", new Command());

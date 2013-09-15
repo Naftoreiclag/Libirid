@@ -22,11 +22,12 @@ void Lexicographer::graph()
     Dictionary::addNoun(new NounDefinition("sock"));
     Dictionary::addNoun(new NounDefinition("shoe"));
     Dictionary::addNoun(new NounDefinition("tomato"));
-    Dictionary::addNounAsErroneous(new NounDefinition("ERRONEOUS"));
+    Dictionary::addNounAsErroneous(new NounDefinition("_HERPADERPDERP"));
 
     // Adjuncts
     Dictionary::addAdjunct(new AdjunctDefinition("above", gmr::above));
     Dictionary::addAdjunct(new AdjunctDefinition("below", gmr::below));
+    Dictionary::addAdjunctAsErroneous(new AdjunctDefinition("_WITHURMOM", gmr::withurmom))
 
     // Modifiers
     Dictionary::addModifier(new ModifierDefinition("funny"));
@@ -35,6 +36,7 @@ void Lexicographer::graph()
     Dictionary::addModifier(new ModifierDefinition("brainy"));
     Dictionary::addModifier(new ModifierDefinition("rhythmic"));
     Dictionary::addModifier(new ModifierDefinition("undesirable"));
+    Dictionary::addModifierAsErroneous(new NounDefinition("_ERRONEOUS"));
 
     // Meaningless modifiers
     Dictionary::addArticle("a", gmr::indefinite, gmr::singular);
