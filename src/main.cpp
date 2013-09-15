@@ -189,7 +189,7 @@ bool alistatify(std::vector<std::string>* inputWords)
             delete arguementWords;
 
             // Print stuff
-            Sysout::print(Sysout::toFriendlyString(stncState));
+            Sysout::println(Sysout::toFriendlyString(stncState));
 
             cmdByAlias.second(testCommandId)->execute(stncState);
 

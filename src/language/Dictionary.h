@@ -58,6 +58,8 @@ class Dictionary
         static void addArticle(std::string name, gmr::ArticleType type, gmr::Plurality quantity);
         static gmr::ArticleProperties getArticle(std::string name);
         static std::size_t numArticles();
+
+        static std::string getArticleForm(gmr::AdjunctType definity, gmr::Plurality plurality);
     private:
         //
         static gmr::NounId erroneousNounId;

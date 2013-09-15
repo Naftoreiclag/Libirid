@@ -187,6 +187,11 @@ std::size_t Dictionary::numArticles()
     return registeredArticles.size();
 }
 
+std::string Dictionary::getArticleForm(gmr::AdjunctType definity, gmr::Plurality plurality)
+{
+    return "put something better here";
+}
+
 // ==============
 // Identification
 // ==============

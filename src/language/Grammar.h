@@ -2,6 +2,7 @@
 #define GRAMMAR_H
 
 #include <vector>
+#include <string>
 
 /* Everything that has to do with grammar and the interpretation
  * of it.
@@ -67,6 +68,10 @@ namespace gmr
             Plurality plurality;
             ArticleType definity;
             std::vector<gmr::ModifierId>* modifiers;
+
+            std::string getModifiedName();
+            std::string getUnmodifiedName();
+
             NounState();
     };
 
