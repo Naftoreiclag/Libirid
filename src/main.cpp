@@ -235,8 +235,7 @@ int main()
     // While running, run!
     while(running)
     {
-        Sysout::print("FCM:\\>"); Sysin::getWords(lastInput);
-        Sysout::println();
+        Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
 
         alistatify(lastInput);
 
