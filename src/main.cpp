@@ -14,6 +14,7 @@
 
 #include "command/Command.h"
 #include "command/CommandEat.h"
+#include "command/CommandDance.h"
 
 #include "Oneint.h"
 
@@ -228,6 +229,7 @@ int main()
 
     // Register commands
     cmdByAlias.append("eat", new CommandEat());
+    cmdByAlias.append("dance", new CommandDance());
 
     // Running
     bool running = true;
