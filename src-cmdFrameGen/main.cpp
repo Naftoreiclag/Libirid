@@ -5,7 +5,10 @@
 
 int main()
 {
-    std::cout << "Enter a name:" << std::endl;
+    std::cout << "Enter a name for the new command classes:" << std::endl;
+    std::cout << " Example:" << std::endl;
+    std::cout << "    Entering foo will make classes CommandFoo.cpp and CommandFoo.h in src/command/" << std::endl;
+    std::cout << "    Entering bar will make classes CommandBar.cpp and CommandBar.h in src/command/" << std::endl;
     std::string name;
     std::cin >> name;
 
