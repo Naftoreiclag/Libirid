@@ -22,6 +22,11 @@ void Lexicographer::graph()
     Dictionary::addNoun(new NounDefinition("sock"));
     Dictionary::addNoun(new NounDefinition("shoe"));
     Dictionary::addNoun(new NounDefinition("tomato"));
+    Dictionary::addNoun(new NounDefinition("dog"));
+    Dictionary::addNoun(new NounDefinition("tree"));
+    Dictionary::addNoun(new NounDefinition("grass"));
+    Dictionary::addNoun(new NounDefinition("dirt"));
+    Dictionary::addNoun(new NounDefinition("rock"));
     Dictionary::addNounAsErroneous(new NounDefinition("_HERPADERPDERP"));
 
     // Adjuncts
@@ -30,9 +35,15 @@ void Lexicographer::graph()
     Dictionary::addAdjunctAsErroneous(new AdjunctDefinition("_WITHURMOM", gmr::withurmom));
 
     // Modifiers
+    Dictionary::addModifier(new ModifierDefinition("red"));
+    Dictionary::addModifier(new ModifierDefinition("orange"));
+    Dictionary::addModifier(new ModifierDefinition("yellow"));
+    Dictionary::addModifier(new ModifierDefinition("green"));
+    Dictionary::addModifier(new ModifierDefinition("blue"));
+    Dictionary::addModifier(new ModifierDefinition("purple"));
+    Dictionary::addModifier(new ModifierDefinition("magenta"));
     Dictionary::addModifier(new ModifierDefinition("funny"));
     Dictionary::addModifier(new ModifierDefinition("musical"));
-    Dictionary::addModifier(new ModifierDefinition("red"));
     Dictionary::addModifier(new ModifierDefinition("brainy"));
     Dictionary::addModifier(new ModifierDefinition("rhythmic"));
     Dictionary::addModifier(new ModifierDefinition("undesirable"));
