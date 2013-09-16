@@ -6,12 +6,16 @@
  *  a list of different synonyms!)
  */
 
+// Gee, I really have no idea what to do here...
+// But having aliases is really important! Hmm...
+
 class Thesaurus
 {
     public:
-        Thesaurus();
     protected:
     private:
+        // We will never instiantate this.
+        Thesaurus();
 };
 
 #endif // THESAURUS_H
