@@ -8,6 +8,8 @@ bin/
 obj/
 src/bin/
 src/obj/
+src-cmdFrameGen/bin/
+src-cmdFrameGen/obj/
 
 # Gource
 gource.bat
