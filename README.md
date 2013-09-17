@@ -12,4 +12,11 @@ Some stuff about this project:
 * All the source code here was made by me! (As of writing.)
 * Uses [Code::Blocks](http://www.codeblocks.org/) as main IDE.
 
-Happy 100th Commit!
+Statistics for /src/
+====================
+(Because my friend keeps bothering me about it) (As of 9/16/2013)
+
+* Total lines: 1868
+* Actual code: 1189
+* Comments: 337
+* Whitespace: 372
