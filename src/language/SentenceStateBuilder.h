@@ -10,6 +10,8 @@
 class SentenceStateBuilder
 {
     public:
+        static gmr::SentenceState* processStatement(std::vector<std::string>* statement);
+
         gmr::SentenceState* finish();
         std::vector<gmr::NounState*>* completedNouns;
         void processNoun(gmr::NounId id, gmr::Plurality plurality);

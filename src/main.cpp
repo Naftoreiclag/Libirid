@@ -20,105 +20,6 @@
 
 SequencedMap<std::string, Command*> cmdByAlias;
 
-gmr::SentenceState* processStatement(std::vector<std::string>* statement)
-{
-    // Make a new builder
-    SentenceStateBuilder* ssbuilder = new SentenceStateBuilder();
-
-    // Loop through all the words
-    for(std::vector<std::string>::iterator wordPtr = statement->begin(); wordPtr != statement->end(); ++ wordPtr)
-    {
-    /* === Testing for nouns === */
-
-        // Remembers if this word is a noun
-        bool isNoun = false;
-
-        // Test for nouns
-        for(gmr::NounId possiblyMatchingNounId = 0; possiblyMatchingNounId < Dictionary::numNouns(); ++ possiblyMatchingNounId)
-        {
-            // Does it match the singular form?
-            if(*wordPtr == Dictionary::getNoun(possiblyMatchingNounId)->getSingularForm())
-            {
-                // Process it
-                ssbuilder->processNoun(possiblyMatchingNounId, gmr::singular);
-
-                // It is a noun
-                isNoun = true;
-
-                // Do not test for the other nouns
-                break;
-            }
-
-            // Does it match the plural form?
-            else if(*wordPtr == Dictionary::getNoun(possiblyMatchingNounId)->getPluralForm())
-            {
-                // Process it
-                ssbuilder->processNoun(possiblyMatchingNounId, gmr::plural);
-
-                // It is a noun
-                isNoun = true;
-
-                // Do not test for the other nouns
-                break;
-            }
-        }
-
-        // If it is a noun, then obviously it can't be anything else,
-        // So stop analyzing this word and look at the next word
-        if(isNoun) { continue; }
-
-    /* === Testing for articles === */
-
-        // Test for articles
-        gmr::ArticleProperties testArticleProperties = Dictionary::getArticle(*wordPtr);
-
-        // If this article type is not erroneous
-        if(testArticleProperties.type != gmr::undefinite)
-        {
-            ssbuilder->processArticle(testArticleProperties);
-
-            // Continue to next word
-            continue;
-        }
-
-    /* === Testing for modifiers === */
-
-        // Remembers if this word is a noun
-        bool isModifier = false;
-
-        // Test for nouns
-        for(gmr::ModifierId possiblyMatchingModifierId = 0; possiblyMatchingModifierId < Dictionary::numModifiers(); ++ possiblyMatchingModifierId)
-        {
-            // Does it match the singular form?
-            if(*wordPtr == Dictionary::getModifier(possiblyMatchingModifierId)->getForm())
-            {
-                // Process it
-                ssbuilder->processModifier(possiblyMatchingModifierId);
-
-                // It is a noun
-                isModifier = true;
-
-                // Do not test for the other nouns
-                break;
-            }
-        }
-
-        // If it is a noun, then obviously it can't be anything else,
-        // So stop analyzing this word and look at the next word
-        if(isModifier) { continue; }
-
-    /* === Testing for adjuncts === */
-
-        // Put something here
-    }
-
-    gmr::SentenceState* sntcState = ssbuilder->finish();
-
-    delete ssbuilder;
-
-    return sntcState;
-}
-
 bool alistatify(std::vector<std::string>* inputWords)
 {
     // If we have no words
@@ -183,7 +84,7 @@ bool alistatify(std::vector<std::string>* inputWords)
             arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
 
             // Process them
-            gmr::SentenceState* stncState = processStatement(arguementWords);
+            gmr::SentenceState* stncState = SentenceStateBuilder::processStatement(arguementWords);
 
             // Delete them, since they are no longer needed.
             delete arguementWords;
@@ -191,10 +92,17 @@ bool alistatify(std::vector<std::string>* inputWords)
             // Print stuff
             Sysout::println(Sysout::toFriendlyString(stncState));
 
-            cmdByAlias.second(testCommandId)->execute(stncState);
+            // Run the command already
+            bool commandSuccessful = cmdByAlias.second(testCommandId)->execute(stncState);
 
-            // Return successful
-            return true;
+            // If it was successful
+            if(commandSuccessful)
+            {
+                // Return successful
+                return true;
+            }
+
+            // [The command was not successful]
         }
 
         // [The command did not match]
@@ -209,27 +117,30 @@ bool alistatify(std::vector<std::string>* inputWords)
     return false;
 }
 
+void init()
+{
+    // Legend
+    Sysout::println("Fuzzy Computing Machine");
+    Sysout::println();
+
+    // Add words
+    Lexicographer::graph();
+
+    // Add commands
+    cmdByAlias.append("eat", new CommandEat());
+    cmdByAlias.append("dance", new CommandDance());
+}
+
 int main()
 {
+
     /* === Testing === */
 
     // Put something here, k?
 
     /* === Actual program === */
-    // Legend
-    Sysout::println("Fuzzy Computing Machine");
-    Sysout::println();
 
-    // Add all the words
-    Lexicographer::graph();
-
-    // Print out the dictionary entries
-    //Sysout::printDictionaryEntries();
-    //Sysout::println();
-
-    // Register commands
-    cmdByAlias.append("eat", new CommandEat());
-    cmdByAlias.append("dance", new CommandDance());
+    init();
 
     // Running
     bool running = true;
