@@ -14,10 +14,4 @@ void CmdLexicographer::graph()
 
 CmdLexicographer::CmdLexicographer()
 {
-    //ctor
-}
-
-CmdLexicographer::~CmdLexicographer()
-{
-    //dtor
 }

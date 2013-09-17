@@ -10,11 +10,10 @@
 class CmdDictionary
 {
     public:
+        // Note to self: Make this private and add the necessary get() and append()
         static SequencedMap<std::string, Command*>* cmdByAlias;
-        CmdDictionary();
-        virtual ~CmdDictionary();
-    protected:
     private:
+        CmdDictionary();
 };
 
 #endif // CMDDICTIONARY_H

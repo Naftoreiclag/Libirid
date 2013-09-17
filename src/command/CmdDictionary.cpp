@@ -7,10 +7,4 @@ SequencedMap<std::string, Command*>* CmdDictionary::cmdByAlias = new SequencedMa
 
 CmdDictionary::CmdDictionary()
 {
-    //ctor
-}
-
-CmdDictionary::~CmdDictionary()
-{
-    //dtor
 }
