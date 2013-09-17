@@ -8,7 +8,46 @@
 
 #include "language/Grammar.h"
 
-bool Game::alistatify(std::vector<std::string>* inputWords)
+#include "world/World.h"
+
+Game::Game()
+: running(false)
+{
+}
+
+void Game::start()
+{
+    // We are running now
+    running = true;
+
+    // Last input vector
+    std::vector<std::string>* lastInput = new std::vector<std::string>();
+
+    //
+    World* world = new World();
+
+    // While running, run!
+    while(running)
+    {
+        // <Print out the story>
+
+
+        // Prompt
+        Sysout::println();
+        Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
+
+        // Run command from the raw input
+        runCommandFromRawInput(lastInput);
+    }
+
+    // Delete our storage for the last container
+    delete lastInput;
+
+    // Maybe now would be a good time to save?
+    delete world;
+}
+
+bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
 {
     // If we have no words
     if(inputWords->size() == 0)
@@ -103,33 +142,4 @@ bool Game::alistatify(std::vector<std::string>* inputWords)
 
     // Return unsuccessful
     return false;
-}
-
-void Game::start()
-{
-    running = true;
-
-    // Last input vector
-    std::vector<std::string>* lastInput = new std::vector<std::string>();
-
-    // While running, run!
-    while(running)
-    {
-        // <Print out the story>
-
-        // Prompt
-        Sysout::println();
-        Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
-
-        // Alistatify
-        alistatify(lastInput);
-    }
-
-    // Delete our storage for the last container
-    delete lastInput;
-}
-
-Game::Game()
-: running(false)
-{
 }

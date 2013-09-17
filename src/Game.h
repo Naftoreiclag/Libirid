@@ -7,7 +7,7 @@
 class Game
 {
     public:
-        bool alistatify(std::vector<std::string>* inputWords);
+        bool runCommandFromRawInput(std::vector<std::string>* inputWords);
         void start();
         Game();
     private:

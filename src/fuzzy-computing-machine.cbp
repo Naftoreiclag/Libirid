@@ -34,8 +34,10 @@
 		</Compiler>
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
-		<Unit filename="Oneint.cpp" />
-		<Unit filename="Oneint.h" />
+		<Unit filename="command/CmdDictionary.cpp" />
+		<Unit filename="command/CmdDictionary.h" />
+		<Unit filename="command/CmdLexicographer.cpp" />
+		<Unit filename="command/CmdLexicographer.h" />
 		<Unit filename="command/Command.cpp" />
 		<Unit filename="command/Command.h" />
 		<Unit filename="command/CommandDance.cpp" />
@@ -60,6 +62,8 @@
 		<Unit filename="language/Thesaurus.cpp" />
 		<Unit filename="language/Thesaurus.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="util/Oneint.cpp" />
+		<Unit filename="util/Oneint.h" />
 		<Unit filename="util/SentenceStateBuilder.cpp" />
 		<Unit filename="util/SentenceStateBuilder.h" />
 		<Unit filename="util/SequencedMap.h" />
@@ -72,6 +76,8 @@
 		<Unit filename="util/VectorUtil.h" />
 		<Unit filename="world/World.cpp" />
 		<Unit filename="world/World.h" />
+		<Unit filename="world/entity/Entity.cpp" />
+		<Unit filename="world/entity/Entity.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
