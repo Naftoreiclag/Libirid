@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "Grammar.h"
-#include "Dictionary.h"
+#include "../language/Grammar.h"
+#include "../language/Dictionary.h"
 
 gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::string>* statement)
 {

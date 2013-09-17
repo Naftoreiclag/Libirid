@@ -5,12 +5,11 @@
 #include "util/SequencedMap.h"
 #include "util/Sysout.h"
 #include "util/Sysin.h"
+#include "util/SentenceStateBuilder.h"
 
 #include "language/Grammar.h"
 #include "language/Dictionary.h"
 #include "language/Lexicographer.h"
-
-#include "language/SentenceStateBuilder.h"
 
 #include "command/Command.h"
 #include "command/CommandEat.h"

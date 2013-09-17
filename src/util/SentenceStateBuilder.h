@@ -3,9 +3,7 @@
 
 #include <vector>
 
-#include "Grammar.h"
-
-// I think this should be moved to util (virtual folder?)
+#include "../language/Grammar.h"
 
 class SentenceStateBuilder
 {
