@@ -1,9 +1,6 @@
 #include <string>
-#include <vector>
-#include <map>
 
 #include "util/Sysout.h"
-#include "util/Sysin.h"
 
 #include "language/Lexicographer.h"
 #include "command/CmdLexicographer.h"
@@ -27,18 +24,13 @@ void init()
 // This is where the magic happens!
 int main()
 {
-    /* === Testing === */
-
-    // Put something here, k?
-
-    /* === Actual program === */
-
     // Initialize
     init();
 
-    //
-    Game game;
+    // Put like, a main menu here or something
 
+    // Reminds me of JME
+    Game game;
     game.start();
 
     // Died quietly
