@@ -16,6 +16,8 @@ class Sysout
     // and don't even get me started on automatic garbage collection...
     // The Java libraries are amazing though.
     public:
+        static void setDisplayWidth(unsigned short displayWidth);
+        static std::string wordWrappify(std::string paragraph);
         static void printDictionaryEntries();
         static std::string toFriendlyString(gmr::WordType wordType);
         static std::string toFriendlyString(std::vector<std::string>* wordList);
@@ -35,6 +37,9 @@ class Sysout
     private:
         // Private, because we'll never instantiate this.
         Sysout();
+
+        //
+        static unsigned short displayWidth;
 };
 
 #endif // SYSOUT_H

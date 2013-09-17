@@ -10,6 +10,11 @@
 // Initialization put in a handy auxiliary function!
 void init()
 {
+    //
+    Sysout::setDisplayWidth(80);
+
+    Sysout::println(Sysout::wordWrappify("Foo foo foo. Bar barfoo, bar quux foo. Foobar barfoo quux quux foobar. Bar'foo quux; bar foo quux quux. Foo foo foo. Bar barfoo, bar quux foo. Foobar barfoo quux quux foobar. Bar'foo quux; bar foo quux quux. Foo foo foo. Bar barfoo, bar quux foo. Foobar barfoo quux quux foobar. Bar'foo quux; bar foo quux quux."));
+
     // Legend
     Sysout::println("Fuzzy Computing Machine");
     Sysout::println();

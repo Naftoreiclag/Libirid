@@ -7,6 +7,35 @@
 #include "../language/Dictionary.h"
 #include "../language/Grammar.h"
 
+unsigned short Sysout::displayWidth;
+
+void Sysout::setDisplayWidth(unsigned short width)
+{
+    displayWidth = width;
+}
+
+std::string Sysout::wordWrappify(std::string paragraph)
+{
+    // The position used to determine where the string would normally be cut off
+    unsigned int maxPos = displayWidth;
+
+    // While we have not gone overboard
+    while(maxPos < paragraph.length())
+    {
+        // Find the last space before the maxPosition
+        unsigned int spaceIndex = paragraph.rfind(' ', maxPos);
+
+        // Replace the space with newline
+        paragraph[spaceIndex] = '\n';
+
+        // Move the maxPosition to be one width after the space
+        maxPos = spaceIndex + displayWidth;
+    }
+
+    // Return the new string
+    return paragraph;
+}
+
 void Sysout::printDictionaryEntries()
 {
     std::cout << Dictionary::numNouns() << " nouns registered:";
