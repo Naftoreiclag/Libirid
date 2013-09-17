@@ -5,6 +5,7 @@
 class CmdLexicographer
 {
     public:
+        static void graph();
         CmdLexicographer();
         virtual ~CmdLexicographer();
     protected:
