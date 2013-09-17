@@ -8,6 +8,7 @@ bin/
 obj/
 src/bin/
 src/obj/
+tools/command-frame-generator/*.exe
 src-cmdFrameGen/bin/
 src-cmdFrameGen/obj/
 

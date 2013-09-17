@@ -7,15 +7,15 @@ int main()
 {
     std::cout << "Enter a name for the new command classes:" << std::endl;
     std::cout << " Example:" << std::endl;
-    std::cout << "    Entering Foo will make classes CommandFoo.cpp and CommandFoo.h in src/command/" << std::endl;
-    std::cout << "    Entering Bar will make classes CommandBar.cpp and CommandBar.h in src/command/" << std::endl;
+    std::cout << "  Entering Foo makes classes CommandFoo.cpp and CommandFoo.h in src/command/" << std::endl;
+    std::cout << "  Entering Bar makes classes CommandBar.cpp and CommandBar.h in src/command/" << std::endl;
     std::string name;
     std::cin >> name;
 
     std::string qut = "\"";
 
     std::ofstream seep;
-    std::string consp = "..\\src\\command\\Command" + name + ".cpp";
+    std::string consp = "..\\..\\..\\src\\command\\Command" + name + ".cpp";
     seep.open(consp.c_str());
     seep << "#include " + qut + "Command" + name + ".h" + qut + "\n";
     seep << "\n";
@@ -39,7 +39,7 @@ int main()
     std::transform(uppercaseName.begin(), uppercaseName.end(), uppercaseName.begin(), ::toupper);
 
     std::ofstream aych;
-    std::string conah = "..\\src\\command\\Command" + name + ".h";
+    std::string conah = "..\\..\\..\\src\\command\\Command" + name + ".h";
     aych.open(conah.c_str());
     aych << "#ifndef COMMAND" + uppercaseName + "_H\n";
     aych << "#define COMMAND" + uppercaseName + "_H\n";
