@@ -12,6 +12,9 @@ class Game
     public:
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
         void run();
+
+        // Save to file
+        void save();
         Game();
     private:
         Player* player;
