@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Fuzzy.cpp" />
+		<Unit filename="Fuzzy.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
 		<Unit filename="command/CmdDictionary.cpp" />
@@ -80,6 +82,10 @@
 		<Unit filename="world/World.h" />
 		<Unit filename="world/entity/Entity.cpp" />
 		<Unit filename="world/entity/Entity.h" />
+		<Unit filename="world/entity/EntityPlayer.cpp" />
+		<Unit filename="world/entity/EntityPlayer.h" />
+		<Unit filename="world/entity/EntitySentient.cpp" />
+		<Unit filename="world/entity/EntitySentient.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

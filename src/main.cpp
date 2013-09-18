@@ -5,7 +5,7 @@
 #include "language/Lexicographer.h"
 #include "command/CmdLexicographer.h"
 
-#include "Game.h"
+#include "Fuzzy.h"
 
 // Initialization put in a handy auxiliary function!
 void init()
@@ -30,13 +30,9 @@ int main()
     // Initialize
     init();
 
-    // Put like, a main menu here or something
-
-    // Instantiate a new game
-    Game game;
-
-    // Start it
-    game.start();
+    // I REALLY need a better name soon...
+    Fuzzy fuzzy;
+    fuzzy.start();
 
     // Died quietly
     return 0;
