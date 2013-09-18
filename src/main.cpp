@@ -10,10 +10,8 @@
 // Initialization put in a handy auxiliary function!
 void init()
 {
-    //
+    // Set the display width to 80 chars long
     Sysout::setDisplayWidth(80);
-
-    Sysout::println(Sysout::wordWrappify("Foo foo foo. Bar barfoo, bar quux foo. Foobar barfoo quux quux foobar. Bar'foo quux; bar foo quux quux. Foo foo foo. Bar barfoo, bar quux foo. Foobar barfoo quux quux foobar. Bar'foo quux; bar foo quux quux. Foo foo foo. Bar barfoo, bar quux foo. Foobar barfoo quux quux foobar. Bar'foo quux; bar foo quux quux."));
 
     // Legend
     Sysout::println("Fuzzy Computing Machine");
@@ -34,8 +32,10 @@ int main()
 
     // Put like, a main menu here or something
 
-    // Reminds me of JME
+    // Instantiate a new game
     Game game;
+
+    // Start it
     game.start();
 
     // Died quietly

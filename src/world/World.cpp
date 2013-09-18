@@ -1,11 +1,20 @@
 #include "World.h"
 
+#include "Room.h"
+#include "../util/Sysout.h"
+
 World::World()
 {
-    //ctor
+    for(unsigned int index = 0; index < 125; ++ index)
+    {
+        rooms[index] = new Room();
+    }
 }
 
 World::~World()
 {
-    //dtor
+    for(unsigned int index = 0; index < 125; ++ index)
+    {
+        delete rooms[index];
+    }
 }
