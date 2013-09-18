@@ -4,7 +4,7 @@
 
 #include "../util/Sysout.h"
 
-bool CommandDance::execute(gmr::SentenceState* stnc)
+bool CommandDance::execute(World* world, gmr::SentenceState* stnc)
 {
     Sysout::println("break it down!");
 

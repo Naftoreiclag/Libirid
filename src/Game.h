@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 
+#include "world/World.h"
+
 class Game
 {
     public:
@@ -11,6 +13,7 @@ class Game
         void start();
         Game();
     private:
+        World* world;
         bool running;
 };
 

@@ -24,7 +24,7 @@ void Game::start()
     std::vector<std::string>* lastInput = new std::vector<std::string>();
 
     //
-    World* world = new World();
+    world = new World();
 
     // While running, run!
     while(running)
@@ -120,7 +120,7 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             Sysout::println(Sysout::toFriendlyString(stncState));
 
             // Run the command already
-            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)->execute(stncState);
+            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)->execute(world, stncState);
 
             // If it was successful
             if(commandSuccessful)

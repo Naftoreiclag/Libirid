@@ -1,5 +1,5 @@
 #include "Command.h"
 
-bool Command::execute(gmr::SentenceState* stnc) { return false; }
+bool Command::execute(World* world, gmr::SentenceState* stnc) { return false; }
 
 Command::Command() {}

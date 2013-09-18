@@ -2,6 +2,7 @@
 #define WORLD_H
 
 #include "Room.h"
+#include "entity/EntityPlayer.h"
 
 class World
 {

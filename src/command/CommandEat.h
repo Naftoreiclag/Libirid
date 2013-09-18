@@ -4,11 +4,12 @@
 #include "Command.h"
 
 #include "../language/Grammar.h"
+#include "../world/World.h"
 
 class CommandEat: public Command
 {
     public:
-        bool execute(gmr::SentenceState* stnc);
+        bool execute(World* world, gmr::SentenceState* stnc);
         CommandEat();
     protected:
     private:
