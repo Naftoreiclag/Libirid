@@ -31,8 +31,7 @@ int main()
     init();
 
     // I REALLY need a better name soon...
-    Fuzzy fuzzy;
-    fuzzy.start();
+    Fuzzy::run();
 
     // Died quietly
     return 0;

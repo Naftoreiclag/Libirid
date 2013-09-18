@@ -2,13 +2,16 @@
 
 #include "Game.h"
 
-void Fuzzy::start()
+Game* Fuzzy::runningGame;
+
+void Fuzzy::run()
 {
     // Put like, a main menu here or something
 
     // Run a game
-    Game game;
-    game.start();
+    runningGame = new Game();
+    runningGame->run();
+    delete runningGame;
 }
 
 Fuzzy::Fuzzy()

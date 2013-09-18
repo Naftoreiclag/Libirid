@@ -2,7 +2,6 @@
 #define WORLD_H
 
 #include "Room.h"
-#include "entity/EntityPlayer.h"
 
 class World
 {
@@ -12,7 +11,6 @@ class World
     protected:
     private:
         Room* rooms[125];
-        EntityPlayer player;
 };
 
 #endif // WORLD_H

@@ -5,14 +5,16 @@
 #include <string>
 
 #include "world/World.h"
+#include "world/Player.h"
 
 class Game
 {
     public:
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
-        void start();
+        void run();
         Game();
     private:
+        Player* player;
         World* world;
         bool running;
 };

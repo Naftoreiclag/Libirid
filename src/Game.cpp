@@ -15,7 +15,7 @@ Game::Game()
 {
 }
 
-void Game::start()
+void Game::run()
 {
     // We are running now
     running = true;
@@ -25,6 +25,9 @@ void Game::start()
 
     //
     world = new World();
+
+    //
+    player = new Player();
 
     // While running, run!
     while(running)
