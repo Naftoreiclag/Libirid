@@ -25,7 +25,6 @@ class NounDefinition
 
         // Make a word and specify the plural form
         NounDefinition(std::string singularForm, std::string pluralForm);
-    protected:
     private:
         // Forms
         std::string singularForm;

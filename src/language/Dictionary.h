@@ -79,10 +79,6 @@ class Dictionary
 
         // Articles
         static std::map<std::string, gmr::ArticleProperties> registeredArticles;
-
-        // Private, because we'll never instantiate this.
-        // Maybe someday we'll have separate dictionaries...?
-        Dictionary();
 };
 
 #endif // DICTIONARY_H

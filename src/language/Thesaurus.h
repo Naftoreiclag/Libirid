@@ -14,8 +14,6 @@ class Thesaurus
     public:
     protected:
     private:
-        // We will never instiantate this.
-        Thesaurus();
 };
 
 #endif // THESAURUS_H

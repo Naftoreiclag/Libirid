@@ -10,9 +10,6 @@ class Fuzzy
         static Game* runningGame;
     protected:
     private:
-
-        Fuzzy();
-        virtual ~Fuzzy();
 };
 
 #endif // FUZZY_H

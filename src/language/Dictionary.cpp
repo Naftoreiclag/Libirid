@@ -9,8 +9,6 @@
 #include "ModifierDefinition.h"
 #include "Grammar.h"
 
-// We will never instantiate you
-Dictionary::Dictionary() {}
 
 // =====
 // Nouns

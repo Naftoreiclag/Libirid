@@ -11,7 +11,3 @@ void CmdLexicographer::graph()
     CmdDictionary::cmdByAlias->append("eat", new CommandEat());
     CmdDictionary::cmdByAlias->append("dance", new CommandDance());
 }
-
-CmdLexicographer::CmdLexicographer()
-{
-}

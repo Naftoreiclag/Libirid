@@ -15,7 +15,6 @@ class AdjunctDefinition
     public:
         std::string getForm();
         AdjunctDefinition(std::string form, gmr::AdjunctType type);
-    protected:
     private:
         //
         std::string form;

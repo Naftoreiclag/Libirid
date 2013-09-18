@@ -6,8 +6,6 @@ class CmdLexicographer
 {
     public:
         static void graph();
-    private:
-        CmdLexicographer();
 };
 
 #endif // CMDLEXICOGRAPHER_H

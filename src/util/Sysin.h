@@ -18,10 +18,6 @@ class Sysin
 
         // Pauses program and gets the stuff typed in and puts each word int wordList in lowercase
         static void getWordsLowercase(std::vector<std::string>* wordList);
-    protected:
-    private:
-        // Private, because we'll never instantiate this.
-        Sysin();
 };
 
 #endif // SYSIN_H

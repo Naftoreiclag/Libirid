@@ -13,11 +13,3 @@ void Fuzzy::run()
     runningGame->run();
     delete runningGame;
 }
-
-Fuzzy::Fuzzy()
-{
-}
-
-Fuzzy::~Fuzzy()
-{
-}

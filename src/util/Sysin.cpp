@@ -56,6 +56,3 @@ void Sysin::getWordsLowercase(std::vector<std::string>* wordList)
         wordList->push_back(word);
     }
 }
-
-// Constructor
-Sysin::Sysin() {}

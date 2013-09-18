@@ -33,11 +33,7 @@ class Sysout
         static void println(std::vector<std::string>* wordList);
         static void println(int i);
         static void println();
-    protected:
     private:
-        // Private, because we'll never instantiate this.
-        Sysout();
-
         //
         static unsigned short displayWidth;
 };

@@ -59,7 +59,3 @@ void Lexicographer::graph()
     Dictionary::addArticle("these", gmr::definite, gmr::plural);
     Dictionary::addArticle("those", gmr::definite, gmr::plural);
 }
-
-Lexicographer::Lexicographer()
-{
-}
