@@ -2,12 +2,11 @@
 
 #include "CmdDictionary.h"
 
-#include "CommandDance.h"
-#include "CommandEat.h"
+#include "Functionalities.h"
 
 void CmdLexicographer::graph()
 {
     // Add commands
-    CmdDictionary::cmdByAlias->append("eat", CommandEat::execute);
-    CmdDictionary::cmdByAlias->append("dance", CommandDance::execute);
+    CmdDictionary::cmdByAlias->append("eat", Eat::execute);
+    CmdDictionary::cmdByAlias->append("dance", Dance::execute);
 }

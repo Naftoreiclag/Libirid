@@ -1,15 +1,15 @@
-#include "CommandEat.h"
+#include "../Functionalities.h"
 
-#include "../language/Grammar.h"
+#include "../../language/Grammar.h"
 
-#include "../util/Sysout.h"
+#include "../../util/Sysout.h"
 
-#include "../Fuzzy.h"
+#include "../../Fuzzy.h"
 
 #include <vector>
 #include <string>
 
-bool CommandEat::execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias)
+bool Eat::execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias)
 {
     if(stnc->nounStates->size() < 1)
     {
