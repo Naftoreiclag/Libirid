@@ -8,6 +8,6 @@
 void CmdLexicographer::graph()
 {
     // Add commands
-    CmdDictionary::cmdByAlias->append("eat", new CommandEat());
-    CmdDictionary::cmdByAlias->append("dance", new CommandDance());
+    CmdDictionary::cmdByAlias->append("eat", CommandEat::execute);
+    //CmdDictionary::cmdByAlias->append("dance", CommandDance::execute);
 }

@@ -42,7 +42,3 @@ bool CommandEat::execute(gmr::SentenceState* stnc, std::vector<std::string>* arg
 
     return true;
 }
-
-CommandEat::CommandEat()
-{
-}

@@ -120,7 +120,7 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             Sysout::println(Sysout::toFriendlyString(stncState));
 
             // Run the command already
-            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)->execute(stncState, arguementWords, CmdDictionary::cmdByAlias->first(testCommandId));
+            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)(stncState, arguementWords, CmdDictionary::cmdByAlias->first(testCommandId));
 
             // Delete them, since they are no longer needed.
             delete arguementWords;
