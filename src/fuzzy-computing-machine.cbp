@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DDEBUG" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -40,10 +41,9 @@
 		<Unit filename="command/CmdDictionary.h" />
 		<Unit filename="command/CmdLexicographer.cpp" />
 		<Unit filename="command/CmdLexicographer.h" />
-		<Unit filename="command/CommandDance.cpp" />
-		<Unit filename="command/CommandDance.h" />
-		<Unit filename="command/CommandEat.cpp" />
-		<Unit filename="command/CommandEat.h" />
+		<Unit filename="command/Functionalities.h" />
+		<Unit filename="command/functionalities/Dance.cpp" />
+		<Unit filename="command/functionalities/Eat.cpp" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
 		<Unit filename="language/AdjunctDefinition.h" />
 		<Unit filename="language/AdjunctState.cpp" />
