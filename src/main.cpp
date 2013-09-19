@@ -29,13 +29,19 @@ void init()
     CmdLexicographer::graph();
 }
 
+typedef bool (*Funk)();
+
 // This is where the magic happens!
 int main()
 {
-    bool (*func)();
-    func = &Asnd::say;
+    Funk potato;
+    potato = &Asnd::say;
 
-    (*func)();
+    //std::vector<(*funk)()> funkies;
+
+    //funkies.push_back(funk);
+
+    potato();
 
 
     // Initialize
