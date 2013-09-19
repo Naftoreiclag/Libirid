@@ -7,13 +7,13 @@
 
 #include "Fuzzy.h"
 
-// Initialization put in a handy auxiliary function!
-void init()
+// This is where the magic happens!
+int main()
 {
-    // Set the display width to 80 chars long
+    // Set the display width to 80 chars long (for word-wrap)
     Sysout::setDisplayWidth(80);
 
-    // Legend
+    // Legendary string
     Sysout::println("Fuzzy Computing Machine");
     Sysout::println();
 
@@ -22,13 +22,6 @@ void init()
 
     // Add commands
     CmdLexicographer::graph();
-}
-
-// This is where the magic happens!
-int main()
-{
-    // Initialize
-    init();
 
     // I REALLY need a better name soon...
     Fuzzy::run();
