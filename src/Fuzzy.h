@@ -6,10 +6,11 @@
 class Fuzzy
 {
     public:
+        static bool inDebug();
         static void run();
         static Game* runningGame;
-    protected:
     private:
+        static bool debugMode;
 };
 
 #endif // FUZZY_H
