@@ -8,8 +8,6 @@
 
 #include "../util/SequencedMap.h"
 
-#include "Command.h"
-
 namespace fcmd
 {
     typedef bool (*Functionality)(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias);
