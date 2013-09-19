@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Asnd.cpp" />
+		<Unit filename="Asnd.h" />
+		<Unit filename="AsndDog.cpp" />
+		<Unit filename="AsndDog.h" />
 		<Unit filename="Fuzzy.cpp" />
 		<Unit filename="Fuzzy.h" />
 		<Unit filename="Game.cpp" />
@@ -46,6 +50,8 @@
 		<Unit filename="command/CommandDance.h" />
 		<Unit filename="command/CommandEat.cpp" />
 		<Unit filename="command/CommandEat.h" />
+		<Unit filename="command/functionality/Functionality.cpp" />
+		<Unit filename="command/functionality/Functionality.h" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
 		<Unit filename="language/AdjunctDefinition.h" />
 		<Unit filename="language/AdjunctState.cpp" />

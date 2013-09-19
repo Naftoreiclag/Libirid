@@ -7,6 +7,11 @@
 
 #include "Fuzzy.h"
 
+#include "Asnd.h"
+#include "AsndDog.h"
+
+#include <vector>
+
 // Initialization put in a handy auxiliary function!
 void init()
 {
@@ -27,6 +32,12 @@ void init()
 // This is where the magic happens!
 int main()
 {
+    bool (*func)();
+    func = &Asnd::say;
+
+    (*func)();
+
+
     // Initialize
     init();
 
