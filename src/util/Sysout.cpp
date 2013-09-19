@@ -7,6 +7,8 @@
 #include "../language/Dictionary.h"
 #include "../language/Grammar.h"
 
+#include "../Fuzzy.h"
+
 unsigned short Sysout::displayWidth;
 
 void Sysout::setDisplayWidth(unsigned short width)
@@ -191,4 +193,28 @@ void Sysout::println(int i)
 void Sysout::println()
 {
     std::cout << std::endl;
+}
+
+void Sysout::d_print(std::string str)
+{
+    if(Fuzzy::inDebug())
+    {
+        std::cout << str;
+    }
+}
+
+void Sysout::d_println(std::string str)
+{
+    if(Fuzzy::inDebug())
+    {
+        std::cout << str << std::endl;
+    }
+}
+
+void Sysout::d_println()
+{
+    if(Fuzzy::inDebug())
+    {
+        std::cout << std::endl;
+    }
 }

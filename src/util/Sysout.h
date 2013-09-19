@@ -11,10 +11,6 @@
 
 class Sysout
 {
-    // These remind me of my Java days... Horrible!
-    // ...pleasing, but still HORRIBLE!!! I mean, no pointers!?
-    // and don't even get me started on automatic garbage collection...
-    // The Java libraries are amazing though.
     public:
         static void setDisplayWidth(unsigned short displayWidth);
         static std::string wordWrappify(std::string paragraph);
@@ -27,12 +23,17 @@ class Sysout
         static std::string toFriendlyString(gmr::SentenceState* stncState);
         static void printSlow(std::string str);
         static void print(std::string str);
-        static void print(std::vector<std::string>* wordList);
+        static void d_print(std::string str);
         static void print(int i);
         static void println(std::string str);
-        static void println(std::vector<std::string>* wordList);
+        static void d_println(std::string str);
         static void println(int i);
         static void println();
+        static void d_println();
+
+        // Deprecated functions
+        static void print(std::vector<std::string>* wordList);
+        static void println(std::vector<std::string>* wordList);
     private:
         //
         static unsigned short displayWidth;
