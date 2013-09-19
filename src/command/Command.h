@@ -2,12 +2,11 @@
 #define COMMAND_H
 
 #include "../language/Grammar.h"
-#include "../world/World.h"
 
 class Command
 {
     public:
-        virtual bool execute(World* world, gmr::SentenceState* stnc);
+        virtual bool execute(gmr::SentenceState* stnc);
     protected:
         Command();
 };

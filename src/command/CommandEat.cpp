@@ -4,7 +4,7 @@
 
 #include "../util/Sysout.h"
 
-bool CommandEat::execute(World* world, gmr::SentenceState* stnc)
+bool CommandEat::execute(gmr::SentenceState* stnc)
 {
     if(stnc->nounStates->size() < 1)
     {
