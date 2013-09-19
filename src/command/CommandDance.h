@@ -4,17 +4,12 @@
 #include <vector>
 #include <string>
 
-#include "Command.h"
-
 #include "../language/Grammar.h"
 
-class CommandDance: public Command
+class CommandDance
 {
     public:
-        bool execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias);
-        CommandDance();
-    protected:
-    private:
+        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias);
 };
 
 #endif // COMMANDDANCE_H

@@ -7,11 +7,6 @@
 
 #include "Fuzzy.h"
 
-#include "Asnd.h"
-#include "AsndDog.h"
-
-#include <vector>
-
 // Initialization put in a handy auxiliary function!
 void init()
 {
@@ -29,21 +24,9 @@ void init()
     CmdLexicographer::graph();
 }
 
-typedef bool (*Funk)();
-
 // This is where the magic happens!
 int main()
 {
-    Funk potato;
-    potato = &Asnd::say;
-
-    //std::vector<(*funk)()> funkies;
-
-    //funkies.push_back(funk);
-
-    potato();
-
-
     // Initialize
     init();
 

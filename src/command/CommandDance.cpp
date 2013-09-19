@@ -14,6 +14,3 @@ bool CommandDance::execute(gmr::SentenceState* stnc, std::vector<std::string>* a
     return true;
 }
 
-CommandDance::CommandDance()
-{
-}

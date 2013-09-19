@@ -32,10 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Asnd.cpp" />
-		<Unit filename="Asnd.h" />
-		<Unit filename="AsndDog.cpp" />
-		<Unit filename="AsndDog.h" />
 		<Unit filename="Fuzzy.cpp" />
 		<Unit filename="Fuzzy.h" />
 		<Unit filename="Game.cpp" />
@@ -44,14 +40,10 @@
 		<Unit filename="command/CmdDictionary.h" />
 		<Unit filename="command/CmdLexicographer.cpp" />
 		<Unit filename="command/CmdLexicographer.h" />
-		<Unit filename="command/Command.cpp" />
-		<Unit filename="command/Command.h" />
 		<Unit filename="command/CommandDance.cpp" />
 		<Unit filename="command/CommandDance.h" />
 		<Unit filename="command/CommandEat.cpp" />
 		<Unit filename="command/CommandEat.h" />
-		<Unit filename="command/functionality/Functionality.cpp" />
-		<Unit filename="command/functionality/Functionality.h" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
 		<Unit filename="language/AdjunctDefinition.h" />
 		<Unit filename="language/AdjunctState.cpp" />
@@ -70,18 +62,13 @@
 		<Unit filename="language/Thesaurus.cpp" />
 		<Unit filename="language/Thesaurus.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="util/Oneint.cpp" />
-		<Unit filename="util/Oneint.h" />
 		<Unit filename="util/SentenceStateBuilder.cpp" />
 		<Unit filename="util/SentenceStateBuilder.h" />
 		<Unit filename="util/SequencedMap.h" />
-		<Unit filename="util/Socks.cpp" />
-		<Unit filename="util/Socks.h" />
 		<Unit filename="util/Sysin.cpp" />
 		<Unit filename="util/Sysin.h" />
 		<Unit filename="util/Sysout.cpp" />
 		<Unit filename="util/Sysout.h" />
-		<Unit filename="util/VectorUtil.h" />
 		<Unit filename="world/Player.cpp" />
 		<Unit filename="world/Player.h" />
 		<Unit filename="world/Room.cpp" />
