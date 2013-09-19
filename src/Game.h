@@ -10,6 +10,7 @@
 class Game
 {
     public:
+        Player* player;
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
         void run();
 
@@ -17,7 +18,6 @@ class Game
         void save();
         Game();
     private:
-        Player* player;
         World* world;
         bool running;
 };

@@ -4,6 +4,8 @@
 
 #include "../util/Sysout.h"
 
+#include "../Fuzzy.h"
+
 #include <vector>
 #include <string>
 
@@ -39,6 +41,10 @@ bool CommandEat::execute(gmr::SentenceState* stnc, std::vector<std::string>* arg
             Sysout::println("You ate some delicious " + stnc->nounStates->front()->getUnmodifiedName() + ".");
         }
     }
+
+    ++ Fuzzy::runningGame->player->amountEaten;
+
+    Sysout::print("You have now eaten: "); Sysout::print(Fuzzy::runningGame->player->amountEaten); Sysout::println(" foodstuffs!");
 
     return true;
 }

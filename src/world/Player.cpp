@@ -1,6 +1,7 @@
 #include "Player.h"
 
 Player::Player()
+: amountEaten(0)
 {
     //ctor
 }
