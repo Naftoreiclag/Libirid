@@ -4,7 +4,10 @@
 
 #include "../util/Sysout.h"
 
-bool CommandEat::execute(gmr::SentenceState* stnc)
+#include <vector>
+#include <string>
+
+bool CommandEat::execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias)
 {
     if(stnc->nounStates->size() < 1)
     {

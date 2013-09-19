@@ -116,14 +116,15 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             // Process them
             gmr::SentenceState* stncState = SentenceStateBuilder::processStatement(arguementWords);
 
-            // Delete them, since they are no longer needed.
-            delete arguementWords;
-
             // Print stuff
             Sysout::println(Sysout::toFriendlyString(stncState));
 
             // Run the command already
-            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)->execute(world, stncState);
+            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)->execute(stncState, arguementWords, CmdDictionary::cmdByAlias->first(testCommandId));
+
+            // Delete them, since they are no longer needed.
+            delete arguementWords;
+            delete stncState;
 
             // If it was successful
             if(commandSuccessful)
