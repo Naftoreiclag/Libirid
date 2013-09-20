@@ -20,6 +20,24 @@ void Sysin::splitWords(std::string rawInput, std::vector<std::string>* wordConta
     }
 }
 
+/*
+std::vector<std::string>* Sysin::splitWords(std::string rawInput)
+{
+    // New
+    std::vector<std::string>* wordContainer = new std::vector<std::string>();
+
+    // Split
+    std::stringstream sBuffer(rawInput);
+    std::string word;
+    while(sBuffer >> word)
+    {
+        wordContainer->push_back(word);
+    }
+
+    return wordContainer;
+}
+*/
+
 void Sysin::getWords(std::vector<std::string>* wordList)
 {
     // Clear out the vector

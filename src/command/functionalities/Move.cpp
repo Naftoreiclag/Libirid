@@ -1,11 +1,13 @@
 #include "../Functionalities.h"
+#include <vector>
+#include <string>
+
+#include "../../Fuzzy.h"
 
 #include "../../language/Grammar.h"
 
 #include "../../util/Sysout.h"
 
-#include <vector>
-#include <string>
 
 bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
@@ -13,6 +15,8 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     {
         Sysout::println("Specify a direction.");
     }
+
+    Fuzzy::runningGame->runCommandFromSudoInput("dance");
 
     if(argumentWords->front() == "north")
     {

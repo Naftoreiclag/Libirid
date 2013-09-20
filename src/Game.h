@@ -12,6 +12,7 @@ class Game
     public:
         Player* player;
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
+        bool runCommandFromSudoInput(std::string sudoLine);
         void run();
 
         // Save to file
