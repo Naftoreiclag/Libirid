@@ -16,7 +16,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         Sysout::println("Specify a direction.");
     }
 
-    Fuzzy::runningGame->runCommandFromSudoInput("dance");
+    Fuzzy::runningGame->runCommandFromSudoInput("eat a potato");
 
     if(argumentWords->front() == "north")
     {
@@ -37,6 +37,8 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     {
         Sysout::println("You moved south.");
     }
+
+    Sysout::println(Sysout::toFriendlyString(Fuzzy::runningGame->player->roomLocation));
 
     return true;
 }

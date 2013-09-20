@@ -1,6 +1,7 @@
 #include "Sysout.h"
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <unistd.h>
 
@@ -141,6 +142,30 @@ std::string Sysout::toFriendlyString(gmr::SentenceState* stncState)
     }
 
     return returnVal + "}";
+}
+
+std::string Sysout::toFriendlyString(Rotcev3i* r)
+{
+    std::string returnVal = "{";
+
+    returnVal += toString(r->x) + ", ";
+    returnVal += toString(r->y) + ", ";
+    returnVal += toString(r->z) + "}";
+
+    return returnVal;
+}
+
+// Probably really inefficient
+std::string Sysout::toString(int i)
+{
+    // Make a string stream
+    std::stringstream ss;
+
+    // Add number
+    ss << i;
+
+    // Return string
+    return ss.str();
 }
 
 void Sysout::printSlow(std::string str)
