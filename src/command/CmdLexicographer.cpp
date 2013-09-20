@@ -9,4 +9,5 @@ void CmdLexicographer::graph()
     // Add commands
     CmdDictionary::cmdByAlias->append("eat", Eat::execute);
     CmdDictionary::cmdByAlias->append("dance", Dance::execute);
+    CmdDictionary::cmdByAlias->append("move", Move::execute);
 }
