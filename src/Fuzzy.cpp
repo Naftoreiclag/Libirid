@@ -4,8 +4,10 @@
 
 #include "Game.h"
 
+// Debug mode boolean
 bool Fuzzy::debugMode;
 
+// The running game instance
 Game* Fuzzy::runningGame;
 
 void Fuzzy::run()

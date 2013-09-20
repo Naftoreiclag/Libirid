@@ -33,11 +33,12 @@ void Game::run()
     while(running)
     {
         // <Print out the story>
+        Sysout::println();
 
 
         // Prompt
-        Sysout::println();
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
+        Sysout::println();
 
         // Run command from the raw input
         runCommandFromRawInput(lastInput);
