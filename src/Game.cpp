@@ -35,7 +35,6 @@ void Game::run()
         // <Print out the story>
         Sysout::println();
 
-
         // Prompt
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
         Sysout::println();
@@ -111,20 +110,20 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
         if(commandMatches)
         {
             // Get the command arguments
-            std::vector<std::string>* arguementWords = new std::vector<std::string>(*inputWords);
-            arguementWords->erase(arguementWords->begin(), arguementWords->begin() + commandWords->size());
+            std::vector<std::string>* argumentWords = new std::vector<std::string>(*inputWords);
+            argumentWords->erase(argumentWords->begin(), argumentWords->begin() + commandWords->size());
 
             // Process them
-            gmr::SentenceState* stncState = SentenceStateBuilder::processStatement(arguementWords);
+            gmr::SentenceState* stncState = SentenceStateBuilder::processStatement(argumentWords);
 
             // Print debug stuff
             Sysout::d_println(Sysout::toFriendlyString(stncState));
 
             // Run the command       [-----------Function Pointer-------------------][-----------------------Function Parameters--------------------------------]
-            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)(stncState, arguementWords, CmdDictionary::cmdByAlias->first(testCommandId));
+            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)(stncState, argumentWords, CmdDictionary::cmdByAlias->first(testCommandId));
 
             // Delete them, since they are no longer needed.
-            delete arguementWords;
+            delete argumentWords;
             delete stncState;
 
             // If it was successful

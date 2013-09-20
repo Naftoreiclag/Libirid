@@ -9,13 +9,19 @@
 class Eat
 {
     public:
-        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias);
+        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
+};
+
+class Move
+{
+    public:
+        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 };
 
 class Dance
 {
     public:
-        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias);
+        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 };
 
 #endif // FUNCTIONALITIES_H

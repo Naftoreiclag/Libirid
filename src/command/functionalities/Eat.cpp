@@ -9,7 +9,7 @@
 #include <vector>
 #include <string>
 
-bool Eat::execute(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias)
+bool Eat::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
     if(stnc->nounStates->size() < 1)
     {

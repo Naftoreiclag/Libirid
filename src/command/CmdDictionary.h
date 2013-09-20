@@ -10,7 +10,7 @@
 
 namespace fcmd
 {
-    typedef bool (*Functionality)(gmr::SentenceState* stnc, std::vector<std::string>* arguementWords, std::string alias);
+    typedef bool (*Functionality)(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 }
 
 class CmdDictionary
