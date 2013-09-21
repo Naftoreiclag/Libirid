@@ -16,9 +16,9 @@ bool Look::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
 {
     Player* player = Fuzzy::runningGame->player;
 
-    Sysout::d_println(Sysout::toFriendlyString(player->roomLocation->getWorldLocation()));
+    Sysout::d_println(Sysout::toFriendlyString(player->getRoomLocation()->getWorldLocation()));
 
-    Sysout::println(Sysout::wordWrappify(player->roomLocation->getDescription(0)));
+    Sysout::println(Sysout::wordWrappify(player->getRoomLocation()->getDescription(0)));
 
     return true;
 }

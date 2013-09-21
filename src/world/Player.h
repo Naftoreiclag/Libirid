@@ -7,11 +7,13 @@ class Player
 {
     public:
         unsigned int amountEaten;
-        Room* roomLocation;
+        unsigned int roomChangeCount;
+        void setRoomLocation(Room* roomLocation);
+        Room* getRoomLocation();
         Player(Room* roomLocation);
         virtual ~Player();
-    protected:
     private:
+        Room* roomLocation;
 };
 
 #endif // PLAYER_H
