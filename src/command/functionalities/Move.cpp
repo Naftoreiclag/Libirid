@@ -38,7 +38,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         Sysout::println("You moved south.");
     }
 
-    Sysout::println(Sysout::toFriendlyString(Fuzzy::runningGame->player->roomLocation));
+    Sysout::println(Sysout::toFriendlyString(*Fuzzy::runningGame->player->roomLocation));
 
     return true;
 }
