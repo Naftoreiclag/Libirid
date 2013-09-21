@@ -8,7 +8,6 @@
 
 #include "../../util/Sysout.h"
 
-
 bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
     if(argumentWords->size() == 0)
@@ -16,29 +15,37 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         Sysout::println("Specify a direction.");
     }
 
-    Fuzzy::runningGame->runCommandFromSudoInput("eat a potato");
-
-    if(argumentWords->front() == "north")
-    {
-        Sysout::println("You moved north.");
-    }
+    Player* player = Fuzzy::runningGame->player;
 
     if(argumentWords->front() == "west")
     {
         Sysout::println("You moved west.");
+
+        -- player->roomLocation->x;
     }
 
     if(argumentWords->front() == "east")
     {
         Sysout::println("You moved east.");
+
+        ++ player->roomLocation->x;
     }
 
     if(argumentWords->front() == "south")
     {
         Sysout::println("You moved south.");
+
+        ++ player->roomLocation->z;
     }
 
-    Sysout::println(Sysout::toFriendlyString(*Fuzzy::runningGame->player->roomLocation));
+    if(argumentWords->front() == "north")
+    {
+        Sysout::println("You moved north.");
+
+        -- player->roomLocation->z;
+    }
+
+    Sysout::d_println(Sysout::toFriendlyString(*Fuzzy::runningGame->player->roomLocation));
 
     return true;
 }
