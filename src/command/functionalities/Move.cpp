@@ -24,7 +24,12 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
 
     if(alias == "go")
     {
-        return Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
+        bool subCmdSuccess = Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
+
+        if(subCmdSuccess)
+        {
+            return true;
+        }
     }
 
     Player* player = Fuzzy::runningGame->player;
