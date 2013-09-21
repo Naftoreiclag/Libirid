@@ -11,6 +11,7 @@ class Game
 {
     public:
         Player* player;
+        World* world;
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
         bool runCommandFromSudoInput(std::string sudoLine);
         void run();
@@ -19,7 +20,6 @@ class Game
         void save();
         Game();
     private:
-        World* world;
         bool running;
 };
 

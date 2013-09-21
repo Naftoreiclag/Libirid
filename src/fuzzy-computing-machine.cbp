@@ -46,6 +46,7 @@
 		<Unit filename="command/Functionalities.h" />
 		<Unit filename="command/functionalities/Dance.cpp" />
 		<Unit filename="command/functionalities/Eat.cpp" />
+		<Unit filename="command/functionalities/Look.cpp" />
 		<Unit filename="command/functionalities/Move.cpp" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
 		<Unit filename="language/AdjunctDefinition.h" />

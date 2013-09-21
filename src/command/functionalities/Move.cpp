@@ -45,7 +45,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         -- player->roomLocation->z;
     }
 
-    Sysout::d_println(Sysout::toFriendlyString(*Fuzzy::runningGame->player->roomLocation));
+    Sysout::d_println(Sysout::toFriendlyString(*player->roomLocation));
 
     return true;
 }

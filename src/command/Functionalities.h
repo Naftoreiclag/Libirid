@@ -24,4 +24,10 @@ class Dance
         static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 };
 
+class Look
+{
+    public:
+        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
+};
+
 #endif // FUNCTIONALITIES_H
