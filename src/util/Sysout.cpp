@@ -12,13 +12,11 @@
 
 #include "../Fuzzy.h"
 
+// How wide the screen is
 unsigned short Sysout::displayWidth;
+void Sysout::setDisplayWidth(unsigned short width) { displayWidth = width; }
 
-void Sysout::setDisplayWidth(unsigned short width)
-{
-    displayWidth = width;
-}
-
+// Adds newlines to a string to accommodate to screen width
 std::string Sysout::wordWrappify(std::string paragraph)
 {
     // The position used to determine where the string would normally be cut off
@@ -41,22 +39,27 @@ std::string Sysout::wordWrappify(std::string paragraph)
     return paragraph;
 }
 
-void Sysout::printDictionaryEntries()
+// Print out all the dictionary entries
+void Sysout::d_printDictionaryEntries()
 {
-    std::cout << Dictionary::numNouns() << " nouns registered:";
-    for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
+    if(Fuzzy::inDebug())
     {
-        std::cout << " " << Dictionary::getNoun(nounFocus)->getPluralForm();
+        std::cout << Dictionary::numNouns() << " nouns registered:";
+        for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
+        {
+            std::cout << " " << Dictionary::getNoun(nounFocus)->getPluralForm();
+        }
+        std::cout << std::endl;
+        std::cout << Dictionary::numAdjuncts() << " adjuncts registered:";
+        for(unsigned int adjunctFocus = 0; adjunctFocus < Dictionary::numAdjuncts(); ++ adjunctFocus)
+        {
+            std::cout << " " << Dictionary::getAdjunct(adjunctFocus)->getForm();
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
-    std::cout << Dictionary::numAdjuncts() << " adjuncts registered:";
-    for(unsigned int adjunctFocus = 0; adjunctFocus < Dictionary::numAdjuncts(); ++ adjunctFocus)
-    {
-        std::cout << " " << Dictionary::getAdjunct(adjunctFocus)->getForm();
-    }
-    std::cout << std::endl;
 }
 
+// Word type
 std::string Sysout::toFriendlyString(gmr::WordType wordType)
 {
     if(wordType == gmr::noun)
@@ -82,16 +85,19 @@ std::string Sysout::toFriendlyString(gmr::WordType wordType)
     return "hyper-gibberish";
 }
 
+// Plurality
 std::string Sysout::toFriendlyString(gmr::Plurality plurality)
 {
     return plurality == gmr::singular ? "singular" : plurality == gmr::plural ? "plural" : plurality == gmr::ambiguous ? "ambiguous" : "lolwut???";
 }
 
+// Article Type
 std::string Sysout::toFriendlyString(gmr::ArticleType definity)
 {
     return definity == gmr::definite ? "definite" : definity == gmr::indefinite ? "indefinite" : definity == gmr::undefinite ? "undefined" : "lolwut???";
 }
 
+// Noun State
 std::string Sysout::toFriendlyString(gmr::NounState* nounState)
 {
     std::string returnVal = "[";
@@ -109,6 +115,7 @@ std::string Sysout::toFriendlyString(gmr::NounState* nounState)
     return returnVal + "]";
 }
 
+// Word List
 std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
 {
     std::string returnVal = "[";
@@ -134,6 +141,7 @@ std::string Sysout::toFriendlyString(std::vector<std::string>* wordList)
     return returnVal + "]";
 }
 
+// Sentence State
 std::string Sysout::toFriendlyString(gmr::SentenceState* stncState)
 {
     std::string returnVal = "{";
@@ -146,17 +154,7 @@ std::string Sysout::toFriendlyString(gmr::SentenceState* stncState)
     return returnVal + "}";
 }
 
-std::string Sysout::toFriendlyString(Rotcev3i* r)
-{
-    std::string returnVal = "{";
-
-    returnVal += toString(r->x) + ", ";
-    returnVal += toString(r->y) + ", ";
-    returnVal += toString(r->z) + "}";
-
-    return returnVal;
-}
-
+// Point3i
 std::string Sysout::toFriendlyString(Point3i p)
 {
     std::string returnVal = "{";
@@ -168,6 +166,7 @@ std::string Sysout::toFriendlyString(Point3i p)
     return returnVal;
 }
 
+// Integer to String
 // Probably really inefficient
 std::string Sysout::toString(int i)
 {
@@ -181,6 +180,8 @@ std::string Sysout::toString(int i)
     return ss.str();
 }
 
+// Prints stuff out slow
+// Make this better!
 void Sysout::printSlow(std::string str)
 {
     for(unsigned int index = 0; index < str.length(); ++ index)
@@ -198,50 +199,21 @@ void Sysout::printSlow(std::string str)
     }
 }
 
-void Sysout::print(std::string str)
-{
-    std::cout << str;
-}
+// Integer
+void Sysout::print(int i) { std::cout << i; }
+void Sysout::println(int i) { std::cout << i << std::endl; } // Line
 
-void Sysout::println(std::string str)
-{
-    std::cout << str << std::endl;
-}
-
-void Sysout::print(std::vector<std::string>* wordList)
-{
-    std::cout << toFriendlyString(wordList);
-}
-
-void Sysout::println(std::vector<std::string>* wordList)
-{
-    std::cout << toFriendlyString(wordList) << std::endl;
-}
-
-void Sysout::print(int i)
-{
-    std::cout << i;
-}
-
-void Sysout::println(int i)
-{
-    std::cout << i << std::endl;
-}
-
-void Sysout::println()
-{
-    std::cout << std::endl;
-}
-
-void Sysout::d_print(std::string str)
+// String
+void Sysout::print(std::string str) { std::cout << str; }
+void Sysout::println(std::string str) { std::cout << str << std::endl; } // Line
+void Sysout::d_print(std::string str) // Debug
 {
     if(Fuzzy::inDebug())
     {
         std::cout << str;
     }
 }
-
-void Sysout::d_println(std::string str)
+void Sysout::d_println(std::string str) // Debug, Line
 {
     if(Fuzzy::inDebug())
     {
@@ -249,6 +221,8 @@ void Sysout::d_println(std::string str)
     }
 }
 
+// Line
+void Sysout::println() { std::cout << std::endl; }
 void Sysout::d_println()
 {
     if(Fuzzy::inDebug())
