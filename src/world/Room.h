@@ -5,9 +5,10 @@
 #include <vector>
 
 #include "../util/Point3i.h"
-#include "tree/Tree.h"
 
 class World;
+
+class Tree;
 
 class Room
 {
@@ -20,8 +21,8 @@ class Room
         Room(World* world, Point3i worldLocation);
         virtual ~Room();
     private:
-        Point3i worldLocation;
         World* world;
+        Point3i worldLocation;
         std::vector<Tree*> trees;
 };
 

@@ -56,9 +56,11 @@ bool Game::runCommandFromSudoInput(std::string sudoLine)
     std::vector<std::string>* inputWords = new std::vector<std::string>();
     Sysin::splitWords(sudoLine, inputWords);
 
-    runCommandFromRawInput(inputWords);
+    bool success = runCommandFromRawInput(inputWords);
 
     delete inputWords;
+
+    return success;
 }
 
 bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
