@@ -37,6 +37,8 @@
 		<Unit filename="Fuzzy.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
+		<Unit filename="Title.cpp" />
+		<Unit filename="Title.h" />
 		<Unit filename="command/CmdDictionary.cpp" />
 		<Unit filename="command/CmdDictionary.h" />
 		<Unit filename="command/CmdLexicographer.cpp" />

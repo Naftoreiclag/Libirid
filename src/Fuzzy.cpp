@@ -20,36 +20,26 @@ void Fuzzy::run()
     debugMode = false;
     #endif
 
-    Point3i one(1, 2, 3);
-    Point3i two(4, 5, 6);
-    Point3i three;
-
-    three = one + two;
-    Sysout::println(Sysout::toFriendlyString(three));
-
-    three = one - two;
-    Sysout::println(Sysout::toFriendlyString(three));
-
-    three = one * two;
-    Sysout::println(Sysout::toFriendlyString(three));
-
-    if(three == one * two)
-    {
-        Sysout::println("equal");
-    }
-
-    // Put like, a main menu here or something
-
     // If we are in debug mode, then print that
     if(inDebug())
     {
         Sysout::println("Running in DEBUG mode!");
     }
 
-    // Run a game
-    runningGame = new Game();
-    runningGame->run();
-    delete runningGame;
+    //
+    bool running = true;
+
+    while(running)
+    {
+        // Title screen
+        // InputResult ir = Title::show();
+        // switch(ir) ...
+
+        // Run a game
+        runningGame = new Game();
+        runningGame->run();
+        delete runningGame;
+    }
 }
 
 bool Fuzzy::inDebug()
