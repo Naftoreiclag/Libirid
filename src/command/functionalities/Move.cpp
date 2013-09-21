@@ -22,6 +22,11 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         return false;
     }
 
+    if(alias == "go")
+    {
+        return Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
+    }
+
     Player* player = Fuzzy::runningGame->player;
     Point3i playerWorldLocation = player->getRoomLocation()->getWorldLocation();
     World* world = player->getRoomLocation()->getWorld();
