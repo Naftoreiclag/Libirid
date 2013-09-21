@@ -9,11 +9,12 @@ class World
 {
     public:
         Room* getRoom(Point3i location);
+        int packCoord(int x, int y, int z);
         World();
         virtual ~World();
     protected:
     private:
-        Room* rooms[125];
+        Room* rooms[1000];
 };
 
 #endif // WORLD_H

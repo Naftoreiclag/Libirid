@@ -5,21 +5,32 @@
 
 Room* World::getRoom(Point3i location)
 {
-    return rooms[(location.x) + (location.y * 5) + (location.z * 25)];
+    return rooms[packCoord(location.x, location.y, location.z)];
+}
+
+int World::packCoord(int x, int y, int z)
+{
+    return x + (y * 10) + (z * 100);
 }
 
 World::World()
 {
-    for(unsigned int index = 0; index < 125; ++ index)
+    for(unsigned int x = 0; x < 10; ++ x)
     {
-        rooms[index] = new Room();
+        for(unsigned int y = 0; y < 10; ++ y)
+        {
+            for(unsigned int z = 0; z < 10; ++ z)
+            {
+                rooms[World::packCoord(x, y, z)] = new Room(Point3i(x, y, z));
+            }
+        }
     }
 }
 
 World::~World()
 {
-    for(unsigned int index = 0; index < 125; ++ index)
+    /*for(unsigned int index = 0; index < 125; ++ index)
     {
         delete rooms[index];
-    }
+    }*/
 }
