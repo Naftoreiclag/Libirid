@@ -1,12 +1,12 @@
 #ifndef CMDDICTIONARY_H
 #define CMDDICTIONARY_H
 
-#include <vector>
-#include <string>
-
 #include "../language/Grammar.h"
 
 #include "../util/SequencedMap.h"
+
+class vector;
+class string;
 
 namespace fcmd
 {

@@ -1,10 +1,10 @@
 #ifndef FUNCTIONALITIES_H
 #define FUNCTIONALITIES_H
 
-#include <vector>
-#include <string>
-
 #include "../language/Grammar.h"
+
+class vector;
+class string;
 
 class Eat
 {

@@ -6,6 +6,8 @@
 
 #include "../../Fuzzy.h"
 
+#include "../../world/Player.h"
+
 #include <vector>
 #include <string>
 

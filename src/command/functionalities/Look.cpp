@@ -8,6 +8,10 @@
 
 #include "../../util/Sysout.h"
 
+#include "../../world/Player.h"
+
+#include "../../world/Room.h"
+
 bool Look::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
     Player* player = Fuzzy::runningGame->player;

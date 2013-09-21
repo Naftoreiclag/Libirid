@@ -1,12 +1,12 @@
 #ifndef SYSOUT_H
 #define SYSOUT_H
 
-#include <string>
-#include <vector>
-
 #include "../language/Grammar.h"
 
 #include "../util/Point3i.h"
+
+class string;
+class vector;
 
 /* std::cout made generic!
  */

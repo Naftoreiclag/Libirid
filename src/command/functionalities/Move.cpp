@@ -9,6 +9,10 @@
 #include "../../util/Point3i.h"
 #include "../../util/Sysout.h"
 
+#include "../../world/World.h"
+#include "../../world/Player.h"
+#include "../../world/Room.h"
+
 bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
     if(argumentWords->size() == 0)

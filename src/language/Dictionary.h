@@ -1,7 +1,6 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
-#include <string>
 #include <vector>
 #include <map>
 
@@ -9,6 +8,8 @@
 #include "AdjunctDefinition.h"
 #include "ModifierDefinition.h"
 #include "Grammar.h"
+
+class string;
 
 /* Pretty much just a dynamic lib for the different kinds
  * of words.

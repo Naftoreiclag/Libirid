@@ -1,7 +1,6 @@
 #ifndef MODIFIERDEFINITION_H
 #define MODIFIERDEFINITION_H
 
-#include <vector>
 #include <string>
 
 class ModifierDefinition

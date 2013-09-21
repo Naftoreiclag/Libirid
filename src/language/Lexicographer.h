@@ -1,7 +1,6 @@
 #ifndef LEXICOGRAPHER_H
 #define LEXICOGRAPHER_H
 
-
 class Lexicographer
 {
     public:

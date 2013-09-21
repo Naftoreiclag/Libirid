@@ -1,9 +1,9 @@
 #ifndef SENTENCESTATEBUILDER_H
 #define SENTENCESTATEBUILDER_H
 
-#include <vector>
-
 #include "../language/Grammar.h"
+
+class vector;
 
 class SentenceStateBuilder
 {

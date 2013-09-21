@@ -1,17 +1,17 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <vector>
 #include <string>
+#include <vector>
 
-#include "world/World.h"
-#include "world/Player.h"
+class World;
+class Player;
 
 class Game
 {
     public:
-        Player* player;
         World* world;
+        Player* player;
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
         bool runCommandFromSudoInput(std::string sudoLine);
         void run();
