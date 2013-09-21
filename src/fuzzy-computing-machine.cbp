@@ -45,6 +45,7 @@
 		<Unit filename="command/CmdLexicographer.h" />
 		<Unit filename="command/Functionalities.h" />
 		<Unit filename="command/functionalities/Dance.cpp" />
+		<Unit filename="command/functionalities/Do.cpp" />
 		<Unit filename="command/functionalities/Eat.cpp" />
 		<Unit filename="command/functionalities/Look.cpp" />
 		<Unit filename="command/functionalities/Lumberjack.cpp" />

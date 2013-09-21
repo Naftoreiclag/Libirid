@@ -14,4 +14,5 @@ void CmdLexicographer::graph()
     CmdDictionary::cmdByAlias->append("look", Look::execute);
     CmdDictionary::cmdByAlias->append("chop down", Lumberjack::execute);
     CmdDictionary::cmdByAlias->append("cut down", Lumberjack::execute);
+    CmdDictionary::cmdByAlias->append("do", Do::execute);
 }
