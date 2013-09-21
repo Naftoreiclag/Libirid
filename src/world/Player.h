@@ -1,14 +1,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "../util/Point3i.h"
+#include "Room.h"
 
 class Player
 {
     public:
         unsigned int amountEaten;
-        Point3i* roomLocation;
-        Player();
+        Room* roomLocation;
+        Player(Room* roomLocation);
         virtual ~Player();
     protected:
     private:

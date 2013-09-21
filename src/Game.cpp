@@ -9,6 +9,7 @@
 #include "language/Grammar.h"
 
 #include "world/World.h"
+#include "world/Player.h"
 
 Game::Game()
 : running(false)
@@ -27,7 +28,7 @@ void Game::run()
     world = new World();
 
     //
-    player = new Player();
+    player = new Player(world->getRoom(Point3i(5, 5, 5)));
 
     // While running, run!
     while(running)

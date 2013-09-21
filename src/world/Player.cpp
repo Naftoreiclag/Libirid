@@ -1,9 +1,9 @@
 #include "Player.h"
 
-#include "../util/Point3i.h"
+#include "Room.h"
 
-Player::Player()
-: amountEaten(0), roomLocation(new Point3i(0, 0, 0))
+Player::Player(Room* roomLocation)
+: amountEaten(0), roomLocation(roomLocation)
 {
     //ctor
 }

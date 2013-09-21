@@ -13,7 +13,7 @@ bool Lumberjack::execute(gmr::SentenceState* stnc, std::vector<std::string>* arg
 {
     Sysout::println("chop");
 
-    Room* room = Fuzzy::runningGame->world->getRoom(*Fuzzy::runningGame->player->roomLocation);
+    Room* room = Fuzzy::runningGame->player->roomLocation;
 
     room->cutDownTree();
 

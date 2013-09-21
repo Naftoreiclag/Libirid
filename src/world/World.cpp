@@ -21,7 +21,7 @@ World::World()
         {
             for(unsigned int z = 0; z < 10; ++ z)
             {
-                rooms[World::packCoord(x, y, z)] = new Room(Point3i(x, y, z));
+                rooms[World::packCoord(x, y, z)] = new Room(this, Point3i(x, y, z));
             }
         }
     }

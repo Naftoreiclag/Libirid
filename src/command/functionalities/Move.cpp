@@ -6,6 +6,7 @@
 
 #include "../../language/Grammar.h"
 
+#include "../../util/Point3i.h"
 #include "../../util/Sysout.h"
 
 bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
@@ -16,33 +17,35 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     }
 
     Player* player = Fuzzy::runningGame->player;
-
-    if(argumentWords->front() == "west")
-    {
-        Sysout::println("You moved west.");
-
-        -- player->roomLocation->x;
-    }
+    Point3i playerWorldLocation = player->roomLocation->getWorldLocation();
+    World* world = player->roomLocation->getWorld();
 
     if(argumentWords->front() == "east")
     {
         Sysout::println("You moved east.");
 
-        ++ player->roomLocation->x;
+        player->roomLocation = world->getRoom(playerWorldLocation + Point3i(1, 0, 0));
+    }
+
+    if(argumentWords->front() == "west")
+    {
+        Sysout::println("You moved west.");
+
+        player->roomLocation = world->getRoom(playerWorldLocation + Point3i(-1, 0, 0));
     }
 
     if(argumentWords->front() == "south")
     {
         Sysout::println("You moved south.");
 
-        ++ player->roomLocation->z;
+        player->roomLocation = world->getRoom(playerWorldLocation + Point3i(0, 0, 1));
     }
 
     if(argumentWords->front() == "north")
     {
         Sysout::println("You moved north.");
 
-        -- player->roomLocation->z;
+        player->roomLocation = world->getRoom(playerWorldLocation + Point3i(0, 0, -1));
     }
 
     Fuzzy::runningGame->runCommandFromSudoInput("look");

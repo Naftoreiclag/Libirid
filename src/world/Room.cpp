@@ -5,6 +5,8 @@
 #include "../util/Sysout.h"
 #include "../util/Point3i.h"
 
+#include "World.h"
+
 #include "tree/Tree.h"
 
 void Room::cutDownTree()
@@ -22,7 +24,7 @@ std::string Room::getDescription(int seed)
     std::string returnVal = "";
 
     returnVal += "This room is located at: ";
-    returnVal += Sysout::toFriendlyString(location);
+    returnVal += Sysout::toFriendlyString(worldLocation);
     returnVal += " It has ";
     returnVal += Sysout::toString(numTrees());
     returnVal += " trees.";
@@ -30,13 +32,18 @@ std::string Room::getDescription(int seed)
     return returnVal;
 }
 
-Point3i Room::getLocation()
+Point3i Room::getWorldLocation()
 {
-    return location;
+    return worldLocation;
 }
 
-Room::Room(Point3i location)
-: location(location)
+World* Room::getWorld()
+{
+    return world;
+}
+
+Room::Room(World* world, Point3i worldLocation)
+: world(world), worldLocation(worldLocation)
 {
     trees.push_back(new Tree());
     trees.push_back(new Tree());
