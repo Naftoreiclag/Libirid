@@ -30,4 +30,10 @@ class Look
         static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 };
 
+class Lumberjack
+{
+    public:
+        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
+};
+
 #endif // FUNCTIONALITIES_H
