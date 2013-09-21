@@ -7,6 +7,7 @@
 #include "../language/Grammar.h"
 
 #include "../util/Rotcev.h"
+#include "../util/Point3i.h"
 
 /* std::cout made generic!
  */
@@ -24,6 +25,7 @@ class Sysout
         static std::string toFriendlyString(gmr::NounState* nounState);
         static std::string toFriendlyString(gmr::SentenceState* stncState);
         static std::string toFriendlyString(Rotcev3i* r);
+        static std::string toFriendlyString(Point3i p);
         static std::string toString(int i);
         static void printSlow(std::string str);
         static void print(std::string str);

@@ -8,6 +8,8 @@
 #include "../language/Dictionary.h"
 #include "../language/Grammar.h"
 
+#include "../util/Point3i.h"
+
 #include "../Fuzzy.h"
 
 unsigned short Sysout::displayWidth;
@@ -151,6 +153,17 @@ std::string Sysout::toFriendlyString(Rotcev3i* r)
     returnVal += toString(r->x) + ", ";
     returnVal += toString(r->y) + ", ";
     returnVal += toString(r->z) + "}";
+
+    return returnVal;
+}
+
+std::string Sysout::toFriendlyString(Point3i p)
+{
+    std::string returnVal = "{";
+
+    returnVal += toString(p.x) + ", ";
+    returnVal += toString(p.y) + ", ";
+    returnVal += toString(p.z) + "}";
 
     return returnVal;
 }

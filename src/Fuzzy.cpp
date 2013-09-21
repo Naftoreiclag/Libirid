@@ -1,6 +1,7 @@
 #include "Fuzzy.h"
 
 #include "util/Sysout.h"
+#include "util/Point3i.h"
 
 #include "Game.h"
 
@@ -18,6 +19,24 @@ void Fuzzy::run()
     #else
     debugMode = false;
     #endif
+
+    Point3i one(1, 2, 3);
+    Point3i two(4, 5, 6);
+    Point3i three;
+
+    three = one + two;
+    Sysout::println(Sysout::toFriendlyString(three));
+
+    three = one - two;
+    Sysout::println(Sysout::toFriendlyString(three));
+
+    three = one * two;
+    Sysout::println(Sysout::toFriendlyString(three));
+
+    if(three == one * two)
+    {
+        Sysout::println("equal");
+    }
 
     // Put like, a main menu here or something
 
