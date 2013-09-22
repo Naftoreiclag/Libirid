@@ -70,6 +70,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="util/Point3i.cpp" />
 		<Unit filename="util/Point3i.h" />
+		<Unit filename="util/Random.cpp" />
+		<Unit filename="util/Random.h" />
 		<Unit filename="util/SentenceStateBuilder.cpp" />
 		<Unit filename="util/SentenceStateBuilder.h" />
 		<Unit filename="util/SequencedMap.h" />
