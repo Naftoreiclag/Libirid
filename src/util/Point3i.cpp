@@ -48,3 +48,17 @@ bool Point3i::operator== (Point3i p)
 {
     return x == p.x && y == p.y && z == p.z;
 }
+
+// Is not equal
+bool Point3i::operator!= (Point3i p)
+{
+    if(x != p.x)
+    {
+        return true;
+    }
+    if(y != p.y)
+    {
+        return true;
+    }
+    return z != p.z;
+}

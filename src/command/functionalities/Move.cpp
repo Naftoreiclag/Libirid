@@ -7,6 +7,7 @@
 #include "../../language/Grammar.h"
 
 #include "../../util/Point3i.h"
+#include "../../util/Cardinal.h"
 #include "../../util/Sysout.h"
 
 #include "../../world/World.h"
@@ -15,11 +16,31 @@
 
 bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
+    // If there are no arguments, tell the user how to do it
     if(argumentWords->size() == 0)
     {
+        // Inform
         Sysout::println("Specify a direction.");
 
+        // Fail
         return false;
+    }
+
+    // Vector to store direction
+    Point3i directionVector = Cardinal::interpretString(argumentWords->front());
+
+    if(directionVector != Point3i(0, 0, 0))
+    {
+        Sysout::print("You moved "); Sysout::print(argumentWords->front()); Sysout::println(".");
+
+        Player* player = Fuzzy::runningGame->player;
+        Point3i playerWorldLocation = player->getRoomLocation()->getWorldLocation();
+        World* world = player->getRoomLocation()->getWorld();
+
+        player->setRoomLocation(world->getRoom(playerWorldLocation + directionVector));
+        Fuzzy::runningGame->runCommandFromSudoInput("look");
+
+        return true;
     }
 
     if(alias == "go")
@@ -32,40 +53,6 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         }
     }
 
-    Player* player = Fuzzy::runningGame->player;
-    Point3i playerWorldLocation = player->getRoomLocation()->getWorldLocation();
-    World* world = player->getRoomLocation()->getWorld();
-
-    if(argumentWords->front() == "east")
-    {
-        Sysout::println("You moved east.");
-
-        player->setRoomLocation(world->getRoom(playerWorldLocation + Point3i(1, 0, 0)));
-    }
-
-    if(argumentWords->front() == "west")
-    {
-        Sysout::println("You moved west.");
-
-        player->setRoomLocation(world->getRoom(playerWorldLocation + Point3i(-1, 0, 0)));
-    }
-
-    if(argumentWords->front() == "south")
-    {
-        Sysout::println("You moved south.");
-
-        player->setRoomLocation(world->getRoom(playerWorldLocation + Point3i(0, 0, 1)));
-    }
-
-    if(argumentWords->front() == "north")
-    {
-        Sysout::println("You moved north.");
-
-        player->setRoomLocation(world->getRoom(playerWorldLocation + Point3i(0, 0, -1)));
-    }
-
-    Fuzzy::runningGame->runCommandFromSudoInput("look");
-
-    return true;
+    return false;
 }
 

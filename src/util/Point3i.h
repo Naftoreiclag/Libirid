@@ -15,6 +15,7 @@ class Point3i
         Point3i operator- (Point3i p);
         Point3i operator* (Point3i p);
         bool operator== (Point3i p);
+        bool operator!= (Point3i p);
 };
 
 #endif // POINT3I_H
