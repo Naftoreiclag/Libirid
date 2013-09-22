@@ -11,4 +11,3 @@ bool Do::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWor
 {
     return Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
 }
-
