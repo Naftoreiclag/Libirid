@@ -10,6 +10,7 @@
 void Lexicographer::graph()
 {
     // Na-Ooh-Nu-S
+    // ABCDEFGHIJKLMNOPQRSTUVWXYZ
     Dictionary::addNoun(new NounDefinition("bunny"));
     Dictionary::addNoun(new NounDefinition("cookie"));
     Dictionary::addNoun(new NounDefinition("couch"));
@@ -19,12 +20,14 @@ void Lexicographer::graph()
     Dictionary::addNoun(new NounDefinition("egg"));
     Dictionary::addNoun(new NounDefinition("fish", "fish"));
     Dictionary::addNoun(new NounDefinition("grass"));
+    Dictionary::addNoun(new NounDefinition("leaf", "leaves"));
     Dictionary::addNoun(new NounDefinition("mouse", "mice"));
     Dictionary::addNoun(new NounDefinition("potato"));
     Dictionary::addNoun(new NounDefinition("rock"));
     Dictionary::addNoun(new NounDefinition("sheep", "sheep"));
     Dictionary::addNoun(new NounDefinition("shoe"));
     Dictionary::addNoun(new NounDefinition("sock"));
+    Dictionary::addNoun(new NounDefinition("stick"));
     Dictionary::addNoun(new NounDefinition("tomato"));
     Dictionary::addNoun(new NounDefinition("tree"));
     Dictionary::addNounAsErroneous(new NounDefinition("_HERPADERPDERP"));
