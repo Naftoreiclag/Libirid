@@ -29,30 +29,42 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     // Vector to store direction
     Point3i directionVector = Cardinal::interpretString(argumentWords->front());
 
+    // If we are actually moving
     if(directionVector != Point3i(0, 0, 0))
     {
-        Sysout::print("You moved "); Sysout::print(argumentWords->front()); Sysout::println(".");
+        // Tell
+        Sysout::print("You travel "); Sysout::print(argumentWords->front()); Sysout::println(".");
 
+        // Get objects
         Player* player = Fuzzy::runningGame->player;
         Point3i playerWorldLocation = player->getRoomLocation()->getWorldLocation();
         World* world = player->getRoomLocation()->getWorld();
 
+        // Move
         player->setRoomLocation(world->getRoom(playerWorldLocation + directionVector));
+
+        // Sudo-run the look command
         Fuzzy::runningGame->runCommandFromSudoInput("look");
 
+        // Successful
         return true;
     }
 
+    // Also works like "do"
     if(alias == "go")
     {
+        // Test the command
         bool subCmdSuccess = Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
 
+        // If successful
         if(subCmdSuccess)
         {
+            // Successful
             return true;
         }
     }
 
+    // Fail
     return false;
 }
 

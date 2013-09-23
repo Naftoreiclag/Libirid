@@ -36,6 +36,12 @@ class Lumberjack
         static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 };
 
+class Take
+{
+    public:
+        static bool execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
+};
+
 class Do
 {
     public:

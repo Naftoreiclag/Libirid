@@ -50,6 +50,7 @@
 		<Unit filename="command/functionalities/Look.cpp" />
 		<Unit filename="command/functionalities/Lumberjack.cpp" />
 		<Unit filename="command/functionalities/Move.cpp" />
+		<Unit filename="command/functionalities/Take.cpp" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
 		<Unit filename="language/AdjunctDefinition.h" />
 		<Unit filename="language/AdjunctState.cpp" />
@@ -91,6 +92,8 @@
 		<Unit filename="world/entity/Entity.h" />
 		<Unit filename="world/entity/EntitySentient.cpp" />
 		<Unit filename="world/entity/EntitySentient.h" />
+		<Unit filename="world/item/Inventory.cpp" />
+		<Unit filename="world/item/Inventory.h" />
 		<Unit filename="world/tree/Tree.cpp" />
 		<Unit filename="world/tree/Tree.h" />
 		<Extensions>
