@@ -79,7 +79,7 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
     {
         // Split the command's alias into a vector of individual words
         std::vector<std::string>* commandWords = new std::vector<std::string>();
-        Sysin::splitWords(CmdDictionary::cmdByAlias->first(testCommandId), commandWords);
+        Sysin::splitWords(CmdDictionary::cmdByAlias->at(testCommandId).first, commandWords);
 
         // Check if we have enough input for it to be possible
         if(inputWords->size() < commandWords->size())
@@ -132,8 +132,8 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             // Print debug stuff
             Sysout::d_println(Sysout::toFriendlyString(stncState));
 
-            // Run the command       [-----------Function Pointer-------------------][-----------------------Function Parameters--------------------------------]
-            bool commandSuccessful = CmdDictionary::cmdByAlias->second(testCommandId)(stncState, argumentWords, CmdDictionary::cmdByAlias->first(testCommandId));
+            // Run the command       [-----------Function Pointer----------------------][-----------------------Function Parameters----------------------------------]
+            bool commandSuccessful = CmdDictionary::cmdByAlias->at(testCommandId).second(stncState, argumentWords, CmdDictionary::cmdByAlias->at(testCommandId).first);
 
             // Delete them, since they are no longer needed.
             delete argumentWords;

@@ -51,7 +51,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     }
 
     // Also works like "do"
-    if(alias == "go")
+    /*if(alias == "go")
     {
         // Test the command
         bool subCmdSuccess = Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
@@ -62,6 +62,11 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
             // Successful
             return true;
         }
+    }*/
+
+    if(alias == "go")
+    {
+        Sysout::d_println("The go alias called move.");
     }
 
     // Fail

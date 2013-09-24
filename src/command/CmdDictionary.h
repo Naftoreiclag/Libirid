@@ -3,7 +3,7 @@
 
 #include "../language/Grammar.h"
 
-#include "../util/SequencedMap.h"
+#include <vector>
 
 class vector;
 class string;
@@ -11,13 +11,15 @@ class string;
 namespace fcmd
 {
     typedef bool (*Functionality)(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
+
+    typedef std::pair<std::string, Functionality> AliasFunctionalityPair;
 }
 
 class CmdDictionary
 {
     public:
         // Note to self: Make this private and add the necessary get() and append()
-        static SequencedMap<std::string, fcmd::Functionality>* cmdByAlias;
+        static std::vector<fcmd::AliasFunctionalityPair>* cmdByAlias;
 };
 
 #endif // CMDDICTIONARY_H

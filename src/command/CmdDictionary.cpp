@@ -1,7 +1,5 @@
 #include "CmdDictionary.h"
 
-#include "../util/SequencedMap.h"
+#include <vector>
 
-class string;
-
-SequencedMap<std::string, fcmd::Functionality>* CmdDictionary::cmdByAlias = new SequencedMap<std::string, fcmd::Functionality>();
+std::vector<fcmd::AliasFunctionalityPair>* CmdDictionary::cmdByAlias = new std::vector<fcmd::AliasFunctionalityPair>();
