@@ -71,6 +71,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
+		<Unit filename="util/InaneMap.h" />
 		<Unit filename="util/Point3i.cpp" />
 		<Unit filename="util/Point3i.h" />
 		<Unit filename="util/Random.cpp" />
@@ -96,6 +97,8 @@
 		<Unit filename="world/entity/EntitySentient.h" />
 		<Unit filename="world/item/Inventory.cpp" />
 		<Unit filename="world/item/Inventory.h" />
+		<Unit filename="world/item/ItemDefinition.cpp" />
+		<Unit filename="world/item/ItemDefinition.h" />
 		<Unit filename="world/tree/Tree.cpp" />
 		<Unit filename="world/tree/Tree.h" />
 		<Extensions>
