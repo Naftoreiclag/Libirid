@@ -5,6 +5,7 @@
 #include "../language/Grammar.h"
 #include "../language/Dictionary.h"
 
+// Process a vector of strings
 gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::string>* statement)
 {
     // Make a new builder
@@ -94,11 +95,13 @@ gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::stri
     return sntcState;
 }
 
+// Finalize stuff
 gmr::SentenceState* SentenceStateBuilder::finish()
 {
     return new gmr::SentenceState(completedNouns);
 }
 
+// Finalize noun and add it to the list of completed nouns
 void SentenceStateBuilder::publishNoun()
 {
     // Add the workspace address to the collection of addresses of completed nouns
@@ -108,6 +111,7 @@ void SentenceStateBuilder::publishNoun()
     wipNoun = new gmr::NounState();
 }
 
+// Process a noun
 void SentenceStateBuilder::processNoun(gmr::NounId id, gmr::Plurality plurality)
 {
     // If we can tell the difference between plural and singular
@@ -123,6 +127,7 @@ void SentenceStateBuilder::processNoun(gmr::NounId id, gmr::Plurality plurality)
     publishNoun();
 }
 
+// Process an article
 void SentenceStateBuilder::processArticle(gmr::ArticleProperties properties)
 {
     // If we do not already know the plurality for the noun
@@ -136,25 +141,35 @@ void SentenceStateBuilder::processArticle(gmr::ArticleProperties properties)
     wipNoun->definity = properties.type;
 }
 
+// Process a modifier
 void SentenceStateBuilder::processModifier(gmr::ModifierId modifierId)
 {
+    // Remembers if we already have that modifier
     bool alreadyHas = false;
+
+    // Iterate through all the modifiers
     for(unsigned int indexOffset = 0; indexOffset < wipNoun->modifiers->size(); ++ indexOffset)
     {
+        // If that modifier is the same
         if(wipNoun->modifiers->at(indexOffset) == modifierId)
         {
+            // Then remember
             alreadyHas = true;
+
+            // Stop checking
             break;
         }
     }
 
-
+    // If we do not already have it
     if(!alreadyHas)
     {
+        // Add it
         wipNoun->modifiers->push_back(modifierId);
     }
 }
 
+// Constructor
 SentenceStateBuilder::SentenceStateBuilder()
 {
     wipNoun = new gmr::NounState(); // The space we will build our work in progress (WIP) noun
