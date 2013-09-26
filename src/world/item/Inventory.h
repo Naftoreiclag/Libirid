@@ -14,7 +14,7 @@ class Inventory
         Inventory();
         virtual ~Inventory();
     private:
-        std::vector<ItemDefinition> contents;
+        std::vector<ItemState*> contents;
 
 };
 
