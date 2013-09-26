@@ -45,6 +45,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
 
         // Sudo-run the look command
         Fuzzy::runningGame->runCommandFromSudoInput("look");
+        Sysout::println();
 
         // Successful
         return true;
@@ -68,6 +69,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     if(alias == "go")
     {
         Sysout::println("'Move' was called by the 'go' alias.");
+    Sysout::println();
     }
     #endif
 

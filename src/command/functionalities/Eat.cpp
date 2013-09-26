@@ -16,6 +16,7 @@ bool Eat::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWo
     if(stnc->nounStates->size() < 1)
     {
         Sysout::println("You did not eat anything!");
+        Sysout::println();
 
         return false;
     }
@@ -47,6 +48,8 @@ bool Eat::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWo
     ++ Fuzzy::runningGame->player->amountEaten;
 
     Sysout::print("You have now eaten: "); Sysout::print(Fuzzy::runningGame->player->amountEaten); Sysout::println(" foodstuffs!");
+
+    Sysout::println();
 
     return true;
 }

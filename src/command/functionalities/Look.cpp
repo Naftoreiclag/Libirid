@@ -22,6 +22,7 @@ bool Look::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     #endif
 
     Sysout::println(Sysout::wordWrappify(player->getRoomLocation()->getDescription(player->roomChangeCount)));
+    Sysout::println();
 
     return true;
 }
