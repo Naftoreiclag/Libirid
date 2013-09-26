@@ -21,6 +21,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     {
         // Inform
         Sysout::println("Specify a direction.");
+        Sysout::println();
 
         //
         return true;
@@ -45,25 +46,10 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
 
         // Sudo-run the look command
         Fuzzy::runningGame->runCommandFromSudoInput("look");
-        Sysout::println();
 
         // Successful
         return true;
     }
-
-    // Also works like "do"
-    /*if(alias == "go")
-    {
-        // Test the command
-        bool subCmdSuccess = Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
-
-        // If successful
-        if(subCmdSuccess)
-        {
-            // Successful
-            return true;
-        }
-    }*/
 
     #ifdef DEBUG
     if(alias == "go")
