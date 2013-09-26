@@ -3,7 +3,7 @@
 
 #include <vector>
 
-class ItemDefinition;
+#include "ItemDefinition.h"
 
 // Better than a typedef for a vector, since we can clean up the
 // pointers on deletion!
