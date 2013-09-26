@@ -22,8 +22,8 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         // Inform
         Sysout::println("Specify a direction.");
 
-        // Fail
-        return false;
+        //
+        return true;
     }
 
     // Vector to store direction

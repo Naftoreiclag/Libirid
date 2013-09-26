@@ -18,7 +18,7 @@ bool Eat::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWo
         Sysout::println("You did not eat anything!");
         Sysout::println();
 
-        return false;
+        return true;
     }
 
     if(stnc->nounStates->front()->plurality == gmr::singular)
