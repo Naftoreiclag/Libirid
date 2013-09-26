@@ -44,18 +44,24 @@ void Sysout::d_printDictionaryEntries()
 {
     if(Fuzzy::inDebug())
     {
-        std::cout << Dictionary::numNouns() << " nouns registered:";
+        println("=== Dictionary Entries ===");
+
+        std::string nounz = "[";
+        nounz += toString(Dictionary::numNouns());
+        nounz += " nouns registered]:";
         for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
         {
-            std::cout << " " << Dictionary::getNoun(nounFocus)->getPluralForm();
+            nounz += " ";
+            nounz += Dictionary::getNoun(nounFocus)->getPluralForm();
         }
-        std::cout << std::endl;
-        std::cout << Dictionary::numAdjuncts() << " adjuncts registered:";
-        for(unsigned int adjunctFocus = 0; adjunctFocus < Dictionary::numAdjuncts(); ++ adjunctFocus)
-        {
-            std::cout << " " << Dictionary::getAdjunct(adjunctFocus)->getForm();
-        }
-        std::cout << std::endl;
+        println(wordWrappify(nounz));
+
+        std::string modifierz = "[";
+        modifierz += toString(Dictionary::registeredModifiers.size());
+        modifierz += " modifiers registered]";
+        println(wordWrappify(modifierz));
+
+        println("=== End of Entries ===");
     }
 }
 
@@ -104,9 +110,11 @@ std::string Sysout::toFriendlyString(gmr::NounState* nounState)
 
     returnVal += Dictionary::getNoun(nounState->id)->getSingularForm();
     returnVal += "-";
-    returnVal += Sysout::toFriendlyString(nounState->plurality);
+    returnVal += toFriendlyString(nounState->plurality);
     returnVal += "_";
-    returnVal += Sysout::toFriendlyString(nounState->definity);
+    returnVal += toFriendlyString(nounState->definity);
+    returnVal += ":";
+    returnVal += toString(nounState->modifiers->size());
     for(unsigned int modifierIndex = 0; modifierIndex < nounState->modifiers->size(); ++ modifierIndex)
     {
         returnVal += ":" + Dictionary::getModifier(nounState->modifiers->at(modifierIndex))->getForm();

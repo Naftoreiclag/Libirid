@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include "Sysout.h"
+
 #include "../language/Grammar.h"
 #include "../language/Dictionary.h"
 
@@ -71,21 +73,23 @@ gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::stri
         // Remembers if this word is a noun
         bool isModifier = false;
 
-        // Test for nouns
-        for(gmr::ModifierId possiblyMatchingModifierId = 0; possiblyMatchingModifierId < Dictionary::numModifiers(); ++ possiblyMatchingModifierId)
+        //
+        gmr::ModifierId possiblyMatchingModifierId = Dictionary::getModifierId(*wordPtr);
+
+        // Test for modifiers
+        Sysout::println(possiblyMatchingModifierId);
+        if(possiblyMatchingModifierId != Dictionary::getErroneousModifierId())
         {
-            // Does it match the singular form?
-            if(*wordPtr == Dictionary::getModifier(possiblyMatchingModifierId)->getForm())
-            {
-                // Process it
-                ssbuilder->processModifier(possiblyMatchingModifierId);
+            // Process it
+        Sysout::println("notatnererr");
+        Sysout::println(Dictionary::getModifier(possiblyMatchingModifierId)->getForm());
+            ssbuilder->processModifier(possiblyMatchingModifierId);
 
-                // It is a noun
-                isModifier = true;
+            // It is a modifier
+            isModifier = true;
 
-                // Do not test for the other nouns
-                break;
-            }
+            // Do not test for the other nouns
+            break;
         }
 
         // If it is a noun, then obviously it can't be anything else,

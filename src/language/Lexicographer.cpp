@@ -38,19 +38,19 @@ void Lexicographer::graph()
     Dictionary::addAdjunctAsErroneous(new AdjunctDefinition("_WITHURMOM", gmr::withurmom));
 
     // Modifiers
-    Dictionary::addModifier(new ModifierDefinition("red"));
-    Dictionary::addModifier(new ModifierDefinition("orange"));
-    Dictionary::addModifier(new ModifierDefinition("yellow"));
-    Dictionary::addModifier(new ModifierDefinition("green"));
-    Dictionary::addModifier(new ModifierDefinition("blue"));
-    Dictionary::addModifier(new ModifierDefinition("purple"));
-    Dictionary::addModifier(new ModifierDefinition("magenta"));
-    Dictionary::addModifier(new ModifierDefinition("funny"));
-    Dictionary::addModifier(new ModifierDefinition("musical"));
-    Dictionary::addModifier(new ModifierDefinition("brainy"));
-    Dictionary::addModifier(new ModifierDefinition("rhythmic"));
-    Dictionary::addModifier(new ModifierDefinition("undesirable"));
-    Dictionary::addModifierAsErroneous(new ModifierDefinition("_ERRONEOUS"));
+    Dictionary::addModifierAsErroneous(0, new ModifierDefinition("_ERRONEOUS"));
+    Dictionary::addModifier(    1, new ModifierDefinition("red"));
+    Dictionary::addModifier(    2, new ModifierDefinition("orange"));
+    Dictionary::addModifier(    3, new ModifierDefinition("yellow"));
+    Dictionary::addModifier(    4, new ModifierDefinition("green"));
+    Dictionary::addModifier(    5, new ModifierDefinition("blue"));
+    Dictionary::addModifier(    6, new ModifierDefinition("purple"));
+    Dictionary::addModifier(    7, new ModifierDefinition("magenta"));
+    Dictionary::addModifier(    8, new ModifierDefinition("funny"));
+    Dictionary::addModifier(    9, new ModifierDefinition("musical"));
+    Dictionary::addModifier(   10, new ModifierDefinition("brainy"));
+    Dictionary::addModifier(   11, new ModifierDefinition("rhythmic"));
+    Dictionary::addModifier(   12, new ModifierDefinition("undesirable"));
 
     // Meaningless modifiers
     Dictionary::addArticle("a", gmr::indefinite, gmr::singular);

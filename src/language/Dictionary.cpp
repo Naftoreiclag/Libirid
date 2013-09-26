@@ -103,33 +103,50 @@ std::size_t Dictionary::numAdjuncts()
 // Modifiers
 // =========
 
-// Vector
-std::vector<ModifierDefinition*> Dictionary::registeredModifiers;
+// Maps
+std::map<gmr::ModifierId, ModifierDefinition*> Dictionary::registeredModifiers;
+std::map<std::string, gmr::ModifierId> Dictionary::modifierIdByForm;
 //
 gmr::ModifierId Dictionary::erroneousModifierId;
 
 // Add
-gmr::ModifierId Dictionary::addModifier(ModifierDefinition* newModifier)
+void Dictionary::addModifier(gmr::ModifierId modifierId, ModifierDefinition* newModifier)
 {
-    registeredModifiers.push_back(newModifier);
+    registeredModifiers.insert(std::pair<gmr::ModifierId, ModifierDefinition*>(modifierId, newModifier));
 
-    return registeredModifiers.size() - 1;
+    modifierIdByForm.insert(std::pair<std::string, gmr::ModifierId>(newModifier->getForm(), modifierId));
 }
 
 // Get
 ModifierDefinition* Dictionary::getModifier(gmr::ModifierId modifierId)
 {
-    return registeredModifiers.at(modifierId);
+    std::map<gmr::ModifierId, ModifierDefinition*>::iterator focus = registeredModifiers.find(modifierId);
+
+    if(focus == registeredModifiers.end())
+    {
+        return registeredModifiers.find(erroneousModifierId)->second;
+    }
+
+    return focus->second;
+}
+gmr::ModifierId Dictionary::getModifierId(std::string modifierForm)
+{
+    std::map<std::string, gmr::ModifierId>::iterator focus = modifierIdByForm.find(modifierForm);
+
+    if(focus == modifierIdByForm.end())
+    {
+        return erroneousModifierId;
+    }
+
+    return focus->second;
 }
 
 // Add Erroneous
-gmr::ModifierId Dictionary::addModifierAsErroneous(ModifierDefinition* newModifier)
+void Dictionary::addModifierAsErroneous(gmr::ModifierId modifierId, ModifierDefinition* newModifier)
 {
-    registeredModifiers.push_back(newModifier);
+    registeredModifiers.insert(std::pair<gmr::ModifierId, ModifierDefinition*>(modifierId, newModifier));
 
-    erroneousModifierId = registeredModifiers.size() - 1;
-
-    return registeredModifiers.size() - 1;
+    erroneousModifierId = modifierId;
 }
 
 // Get Erroneous
@@ -139,10 +156,12 @@ gmr::ModifierId Dictionary::getErroneousModifierId()
 }
 
 // Number of
+/*
 std::size_t Dictionary::numModifiers()
 {
     return registeredModifiers.size();
 }
+*/
 
 // ========
 // Articles

@@ -9,6 +9,10 @@
 #include "ModifierDefinition.h"
 #include "Grammar.h"
 
+#ifdef DEBUG
+#define private public
+#endif
+
 class string;
 
 /* Pretty much just a dynamic lib for the different kinds
@@ -47,13 +51,14 @@ class Dictionary
 
         /* ==== Modifiers ==== */
         // Registry
-        static gmr::ModifierId addModifier(ModifierDefinition* newModifier);
+        static void addModifier(gmr::ModifierId modifierId, ModifierDefinition* newModifier);
         static ModifierDefinition* getModifier(gmr::ModifierId modifierId);
+        static gmr::ModifierId getModifierId(std::string modifierForm);
         // Erroneous registry
-        static gmr::ModifierId addModifierAsErroneous(ModifierDefinition* newModifier);
+        static void addModifierAsErroneous(gmr::ModifierId modifierId, ModifierDefinition* newModifier);
         static gmr::ModifierId getErroneousModifierId();
         // Number of
-        static std::size_t numModifiers();
+        //static std::size_t numModifiers();
 
         /* ==== Articles ==== */
         static void addArticle(std::string name, gmr::ArticleType type, gmr::Plurality quantity);
@@ -76,7 +81,8 @@ class Dictionary
         static std::vector<AdjunctDefinition*> registeredAdjuncts;
 
         // Modifier
-        static std::vector<ModifierDefinition*> registeredModifiers;
+        static std::map<gmr::ModifierId, ModifierDefinition*> registeredModifiers;
+        static std::map<std::string, gmr::ModifierId> modifierIdByForm;
 
         // Articles
         static std::map<std::string, gmr::ArticleProperties> registeredArticles;

@@ -1,11 +1,19 @@
 #include "Inventory.h"
 
+#include "ItemState.h"
+
+// Constructor
 Inventory::Inventory()
 {
-    //ctor
 }
 
+// De-constructor
 Inventory::~Inventory()
 {
-    //dtor
+    // Iterate through contents
+    for(std::vector<ItemState*>::iterator it = contents.begin(); it != contents.end(); ++ it)
+    {
+        // Delete them
+        delete *it;
+    }
 }

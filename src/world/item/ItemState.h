@@ -1,7 +1,6 @@
 #ifndef ITEMSTATE_H
 #define ITEMSTATE_H
 
-
 class ItemState
 {
     public:
