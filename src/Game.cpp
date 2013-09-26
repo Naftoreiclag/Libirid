@@ -33,9 +33,6 @@ void Game::run()
     // While running, run!
     while(running)
     {
-        // <Print out the story>
-        Sysout::println();
-
         // Prompt
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
         Sysout::println();
@@ -159,6 +156,14 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
     }
 
     // [None of the commands matched]
+
+    // Inform
+    #ifdef DEBUG
+    Sysout::print("Could not understand input: ");
+    Sysout::println(Sysout::toFriendlyString(inputWords));
+    #endif
+    Sysout::println("Misunderstanding.");
+    Sysout::println();
 
     // Return unsuccessful
     return false;
