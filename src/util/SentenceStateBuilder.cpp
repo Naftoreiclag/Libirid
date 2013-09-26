@@ -2,8 +2,6 @@
 
 #include <vector>
 
-#include "Sysout.h"
-
 #include "../language/Grammar.h"
 #include "../language/Dictionary.h"
 
@@ -70,31 +68,19 @@ gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::stri
 
     /* === Testing for modifiers === */
 
-        // Remembers if this word is a noun
-        bool isModifier = false;
-
         //
         gmr::ModifierId possiblyMatchingModifierId = Dictionary::getModifierId(*wordPtr);
 
         // Test for modifiers
-        Sysout::println(possiblyMatchingModifierId);
         if(possiblyMatchingModifierId != Dictionary::getErroneousModifierId())
         {
             // Process it
-        Sysout::println("notatnererr");
-        Sysout::println(Dictionary::getModifier(possiblyMatchingModifierId)->getForm());
             ssbuilder->processModifier(possiblyMatchingModifierId);
 
-            // It is a modifier
-            isModifier = true;
-
-            // Do not test for the other nouns
-            break;
+            // If it is a modifier, then obviously it can't be anything else,
+            // So stop analyzing this word and look at the next word
+            continue;
         }
-
-        // If it is a noun, then obviously it can't be anything else,
-        // So stop analyzing this word and look at the next word
-        if(isModifier) { continue; }
 
     /* === Testing for adjuncts === */
 
