@@ -21,7 +21,9 @@ class Sysout
         static std::string wordWrappify(std::string paragraph);
 
         // Print out all the dictionary entries
+        #ifdef DEBUG
         static void printDictionaryEntries();
+        #endif
 
         // Makes stuff readable by a human
         static std::string toFriendlyString(gmr::WordType wordType); // Word type

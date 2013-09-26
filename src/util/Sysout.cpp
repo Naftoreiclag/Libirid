@@ -40,6 +40,7 @@ std::string Sysout::wordWrappify(std::string paragraph)
 }
 
 // Print out all the dictionary entries
+#ifdef DEBUG
 void Sysout::printDictionaryEntries()
 {
     println("=== Dictionary Entries ===");
@@ -61,6 +62,7 @@ void Sysout::printDictionaryEntries()
 
     println("=== End of Entries ===");
 }
+#endif
 
 // Word type
 std::string Sysout::toFriendlyString(gmr::WordType wordType)
