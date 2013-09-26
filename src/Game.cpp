@@ -130,7 +130,10 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             gmr::SentenceState* stncState = SentenceStateBuilder::processStatement(argumentWords);
 
             // Print debug stuff
-            Sysout::d_println(Sysout::toFriendlyString(stncState));
+            #ifdef DEBUG
+            Sysout::print("Syntax: ");
+            Sysout::println(Sysout::toFriendlyString(stncState));
+            #endif
 
             // Run the command       [-----------Function Pointer----------------------][-----------------------Function Parameters----------------------------------]
             bool commandSuccessful = CmdDictionary::cmdByAlias->at(testCommandId).second(stncState, argumentWords, CmdDictionary::cmdByAlias->at(testCommandId).first);

@@ -64,10 +64,12 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         }
     }*/
 
+    #ifdef DEBUG
     if(alias == "go")
     {
-        Sysout::d_println("The go alias called move.");
+        Sysout::println("'Move' was called by the 'go' alias.");
     }
+    #endif
 
     // Fail
     return false;

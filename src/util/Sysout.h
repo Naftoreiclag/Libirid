@@ -21,7 +21,7 @@ class Sysout
         static std::string wordWrappify(std::string paragraph);
 
         // Print out all the dictionary entries
-        static void d_printDictionaryEntries();
+        static void printDictionaryEntries();
 
         // Makes stuff readable by a human
         static std::string toFriendlyString(gmr::WordType wordType); // Word type
@@ -41,14 +41,11 @@ class Sysout
 
         // Print a string
         static void print(std::string str);
-        static void d_print(std::string str); // Debug
         static void println(std::string str); // Line
-        static void d_println(std::string str); // Debug, Line
         static void printSlow(std::string str); // Slowly
 
         // Print a line
         static void println();
-        static void d_println(); // Debug
     private:
         // How wide the screen is
         static unsigned short displayWidth;

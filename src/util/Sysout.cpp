@@ -40,29 +40,26 @@ std::string Sysout::wordWrappify(std::string paragraph)
 }
 
 // Print out all the dictionary entries
-void Sysout::d_printDictionaryEntries()
+void Sysout::printDictionaryEntries()
 {
-    if(Fuzzy::inDebug())
+    println("=== Dictionary Entries ===");
+
+    std::string nounz = "[";
+    nounz += toString(Dictionary::numNouns());
+    nounz += " nouns registered]:";
+    for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
     {
-        println("=== Dictionary Entries ===");
-
-        std::string nounz = "[";
-        nounz += toString(Dictionary::numNouns());
-        nounz += " nouns registered]:";
-        for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
-        {
-            nounz += " ";
-            nounz += Dictionary::getNoun(nounFocus)->getPluralForm();
-        }
-        println(wordWrappify(nounz));
-
-        std::string modifierz = "[";
-        modifierz += toString(Dictionary::registeredModifiers.size());
-        modifierz += " modifiers registered]";
-        println(wordWrappify(modifierz));
-
-        println("=== End of Entries ===");
+        nounz += " ";
+        nounz += Dictionary::getNoun(nounFocus)->getPluralForm();
     }
+    println(wordWrappify(nounz));
+
+    std::string modifierz = "[";
+    modifierz += toString(Dictionary::registeredModifiers.size());
+    modifierz += " modifiers registered]";
+    println(wordWrappify(modifierz));
+
+    println("=== End of Entries ===");
 }
 
 // Word type
@@ -214,27 +211,6 @@ void Sysout::println(int i) { std::cout << i << std::endl; } // Line
 // String
 void Sysout::print(std::string str) { std::cout << str; }
 void Sysout::println(std::string str) { std::cout << str << std::endl; } // Line
-void Sysout::d_print(std::string str) // Debug
-{
-    if(Fuzzy::inDebug())
-    {
-        std::cout << str;
-    }
-}
-void Sysout::d_println(std::string str) // Debug, Line
-{
-    if(Fuzzy::inDebug())
-    {
-        std::cout << str << std::endl;
-    }
-}
 
 // Line
 void Sysout::println() { std::cout << std::endl; }
-void Sysout::d_println()
-{
-    if(Fuzzy::inDebug())
-    {
-        std::cout << std::endl;
-    }
-}

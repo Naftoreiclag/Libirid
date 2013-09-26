@@ -21,8 +21,10 @@ void Fuzzy::run()
     #endif
 
     // If we are in debug mode, then print that
-    Sysout::d_println("Running in DEBUG mode!");
-    Sysout::d_printDictionaryEntries();
+    #ifdef DEBUG
+    Sysout::println("Running in DEBUG mode!");
+    Sysout::printDictionaryEntries();
+    #endif
 
     //
     bool running = true;
