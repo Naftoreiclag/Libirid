@@ -99,6 +99,8 @@
 		<Unit filename="world/item/Inventory.h" />
 		<Unit filename="world/item/ItemDefinition.cpp" />
 		<Unit filename="world/item/ItemDefinition.h" />
+		<Unit filename="world/item/ItemState.cpp" />
+		<Unit filename="world/item/ItemState.h" />
 		<Unit filename="world/tree/Tree.cpp" />
 		<Unit filename="world/tree/Tree.h" />
 		<Extensions>
