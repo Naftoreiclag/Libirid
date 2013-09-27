@@ -1,5 +1,5 @@
-#ifndef ITEMDICTIONARY_H
-#define ITEMDICTIONARY_H
+#ifndef ITMDICTIONARY_H
+#define ITMDICTIONARY_H
 
 #include <map>
 
@@ -10,7 +10,7 @@ namespace itm
     typedef unsigned int ItemId;
 }
 
-class ItemDictionary
+class ItmDictionary
 {
     public:
         static void addItem(itm::ItemId id, ItemDefinition* definition);
@@ -22,4 +22,4 @@ class ItemDictionary
         static std::map<itm::ItemId, ItemDefinition*> registeredItems;
 };
 
-#endif // ITEMDICTIONARY_H
+#endif // ITMDICTIONARY_H

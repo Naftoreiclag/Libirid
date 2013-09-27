@@ -1,11 +1,9 @@
 #include "ItmLexicographer.h"
 
-ItmLexicographer::ItmLexicographer()
-{
-    //ctor
-}
+#include "ItmDictionary.h"
+#include "ItemDefinition.h"
 
-ItmLexicographer::~ItmLexicographer()
+void ItmLexicographer::graph()
 {
-    //dtor
+    ItmDictionary::addItem(1, new ItemDefinition());
 }

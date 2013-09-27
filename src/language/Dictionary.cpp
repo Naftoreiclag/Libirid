@@ -15,44 +15,62 @@
 // =====
 
 // Vector
-std::vector<NounDefinition*> Dictionary::registeredNouns;
+std::map<gmr::NounId, NounDefinition*> Dictionary::registeredNouns;
+std::map<std::string, gmr::NounId> Dictionary::nounIdByForm;
 
 //
 gmr::NounId Dictionary::erroneousNounId;
 
 // Add
-gmr::NounId Dictionary::addNoun(NounDefinition* newNoun)
+void Dictionary::addNoun(gmr::NounId nounId, NounDefinition* newNoun)
 {
-    registeredNouns.push_back(newNoun);
+    registeredNouns.insert(std::pair<gmr::NounId, NounDefinition*>(nounId, newNoun));
 
-    return registeredNouns.size() - 1;
-}
+    nounIdByForm.insert(std::pair<std::string, gmr::NounId>(newNoun->getSingularForm(), nounId));
 
-// Add
-gmr::NounId Dictionary::addNounAsErroneous(NounDefinition* newNoun)
-{
-    registeredNouns.push_back(newNoun);
-
-    erroneousNounId = registeredNouns.size() - 1;
-
-    return registeredNouns.size() - 1;
+    if(newNoun->getSingularForm() != newNoun->getPluralForm())
+    {
+        nounIdByForm.insert(std::pair<std::string, gmr::NounId>(newNoun->getPluralForm(), nounId));
+    }
 }
 
 // Get
 NounDefinition* Dictionary::getNoun(gmr::NounId nounId)
 {
-    return registeredNouns.at(nounId);
+    std::map<gmr::NounId, NounDefinition*>::iterator focus = registeredNouns.find(nounId);
+
+    if(focus == registeredNouns.end())
+    {
+        return registeredNouns.find(erroneousModifierId)->second;
+    }
+
+    return focus->second;
+}
+
+// Get Id
+gmr::NounId Dictionary::getNounId(std::string nounForm)
+{
+    std::map<std::string, gmr::NounId>::iterator focus = nounIdByForm.find(nounForm);
+
+    if(focus == nounIdByForm.end())
+    {
+        return erroneousNounId;
+    }
+
+    return focus->second;
+}
+
+// Add
+void Dictionary::addNounAsErroneous(gmr::NounId nounId, NounDefinition* newNoun)
+{
+    registeredNouns.insert(std::pair<gmr::NounId, NounDefinition*>(nounId, newNoun));
+
+    erroneousNounId = nounId;
 }
 
 gmr::NounId Dictionary::getErroneousNounId()
 {
     return erroneousNounId;
-}
-
-// Number of
-std::size_t Dictionary::numNouns()
-{
-    return registeredNouns.size();
 }
 
 // ========
@@ -129,6 +147,8 @@ ModifierDefinition* Dictionary::getModifier(gmr::ModifierId modifierId)
 
     return focus->second;
 }
+
+// Get Id
 gmr::ModifierId Dictionary::getModifierId(std::string modifierForm)
 {
     std::map<std::string, gmr::ModifierId>::iterator focus = modifierIdByForm.find(modifierForm);
