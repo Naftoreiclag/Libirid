@@ -38,7 +38,17 @@ void Game::run()
         Sysout::println();
 
         // Run command from the raw input
-        runCommandFromRawInput(lastInput);
+        bool success = runCommandFromRawInput(lastInput);
+        if(!success)
+        {
+            // Inform
+            #ifdef DEBUG
+            Sysout::print("Could not understand input: ");
+            Sysout::println(Sysout::toFriendlyString(lastInput));
+            #endif
+            Sysout::println("Misunderstanding.");
+            Sysout::println();
+        }
     }
 
     // Delete our storage for the last container
@@ -62,6 +72,12 @@ bool Game::runCommandFromSudoInput(std::string sudoLine)
 
 bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
 {
+    #ifdef DEBUG
+    Sysout::println("-BEGIN INPUT PROCESSING");
+    Sysout::print("-Processing: ");
+    Sysout::println(Sysout::toFriendlyString(inputWords));
+    #endif // DEBUG
+
     // If we have no words
     if(inputWords->size() == 0)
     {
@@ -119,6 +135,13 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
         // If the command matches
         if(commandMatches)
         {
+            // Debug
+            #ifdef DEBUG
+            Sysout::println("--BEGIN COMMAND PROCESSING");
+            Sysout::print("--Command: ");
+            Sysout::println(CmdDictionary::cmdByAlias->at(testCommandId).first);
+            #endif // DEBUG
+
             // Get the command arguments
             std::vector<std::string>* argumentWords = new std::vector<std::string>(*inputWords);
             argumentWords->erase(argumentWords->begin(), argumentWords->begin() + commandWords->size());
@@ -128,7 +151,7 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
 
             // Print debug stuff
             #ifdef DEBUG
-            Sysout::print("Syntax: ");
+            Sysout::print("--Syntax: ");
             Sysout::println(Sysout::toFriendlyString(stncState));
             #endif
 
@@ -142,11 +165,24 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             // If it was successful
             if(commandSuccessful)
             {
+                // Debug
+                #ifdef DEBUG
+                Sysout::println("--Command successful.");
+                Sysout::println("--END COMMAND PROCESSING");
+                Sysout::println("-END INPUT PROCESSING");
+                #endif // DEBUG
+
                 // Return successful
                 return true;
             }
 
             // [The command was not successful]
+
+            // Debug
+            #ifdef DEBUG
+            Sysout::println("--Command failed.");
+            Sysout::println("--END COMMAND PROCESSING");
+            #endif // DEBUG
         }
 
         // [The command did not match]
@@ -157,13 +193,10 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
 
     // [None of the commands matched]
 
-    // Inform
+    // Debug
     #ifdef DEBUG
-    Sysout::print("Could not understand input: ");
-    Sysout::println(Sysout::toFriendlyString(inputWords));
-    #endif
-    Sysout::println("Misunderstanding.");
-    Sysout::println();
+    Sysout::println("-END INPUT PROCESSING");
+    #endif // DEBUG
 
     // Return unsuccessful
     return false;
