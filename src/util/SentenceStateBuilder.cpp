@@ -16,42 +16,19 @@ gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::stri
     {
     /* === Testing for nouns === */
 
-        // Remembers if this word is a noun
-        bool isNoun = false;
-
         // Test for nouns
-        for(gmr::NounId possiblyMatchingNounId = 0; possiblyMatchingNounId < Dictionary::numNouns(); ++ possiblyMatchingNounId)
+        gmr::NounId possiblyMatchingNounId = Dictionary::getNounId(*wordPtr);
+
+        // If this noun is not erroneous
+        if(possiblyMatchingNounId != Dictionary::getErroneousNounId())
         {
-            // Does it match the singular form?
-            if(*wordPtr == Dictionary::getNoun(possiblyMatchingNounId)->getSingularForm())
-            {
-                // Process it
-                ssbuilder->processNoun(possiblyMatchingNounId, gmr::singular);
+            // Process it
+            ssbuilder->processNoun(possiblyMatchingNounId, gmr::singular);
 
-                // It is a noun
-                isNoun = true;
-
-                // Do not test for the other nouns
-                break;
-            }
-
-            // Does it match the plural form?
-            else if(*wordPtr == Dictionary::getNoun(possiblyMatchingNounId)->getPluralForm())
-            {
-                // Process it
-                ssbuilder->processNoun(possiblyMatchingNounId, gmr::plural);
-
-                // It is a noun
-                isNoun = true;
-
-                // Do not test for the other nouns
-                break;
-            }
+            // If it is a noun, then obviously it can't be anything else,
+            // So stop analyzing this word and look at the next word
+            continue;
         }
-
-        // If it is a noun, then obviously it can't be anything else,
-        // So stop analyzing this word and look at the next word
-        if(isNoun) { continue; }
 
     /* === Testing for articles === */
 
@@ -61,6 +38,7 @@ gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::stri
         // If this article type is not erroneous
         if(testArticleProperties.type != gmr::undefinite)
         {
+            // Process it
             ssbuilder->processArticle(testArticleProperties);
 
             // Continue to next word
@@ -69,10 +47,10 @@ gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::stri
 
     /* === Testing for modifiers === */
 
-        //
+        // Test for modifiers
         gmr::ModifierId possiblyMatchingModifierId = Dictionary::getModifierId(*wordPtr);
 
-        // Test for modifiers
+        // If this modifier is not erroneous
         if(possiblyMatchingModifierId != Dictionary::getErroneousModifierId())
         {
             // Process it

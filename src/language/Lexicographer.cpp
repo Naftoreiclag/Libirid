@@ -11,26 +11,26 @@ void Lexicographer::graph()
 {
     // Na-Ooh-Nu-S
     // ABCDEFGHIJKLMNOPQRSTUVWXYZ
-    Dictionary::addNoun(new NounDefinition("bunny"));
-    Dictionary::addNoun(new NounDefinition("cookie"));
-    Dictionary::addNoun(new NounDefinition("couch"));
-    Dictionary::addNoun(new NounDefinition("cupcake"));
-    Dictionary::addNoun(new NounDefinition("dirt"));
-    Dictionary::addNoun(new NounDefinition("dog"));
-    Dictionary::addNoun(new NounDefinition("egg"));
-    Dictionary::addNoun(new NounDefinition("fish", "fish"));
-    Dictionary::addNoun(new NounDefinition("grass"));
-    Dictionary::addNoun(new NounDefinition("leaf", "leaves"));
-    Dictionary::addNoun(new NounDefinition("mouse", "mice"));
-    Dictionary::addNoun(new NounDefinition("potato"));
-    Dictionary::addNoun(new NounDefinition("rock"));
-    Dictionary::addNoun(new NounDefinition("sheep", "sheep"));
-    Dictionary::addNoun(new NounDefinition("shoe"));
-    Dictionary::addNoun(new NounDefinition("sock"));
-    Dictionary::addNoun(new NounDefinition("stick"));
-    Dictionary::addNoun(new NounDefinition("tomato"));
-    Dictionary::addNoun(new NounDefinition("tree"));
-    Dictionary::addNounAsErroneous(new NounDefinition("_HERPADERPDERP"));
+    Dictionary::addNounAsErroneous(0, new NounDefinition("_HERPADERPDERP"));
+    Dictionary::addNoun(    1, new NounDefinition("bunny"));
+    Dictionary::addNoun(    2, new NounDefinition("cookie"));
+    Dictionary::addNoun(    3, new NounDefinition("couch"));
+    Dictionary::addNoun(    4, new NounDefinition("cupcake"));
+    Dictionary::addNoun(    5, new NounDefinition("dirt"));
+    Dictionary::addNoun(    6, new NounDefinition("dog"));
+    Dictionary::addNoun(    7, new NounDefinition("egg"));
+    Dictionary::addNoun(    8, new NounDefinition("fish", "fish"));
+    Dictionary::addNoun(    9, new NounDefinition("grass"));
+    Dictionary::addNoun(   10, new NounDefinition("leaf", "leaves"));
+    Dictionary::addNoun(   11, new NounDefinition("mouse", "mice"));
+    Dictionary::addNoun(   12, new NounDefinition("potato"));
+    Dictionary::addNoun(   13, new NounDefinition("rock"));
+    Dictionary::addNoun(   14, new NounDefinition("sheep", "sheep"));
+    Dictionary::addNoun(   15, new NounDefinition("shoe"));
+    Dictionary::addNoun(   16, new NounDefinition("sock"));
+    Dictionary::addNoun(   17, new NounDefinition("stick"));
+    Dictionary::addNoun(   18, new NounDefinition("tomato"));
+    Dictionary::addNoun(   19, new NounDefinition("tree"));
 
     // Adjuncts
     Dictionary::addAdjunct(new AdjunctDefinition("above", gmr::above));

@@ -233,7 +233,7 @@ std::string Dictionary::getArticleForm(gmr::AdjunctType definity, gmr::Plurality
 // Identification
 // ==============
 
-gmr::WordType Dictionary::identifyWordType(std::string victim)
+/*gmr::WordType Dictionary::identifyWordType(std::string victim)
 {
     // Test for nouns
     for(gmr::NounId testNounId = 0; testNounId < numNouns(); ++ testNounId)
@@ -276,4 +276,4 @@ gmr::WordType Dictionary::identifyWordType(std::string victim)
 
     // It's gibberish
     return gmr::gibberish;
-}
+}*/

@@ -23,7 +23,7 @@ class Dictionary
 {
     public:
         // Identifying the word type
-        static gmr::WordType identifyWordType(std::string victim);
+        //static gmr::WordType identifyWordType(std::string victim);
 
         // Getting noun state
         static gmr::NounState getNounState(std::string victim);

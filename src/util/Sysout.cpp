@@ -46,13 +46,8 @@ void Sysout::printDictionaryEntries()
     println("=== Dictionary Entries ===");
 
     std::string nounz = "[";
-    nounz += toString(Dictionary::numNouns());
-    nounz += " nouns registered]:";
-    for(unsigned int nounFocus = 0; nounFocus < Dictionary::numNouns(); ++ nounFocus)
-    {
-        nounz += " ";
-        nounz += Dictionary::getNoun(nounFocus)->getPluralForm();
-    }
+    nounz += toString(Dictionary::registeredNouns.size());
+    nounz += " nouns registered]";
     println(wordWrappify(nounz));
 
     std::string modifierz = "[";
