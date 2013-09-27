@@ -15,8 +15,10 @@ Some stuff about this project:
 Statistics for /src/
 ====================
 (Because my friend keeps bothering me about it) (As of 9/16/2013)
+* Total lines: 2728
+* Actual code: 1766
+* Comments: 458
+* Whitespace: 563
 
-* Total lines: 1868
-* Actual code: 1189
-* Comments: 337
-* Whitespace: 372
+Archive:
+16092013 September 16th, 2013: 1868|1189|337|372
