@@ -4,6 +4,7 @@
 
 #include "language/Lexicographer.h"
 #include "command/CmdLexicographer.h"
+#include "world/item/ItmLexicographer.h"
 
 #include "Fuzzy.h"
 
@@ -22,6 +23,9 @@ int main()
 
     // Add commands
     CmdLexicographer::graph();
+
+    // Add items
+    ItmLexicographer::graph();
 
     // I REALLY need a better name soon...
     Fuzzy::run();

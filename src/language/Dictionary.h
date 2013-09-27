@@ -45,8 +45,6 @@ class Dictionary
         // Erroneous registry
         static gmr::AdjunctId addAdjunctAsErroneous(AdjunctDefinition* newAdjunct);
         static gmr::AdjunctId getErroneousAdjunctId();
-        // Number of
-        static std::size_t numAdjuncts();
 
         /* ==== Modifiers ==== */
         // Registry
@@ -59,7 +57,7 @@ class Dictionary
 
         /* ==== Articles ==== */
         // Registry
-        static void addArticle(std::string name, gmr::ArticleType type, gmr::Plurality quantity);
+        static void addArticle(std::string name, gmr::Definity type, gmr::Plurality quantity);
         static gmr::ArticleProperties getArticle(std::string name);
 
         static std::string getArticleForm(gmr::AdjunctType definity, gmr::Plurality plurality);

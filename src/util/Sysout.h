@@ -28,7 +28,7 @@ class Sysout
         // Makes stuff readable by a human
         static std::string toFriendlyString(gmr::WordType wordType); // Word type
         static std::string toFriendlyString(gmr::Plurality plurality); // Plurality
-        static std::string toFriendlyString(gmr::ArticleType definity); // Article Type
+        static std::string toFriendlyString(gmr::Definity definity); // Article Type
         static std::string toFriendlyString(gmr::NounState* nounState); // Noun State
         static std::string toFriendlyString(std::vector<std::string>* wordList); // Word List
         static std::string toFriendlyString(gmr::SentenceState* stncState); // Sentence State

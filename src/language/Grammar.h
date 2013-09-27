@@ -21,7 +21,7 @@ namespace gmr
     };
 
     // Articles
-    enum ArticleType
+    enum Definity
     {
         definite, // the, that, this, those
         indefinite, // a, some
@@ -47,7 +47,7 @@ namespace gmr
     //
     struct ArticleProperties
     {
-        ArticleType type;
+        Definity type;
         Plurality plurality;
     };
 
@@ -66,7 +66,7 @@ namespace gmr
         public:
             NounId id;
             Plurality plurality;
-            ArticleType definity;
+            Definity definity;
             std::vector<gmr::ModifierId>* modifiers;
 
             std::string getModifiedName();

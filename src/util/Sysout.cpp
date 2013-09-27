@@ -92,7 +92,7 @@ std::string Sysout::toFriendlyString(gmr::Plurality plurality)
 }
 
 // Article Type
-std::string Sysout::toFriendlyString(gmr::ArticleType definity)
+std::string Sysout::toFriendlyString(gmr::Definity definity)
 {
     return definity == gmr::definite ? "definite" : definity == gmr::indefinite ? "indefinite" : definity == gmr::undefinite ? "undefined" : "lolwut???";
 }

@@ -119,12 +119,6 @@ gmr::AdjunctId Dictionary::getErroneousAdjunctId()
     return erroneousAdjunctId;
 }
 
-// Number of
-std::size_t Dictionary::numAdjuncts()
-{
-    return registeredAdjuncts.size();
-}
-
 // =========
 // Modifiers
 // =========
@@ -192,7 +186,7 @@ gmr::ModifierId Dictionary::getErroneousModifierId()
 std::map<std::string, gmr::ArticleProperties> Dictionary::registeredArticles;
 
 // Add by name
-void Dictionary::addArticle(std::string name, gmr::ArticleType mtype, gmr::Plurality mquantity)
+void Dictionary::addArticle(std::string name, gmr::Definity mtype, gmr::Plurality mquantity)
 {
     gmr::ArticleProperties a;
     a.type = mtype;
