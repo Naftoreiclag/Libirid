@@ -14,7 +14,8 @@ Some stuff about this project:
 
 Statistics for /src/
 ====================
-(Because my friend keeps bothering me about it) (As of 9/16/2013)
+(Because my friend keeps bothering me about it)
+(As of 9/26/2013)
 * Total lines: 2728
 * Actual code: 1766
 * Comments: 458
