@@ -1,18 +1,24 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
+// Data storage
 #include <vector>
 #include <map>
 
+// Obviously, if we are dealing with the dictionaries, then we need the definitions
 #include "NounDefinition.h"
 #include "AdjunctDefinition.h"
 #include "ModifierDefinition.h"
+
+// Grammar types
 #include "Grammar.h"
 
+// If in debug mode, make everything public!
 #ifdef DEBUG
 #define private public
 #endif
 
+// Strings
 class string;
 
 /* Pretty much just a dynamic lib for the different kinds
@@ -52,17 +58,15 @@ class Dictionary
         static gmr::ModifierId getErroneousModifierId();
 
         /* ==== Articles ==== */
+        // Registry
         static void addArticle(std::string name, gmr::ArticleType type, gmr::Plurality quantity);
         static gmr::ArticleProperties getArticle(std::string name);
-        static std::size_t numArticles();
 
         static std::string getArticleForm(gmr::AdjunctType definity, gmr::Plurality plurality);
     private:
-        //
+        // The erroneous return values if they can't be found
         static gmr::NounId erroneousNounId;
-        //
         static gmr::AdjunctId erroneousAdjunctId;
-        //
         static gmr::ModifierId erroneousModifierId;
 
         // Nouns
