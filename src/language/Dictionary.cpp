@@ -183,14 +183,6 @@ gmr::ModifierId Dictionary::getErroneousModifierId()
     return erroneousModifierId;
 }
 
-// Number of
-/*
-std::size_t Dictionary::numModifiers()
-{
-    return registeredModifiers.size();
-}
-*/
-
 // ========
 // Articles
 // ========
@@ -226,62 +218,7 @@ gmr::ArticleProperties Dictionary::getArticle(std::string name)
     return focus->second;
 }
 
-// Number of
-std::size_t Dictionary::numArticles()
-{
-    return registeredArticles.size();
-}
-
 std::string Dictionary::getArticleForm(gmr::AdjunctType definity, gmr::Plurality plurality)
 {
     return "put something better here";
 }
-
-// ==============
-// Identification
-// ==============
-
-/*gmr::WordType Dictionary::identifyWordType(std::string victim)
-{
-    // Test for nouns
-    for(gmr::NounId testNounId = 0; testNounId < numNouns(); ++ testNounId)
-    {
-        // Does it match the singular form?
-        if(victim == registeredNouns.at(testNounId)->getSingularForm())
-        {
-            // It is a noun
-            return gmr::noun;
-        }
-
-        // Does it match the plural form?
-        if(victim == registeredNouns.at(testNounId)->getPluralForm())
-        {
-            // It is a noun
-            return gmr::noun;
-        }
-    }
-
-    // Test for adjuncts
-    for(gmr::AdjunctId testAdjunctId = 0; testAdjunctId < numAdjuncts(); ++ testAdjunctId)
-    {
-        // Does it match?
-        if(victim == registeredAdjuncts.at(testAdjunctId)->getForm())
-        {
-            // It is an adjunct
-            return gmr::adjunct;
-        }
-    }
-
-    // Test for articles
-    std::map<std::string, gmr::ArticleProperties>::iterator testArticle = registeredArticles.find(victim);
-
-    if(testArticle != registeredArticles.end())
-    {
-        return gmr::article;
-    }
-
-    // [None of the tests were successful]
-
-    // It's gibberish
-    return gmr::gibberish;
-}*/

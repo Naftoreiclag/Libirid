@@ -22,13 +22,6 @@ class string;
 class Dictionary
 {
     public:
-        // Identifying the word type
-        //static gmr::WordType identifyWordType(std::string victim);
-
-        // Getting noun state
-        static gmr::NounState getNounState(std::string victim);
-        //static gmr::AdjunctState getAdjunctState(std::string victim);
-
         /* ==== Nouns ==== */
         // Registry
         static void addNoun(gmr::NounId nounId, NounDefinition* newNoun);
