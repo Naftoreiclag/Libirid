@@ -8,7 +8,7 @@
 class vector;
 class string;
 
-namespace fcmd
+namespace cmd
 {
     typedef bool (*Functionality)(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 
@@ -19,7 +19,7 @@ class CmdDictionary
 {
     public:
         // Note to self: Make this private and add the necessary get() and append()
-        static std::vector<fcmd::AliasFunctionalityPair>* cmdByAlias;
+        static std::vector<cmd::AliasFunctionalityPair>* cmdByAlias;
 };
 
 #endif // CMDDICTIONARY_H

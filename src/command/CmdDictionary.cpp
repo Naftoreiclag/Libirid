@@ -2,4 +2,4 @@
 
 #include <vector>
 
-std::vector<fcmd::AliasFunctionalityPair>* CmdDictionary::cmdByAlias = new std::vector<fcmd::AliasFunctionalityPair>();
+std::vector<cmd::AliasFunctionalityPair>* CmdDictionary::cmdByAlias = new std::vector<cmd::AliasFunctionalityPair>();

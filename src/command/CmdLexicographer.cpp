@@ -7,14 +7,14 @@
 void CmdLexicographer::graph()
 {
     // Add commands
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("eat", Eat::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("dance", Dance::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("move", Move::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("go", Move::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("look", Look::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("chop down", Lumberjack::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("cut down", Lumberjack::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("go", Do::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("do", Do::execute));
-    CmdDictionary::cmdByAlias->push_back(fcmd::AliasFunctionalityPair("take", Take::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("eat", Eat::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("dance", Dance::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("move", Move::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("go", Move::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("look", Look::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("chop down", Lumberjack::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("cut down", Lumberjack::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("go", Do::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("do", Do::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("take", Take::execute));
 }
