@@ -33,7 +33,8 @@ class Dictionary
         // Registry
         static void addNoun(gmr::NounId nounId, NounDefinition* newNoun);
         static NounDefinition* getNoun(gmr::NounId nounId);
-        static gmr::NounId getNounId(std::string nounForm);
+        static gmr::NounId getNounIdByPlural(std::string pluralNounForm);
+        static gmr::NounId getNounIdBySingular(std::string singularNounForm);
         // Erroneous registry
         static void addNounAsErroneous(gmr::NounId nounId, NounDefinition* newNoun);
         static gmr::NounId getErroneousNounId();
@@ -73,7 +74,8 @@ class Dictionary
 
         // Nouns
         static std::map<gmr::NounId, NounDefinition*> registeredNouns;
-        static std::map<std::string, gmr::NounId> nounIdByForm;
+        static std::map<std::string, gmr::NounId> nounIdBySingularForm;
+        static std::map<std::string, gmr::NounId> nounIdByPluralForm;
 
         // Adjuncts
         static std::vector<AdjunctDefinition*> registeredAdjuncts;

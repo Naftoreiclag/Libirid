@@ -16,14 +16,28 @@ gmr::SentenceState* SentenceStateBuilder::processStatement(std::vector<std::stri
     {
     /* === Testing for nouns === */
 
-        // Test for nouns
-        gmr::NounId possiblyMatchingNounId = Dictionary::getNounId(*wordPtr);
+        // Test for nouns by singular
+        gmr::NounId possiblyMatchingNounId = Dictionary::getNounIdBySingular(*wordPtr);
 
         // If this noun is not erroneous
         if(possiblyMatchingNounId != Dictionary::getErroneousNounId())
         {
             // Process it
             ssbuilder->processNoun(possiblyMatchingNounId, gmr::singular);
+
+            // If it is a noun, then obviously it can't be anything else,
+            // So stop analyzing this word and look at the next word
+            continue;
+        }
+
+        // Test for nouns by plural
+        possiblyMatchingNounId = Dictionary::getNounIdByPlural(*wordPtr);
+
+        // If this noun is not erroneous
+        if(possiblyMatchingNounId != Dictionary::getErroneousNounId())
+        {
+            // Process it
+            ssbuilder->processNoun(possiblyMatchingNounId, gmr::plural);
 
             // If it is a noun, then obviously it can't be anything else,
             // So stop analyzing this word and look at the next word

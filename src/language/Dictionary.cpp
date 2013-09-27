@@ -16,7 +16,8 @@
 
 // Vector
 std::map<gmr::NounId, NounDefinition*> Dictionary::registeredNouns;
-std::map<std::string, gmr::NounId> Dictionary::nounIdByForm;
+std::map<std::string, gmr::NounId> Dictionary::nounIdBySingularForm;
+std::map<std::string, gmr::NounId> Dictionary::nounIdByPluralForm;
 
 //
 gmr::NounId Dictionary::erroneousNounId;
@@ -26,12 +27,8 @@ void Dictionary::addNoun(gmr::NounId nounId, NounDefinition* newNoun)
 {
     registeredNouns.insert(std::pair<gmr::NounId, NounDefinition*>(nounId, newNoun));
 
-    nounIdByForm.insert(std::pair<std::string, gmr::NounId>(newNoun->getSingularForm(), nounId));
-
-    if(newNoun->getSingularForm() != newNoun->getPluralForm())
-    {
-        nounIdByForm.insert(std::pair<std::string, gmr::NounId>(newNoun->getPluralForm(), nounId));
-    }
+    nounIdBySingularForm.insert(std::pair<std::string, gmr::NounId>(newNoun->getSingularForm(), nounId));
+    nounIdByPluralForm.insert(std::pair<std::string, gmr::NounId>(newNoun->getPluralForm(), nounId));
 }
 
 // Get
@@ -48,11 +45,22 @@ NounDefinition* Dictionary::getNoun(gmr::NounId nounId)
 }
 
 // Get Id
-gmr::NounId Dictionary::getNounId(std::string nounForm)
+gmr::NounId Dictionary::getNounIdBySingular(std::string singularNounForm)
 {
-    std::map<std::string, gmr::NounId>::iterator focus = nounIdByForm.find(nounForm);
+    std::map<std::string, gmr::NounId>::iterator focus = nounIdBySingularForm.find(singularNounForm);
 
-    if(focus == nounIdByForm.end())
+    if(focus == nounIdBySingularForm.end())
+    {
+        return erroneousNounId;
+    }
+
+    return focus->second;
+}
+gmr::NounId Dictionary::getNounIdByPlural(std::string pluralNounForm)
+{
+    std::map<std::string, gmr::NounId>::iterator focus = nounIdByPluralForm.find(pluralNounForm);
+
+    if(focus == nounIdByPluralForm.end())
     {
         return erroneousNounId;
     }
