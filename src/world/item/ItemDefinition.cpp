@@ -28,7 +28,7 @@ ItemDefinition* ItemDefinition::addName(gmr::NounId id)
     #ifdef DEBUG
     else
     {
-        Sysout::print("Warning! You are trying to add an item name, but it already has it!");
+        Sysout::print("[Warning] You are trying to add an item name, but it already has it!");
     }
     #endif // DEBUG
 

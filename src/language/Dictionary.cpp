@@ -34,7 +34,7 @@ void Dictionary::addNoun(gmr::NounId nounId, NounDefinition* newNoun)
 
     if(focus != registeredNouns.end())
     {
-        Sysout::print("Warning! You are trying to add two nouns with the same id! ");
+        Sysout::print("[Warning] You are trying to add two nouns with the same id! ");
         Sysout::println(Sysout::toString(nounId));
     }
     #endif // DEBUG
