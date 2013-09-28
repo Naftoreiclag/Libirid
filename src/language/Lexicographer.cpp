@@ -17,7 +17,7 @@ void Lexicographer::graph()
     Dictionary::addNoun(    1, new NounDefinition("bunny"));
     Dictionary::addNoun(    2, new NounDefinition("cookie"));
     Dictionary::addNoun(    3, new NounDefinition("couch"));
-    Dictionary::addNoun(    4, new NounDefinition("cupcake"));
+    Dictionary::addNoun(   17, new NounDefinition("cupcake"));
     Dictionary::addNoun(    5, new NounDefinition("dirt"));
     Dictionary::addNoun(    6, new NounDefinition("dog"));
     Dictionary::addNoun(    7, new NounDefinition("egg"));
