@@ -9,6 +9,10 @@
 #include "ModifierDefinition.h"
 #include "Grammar.h"
 
+#ifdef DEBUG
+#include "../util/Sysout.h"
+#endif // DEBUG
+
 
 // =====
 // Nouns
@@ -25,6 +29,16 @@ gmr::NounId Dictionary::erroneousNounId;
 // Add
 void Dictionary::addNoun(gmr::NounId nounId, NounDefinition* newNoun)
 {
+    #ifdef DEBUG
+    std::map<gmr::NounId, NounDefinition*>::iterator focus = registeredNouns.find(nounId);
+
+    if(focus != registeredNouns.end())
+    {
+        Sysout::print("Warning! You are trying to add two nouns with the same id! ");
+        Sysout::println(Sysout::toString(nounId));
+    }
+    #endif // DEBUG
+
     registeredNouns.insert(std::pair<gmr::NounId, NounDefinition*>(nounId, newNoun));
 
     nounIdBySingularForm.insert(std::pair<std::string, gmr::NounId>(newNoun->getSingularForm(), nounId));
