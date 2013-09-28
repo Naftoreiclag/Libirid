@@ -8,13 +8,13 @@
 class ItemDefinition
 {
     public:
-        ItemDefinition* addName(NounId id);
+        ItemDefinition* addName(gmr::NounId id);
         unsigned int numNames();
 
         ItemDefinition();
         virtual ~ItemDefinition();
     private:
-        std::vector<NounId> names;
+        std::vector<gmr::NounId> names;
 };
 
 #endif // ITEMDEFINITION_H

@@ -8,11 +8,11 @@
 #include "../../util/Sysout.h"
 #endif // DEBUG
 
-ItemDefinition::addName(NounId id)
+ItemDefinition* ItemDefinition::addName(gmr::NounId id)
 {
     bool alreadyHas = false;
 
-    for(std::vector<NounId>::iterator it = names.begin(); it != names.end(); ++ it)
+    for(std::vector<gmr::NounId>::iterator it = names.begin(); it != names.end(); ++ it)
     {
         if(*it == id)
         {
@@ -35,7 +35,7 @@ ItemDefinition::addName(NounId id)
     return this;
 }
 
-ItemDefinition::numNames()
+unsigned int ItemDefinition::numNames()
 {
     return names.size();
 }
