@@ -1,9 +1,12 @@
 #include "Fuzzy.h"
 
-#include "util/Sysout.h"
 #include "util/Point3i.h"
 
 #include "Game.h"
+
+#ifdef DEBUG
+#include "util/Sysout.h"
+#endif // DEBUG
 
 // Debug mode boolean
 bool Fuzzy::debugMode;
