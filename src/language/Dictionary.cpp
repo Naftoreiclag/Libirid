@@ -147,7 +147,7 @@ gmr::ModifierId Dictionary::erroneousModifierId;
 void Dictionary::addModifier(gmr::ModifierId modifierId, ModifierDefinition* newModifier)
 {
     #ifdef DEBUG
-    std::map<gmr::ModifierId, ModifierDefinition*>::iterator focus = registeredModifiers.find(modifierIdId);
+    std::map<gmr::ModifierId, ModifierDefinition*>::iterator focus = registeredModifiers.find(modifierId);
 
     if(focus != registeredModifiers.end())
     {
