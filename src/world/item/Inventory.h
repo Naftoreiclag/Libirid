@@ -16,8 +16,20 @@ namespace inv
 class Inventory
 {
     public:
-        ItemState* takeItem(Slot slot)
-        void addItem(ItemState* item);
+        // Get access to the item
+        ItemState* accessItem(inv::Slot slot);
+
+        // Literally take the item from the inventory
+        ItemState* takeItem(inv::Slot slot);
+
+        // Transfer the item from one inventory to this one
+        inv::Slot transferItem(Inventory* giver, inv::Slot takeFrom);
+
+        // Add an item
+        inv::Slot addItem(ItemState* item);
+
+        //
+        unsigned int size();
 
         Inventory();
         ~Inventory();
