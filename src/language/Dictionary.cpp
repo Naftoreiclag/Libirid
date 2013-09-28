@@ -146,6 +146,16 @@ gmr::ModifierId Dictionary::erroneousModifierId;
 // Add
 void Dictionary::addModifier(gmr::ModifierId modifierId, ModifierDefinition* newModifier)
 {
+    #ifdef DEBUG
+    std::map<gmr::ModifierId, ModifierDefinition*>::iterator focus = registeredModifiers.find(modifierIdId);
+
+    if(focus != registeredModifiers.end())
+    {
+        Sysout::print("[Warning] You are trying to add two modifiers with the same id! ");
+        Sysout::println(Sysout::toString(modifierId));
+    }
+    #endif // DEBUG
+
     registeredModifiers.insert(std::pair<gmr::ModifierId, ModifierDefinition*>(modifierId, newModifier));
 
     modifierIdByForm.insert(std::pair<std::string, gmr::ModifierId>(newModifier->getForm(), modifierId));
