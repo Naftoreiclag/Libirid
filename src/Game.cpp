@@ -45,7 +45,7 @@ void Game::run()
             #ifdef DEBUG
             Sysout::print("Could not understand input: ");
             Sysout::println(Sysout::toFriendlyString(lastInput));
-            #endif
+            #endif // DEBUG
             Sysout::println("Misunderstanding.");
             Sysout::println();
         }
@@ -72,11 +72,11 @@ bool Game::runCommandFromSudoInput(std::string sudoLine)
 
 bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
 {
-    #ifdef DEBUG
+    #ifdef DEBUG_FINE
     Sysout::println("-BEGIN INPUT PROCESSING");
     Sysout::print("-Processing: ");
     Sysout::println(Sysout::toFriendlyString(inputWords));
-    #endif // DEBUG
+    #endif // DEBUG_FINE
 
     // If we have no words
     if(inputWords->size() == 0)
@@ -136,11 +136,11 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
         if(commandMatches)
         {
             // Debug
-            #ifdef DEBUG
+            #ifdef DEBUG_FINE
             Sysout::println("--BEGIN COMMAND PROCESSING");
             Sysout::print("--Command: ");
             Sysout::println(CmdDictionary::cmdByAlias->at(testCommandId).first);
-            #endif // DEBUG
+            #endif // DEBUG_FINE
 
             // Get the command arguments
             std::vector<std::string>* argumentWords = new std::vector<std::string>(*inputWords);
@@ -150,10 +150,10 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             gmr::SentenceState* stncState = SentenceStateBuilder::processStatement(argumentWords);
 
             // Print debug stuff
-            #ifdef DEBUG
+            #ifdef DEBUG_FINE
             Sysout::print("--Syntax: ");
             Sysout::println(Sysout::toFriendlyString(stncState));
-            #endif
+            #endif // DEBUG_FINE
 
             // Run the command       [-----------Function Pointer----------------------][-----------------------Function Parameters----------------------------------]
             bool commandSuccessful = CmdDictionary::cmdByAlias->at(testCommandId).second(stncState, argumentWords, CmdDictionary::cmdByAlias->at(testCommandId).first);
@@ -166,11 +166,11 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             if(commandSuccessful)
             {
                 // Debug
-                #ifdef DEBUG
+                #ifdef DEBUG_FINE
                 Sysout::println("--Command successful.");
                 Sysout::println("--END COMMAND PROCESSING");
                 Sysout::println("-END INPUT PROCESSING");
-                #endif // DEBUG
+                #endif // DEBUG_FINE
 
                 // Return successful
                 return true;
@@ -179,10 +179,10 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
             // [The command was not successful]
 
             // Debug
-            #ifdef DEBUG
+            #ifdef DEBUG_FINE
             Sysout::println("--Command failed.");
             Sysout::println("--END COMMAND PROCESSING");
-            #endif // DEBUG
+            #endif // DEBUG_FINE
         }
 
         // [The command did not match]
@@ -194,9 +194,9 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
     // [None of the commands matched]
 
     // Debug
-    #ifdef DEBUG
+    #ifdef DEBUG_FINE
     Sysout::println("-END INPUT PROCESSING");
-    #endif // DEBUG
+    #endif // DEBUG_FINE
 
     // Return unsuccessful
     return false;
