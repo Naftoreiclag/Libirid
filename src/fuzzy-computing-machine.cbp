@@ -75,8 +75,6 @@
 		<Unit filename="util/InaneMap.h" />
 		<Unit filename="util/Point3i.cpp" />
 		<Unit filename="util/Point3i.h" />
-		<Unit filename="util/Random.cpp" />
-		<Unit filename="util/Random.h" />
 		<Unit filename="util/SentenceStateBuilder.cpp" />
 		<Unit filename="util/SentenceStateBuilder.h" />
 		<Unit filename="util/SequencedMap.h" />
@@ -106,8 +104,6 @@
 		<Unit filename="world/item/ItmDictionary.h" />
 		<Unit filename="world/item/ItmLexicographer.cpp" />
 		<Unit filename="world/item/ItmLexicographer.h" />
-		<Unit filename="world/item/ItmSpace.cpp" />
-		<Unit filename="world/item/ItmSpace.h" />
 		<Unit filename="world/tree/Tree.cpp" />
 		<Unit filename="world/tree/Tree.h" />
 		<Extensions>
