@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include "item/Inventory.h"
+
 #include "Room.h"
 
 Player::Player(Room* roomLocation)
@@ -7,6 +9,7 @@ Player::Player(Room* roomLocation)
 roomChangeCount(0),
 roomLocation(roomLocation)
 {
+    inventory = new Inventory();
 }
 
 void Player::setRoomLocation(Room* rml)

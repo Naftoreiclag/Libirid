@@ -2,10 +2,12 @@
 #define PLAYER_H
 
 class Room;
+class Inventory;
 
 class Player
 {
     public:
+        Inventory* inventory;
         unsigned int amountEaten;
         unsigned int roomChangeCount;
         void setRoomLocation(Room* roomLocation);
