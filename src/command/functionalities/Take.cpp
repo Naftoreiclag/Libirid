@@ -25,11 +25,11 @@ bool Take::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         return true;
     }
 
-    gmr::NounState* object = stnc->nounStates->front();
+    //gmr::NounState* object = stnc->nounStates->front();
 
-    Player* p = Fuzzy::runningGame->player;
+    //Player* p = Fuzzy::runningGame->player;
 
-    p->inventory->transferItem();
+    //p->inventory->transferItem();
 
     return true;
 }

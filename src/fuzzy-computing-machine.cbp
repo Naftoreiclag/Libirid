@@ -73,6 +73,8 @@
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
 		<Unit filename="util/InaneMap.h" />
+		<Unit filename="util/ItmSearch.cpp" />
+		<Unit filename="util/ItmSearch.h" />
 		<Unit filename="util/Point3i.cpp" />
 		<Unit filename="util/Point3i.h" />
 		<Unit filename="util/SentenceStateBuilder.cpp" />
