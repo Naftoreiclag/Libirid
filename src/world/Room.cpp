@@ -6,6 +6,7 @@
 #include "../util/Point3i.h"
 
 #include "World.h"
+#include "item/Inventory.h"
 
 #include "tree/Tree.h"
 
@@ -40,6 +41,11 @@ Point3i Room::getWorldLocation()
 World* Room::getWorld()
 {
     return world;
+}
+
+Inventory* Room::accessInventory()
+{
+    return &inventory;
 }
 
 Room::Room(World* world, Point3i worldLocation)

@@ -10,7 +10,7 @@ class ItemState
         virtual ~ItemState();
     protected:
     private:
-        Inventory* location;
+        Inventory* owner;
 };
 
 #endif // ITEMSTATE_H

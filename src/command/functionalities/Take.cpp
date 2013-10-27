@@ -6,6 +6,9 @@
 
 #include "../../world/Player.h"
 
+#include "../../world/Room.h"
+#include "../../world/item/Inventory.h"
+
 #include "../../util/Sysout.h"
 
 #include <vector>
@@ -24,6 +27,15 @@ bool Take::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
 
         return true;
     }
+
+    Player* p = Fuzzy::runningGame->player;
+
+    Room* r = p->getRoomLocation();
+
+    Inventory* ri = r->accessInventory();
+    Inventory* pi = p->inventory;
+
+    pi->transferItem(ri, 0);
 
     //gmr::NounState* object = stnc->nounStates->front();
 
