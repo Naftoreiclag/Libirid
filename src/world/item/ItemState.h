@@ -1,15 +1,17 @@
 #ifndef ITEMSTATE_H
 #define ITEMSTATE_H
 
+#include "ItemDefinition.h"
+
 class Inventory;
 
 class ItemState
 {
     public:
-        ItemState();
+        ItemState(itm::ItemDefId definitionId);
         virtual ~ItemState();
-    protected:
     private:
+        itm::ItemDefId definition;
         Inventory* owner;
 };
 

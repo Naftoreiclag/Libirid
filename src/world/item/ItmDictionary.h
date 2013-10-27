@@ -3,23 +3,18 @@
 
 #include <map>
 
-class ItemDefinition;
-
-namespace itm
-{
-    typedef unsigned int ItemId;
-}
+#include "ItemDefinition.h"
 
 class ItmDictionary
 {
     public:
-        static void addItem(itm::ItemId id, ItemDefinition* definition);
-        static void addItemAsErroneous(itm::ItemId id, ItemDefinition* definition);
-        static itm::ItemId getErroneousItemId();
-        static ItemDefinition* getItem(itm::ItemId id);
+        static void addItem(itm::ItemDefId id, ItemDefinition* definition);
+        static void addItemAsErroneous(itm::ItemDefId id, ItemDefinition* definition);
+        static itm::ItemDefId getErroneousItemDefId();
+        static ItemDefinition* getItem(itm::ItemDefId id);
     private:
-        static itm::ItemId erroneousItemId;
-        static std::map<itm::ItemId, ItemDefinition*> registeredItems;
+        static itm::ItemDefId erroneousItemDefId;
+        static std::map<itm::ItemDefId, ItemDefinition*> registeredItems;
 };
 
 #endif // ITMDICTIONARY_H

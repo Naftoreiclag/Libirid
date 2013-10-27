@@ -5,6 +5,11 @@
 
 #include "../../language/Grammar.h"
 
+namespace itm
+{
+    typedef unsigned int ItemDefId;
+}
+
 class ItemDefinition
 {
     public:

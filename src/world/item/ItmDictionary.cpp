@@ -2,33 +2,33 @@
 
 #include <map>
 
-std::map<itm::ItemId, ItemDefinition*> ItmDictionary::registeredItems;
-itm::ItemId ItmDictionary::erroneousItemId;
+std::map<itm::ItemDefId, ItemDefinition*> ItmDictionary::registeredItems;
+itm::ItemDefId ItmDictionary::erroneousItemDefId;
 
-void ItmDictionary::addItem(itm::ItemId id, ItemDefinition* definition)
+void ItmDictionary::addItem(itm::ItemDefId id, ItemDefinition* definition)
 {
-    registeredItems.insert(std::pair<itm::ItemId, ItemDefinition*>(id, definition));
+    registeredItems.insert(std::pair<itm::ItemDefId, ItemDefinition*>(id, definition));
 }
 
-void ItmDictionary::addItemAsErroneous(itm::ItemId id, ItemDefinition* definition)
+void ItmDictionary::addItemAsErroneous(itm::ItemDefId id, ItemDefinition* definition)
 {
-    registeredItems.insert(std::pair<itm::ItemId, ItemDefinition*>(id, definition));
+    registeredItems.insert(std::pair<itm::ItemDefId, ItemDefinition*>(id, definition));
 
-    erroneousItemId = id;
+    erroneousItemDefId = id;
 }
 
-itm::ItemId ItmDictionary::getErroneousItemId()
+itm::ItemDefId ItmDictionary::getErroneousItemDefId()
 {
-    return erroneousItemId;
+    return erroneousItemDefId;
 }
 
-ItemDefinition* ItmDictionary::getItem(itm::ItemId id)
+ItemDefinition* ItmDictionary::getItem(itm::ItemDefId id)
 {
-    std::map<itm::ItemId, ItemDefinition*>::iterator focus = registeredItems.find(id);
+    std::map<itm::ItemDefId, ItemDefinition*>::iterator focus = registeredItems.find(id);
 
     if(focus == registeredItems.end())
     {
-        return registeredItems.find(erroneousItemId)->second;
+        return registeredItems.find(erroneousItemDefId)->second;
     }
 
     return focus->second;

@@ -17,4 +17,5 @@ void CmdLexicographer::graph()
     CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("go", Do::execute));
     CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("do", Do::execute));
     CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("take", Take::execute));
+    CmdDictionary::cmdByAlias->push_back(cmd::AliasFunctionalityPair("inv", CheckInventory::execute));
 }

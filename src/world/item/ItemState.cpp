@@ -1,8 +1,10 @@
 #include "ItemState.h"
 
-ItemState::ItemState()
+#include "ItemDefinition.h"
+
+ItemState::ItemState(itm::ItemDefId definitionId)
+: definition(definitionId)
 {
-    //ctor
 }
 
 ItemState::~ItemState()

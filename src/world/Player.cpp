@@ -9,7 +9,6 @@ Player::Player(Room* roomLocation)
 roomChangeCount(0),
 roomLocation(roomLocation)
 {
-    inventory = new Inventory();
 }
 
 void Player::setRoomLocation(Room* rml)
@@ -25,6 +24,11 @@ void Player::setRoomLocation(Room* rml)
 Room* Player::getRoomLocation()
 {
     return roomLocation;
+}
+
+Inventory* Player::accessInventory()
+{
+    return &inventory;
 }
 
 Player::~Player()

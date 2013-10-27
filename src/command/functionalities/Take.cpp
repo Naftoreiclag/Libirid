@@ -33,7 +33,7 @@ bool Take::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
     Room* r = p->getRoomLocation();
 
     Inventory* ri = r->accessInventory();
-    Inventory* pi = p->inventory;
+    Inventory* pi = p->accessInventory();
 
     pi->transferItem(ri, 0);
 

@@ -7,8 +7,11 @@
 
 #include "World.h"
 #include "item/Inventory.h"
+#include "item/ItemState.h"
 
 #include "tree/Tree.h"
+
+#include "../IdList.h"
 
 void Room::cutDownTree()
 {
@@ -54,6 +57,8 @@ Room::Room(World* world, Point3i worldLocation)
     trees.push_back(new Tree());
     trees.push_back(new Tree());
     trees.push_back(new Tree());
+
+    inventory.addItem(new ItemState(I_STICK));
 }
 
 Room::~Room()
