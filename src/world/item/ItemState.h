@@ -9,6 +9,7 @@ class ItemState
 {
     public:
         ItemState(itm::ItemDefId definitionId);
+        ItemDefinition* accessDefinition();
         virtual ~ItemState();
     private:
         itm::ItemDefId definition;

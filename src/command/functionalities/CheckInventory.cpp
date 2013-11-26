@@ -9,14 +9,24 @@
 
 #include "../../Fuzzy.h"
 #include "../../world/Player.h"
+#include "../../world/item/ItemState.h"
 
 bool CheckInventory::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
+    Inventory* inventory = Fuzzy::runningGame->player->accessInventory();
+
     Sysout::println("Inventory Size: ");
 
-    Sysout::println(Sysout::toString(Fuzzy::runningGame->player->accessInventory()->size()));
+    Sysout::println(Sysout::toString(inventory->size()));
 
     Sysout::println("Inventory Contents: ");
+    Sysout::println();
+
+    for(inv::Slot slotcheck = 0; slotcheck < inventory->size(); ++ slotcheck)
+    {
+        Sysout::println(inventory->accessItem(slotcheck)->accessDefinition()->numNames());
+    }
+
     Sysout::println();
 
     return true;
