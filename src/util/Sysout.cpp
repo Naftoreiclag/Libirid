@@ -10,7 +10,7 @@
 
 #include "../util/Point3i.h"
 
-#include "../Fuzzy.h"
+#include "../Libirid.h"
 
 // How wide the screen is
 unsigned short Sysout::displayWidth;
