@@ -1,4 +1,4 @@
-~~Fuzzy Computing Machine~~ Libirid
+![alt tag](/logo.bmp)
 =======================
 
 Exactly what the repository is called. This is (not really) a fuzzy computing machine!
