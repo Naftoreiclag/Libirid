@@ -2,7 +2,7 @@
 
 #include "../../language/Grammar.h"
 
-#include "../../Fuzzy.h"
+#include "../../Libirid.h"
 
 #include "../../world/Player.h"
 
@@ -28,7 +28,7 @@ bool Take::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         return true;
     }
 
-    Player* p = Fuzzy::runningGame->player;
+    Player* p = Libirid::runningGame->player;
 
     Room* r = p->getRoomLocation();
 
@@ -39,7 +39,7 @@ bool Take::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
 
     //gmr::NounState* object = stnc->nounStates->front();
 
-    //Player* p = Fuzzy::runningGame->player;
+    //Player* p = Libirid::runningGame->player;
 
     //p->inventory->transferItem();
 

@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-#include "../../Fuzzy.h"
+#include "../../Libirid.h"
 
 #include "../../language/Grammar.h"
 
@@ -14,7 +14,7 @@
 
 bool Look::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
-    Player* player = Fuzzy::runningGame->player;
+    Player* player = Libirid::runningGame->player;
 
     #ifdef DEBUG
     Sysout::print("Player location: ");

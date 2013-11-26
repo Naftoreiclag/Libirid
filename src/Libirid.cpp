@@ -1,4 +1,4 @@
-#include "Fuzzy.h"
+#include "Libirid.h"
 
 #include "util/Point3i.h"
 
@@ -9,12 +9,12 @@
 #endif // DEBUG
 
 // Debug mode boolean
-bool Fuzzy::debugMode;
+bool Libirid::debugMode;
 
 // The running game instance
-Game* Fuzzy::runningGame;
+Game* Libirid::runningGame;
 
-void Fuzzy::run()
+void Libirid::run()
 {
     // Debug mode check
     #ifdef DEBUG
@@ -45,7 +45,7 @@ void Fuzzy::run()
     }
 }
 
-bool Fuzzy::inDebug()
+bool Libirid::inDebug()
 {
     return debugMode;
 }

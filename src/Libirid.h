@@ -1,9 +1,9 @@
-#ifndef FUZZY_H
-#define FUZZY_H
+#ifndef LIBIRID_H
+#define LIBIRID_H
 
 #include "Game.h"
 
-class Fuzzy
+class Libirid
 {
     public:
         static bool inDebug();
@@ -13,4 +13,4 @@ class Fuzzy
         static bool debugMode;
 };
 
-#endif // FUZZY_H
+#endif // LIBIRID_H

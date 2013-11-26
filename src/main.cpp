@@ -6,7 +6,7 @@
 #include "command/CmdLexicographer.h"
 #include "world/item/ItmLexicographer.h"
 
-#include "Fuzzy.h"
+#include "Libirid.h"
 
 // This is where the magic happens!
 int main()
@@ -14,8 +14,8 @@ int main()
     // Set the display width to 80 chars long (for word-wrap)
     Sysout::setDisplayWidth(80);
 
-    // Legendary string
-    Sysout::println("Fuzzy Computing Machine");
+    // Legendary string HAS BEEN CHANGED!!! DUN DUN DUNNNNN
+    Sysout::println("Libirid");
     Sysout::println();
 
     // Add words
@@ -28,7 +28,7 @@ int main()
     ItmLexicographer::graph();
 
     // I REALLY need a better name soon...
-    Fuzzy::run();
+    Libirid::run();
 
     // Died quietly
     return 0;

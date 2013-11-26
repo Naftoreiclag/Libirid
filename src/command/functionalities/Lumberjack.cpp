@@ -4,7 +4,7 @@
 
 #include "../../util/Sysout.h"
 
-#include "../../Fuzzy.h"
+#include "../../Libirid.h"
 
 #include <vector>
 #include <string>
@@ -18,7 +18,7 @@ bool Lumberjack::execute(gmr::SentenceState* stnc, std::vector<std::string>* arg
     Sysout::println("chop");
     Sysout::println();
 
-    Room* room = Fuzzy::runningGame->player->getRoomLocation();
+    Room* room = Libirid::runningGame->player->getRoomLocation();
 
     room->cutDownTree();
 

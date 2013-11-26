@@ -4,7 +4,7 @@
 
 #include "../../util/Sysout.h"
 
-#include "../../Fuzzy.h"
+#include "../../Libirid.h"
 
 #include "../../world/Player.h"
 
@@ -45,9 +45,9 @@ bool Eat::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWo
         }
     }
 
-    ++ Fuzzy::runningGame->player->amountEaten;
+    ++ Libirid::runningGame->player->amountEaten;
 
-    Sysout::print("You have now eaten: "); Sysout::print(Fuzzy::runningGame->player->amountEaten); Sysout::println(" foodstuffs!");
+    Sysout::print("You have now eaten: "); Sysout::print(Libirid::runningGame->player->amountEaten); Sysout::println(" foodstuffs!");
 
     Sysout::println();
 

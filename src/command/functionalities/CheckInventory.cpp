@@ -7,13 +7,13 @@
 #include <vector>
 #include <string>
 
-#include "../../Fuzzy.h"
+#include "../../Libirid.h"
 #include "../../world/Player.h"
 #include "../../world/item/ItemState.h"
 
 bool CheckInventory::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
-    Inventory* inventory = Fuzzy::runningGame->player->accessInventory();
+    Inventory* inventory = Libirid::runningGame->player->accessInventory();
 
     Sysout::println("Inventory Size: ");
 

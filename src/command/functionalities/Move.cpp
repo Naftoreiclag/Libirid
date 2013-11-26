@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-#include "../../Fuzzy.h"
+#include "../../Libirid.h"
 
 #include "../../language/Grammar.h"
 
@@ -37,7 +37,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         Sysout::print("You travel "); Sysout::print(argumentWords->front()); Sysout::println(".");
 
         // Get objects
-        Player* player = Fuzzy::runningGame->player;
+        Player* player = Libirid::runningGame->player;
         Point3i playerWorldLocation = player->getRoomLocation()->getWorldLocation();
         World* world = player->getRoomLocation()->getWorld();
 
@@ -45,7 +45,7 @@ bool Move::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentW
         player->setRoomLocation(world->getRoom(playerWorldLocation + directionVector));
 
         // Sudo-run the look command
-        Fuzzy::runningGame->runCommandFromSudoInput("look");
+        Libirid::runningGame->runCommandFromSudoInput("look");
 
         // Successful
         return true;

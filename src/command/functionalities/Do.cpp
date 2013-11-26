@@ -2,12 +2,12 @@
 
 #include "../../language/Grammar.h"
 
-#include "../../Fuzzy.h"
+#include "../../Libirid.h"
 
 #include <vector>
 #include <string>
 
 bool Do::execute(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
 {
-    return Fuzzy::runningGame->runCommandFromRawInput(argumentWords);
+    return Libirid::runningGame->runCommandFromRawInput(argumentWords);
 }
