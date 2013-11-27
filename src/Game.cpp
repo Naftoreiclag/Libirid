@@ -25,10 +25,10 @@ void Game::run()
     std::vector<std::string>* lastInput = new std::vector<std::string>();
 
     //
-    world = new World();
+    //world = new World();
 
     //
-    player = new Player(world->getRoom(Point3i(5, 5, 5)));
+    //player = new Player(world->getRoom(Point3i(5, 5, 5)));
 
     // While running, run!
     while(running)
@@ -36,6 +36,7 @@ void Game::run()
         // Prompt
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
         Sysout::println();
+        /*)
 
         // Run command from the raw input
         bool success = runCommandFromRawInput(lastInput);
@@ -48,7 +49,7 @@ void Game::run()
             #endif // DEBUG
             Sysout::println("Misunderstanding.");
             Sysout::println();
-        }
+        }*/
     }
 
     // Delete our storage for the last container
@@ -57,7 +58,7 @@ void Game::run()
     // Maybe now would be a good time to save?
     delete world;
 }
-
+/*
 bool Game::runCommandFromSudoInput(std::string sudoLine)
 {
     std::vector<std::string>* inputWords = new std::vector<std::string>();
@@ -201,3 +202,4 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
     // Return unsuccessful
     return false;
 }
+*/

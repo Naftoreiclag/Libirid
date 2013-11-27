@@ -21,12 +21,13 @@ int main()
     // Add words
     Lexicographer::graph();
 
+/*
     // Add commands
     CmdLexicographer::graph();
 
     // Add items
     ItmLexicographer::graph();
-
+*/
     // I REALLY need a better name soon...
     Libirid::run();
 
