@@ -33,11 +33,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Fuzzy.cpp" />
-		<Unit filename="Fuzzy.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
 		<Unit filename="IdList.h" />
+		<Unit filename="Libirid.cpp" />
+		<Unit filename="Libirid.h" />
+		<Unit filename="Portal.h" />
 		<Unit filename="Title.cpp" />
 		<Unit filename="Title.h" />
 		<Unit filename="command/CmdDictionary.cpp" />
@@ -53,6 +54,16 @@
 		<Unit filename="command/functionalities/Lumberjack.cpp" />
 		<Unit filename="command/functionalities/Move.cpp" />
 		<Unit filename="command/functionalities/Take.cpp" />
+		<Unit filename="expanse/Area.cpp" />
+		<Unit filename="expanse/Area.h" />
+		<Unit filename="expanse/Entity.cpp" />
+		<Unit filename="expanse/Entity.h" />
+		<Unit filename="expanse/Expanse.cpp" />
+		<Unit filename="expanse/Expanse.h" />
+		<Unit filename="expanse/Portal.cpp" />
+		<Unit filename="expanse/Portal.h" />
+		<Unit filename="expanse/World.cpp" />
+		<Unit filename="expanse/World.h" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
 		<Unit filename="language/AdjunctDefinition.h" />
 		<Unit filename="language/AdjunctState.cpp" />
