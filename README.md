@@ -13,4 +13,5 @@ It's a text-adventure game, so it utilizes the second-most powerful graphics-ren
 
 Some Plans
 =======================
-Remember to put something here...
+* Make some plans.
+* Do something with Lua scripting.
