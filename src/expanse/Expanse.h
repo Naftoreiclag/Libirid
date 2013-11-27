@@ -1,8 +1,9 @@
 #ifndef EXPANSE_H
 #define EXPANSE_H
 
-#include <map>
 #include <string>
+#include <vector>
+#include <map>
 
 #include "World.h"
 #include "Entity.h"
