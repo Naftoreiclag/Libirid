@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include <vector>
+
 #include "util/Sysout.h"
 #include "util/Sysin.h"
 #include "util/SentenceStateBuilder.h"
@@ -8,8 +10,11 @@
 
 #include "language/Grammar.h"
 
-#include "world/World.h"
-#include "world/Player.h"
+#include "expanse/Expanse.h"
+
+
+//#include "world/World.h"
+//#include "world/Player.h"
 
 Game::Game()
 : running(false)
@@ -24,11 +29,8 @@ void Game::run()
     // Last input vector
     std::vector<std::string>* lastInput = new std::vector<std::string>();
 
-    //
-    //world = new World();
-
-    //
-    //player = new Player(world->getRoom(Point3i(5, 5, 5)));
+    // New expanse
+    Expanse expanse;
 
     // While running, run!
     while(running)
