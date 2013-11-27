@@ -30,7 +30,7 @@ void Game::run()
     std::vector<std::string>* lastInput = new std::vector<std::string>();
 
     // New expanse
-    Expanse expanse;
+    exp::Expanse expanse;
 
     // While running, run!
     while(running)
