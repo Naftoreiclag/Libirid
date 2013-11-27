@@ -1,14 +1,16 @@
 #ifndef PORTAL_H
 #define PORTAL_H
 
-
-class Portal
+namespace exp
 {
-    public:
-        Portal();
-        virtual ~Portal();
-    protected:
-    private:
-};
+    class Portal
+    {
+        public:
+            Portal();
+            virtual ~Portal();
+        protected:
+        private:
+    };
+}
 
 #endif // PORTAL_H

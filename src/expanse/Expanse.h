@@ -5,14 +5,19 @@
 #include <string>
 
 #include "World.h"
+#include "Entity.h"
 
-class Expanse
+namespace exp
 {
-    public:
-        Expanse();
-        virtual ~Expanse();
-    private:
-        std::map<std::string, World> worlds;
-};
+    class Expanse
+    {
+        public:
+            Expanse();
+            virtual ~Expanse();
+        private:
+            std::map<std::string, exp::World> worlds;
+            std::vector<exp::Entity> entities;
+    };
+}
 
 #endif // EXPANSE_H

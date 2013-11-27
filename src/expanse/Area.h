@@ -1,14 +1,16 @@
 #ifndef AREA_H
 #define AREA_H
 
-
-class Area
+namespace exp
 {
-    public:
-        Area();
-        virtual ~Area();
-    protected:
-    private:
-};
+    class Area
+    {
+        public:
+            Area();
+            virtual ~Area();
+        protected:
+        private:
+    };
+}
 
 #endif // AREA_H

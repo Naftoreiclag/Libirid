@@ -1,11 +1,11 @@
 #include "World.h"
 
-World::World()
+exp::World::World()
 {
     //ctor
 }
 
-World::~World()
+exp::World::~World()
 {
     //dtor
 }

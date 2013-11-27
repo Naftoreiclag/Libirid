@@ -1,14 +1,16 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-
-class World
+namespace exp
 {
-    public:
-        World();
-        virtual ~World();
-    protected:
-    private:
-};
+    class World
+    {
+        public:
+            World();
+            virtual ~World();
+        protected:
+        private:
+    };
+}
 
 #endif // WORLD_H

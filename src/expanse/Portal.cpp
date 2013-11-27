@@ -1,11 +1,11 @@
 #include "Portal.h"
 
-Portal::Portal()
+exp::Portal::Portal()
 {
     //ctor
 }
 
-Portal::~Portal()
+exp::Portal::~Portal()
 {
     //dtor
 }

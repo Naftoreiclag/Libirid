@@ -1,11 +1,11 @@
 #include "Area.h"
 
-Area::Area()
+exp::Area::Area()
 {
     //ctor
 }
 
-Area::~Area()
+exp::Area::~Area()
 {
     //dtor
 }

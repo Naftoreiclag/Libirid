@@ -1,11 +1,11 @@
 #include "Expanse.h"
 
-Expanse::Expanse()
+exp::Expanse::Expanse()
 {
     //ctor
 }
 
-Expanse::~Expanse()
+exp::Expanse::~Expanse()
 {
     //dtor
 }
