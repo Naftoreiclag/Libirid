@@ -12,6 +12,10 @@ Some stuff about this project:
 * All the source code here was made by me! (As of writing.)
 * Uses [Code::Blocks](http://www.codeblocks.org/) as main IDE.
 
+Licensing
+====================
+[MIT License (MIT)](http://opensource.org/licenses/mit-license.html)
+
 Statistics for /src/
 ====================
 (Because my friend keeps bothering me about it)
