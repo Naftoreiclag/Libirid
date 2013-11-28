@@ -38,7 +38,6 @@
 		<Unit filename="IdList.h" />
 		<Unit filename="Libirid.cpp" />
 		<Unit filename="Libirid.h" />
-		<Unit filename="Portal.h" />
 		<Unit filename="Title.cpp" />
 		<Unit filename="Title.h" />
 		<Unit filename="expanse/Area.cpp" />
