@@ -67,8 +67,8 @@ int main()
 
     animals.printHeirachy(0);
 
-    aussie.setParent(&dog);
-    animals.printHeirachy(0);
+    //aussie.setParent(&dog);
+    //animals.printHeirachy(0);
 
 /*
     // Add commands

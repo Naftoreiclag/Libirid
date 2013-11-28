@@ -161,7 +161,7 @@ void Node::printHeirachy(int layer)
 
 
     std::cout << indent << name;
-    if(sibling != NULL) std::cout << ": " << sibling->name;
+    //if(sibling != NULL) std::cout << ": " << sibling->name;
     std::cout << std::endl;
 
     //Sysout::println(indent + "Node");
