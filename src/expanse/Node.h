@@ -30,12 +30,14 @@ class Node
     public:
         virtual ~Node();
 
+        // Returns parent
         Node* getParent();
 
         // Adopts a parent
         // - New parent calls adoptChild(me);
         void setParent(Node* newParent);
 
+        // Returns the first child
         Node* getChild();
 
         // Adopts a child
@@ -51,7 +53,10 @@ class Node
         // ! Disowned child does NOT know that he has been disowned, and still thinks that I am his parent!
         void forgetChild(Node* childToDisown);
 
+        // Returns sibling
         Node* getSibling();
+
+        // Sets the sibling
         void setSibling(Node* newSibling);
 
         #ifdef DEBUG
