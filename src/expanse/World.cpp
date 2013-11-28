@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
- #include "World.h"
+#include "World.h"
 
 exp::World::World()
 {

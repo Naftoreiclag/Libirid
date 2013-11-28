@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
- #include "Portal.h"
+#include "Portal.h"
 
 exp::Portal::Portal()
 {

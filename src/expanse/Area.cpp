@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
- #include "Area.h"
+#include "Area.h"
 
 exp::Area::Area()
 {

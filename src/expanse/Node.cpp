@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
- #include "Node.h"
+#include "Node.h"
 
 #define NULL 0
 

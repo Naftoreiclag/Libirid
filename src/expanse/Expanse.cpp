@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
- #include "Expanse.h"
+#include "Expanse.h"
 
 exp::Expanse::Expanse()
 {

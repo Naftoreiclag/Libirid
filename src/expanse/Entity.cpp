@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
- #include "Entity.h"
+#include "Entity.h"
 
 exp::Entity::Entity()
 {

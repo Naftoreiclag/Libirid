@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
- #include "AdjunctDefinition.h"
+#include "AdjunctDefinition.h"
 
 #include <string>
 
