@@ -6,7 +6,8 @@
 
 #include "Entity.h"
 
-exp::Entity::Entity()
+exp::Entity::Entity(Node* parent)
+: Node(NT_ENTITY, parent)
 {
     //ctor
 }

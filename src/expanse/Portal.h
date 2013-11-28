@@ -7,12 +7,14 @@
 #ifndef PORTAL_H
 #define PORTAL_H
 
+#include "Node.h"
+
 namespace exp
 {
-    class Portal
+    class Portal : public Node
     {
         public:
-            Portal();
+            Portal(Node* node);
             virtual ~Portal();
         protected:
         private:

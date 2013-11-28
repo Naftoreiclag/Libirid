@@ -22,6 +22,7 @@ typedef unsigned char NodeType;
 #define NT_WORLD        0x03
 #define NT_AREA         0x04
 #define NT_ENTITY       0x05
+#define NT_PORTAL       0x06
 
 class Node
 {

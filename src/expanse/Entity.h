@@ -7,12 +7,14 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "Node.h"
+
 namespace exp
 {
-    class Entity
+    class Entity : public Node
     {
         public:
-            Entity();
+            Entity(Node* node);
             virtual ~Entity();
         protected:
         private:

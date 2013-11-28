@@ -7,20 +7,16 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include <vector>
-#include <string>
-
-#include "Area.h"
+#include "Node.h"
 
 namespace exp
 {
-    class World
+    class World : public Node
     {
         public:
-            World();
+            World(Node* node);
             virtual ~World();
         private:
-            std::vector<Area> areas;
     };
 }
 
