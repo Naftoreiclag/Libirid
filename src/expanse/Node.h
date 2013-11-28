@@ -40,6 +40,10 @@ class Node
 
         Node* getSibling();
         void setSibling(Node* newSibling);
+
+        #ifdef DEBUG
+        void printHeirachy();
+        #endif
     private:
         Node* parent;
         Node* child;

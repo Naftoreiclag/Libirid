@@ -6,9 +6,17 @@
 
 #include "Node.h"
 
-#define NULL 0
+#ifdef DEBUG
+#include "../util/Sysout.h"
+#include <iostream>
+#endif // DEBUG
+
+//#define NULL (void *)0
 
 Node::Node(Node* parent)
+: parent(NULL),
+child(NULL),
+sibling(NULL)
 {
     // Tell parent to adopt me
     setParent(parent);
@@ -21,6 +29,12 @@ Node::~Node()
 Node* Node::getParent() { return parent; }
 void Node::setParent(Node* newParent)
 {
+    #ifdef DEBUG
+    Sysout::println("parent assigned: ");
+    std::cout << "old: " << parent << std::endl;
+    std::cout << "new: " << newParent << std::endl;
+    #endif // DEBUG
+
     // If the new parent is nobody
     if(newParent == NULL)
     {
@@ -96,3 +110,17 @@ void Node::forgetChild(Node* childToDisown)
 
 Node* Node::getSibling() { return sibling; }
 void Node::setSibling(Node* newSibling) { sibling = newSibling; }
+
+#ifdef DEBUG
+void Node::printHeirachy()
+{
+    Sysout::print("[");
+    Sysout::print("Node: ");
+    for(Node* node = child; node != NULL; node = node->sibling)
+    {
+        node->printHeirachy();
+        Sysout::print(" ");
+    }
+    Sysout::print("]");
+}
+#endif // DEBUG

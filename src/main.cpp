@@ -14,6 +14,10 @@
 
 #include "Libirid.h"
 
+#include "expanse/Node.h"
+
+//#define NULL (void *)0
+
 // This is where the magic happens!
 int main()
 {
@@ -26,6 +30,17 @@ int main()
 
     // Add words
     Lexicographer::graph();
+
+    //
+    Node animals(NULL);
+    /*Node dog(&animals);
+    Node corgi(&dog);
+    Node retriever(&dog);
+    Node cat(&animals);
+    Node aussie(&cat);
+    Node calico(&cat);*/
+
+    //animals.printHeirachy();
 
 /*
     // Add commands
