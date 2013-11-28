@@ -23,13 +23,13 @@ namespace exp
         private:
 
             // Worlds
-            std::vector<std::World> worlds;
+            std::vector<exp::World> worlds;
 
             // Areas
-            std::vector<std::Area> areas;
+            std::vector<exp::Area> areas;
 
             // Entities
-            std::vector<std::Entity> entities;
+            std::vector<exp::Entity> entities;
 
             /*// All areas
             std::vector<exp::Area> areas;
