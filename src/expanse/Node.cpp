@@ -1,9 +1,11 @@
 #include "Node.h"
 
-Node::Node()
+Node::Node(Node* parent)
+: parent(parent)
 {
-    //ctor
 }
+
+
 
 Node::~Node()
 {
