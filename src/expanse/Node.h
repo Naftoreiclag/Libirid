@@ -11,6 +11,11 @@
  *
  */
 
+#ifdef DEBUG
+#include <string>
+#define private public
+#endif // DEBUG
+
 class Node
 {
     public:
@@ -43,11 +48,17 @@ class Node
 
         #ifdef DEBUG
         void printHeirachy(int layer);
+
+        void setName(std::string str);
         #endif
     private:
         Node* parent;
         Node* child;
         Node* sibling;
+
+        #ifdef DEBUG
+        std::string name;
+        #endif // DEBUG
 };
 
 #endif // NODE_H

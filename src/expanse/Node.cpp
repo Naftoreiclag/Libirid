@@ -32,8 +32,10 @@ void Node::setParent(Node* newParent)
 {
     #ifdef DEBUG
     Sysout::println("parent assigned: ");
-    std::cout << "old: " << parent << std::endl;
-    std::cout << "new: " << newParent << std::endl;
+    if(parent != NULL) std::cout << "old: " << parent->name << std::endl;
+    else               std::cout << "old: " << "NULL" << std::endl;
+    if(newParent != NULL) std::cout << "new: " << newParent->name << std::endl;
+    else                  std::cout << "new: " << "NULL" << std::endl;
     #endif // DEBUG
 
     // If the new parent is nobody
@@ -117,12 +119,19 @@ void Node::printHeirachy(int layer)
 {
     std::string indent = std::string(layer, ' ');
 
-    Sysout::println(indent + "Node");
+
+    std::cout << indent << name << std::endl;
+    //Sysout::println(indent + "Node");
     //Sysout::println(indent + "[");
     for(Node* node = child; node != NULL; node = node->sibling)
     {
         node->printHeirachy(layer + 2);
     }
     //Sysout::println(indent + "]");
+}
+
+void Node::setName(std::string str)
+{
+    name = str;
 }
 #endif // DEBUG

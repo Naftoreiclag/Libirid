@@ -33,13 +33,29 @@ int main()
 
     //
     Node animals(NULL);
-    Node dog(&animals);
-    Node corgi(&dog);
-    Node retriever(&dog);
-    Node cat(&animals);
-    Node aussie(&cat);
-    Node calico(&cat);
+    animals.setName("animals");
 
+    Node dog(&animals);
+    dog.setName("dog");
+
+    Node corgi(&dog);
+    corgi.setName("corgi");
+
+    Node retriever(&dog);
+    retriever.setName("retriever");
+
+    Node cat(&animals);
+    cat.setName("cat");
+
+    Node aussie(&cat);
+    aussie.setName("aussie");
+
+    Node calico(&cat);
+    calico.setName("calico");
+
+    animals.printHeirachy(0);
+
+    aussie.setParent(&dog);
     animals.printHeirachy(0);
 
 /*
