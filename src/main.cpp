@@ -31,44 +31,24 @@ int main()
     // Add words
     Lexicographer::graph();
 
-    //
-    Node animals(NULL);
-    animals.setName("animals");
+    /*Node tramstation(NULL);
+    tramstation.setName("Tram Station");
+    Node tram(&tramstation);
+    tram.setName("The tram");
+    Node dylan(&tram);
+    dylan.setName("Dylan");
+    Node box(&dylan);
+    box.setName("Box");
+    Node donut(&box);
+    donut.setName("Plain donut");
+    Node jellyDonut(&box);
+    jellyDonut.setName("Jelly donut");
+    Node cafe(&tramstation);
+    cafe.setName("Coffee shop");
 
-        Node dog(&animals);
-        dog.setName("dog");
+    tramstation.printHeirachy(0);*/
 
-            Node corgi(&dog);
-            corgi.setName("corgi");
 
-            Node retriever(&dog);
-            retriever.setName("retriever");
-
-        Node snake(&animals);
-        snake.setName("snake");
-
-            Node rattler(&snake);
-            rattler.setName("rattler");
-
-            Node kobra(&snake);
-            kobra.setName("kobra");
-
-        Node cat(&animals);
-        cat.setName("cat");
-
-            Node ragdoll(&cat);
-            ragdoll.setName("ragdoll");
-
-            Node aussie(&cat);
-            aussie.setName("aussie");
-
-            Node calico(&cat);
-            calico.setName("calico");
-
-    animals.printHeirachy(0);
-
-    //aussie.setParent(&dog);
-    //animals.printHeirachy(0);
 
 /*
     // Add commands

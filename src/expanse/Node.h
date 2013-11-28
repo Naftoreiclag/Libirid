@@ -16,10 +16,18 @@
 #define private public
 #endif // DEBUG
 
+typedef unsigned char NodeType;
+
+#define NT_EXPANSE      0x02;
+#define NT_WORLD        0x03;
+#define NT_AREA         0x04;
+#define NT_ENTITY       0x05;
+
 class Node
 {
+    protected:
+        Node(NodeType type, Node* parent);
     public:
-        Node(Node* parent);
         virtual ~Node();
 
         Node* getParent();
@@ -50,8 +58,10 @@ class Node
         void printHeirachy(int layer);
 
         void setName(std::string str);
-        #endif
+        #endif // DEBUG
     private:
+        NodeType type;
+
         Node* parent;
         Node* child;
         Node* sibling;

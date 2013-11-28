@@ -7,12 +7,14 @@
 #ifndef AREA_H
 #define AREA_H
 
+#include "Node.h"
+
 namespace exp
 {
-    class Area
+    class Area : public Node
     {
         public:
-            Area();
+            Area(NodeType type, Node* node);
             virtual ~Area();
         protected:
         private:

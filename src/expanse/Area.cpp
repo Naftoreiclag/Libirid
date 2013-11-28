@@ -6,9 +6,9 @@
 
 #include "Area.h"
 
-exp::Area::Area()
+exp::Area::Area(NodeType type, Node* parent)
+: Node(type, parent)
 {
-    //ctor
 }
 
 exp::Area::~Area()
