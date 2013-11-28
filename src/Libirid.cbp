@@ -47,6 +47,8 @@
 		<Unit filename="expanse/Entity.h" />
 		<Unit filename="expanse/Expanse.cpp" />
 		<Unit filename="expanse/Expanse.h" />
+		<Unit filename="expanse/Node.cpp" />
+		<Unit filename="expanse/Node.h" />
 		<Unit filename="expanse/Portal.cpp" />
 		<Unit filename="expanse/Portal.h" />
 		<Unit filename="expanse/World.cpp" />

@@ -1,6 +1,11 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+#include <vector>
+#include <string>
+
+#include "Area.h"
+
 namespace exp
 {
     class World
@@ -8,8 +13,8 @@ namespace exp
         public:
             World();
             virtual ~World();
-        protected:
         private:
+            std::vector<Area> areas;
     };
 }
 
