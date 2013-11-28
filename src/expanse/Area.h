@@ -14,7 +14,7 @@ namespace exp
     class Area : public Node
     {
         public:
-            Area(NodeType type, Node* node);
+            Area(Node* node);
             virtual ~Area();
         protected:
         private:
