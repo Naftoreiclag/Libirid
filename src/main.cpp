@@ -35,23 +35,35 @@ int main()
     Node animals(NULL);
     animals.setName("animals");
 
-    Node dog(&animals);
-    dog.setName("dog");
+        Node dog(&animals);
+        dog.setName("dog");
 
-    Node corgi(&dog);
-    corgi.setName("corgi");
+            Node corgi(&dog);
+            corgi.setName("corgi");
 
-    Node retriever(&dog);
-    retriever.setName("retriever");
+            Node retriever(&dog);
+            retriever.setName("retriever");
 
-    Node cat(&animals);
-    cat.setName("cat");
+        Node snake(&animals);
+        snake.setName("snake");
 
-    Node aussie(&cat);
-    aussie.setName("aussie");
+            Node rattler(&snake);
+            rattler.setName("rattler");
 
-    Node calico(&cat);
-    calico.setName("calico");
+            Node kobra(&snake);
+            kobra.setName("kobra");
+
+        Node cat(&animals);
+        cat.setName("cat");
+
+            Node ragdoll(&cat);
+            ragdoll.setName("ragdoll");
+
+            Node aussie(&cat);
+            aussie.setName("aussie");
+
+            Node calico(&cat);
+            calico.setName("calico");
 
     animals.printHeirachy(0);
 
