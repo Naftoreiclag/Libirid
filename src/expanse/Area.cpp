@@ -6,8 +6,8 @@
 
 #include "Area.h"
 
-exp::Area::Area(NodeType type, Node* parent)
-: Node(type, parent)
+exp::Area::Area(Node* parent)
+: Node(NT_AREA, parent)
 {
 }
 

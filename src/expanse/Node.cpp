@@ -20,6 +20,11 @@ Node::~Node()
 {
 }
 
+NodeType Node::getType()
+{
+    return type;
+}
+
 Node* Node::getParent() { return parent; }
 void Node::setParent(Node* newParent)
 {

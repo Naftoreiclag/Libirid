@@ -18,16 +18,20 @@
 
 typedef unsigned char NodeType;
 
-#define NT_EXPANSE      0x02;
-#define NT_WORLD        0x03;
-#define NT_AREA         0x04;
-#define NT_ENTITY       0x05;
+#define NT_EXPANSE      0x02
+#define NT_WORLD        0x03
+#define NT_AREA         0x04
+#define NT_ENTITY       0x05
 
 class Node
 {
     protected:
         Node(NodeType type, Node* parent);
     public:
+        //
+        NodeType getType();
+
+        //
         virtual ~Node();
 
         // Returns parent
