@@ -15,3 +15,9 @@ Some Plans
 =======================
 * Make some plans.
 * Do something with Lua scripting.
+
+Credits
+=======================
+People who have done things that helped this "project":
+* "Naftoreiclag"
+* "JellyBuyer"
