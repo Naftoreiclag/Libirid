@@ -9,6 +9,7 @@
 #ifdef DEBUG
 #include "../util/Sysout.h"
 #include <iostream>
+#include <string>
 #endif // DEBUG
 
 //#define NULL (void *)0
@@ -112,15 +113,16 @@ Node* Node::getSibling() { return sibling; }
 void Node::setSibling(Node* newSibling) { sibling = newSibling; }
 
 #ifdef DEBUG
-void Node::printHeirachy()
+void Node::printHeirachy(int layer)
 {
-    Sysout::print("[");
-    Sysout::print("Node: ");
+    std::string indent = std::string(layer, ' ');
+
+    Sysout::println(indent + "Node");
+    //Sysout::println(indent + "[");
     for(Node* node = child; node != NULL; node = node->sibling)
     {
-        node->printHeirachy();
-        Sysout::print(" ");
+        node->printHeirachy(layer + 2);
     }
-    Sysout::print("]");
+    //Sysout::println(indent + "]");
 }
 #endif // DEBUG

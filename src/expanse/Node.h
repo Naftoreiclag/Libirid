@@ -42,7 +42,7 @@ class Node
         void setSibling(Node* newSibling);
 
         #ifdef DEBUG
-        void printHeirachy();
+        void printHeirachy(int layer);
         #endif
     private:
         Node* parent;

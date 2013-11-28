@@ -33,14 +33,14 @@ int main()
 
     //
     Node animals(NULL);
-    /*Node dog(&animals);
+    Node dog(&animals);
     Node corgi(&dog);
     Node retriever(&dog);
     Node cat(&animals);
     Node aussie(&cat);
-    Node calico(&cat);*/
+    Node calico(&cat);
 
-    //animals.printHeirachy();
+    animals.printHeirachy(0);
 
 /*
     // Add commands
