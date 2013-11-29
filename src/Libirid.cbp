@@ -44,7 +44,6 @@
 		<Unit filename="command/CmdDictionary.h" />
 		<Unit filename="command/CmdLexicographer.cpp" />
 		<Unit filename="command/CmdLexicographer.h" />
-		<Unit filename="command/Functionalities.cpp" />
 		<Unit filename="command/Functionalities.h" />
 		<Unit filename="command/functionalities/CheckInventory.cpp" />
 		<Unit filename="command/functionalities/Dance.cpp" />
