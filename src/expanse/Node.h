@@ -15,12 +15,13 @@
 
 typedef unsigned char NodeType;
 
-#define NT_EXPANSE      0x02
-#define NT_WORLD        0x03
-#define NT_AREA         0x04
-#define NT_ENTITY       0x05
-#define NT_PORTAL       0x06
-#define NT_SCRIPT       0x07
+#define NT_EXPANSE          0x02
+#define NT_WORLD            0x03
+#define NT_AREA             0x04
+#define NT_ENTITY           0x05
+#define NT_PORTAL           0x06
+#define NT_SCRIPT           0x07
+#define NT_PLAYERSCRIPT     0x08
 
 #ifdef DEBUG
 //#define private public

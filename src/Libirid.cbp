@@ -48,6 +48,8 @@
 		<Unit filename="expanse/Expanse.h" />
 		<Unit filename="expanse/Node.cpp" />
 		<Unit filename="expanse/Node.h" />
+		<Unit filename="expanse/PlayerScript.cpp" />
+		<Unit filename="expanse/PlayerScript.h" />
 		<Unit filename="expanse/Portal.cpp" />
 		<Unit filename="expanse/Portal.h" />
 		<Unit filename="expanse/Script.cpp" />

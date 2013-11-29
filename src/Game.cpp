@@ -21,6 +21,8 @@
 #include "expanse/Area.h"
 #include "expanse/Portal.h"
 #include "expanse/Entity.h"
+#include "expanse/Script.h"
+#include "expanse/PlayerScript.h"
 
 Game::Game()
 : running(false)
@@ -29,7 +31,8 @@ Game::Game()
 
 void Game::run()
 {
-
+    exp::Entity playerEntity("Player", &forest);
+    exp::PlayerScript playerScript("PlayerScript", &playerEntity);
 
     // We are running now
     running = true;
