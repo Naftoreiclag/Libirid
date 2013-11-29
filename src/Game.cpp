@@ -45,20 +45,6 @@ void Game::run()
         // Prompt
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
         Sysout::println();
-        /*)
-
-        // Run command from the raw input
-        bool success = runCommandFromRawInput(lastInput);
-        if(!success)
-        {
-            // Inform
-            #ifdef DEBUG
-            Sysout::print("Could not understand input: ");
-            Sysout::println(Sysout::toFriendlyString(lastInput));
-            #endif // DEBUG
-            Sysout::println("Misunderstanding.");
-            Sysout::println();
-        }*/
     }
 
     // Delete our storage for the last container
@@ -70,7 +56,8 @@ void Game::run()
 
 void Game::load()
 {
-    exp::World theWorld(&expanse);
+    exp::World earth(&expanse);
+    exp::Area forest(&earth);
 }
 
 /*

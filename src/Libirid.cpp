@@ -14,9 +14,6 @@
 #include "util/Sysout.h"
 #endif // DEBUG
 
-// Debug mode boolean
-//bool Libirid::debugMode;
-
 // The running game instance
 Game* Libirid::runningGame;
 
@@ -32,6 +29,7 @@ void Libirid::run()
     //
     bool running = true;
 
+    //
     while(running)
     {
         // Run a game

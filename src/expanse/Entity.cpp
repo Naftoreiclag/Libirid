@@ -6,10 +6,11 @@
 
 #include "Entity.h"
 
-exp::Entity::Entity(Node* parent)
-: Node(NT_ENTITY, parent)
+exp::Entity::Entity(Node* parent, EntityType entityType)
+: entityType(entityType),
+Node(NT_ENTITY, parent)
 {
-    //ctor
+
 }
 
 exp::Entity::~Entity()

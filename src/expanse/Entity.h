@@ -9,15 +9,17 @@
 
 #include "Node.h"
 
+typedef unsigned short EntityType;
+
 namespace exp
 {
     class Entity : public Node
     {
         public:
-            Entity(Node* node);
+            Entity(Node* parent, EntityType entityType);
             virtual ~Entity();
-        protected:
         private:
+            EntityType entityType;
     };
 }
 
