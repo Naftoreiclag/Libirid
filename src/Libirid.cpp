@@ -46,6 +46,7 @@ void Libirid::run()
 
         // Run a game
         runningGame = new Game();
+        runningGame->load();
         runningGame->run();
         delete runningGame;
     }

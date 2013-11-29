@@ -58,7 +58,7 @@ int main()
     ItmLexicographer::graph();
 
 */
-    Libirid::load();
+
     Libirid::run();
 
     // Died quietly
