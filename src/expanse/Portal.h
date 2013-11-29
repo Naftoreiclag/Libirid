@@ -14,7 +14,7 @@ namespace exp
     class Portal : public Node
     {
         public:
-            Portal(std::string name, Node* parent);
+            Portal(std::string name, Node* parent, std::string exitAreaName);
             virtual ~Portal();
         protected:
         private:
