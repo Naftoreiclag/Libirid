@@ -12,11 +12,9 @@
 class Libirid
 {
     public:
-        static bool inDebug();
         static void run();
         static Game* runningGame;
     private:
-        static bool debugMode;
 };
 
 #endif // LIBIRID_H

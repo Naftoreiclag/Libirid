@@ -15,19 +15,13 @@
 #endif // DEBUG
 
 // Debug mode boolean
-bool Libirid::debugMode;
+//bool Libirid::debugMode;
 
 // The running game instance
 Game* Libirid::runningGame;
 
 void Libirid::run()
 {
-    // Debug mode check
-    #ifdef DEBUG
-    debugMode = true;
-    #else
-    debugMode = false;
-    #endif
 
     // If we are in debug mode, then print that
     #ifdef DEBUG
@@ -40,19 +34,10 @@ void Libirid::run()
 
     while(running)
     {
-        // Title screen
-        // InputResult ir = Title::show();
-        // switch(ir) ...
-
         // Run a game
         runningGame = new Game();
         runningGame->load();
         runningGame->run();
         delete runningGame;
     }
-}
-
-bool Libirid::inDebug()
-{
-    return debugMode;
 }
