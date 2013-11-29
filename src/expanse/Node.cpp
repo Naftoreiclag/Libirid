@@ -23,6 +23,10 @@ sibling(NULL)
 
 Node::~Node()
 {
+    for(Node* node = child; node != NULL; node = node->sibling)
+    {
+        delete node;
+    }
 }
 
 std::string Node::getName()
