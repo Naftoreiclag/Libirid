@@ -23,9 +23,9 @@ sibling(NULL)
 
 Node::~Node()
 {
-    for(Node* node = firstChild; node != NULL; node = node->sibling)
+    for(Node* child = firstChild; child != NULL; child = child->sibling)
     {
-        delete node;
+        delete child;
     }
 }
 
@@ -98,23 +98,23 @@ void Node::forgetChild(Node* childToDisown)
 {
     // Iterate through all children
     Node* previousNode = NULL;
-    for(Node* node = firstChild; node != NULL; node = node->sibling)
+    for(Node* child = firstChild; child != NULL; child = child->sibling)
     {
         // If this one is the one to disown
-        if(node == childToDisown)
+        if(child == childToDisown)
         {
             // If nobody is before it (i.e. the first one)
             if(previousNode == NULL)
             {
                 // Make my child to be his sibling
-                firstChild = node->getSibling();
+                firstChild = child->getSibling();
             }
 
             // Any other spot but first
             else
             {
                 // The previous child's sibling is now the childToDisown's sibling
-                previousNode->setSibling(node->getSibling());
+                previousNode->setSibling(child->getSibling());
             }
 
             // Stop checking
@@ -122,7 +122,7 @@ void Node::forgetChild(Node* childToDisown)
         }
 
         // Remember previous node
-        previousNode = node;
+        previousNode = child;
     }
 }
 
@@ -138,9 +138,9 @@ void Node::printHeirachy(int layer)
     std::cout << indent << getName();
     std::cout << std::endl;
 
-    for(Node* node = firstChild; node != NULL; node = node->sibling)
+    for(Node* child = firstChild; child != NULL; child = child->sibling)
     {
-        node->printHeirachy(layer + 2);
+        child->printHeirachy(layer + 2);
     }
 }
 
