@@ -16,6 +16,9 @@ namespace exp
         public:
             Expanse();
             virtual ~Expanse();
+            #ifdef DEBUG
+            void sayFoo();
+            #endif
         private:
 
     };

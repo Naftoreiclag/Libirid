@@ -32,6 +32,8 @@ void Game::run()
     // We are running now
     running = true;
 
+    expanse.sayFoo();
+
     // Last input vector
     std::vector<std::string>* lastInput = new std::vector<std::string>();
 

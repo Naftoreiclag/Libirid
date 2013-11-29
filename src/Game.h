@@ -32,7 +32,7 @@ class Game
         bool running;
 
         // ??
-        exp::Expanse expanse;
+        exp::Expanse expanse();
 };
 
 #endif // GAME_H

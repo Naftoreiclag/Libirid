@@ -16,3 +16,11 @@ exp::Expanse::~Expanse()
 {
     //dtor
 }
+
+#ifdef DEBUG
+#include <iostream>
+void exp::Expanse::sayFoo()
+{
+    std::cout << "Foo!" << std::endl;
+}
+#endif
