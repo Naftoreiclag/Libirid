@@ -25,6 +25,9 @@ class Game
         bool runCommandFromSudoInput(std::string sudoLine);
         void run();
 
+        //
+        void addPlayer(std::string playerName);
+
         // Save to file
         void save();
 

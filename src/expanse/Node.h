@@ -22,6 +22,11 @@ typedef unsigned char NodeType;
 #define NT_PORTAL           0x06
 #define NT_SCRIPT           0x07
 #define NT_PLAYERSCRIPT     0x08
+#define NT_STRINGVALUE      0x09
+#define NT_LONGVALUE        0x0A
+#define NT_INTVALUE         0x0B
+#define NT_SHORTVALUE       0x0C
+#define NT_BYTEVALUE        0x0D
 
 #ifdef DEBUG
 //#define private public

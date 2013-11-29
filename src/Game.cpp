@@ -23,6 +23,7 @@
 #include "expanse/Entity.h"
 #include "expanse/Script.h"
 #include "expanse/PlayerScript.h"
+#include "expanse/StringValue.h"
 
 Game::Game()
 : running(false)
@@ -31,8 +32,8 @@ Game::Game()
 
 void Game::run()
 {
-    exp::Entity playerEntity("Player", &forest);
-    exp::PlayerScript playerScript("PlayerScript", &playerEntity);
+
+
 
     // We are running now
     running = true;
@@ -53,7 +54,11 @@ void Game::load()
 {
     exp::World earth("Earth", &expanse);
     exp::Area forest("Forest", &earth);
-    exp::Entity spawnPoint("__SpawnPoint", &forest);
+    exp::Entity spawnPoint("_SpawnPoint", &forest);
+
+    exp::Entity playerEntity("Player", &forest);
+    exp::PlayerScript playerScript("PlayerScript", &playerEntity);
+    exp::StringValue playerName("PlayerName", &playerEntity, "Dylan");
     expanse.printHeirachy(0);
 }
 
