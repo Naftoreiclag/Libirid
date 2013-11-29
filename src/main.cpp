@@ -57,7 +57,7 @@ int main()
     // Add items
     ItmLexicographer::graph();
 */
-    // I REALLY need a better name soon...
+    // This name is great!
     Libirid::run();
 
     // Died quietly
