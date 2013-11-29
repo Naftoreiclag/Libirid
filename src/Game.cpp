@@ -22,10 +22,6 @@
 #include "expanse/Portal.h"
 #include "expanse/Entity.h"
 
-
-//#include "world/World.h"
-//#include "world/Player.h"
-
 Game::Game()
 : running(false)
 {
@@ -33,36 +29,28 @@ Game::Game()
 
 void Game::run()
 {
+
+
     // We are running now
     running = true;
 
     // Last input vector
-    std::vector<std::string>* lastInput = new std::vector<std::string>();
+    std::vector<std::string> lastInput;
 
     // While running, run!
     while(running)
     {
         // Prompt
-        Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(lastInput);
+        Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(&lastInput);
         Sysout::println();
     }
-
-    // Delete our storage for the last container
-    delete lastInput;
-
-    // Maybe now would be a good time to save?
-    //delete world;
 }
 
 void Game::load()
 {
-    exp::World earth("earth", &expanse);
-    exp::Area forest("forest", &earth);
-
-    //Sysout::println(expanse.getName());
-    //Sysout::println(earth.getName());
-
-    //((Node*) &expanse)->printHeirachy(0);
+    exp::World earth("Earth", &expanse);
+    exp::Area forest("Forest", &earth);
+    exp::Entity spawnPoint("__SpawnPoint", &forest);
     expanse.printHeirachy(0);
 }
 
