@@ -14,7 +14,7 @@ namespace exp
     class Expanse : public Node
     {
         public:
-            Expanse(Node* node);
+            Expanse();
             virtual ~Expanse();
         private:
 

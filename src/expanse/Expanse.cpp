@@ -6,8 +6,8 @@
 
 #include "Expanse.h"
 
-exp::Expanse::Expanse(Node* parent)
-: Node(NT_EXPANSE, parent)
+exp::Expanse::Expanse()
+: Node(NT_EXPANSE, NULL)
 {
     //ctor
 }
