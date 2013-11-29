@@ -46,6 +46,8 @@
 		<Unit filename="expanse/Entity.h" />
 		<Unit filename="expanse/Expanse.cpp" />
 		<Unit filename="expanse/Expanse.h" />
+		<Unit filename="expanse/IntegerValue.cpp" />
+		<Unit filename="expanse/IntegerValue.h" />
 		<Unit filename="expanse/Node.cpp" />
 		<Unit filename="expanse/Node.h" />
 		<Unit filename="expanse/PlayerScript.cpp" />
@@ -54,6 +56,8 @@
 		<Unit filename="expanse/Portal.h" />
 		<Unit filename="expanse/Script.cpp" />
 		<Unit filename="expanse/Script.h" />
+		<Unit filename="expanse/StringValue.cpp" />
+		<Unit filename="expanse/StringValue.h" />
 		<Unit filename="expanse/World.cpp" />
 		<Unit filename="expanse/World.h" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
