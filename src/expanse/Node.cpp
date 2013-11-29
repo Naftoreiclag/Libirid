@@ -6,8 +6,13 @@
 
 #include "Node.h"
 
-Node::Node(NodeType nodeType, Node* parent)
-: nodeType(nodeType),
+#ifdef DEBUG
+#include <iostream>
+#endif // DEBUG
+
+Node::Node(std::string name, NodeType nodeType, Node* parent)
+: name(name),
+nodeType(nodeType),
 parent(NULL),
 child(NULL),
 sibling(NULL)
@@ -18,6 +23,11 @@ sibling(NULL)
 
 Node::~Node()
 {
+}
+
+std::string Node::getName()
+{
+    return name;
 }
 
 NodeType Node::getType()
@@ -111,26 +121,18 @@ Node* Node::getSibling() { return sibling; }
 void Node::setSibling(Node* newSibling) { sibling = newSibling; }
 
 #ifdef DEBUG
-#include <iostream>
-#include <string>
-
 void Node::printHeirachy(int layer)
 {
     std::string indent = std::string(layer, ' ');
 
 
-    std::cout << indent << name;
+    std::cout << indent << getName();
     std::cout << std::endl;
 
     for(Node* node = child; node != NULL; node = node->sibling)
     {
         node->printHeirachy(layer + 2);
     }
-}
-
-void Node::setName(std::string str)
-{
-    name = str;
 }
 
 #endif // DEBUG

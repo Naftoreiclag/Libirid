@@ -11,10 +11,7 @@
  *
  */
 
-#ifdef DEBUG
 #include <string>
-#define private public
-#endif // DEBUG
 
 typedef unsigned char NodeType;
 
@@ -25,11 +22,18 @@ typedef unsigned char NodeType;
 #define NT_PORTAL       0x06
 #define NT_SCRIPT       0x07
 
+#ifdef DEBUG
+//#define private public
+#endif // DEBUG
+
 class Node
 {
     protected:
-        Node(NodeType nodeType, Node* parent);
+        Node(std::string name, NodeType nodeType, Node* parent);
     public:
+        // Name
+        std::string getName();
+
         //
         NodeType getType();
 
@@ -67,19 +71,15 @@ class Node
 
         #ifdef DEBUG
         void printHeirachy(int layer);
-
-        void setName(std::string str);
         #endif // DEBUG
     private:
+        std::string name;
+
         NodeType nodeType;
 
         Node* parent;
         Node* child;
         Node* sibling;
-
-        #ifdef DEBUG
-        std::string name;
-        #endif // DEBUG
 };
 
 #endif // NODE_H

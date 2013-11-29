@@ -14,7 +14,7 @@ namespace exp
     class Area : public Node
     {
         public:
-            Area(Node* node);
+            Area(std::string name, Node* parent);
             virtual ~Area();
         protected:
         private:

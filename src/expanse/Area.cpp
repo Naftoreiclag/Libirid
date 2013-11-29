@@ -6,8 +6,8 @@
 
 #include "Area.h"
 
-exp::Area::Area(Node* parent)
-: Node(NT_AREA, parent)
+exp::Area::Area(std::string name, Node* parent)
+: Node(name, NT_AREA, parent)
 {
 }
 

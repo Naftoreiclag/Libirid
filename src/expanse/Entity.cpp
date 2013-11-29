@@ -6,9 +6,8 @@
 
 #include "Entity.h"
 
-exp::Entity::Entity(Node* parent, EntityType entityType)
-: entityType(entityType),
-Node(NT_ENTITY, parent)
+exp::Entity::Entity(std::string name, Node* parent)
+: Node(name, NT_ENTITY, parent)
 {
 
 }

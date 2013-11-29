@@ -7,7 +7,7 @@
 #include "Expanse.h"
 
 exp::Expanse::Expanse()
-: Node(NT_EXPANSE, NULL)
+: Node("Expanse", NT_EXPANSE, NULL)
 {
     //ctor
 }

@@ -6,8 +6,8 @@
 
 #include "Portal.h"
 
-exp::Portal::Portal(Node* parent)
-: Node(NT_PORTAL, parent)
+exp::Portal::Portal(std::string name, Node* parent)
+: Node(name, NT_PORTAL, parent)
 {
     //ctor
 }

@@ -14,7 +14,7 @@ namespace exp
     class Script : public Node
     {
         public:
-            Script(Node* node);
+            Script(std::string name, Node* parent);
             virtual ~Script();
         protected:
         private:

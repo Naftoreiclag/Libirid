@@ -56,8 +56,14 @@ void Game::run()
 
 void Game::load()
 {
-    exp::World earth(&expanse);
-    exp::Area forest(&earth);
+    exp::World earth("earth", &expanse);
+    exp::Area forest("forest", &earth);
+
+    //Sysout::println(expanse.getName());
+    //Sysout::println(earth.getName());
+
+    //((Node*) &expanse)->printHeirachy(0);
+    expanse.printHeirachy(0);
 }
 
 /*

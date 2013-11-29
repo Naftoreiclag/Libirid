@@ -9,17 +9,14 @@
 
 #include "Node.h"
 
-typedef unsigned short EntityType;
-
 namespace exp
 {
     class Entity : public Node
     {
         public:
-            Entity(Node* parent, EntityType entityType);
+            Entity(std::string name, Node* parent);
             virtual ~Entity();
         private:
-            EntityType entityType;
     };
 }
 

@@ -14,7 +14,7 @@ namespace exp
     class World : public Node
     {
         public:
-            World(Node* node);
+            World(std::string name, Node* parent);
             virtual ~World();
         private:
     };

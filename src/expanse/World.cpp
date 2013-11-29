@@ -6,8 +6,8 @@
 
 #include "World.h"
 
-exp::World::World(Node* parent)
-: Node(NT_WORLD, parent)
+exp::World::World(std::string name, Node* parent)
+: Node(name, NT_WORLD, parent)
 {
     //ctor
 }

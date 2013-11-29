@@ -6,8 +6,8 @@
 
 #include "Script.h"
 
-exp::Script::Script(Node* parent)
-: Node(NT_SCRIPT, parent)
+exp::Script::Script(std::string name, Node* parent)
+: Node(name, NT_SCRIPT, parent)
 {
 }
 
