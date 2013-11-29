@@ -50,6 +50,8 @@
 		<Unit filename="expanse/Node.h" />
 		<Unit filename="expanse/Portal.cpp" />
 		<Unit filename="expanse/Portal.h" />
+		<Unit filename="expanse/Script.cpp" />
+		<Unit filename="expanse/Script.h" />
 		<Unit filename="expanse/World.cpp" />
 		<Unit filename="expanse/World.h" />
 		<Unit filename="language/AdjunctDefinition.cpp" />
