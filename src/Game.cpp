@@ -58,8 +58,8 @@ void Game::load()
     new exp::Area("Jungle", earth);
     new exp::Area("Desert", earth);
     new exp::Area("Plains", earth);
-    Node* theForest = new exp::Area("Forest", earth);
-    Node* theSpawnPoint = new exp::Entity("_SpawnPoint", theForest);
+    new exp::Area("Forest", earth);
+    Node* theSpawnPoint = new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
 
     nodeSpawnAreaChild = theSpawnPoint;
     addPlayer("Dylan");

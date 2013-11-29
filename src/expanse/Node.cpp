@@ -72,7 +72,13 @@ void Node::setParent(Node* newParent)
 
 Node* Node::getChild(std::string name)
 {
-    return NULL;
+    for(Node* child = firstChild; child != NULL; child = child->sibling)
+    {
+        if(child->getName() == name)
+        {
+            return child;
+        }
+    }
 }
 
 Node* Node::getFirstChild() { return firstChild; }
