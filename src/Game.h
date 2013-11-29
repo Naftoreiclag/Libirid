@@ -9,19 +9,12 @@
 
 #include <string>
 #include <vector>
-#include <map>
 
-#include "expanse/Expanse.h"
-#include "expanse/World.h"
-#include "expanse/Area.h"
-#include "expanse/Entity.h"
-#include "expanse/Portal.h"
+#include "expanse/Node.h"
 
 class Game
 {
     public:
-        //World* world;
-        //Player* player;
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
         bool runCommandFromSudoInput(std::string sudoLine);
         void run();
@@ -36,15 +29,12 @@ class Game
         void load();
         Game();
     private:
+        // Is it running?
         bool running;
 
-        std::vector<Node*> nodes;
-
-        // ??
-        exp::Expanse* expanse;
-
-        //
-        Node* spawnAreaChild;
+        // Nodes of interest
+        Node* nodeExpanse;
+        Node* nodeSpawnAreaChild;
 };
 
 #endif // GAME_H

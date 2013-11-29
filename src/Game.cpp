@@ -28,7 +28,7 @@
 Game::Game()
 : running(false)
 {
-    expanse = new exp::Expanse();
+    nodeExpanse = new exp::Expanse();
 }
 
 void Game::run()
@@ -53,23 +53,23 @@ void Game::run()
 
 void Game::load()
 {
-    Node* earth = new exp::World("Earth", expanse);
+    Node* earth = new exp::World("Earth", nodeExpanse);
     new exp::Area("Ocean", earth);
     new exp::Area("Jungle", earth);
-    Node* theForest = new exp::Area("Forest", earth);
     new exp::Area("Desert", earth);
     new exp::Area("Plains", earth);
+    Node* theForest = new exp::Area("Forest", earth);
     Node* theSpawnPoint = new exp::Entity("_SpawnPoint", theForest);
 
-    spawnAreaChild = theSpawnPoint;
+    nodeSpawnAreaChild = theSpawnPoint;
     addPlayer("Dylan");
 
-    expanse->printHeirachy(0);
+    nodeExpanse->printHeirachy(0);
 }
 
 void Game::addPlayer(std::string playerName)
 {
-    Node* thePlayer = new exp::Entity("Player", spawnAreaChild->getParent());
+    Node* thePlayer = new exp::Entity("Player", nodeSpawnAreaChild->getParent());
     new exp::PlayerScript("PlayerScript", thePlayer);
     new exp::StringValue("PlayerName", thePlayer, playerName);
 }
