@@ -10,14 +10,17 @@
 #include <string>
 #include <vector>
 
-class World;
-class Player;
+#include "expanse/Expanse.h"
+#include "expanse/World.h"
+#include "expanse/Area.h"
+#include "expanse/Entity.h"
+#include "expanse/Portal.h"
 
 class Game
 {
     public:
-        World* world;
-        Player* player;
+        //World* world;
+        //Player* player;
         bool runCommandFromRawInput(std::vector<std::string>* inputWords);
         bool runCommandFromSudoInput(std::string sudoLine);
         void run();
@@ -27,6 +30,9 @@ class Game
         Game();
     private:
         bool running;
+
+        // ??
+        Expanse expanse;
 };
 
 #endif // GAME_H

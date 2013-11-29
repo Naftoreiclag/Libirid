@@ -35,9 +35,6 @@ void Game::run()
     // Last input vector
     std::vector<std::string>* lastInput = new std::vector<std::string>();
 
-    // New expanse
-    exp::Expanse expanse;
-
     // While running, run!
     while(running)
     {
@@ -64,7 +61,7 @@ void Game::run()
     delete lastInput;
 
     // Maybe now would be a good time to save?
-    delete world;
+    //delete world;
 }
 /*
 bool Game::runCommandFromSudoInput(std::string sudoLine)
