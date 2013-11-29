@@ -9,6 +9,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "expanse/Expanse.h"
 #include "expanse/World.h"
@@ -37,8 +38,13 @@ class Game
     private:
         bool running;
 
+        std::vector<Node*> nodes;
+
         // ??
-        exp::Expanse expanse;
+        exp::Expanse* expanse;
+
+        //
+        Node* spawnAreaChild;
 };
 
 #endif // GAME_H
