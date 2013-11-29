@@ -41,6 +41,9 @@ class Node
         std::string getName();
 
         //
+        Node* getChild(std::string name);
+
+        //
         NodeType getType();
 
         //
@@ -54,7 +57,7 @@ class Node
         void setParent(Node* newParent);
 
         // Returns the first child
-        Node* getChild();
+        Node* getFirstChild();
 
         // Adopts a child
         // - New child knows who his siblings are
@@ -84,7 +87,7 @@ class Node
         NodeType nodeType;
 
         Node* parent;
-        Node* child;
+        Node* firstChild;
         Node* sibling;
 };
 

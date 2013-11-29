@@ -14,7 +14,7 @@ Node::Node(std::string name, NodeType nodeType, Node* parent)
 : name(name),
 nodeType(nodeType),
 parent(NULL),
-child(NULL),
+firstChild(NULL),
 sibling(NULL)
 {
     // Tell parent to adopt me
@@ -23,7 +23,7 @@ sibling(NULL)
 
 Node::~Node()
 {
-    for(Node* node = child; node != NULL; node = node->sibling)
+    for(Node* node = firstChild; node != NULL; node = node->sibling)
     {
         delete node;
     }
@@ -70,7 +70,12 @@ void Node::setParent(Node* newParent)
     }
 }
 
-Node* Node::getChild() { return child; }
+Node* Node::getChild(std::string name)
+{
+    return NULL;
+}
+
+Node* Node::getFirstChild() { return firstChild; }
 void Node::adoptChild(Node* newChild)
 {
     // If child is not orphan
@@ -81,19 +86,19 @@ void Node::adoptChild(Node* newChild)
     }
 
     // Tell the child about his brother
-    newChild->sibling = child;
+    newChild->sibling = firstChild;
 
     // Tell child that his parent is me
     newChild->parent = this;
 
-    // My child is him
-    child = newChild;
+    // My first child is him
+    firstChild = newChild;
 }
 void Node::forgetChild(Node* childToDisown)
 {
     // Iterate through all children
     Node* previousNode = NULL;
-    for(Node* node = child; node != NULL; node = node->sibling)
+    for(Node* node = firstChild; node != NULL; node = node->sibling)
     {
         // If this one is the one to disown
         if(node == childToDisown)
@@ -102,7 +107,7 @@ void Node::forgetChild(Node* childToDisown)
             if(previousNode == NULL)
             {
                 // Make my child to be his sibling
-                child = node->getSibling();
+                firstChild = node->getSibling();
             }
 
             // Any other spot but first
@@ -133,7 +138,7 @@ void Node::printHeirachy(int layer)
     std::cout << indent << getName();
     std::cout << std::endl;
 
-    for(Node* node = child; node != NULL; node = node->sibling)
+    for(Node* node = firstChild; node != NULL; node = node->sibling)
     {
         node->printHeirachy(layer + 2);
     }
