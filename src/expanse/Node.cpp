@@ -6,8 +6,8 @@
 
 #include "Node.h"
 
-Node::Node(NodeType type, Node* parent)
-: type(type),
+Node::Node(NodeType nodeType, Node* parent)
+: nodeType(nodeType),
 parent(NULL),
 child(NULL),
 sibling(NULL)
@@ -22,7 +22,7 @@ Node::~Node()
 
 NodeType Node::getType()
 {
-    return type;
+    return nodeType;
 }
 
 Node* Node::getParent() { return parent; }

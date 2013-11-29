@@ -27,7 +27,7 @@ typedef unsigned char NodeType;
 class Node
 {
     protected:
-        Node(NodeType type, Node* parent);
+        Node(NodeType nodeType, Node* parent);
     public:
         //
         NodeType getType();
@@ -70,7 +70,7 @@ class Node
         void setName(std::string str);
         #endif // DEBUG
     private:
-        NodeType type;
+        NodeType nodeType;
 
         Node* parent;
         Node* child;
