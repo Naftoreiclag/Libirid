@@ -17,6 +17,10 @@
 #include "language/Grammar.h"
 
 #include "expanse/Expanse.h"
+#include "expanse/World.h"
+#include "expanse/Area.h"
+#include "expanse/Portal.h"
+#include "expanse/Entity.h"
 
 
 //#include "world/World.h"
@@ -31,8 +35,6 @@ void Game::run()
 {
     // We are running now
     running = true;
-
-    expanse.sayFoo();
 
     // Last input vector
     std::vector<std::string>* lastInput = new std::vector<std::string>();
@@ -65,6 +67,12 @@ void Game::run()
     // Maybe now would be a good time to save?
     //delete world;
 }
+
+void Game::load()
+{
+    exp::World theWorld(&expanse);
+}
+
 /*
 bool Game::runCommandFromSudoInput(std::string sudoLine)
 {

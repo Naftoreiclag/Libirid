@@ -27,12 +27,15 @@ class Game
 
         // Save to file
         void save();
+
+        // Load
+        void load();
         Game();
     private:
         bool running;
 
         // ??
-        exp::Expanse expanse();
+        exp::Expanse expanse;
 };
 
 #endif // GAME_H
