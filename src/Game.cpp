@@ -34,6 +34,7 @@ Game::Game()
 void Game::run()
 {
 
+    addPlayer("Dylan");
 
 
     // We are running now
@@ -48,6 +49,19 @@ void Game::run()
         // Prompt
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(&lastInput);
         Sysout::println();
+
+        // Run command from the raw input
+        bool success = runCommandFromRawInput(&lastInput);
+        if(!success)
+        {
+            // Inform
+            #ifdef DEBUG
+            Sysout::print("Could not understand input: ");
+            Sysout::println(Sysout::toFriendlyString(&lastInput));
+            #endif // DEBUG
+            Sysout::println("Misunderstanding.");
+            Sysout::println();
+        }
     }
 }
 
@@ -63,7 +77,6 @@ void Game::load()
     Node* theSpawnPoint = new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
 
     nodeSpawnAreaChild = theSpawnPoint;
-    addPlayer("Dylan");
 
     nodeExpanse->printHeirachy(0);
 }
@@ -75,7 +88,6 @@ void Game::addPlayer(std::string playerName)
     new exp::StringValue("PlayerName", thePlayer, playerName);
 }
 
-/*
 bool Game::runCommandFromSudoInput(std::string sudoLine)
 {
     std::vector<std::string>* inputWords = new std::vector<std::string>();
@@ -219,4 +231,3 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
     // Return unsuccessful
     return false;
 }
-*/
