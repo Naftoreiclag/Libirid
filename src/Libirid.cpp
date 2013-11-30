@@ -8,6 +8,7 @@
 
 #include "Game.h"
 
+// Initialize
 void initialize()
 {
     // Set the display width to 80 chars long (for word-wrap)
@@ -20,6 +21,7 @@ void initialize()
     #endif
 }
 
+// Run
 void run()
 {
     bool running = true;
@@ -36,6 +38,7 @@ void run()
     }
 }
 
+// Finalize
 void finalize()
 {
 
@@ -47,7 +50,7 @@ int main()
     initialize();
 
     // Run
-    run()
+    run();
 
     // Clean-up
     finalize();
