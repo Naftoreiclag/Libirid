@@ -7,10 +7,13 @@
 #ifndef CMDDICTIONARY_H
 #define CMDDICTIONARY_H
 
+#include <string>
 
 class CmdDictionary
 {
     public:
+        void getCommand(std::string userInput);
+
         CmdDictionary();
         virtual ~CmdDictionary();
     protected:
