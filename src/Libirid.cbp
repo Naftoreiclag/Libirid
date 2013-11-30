@@ -37,7 +37,6 @@
 		<Unit filename="Game.h" />
 		<Unit filename="IdList.h" />
 		<Unit filename="Libirid.cpp" />
-		<Unit filename="Libirid.h" />
 		<Unit filename="Title.cpp" />
 		<Unit filename="Title.h" />
 		<Unit filename="cmd/CmdDictionary.cpp" />
@@ -81,9 +80,6 @@
 		<Unit filename="language/Thesaurus.h" />
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
-		<Unit filename="util/InaneMap.h" />
-		<Unit filename="util/ItmSearch.cpp" />
-		<Unit filename="util/ItmSearch.h" />
 		<Unit filename="util/Point3i.cpp" />
 		<Unit filename="util/Point3i.h" />
 		<Unit filename="util/SentenceStateBuilder.cpp" />
