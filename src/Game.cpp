@@ -51,8 +51,8 @@ void Game::run()
         Sysout::println();
 
         // Run command from the raw input
-        bool success = runCommandFromRawInput(&lastInput);
-        if(!success)
+        //bool success = runCommandFromRawInput(&lastInput);
+        /*if(!success)
         {
             // Inform
             #ifdef DEBUG
@@ -61,7 +61,7 @@ void Game::run()
             #endif // DEBUG
             Sysout::println("Misunderstanding.");
             Sysout::println();
-        }
+        }*/
     }
 }
 
@@ -88,18 +88,7 @@ void Game::addPlayer(std::string playerName)
     new exp::StringValue("PlayerName", thePlayer, playerName);
 }
 
-bool Game::runCommandFromSudoInput(std::string sudoLine)
-{
-    std::vector<std::string>* inputWords = new std::vector<std::string>();
-    Sysin::splitWords(sudoLine, inputWords);
-
-    bool success = runCommandFromRawInput(inputWords);
-
-    delete inputWords;
-
-    return success;
-}
-
+/*
 bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
 {
     #ifdef DEBUG_FINE
@@ -231,3 +220,15 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
     // Return unsuccessful
     return false;
 }
+
+/*bool Game::runCommandFromSudoInput(std::string sudoLine)
+{
+    std::vector<std::string>* inputWords = new std::vector<std::string>();
+    Sysin::splitWords(sudoLine, inputWords);
+
+    bool success = runCommandFromRawInput(inputWords);
+
+    delete inputWords;
+
+    return success;
+}*/
