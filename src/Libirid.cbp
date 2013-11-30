@@ -79,7 +79,6 @@
 		<Unit filename="language/SentenceState.cpp" />
 		<Unit filename="language/Thesaurus.cpp" />
 		<Unit filename="language/Thesaurus.h" />
-		<Unit filename="main.cpp" />
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
 		<Unit filename="util/InaneMap.h" />

@@ -39,3 +39,49 @@ void Libirid::run()
         delete runningGame;
     }
 }
+
+int main()
+{
+    // Set the display width to 80 chars long (for word-wrap)
+    Sysout::setDisplayWidth(80);
+
+    // Legendary string HAS BEEN CHANGED!!! DUN DUN DUNNNNN
+    Sysout::println("Libirid");
+    Sysout::println();
+
+    // Add words
+    //Lexicographer::graph();
+
+    /*Node tramstation(NULL);
+    tramstation.setName("Tram Station");
+    Node tram(&tramstation);
+    tram.setName("The tram");
+    Node dylan(&tram);
+    dylan.setName("Dylan");
+    Node box(&dylan);
+    box.setName("Box");
+    Node donut(&box);
+    donut.setName("Plain donut");
+    Node jellyDonut(&box);
+    jellyDonut.setName("Jelly donut");
+    Node cafe(&tramstation);
+    cafe.setName("Coffee shop");
+
+    tramstation.printHeirachy(0);*/
+
+
+
+/*
+    // Add commands
+    CmdLexicographer::graph();
+
+    // Add items
+    ItmLexicographer::graph();
+
+*/
+
+    Libirid::run();
+
+    // Died quietly
+    return 0;
+}
