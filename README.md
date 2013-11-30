@@ -18,6 +18,6 @@ Some Plans
 
 Credits
 =======================
-People who have done things that helped this "project":
+People who have done things that helped somehow with this "project":
 * "Naftoreiclag"
 * "JellyBuyer"
