@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
-#include "Libirid.h"
+//#include "Libirid.h"
 
 #include "util/Point3i.h"
 
@@ -15,9 +15,9 @@
 #endif // DEBUG
 
 // The running game instance
-Game* Libirid::runningGame;
+Game* runningGame;
 
-void Libirid::run()
+void run()
 {
 
     // If we are in debug mode, then print that
@@ -48,39 +48,7 @@ int main()
     // Legendary string HAS BEEN CHANGED!!! DUN DUN DUNNNNN
     Sysout::println("Libirid");
     Sysout::println();
-
-    // Add words
-    //Lexicographer::graph();
-
-    /*Node tramstation(NULL);
-    tramstation.setName("Tram Station");
-    Node tram(&tramstation);
-    tram.setName("The tram");
-    Node dylan(&tram);
-    dylan.setName("Dylan");
-    Node box(&dylan);
-    box.setName("Box");
-    Node donut(&box);
-    donut.setName("Plain donut");
-    Node jellyDonut(&box);
-    jellyDonut.setName("Jelly donut");
-    Node cafe(&tramstation);
-    cafe.setName("Coffee shop");
-
-    tramstation.printHeirachy(0);*/
-
-
-
-/*
-    // Add commands
-    CmdLexicographer::graph();
-
-    // Add items
-    ItmLexicographer::graph();
-
-*/
-
-    Libirid::run();
+    run();
 
     // Died quietly
     return 0;
