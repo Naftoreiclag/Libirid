@@ -4,51 +4,53 @@
  * See accompanying file LICENSE
  */
 
-//#include "Libirid.h"
-
-#include "util/Point3i.h"
+#include "util/Sysout.h"
 
 #include "Game.h"
 
-#ifdef DEBUG
-#include "util/Sysout.h"
-#endif // DEBUG
-
-// The running game instance
-Game* runningGame;
-
-void run()
+void initialize()
 {
+    // Set the display width to 80 chars long (for word-wrap)
+    Sysout::setDisplayWidth(80);
 
     // If we are in debug mode, then print that
     #ifdef DEBUG
     Sysout::println("Running in DEBUG mode!");
     Sysout::printDictionaryEntries();
     #endif
+}
 
-    //
+void run()
+{
     bool running = true;
 
-    //
     while(running)
     {
+        // Put a title screen here
+
         // Run a game
-        runningGame = new Game();
-        runningGame->load();
-        runningGame->run();
-        delete runningGame;
+        Game* game = new Game();
+        game->load();
+        game->run();
+        delete game;
     }
+}
+
+void finalize()
+{
+
 }
 
 int main()
 {
-    // Set the display width to 80 chars long (for word-wrap)
-    Sysout::setDisplayWidth(80);
+    // Initialize
+    initialize();
 
-    // Legendary string HAS BEEN CHANGED!!! DUN DUN DUNNNNN
-    Sysout::println("Libirid");
-    Sysout::println();
-    run();
+    // Run
+    run()
+
+    // Clean-up
+    finalize();
 
     // Died quietly
     return 0;
