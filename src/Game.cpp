@@ -221,7 +221,7 @@ bool Game::runCommandFromRawInput(std::vector<std::string>* inputWords)
     return false;
 }
 
-/*bool Game::runCommandFromSudoInput(std::string sudoLine)
+bool Game::runCommandFromSudoInput(std::string sudoLine)
 {
     std::vector<std::string>* inputWords = new std::vector<std::string>();
     Sysin::splitWords(sudoLine, inputWords);

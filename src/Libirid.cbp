@@ -40,6 +40,8 @@
 		<Unit filename="Libirid.h" />
 		<Unit filename="Title.cpp" />
 		<Unit filename="Title.h" />
+		<Unit filename="cmd/CmdDictionary.cpp" />
+		<Unit filename="cmd/CmdDictionary.h" />
 		<Unit filename="expanse/Area.cpp" />
 		<Unit filename="expanse/Area.h" />
 		<Unit filename="expanse/Entity.cpp" />
