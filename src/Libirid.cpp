@@ -84,6 +84,8 @@ int main()
     Sysout::println(potato.tastiness);
     Sysout::println(potato.bounciness);
 
+    lua_close(luaState);
+
     // Initialize
     initialize();
 
