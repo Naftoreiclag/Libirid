@@ -7,10 +7,17 @@
 #ifndef FILESTUFF_H
 #define FILESTUFF_H
 
-// While in the code blocks thing
-#define getLocalFilePath(j) "../bin/"j
-
-// Stand-alone executable
-//#define getLocalFilePath(j) j
+// If we are in debug,
+#ifdef DEBUG
+// {
+        // Use the path local to the .cbp file
+        #define getLocalFilePath(j) "../bin/"j
+// }
+#else
+// {
+        // Use the path local to the .exe file
+        #define getLocalFilePath(j) j
+// }
+#endif
 
 #endif // FILESTUFF_H
