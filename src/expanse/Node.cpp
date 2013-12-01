@@ -79,6 +79,8 @@ Node* Node::getChild(std::string name)
             return child;
         }
     }
+
+    return NULL;
 }
 
 Node* Node::getFirstChild() { return firstChild; }
