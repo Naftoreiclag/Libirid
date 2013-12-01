@@ -22,7 +22,7 @@ class CmdDictionary
         // Get the current singleton instance, creating one if it does not exist
         static CmdDictionary* getInstance();
 
-        void loadCommand()
+        void loadCommand();
         void getCommand(std::string userInput);
     private:
         static CmdDictionary* instance;

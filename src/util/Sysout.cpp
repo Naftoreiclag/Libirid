@@ -16,7 +16,7 @@
 
 #include "../util/Point3i.h"
 
-#include "../Libirid.h"
+//#include "../Libirid.h"
 
 // How wide the screen is
 unsigned short Sysout::displayWidth;

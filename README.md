@@ -11,6 +11,8 @@ In this game, I hope to eventually give the player the freedom to do *everything
 
 It's a text-adventure game, so it utilizes the second-most powerful graphics-rendering engine known to humanity: your imagination!
 
+Happy 300th commit! It's funny how it happened to be the one I added lua in!
+
 License
 =======================
 As already stated, this repository is licensed entirely under the [MIT License (MIT)](http://opensource.org/licenses/mit-license.html). The MIT license is very permissive in terms of redistribution, and is not ["copyleft"](http://www.gnu.org/copyleft/index.html). However, not all portions of the source code are under the same copyright holders. See individual files for a list of copyright holders.

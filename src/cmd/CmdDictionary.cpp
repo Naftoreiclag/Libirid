@@ -7,7 +7,7 @@
 #include "CmdDictionary.h"
 
 // Singleton pattern
-CmdDictionary* CmdDictionary::instance
+CmdDictionary* CmdDictionary::instance;
 CmdDictionary* CmdDictionary::getInstance()
 {
     if(instance == NULL)
