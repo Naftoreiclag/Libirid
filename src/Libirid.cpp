@@ -8,8 +8,8 @@
 
 #include "Game.h"
 
-#include "Lua_5-2-2/lua.h"
-//#include "LuaBridge/luabridge.h"
+#include "Lua_5-2-2/lua.hpp"
+#include "LuaBridge/luabridge.h"
 
 // Initialize
 void initialize()
