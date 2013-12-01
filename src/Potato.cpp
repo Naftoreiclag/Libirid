@@ -1,11 +1,18 @@
 #include "Potato.h"
 
 Potato::Potato()
+: tastiness(6),
+bounciness(9)
 {
-    //ctor
 }
 
-Potato::~Potato()
+void Potato::luaify(lua_State* luaState)
 {
-    //dtor
+    luabridge::getGlobalNamespace(luaState)
+        .beginNamespace("Potato")
+            .beginNamespace("Properties")
+                .addVariable("tastiness", &tastiness)
+                .addVariable("bounciness", &bounciness)
+            .endNamespace()
+        .endNamespace();
 }

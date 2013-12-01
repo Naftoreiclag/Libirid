@@ -8,16 +8,25 @@
 
 #include "Game.h"
 
-#include "Lua_5-2-2/lua.hpp"
-#include "LuaBridge/luabridge.h"
+#include "Luastuff.h"
+
+#include "Potato.h"
+
+// Print lua errors (Gee, this place is becoming a mess...)
+void printLuaErrors(lua_State* luaState, int luaScript)
+{
+    // Print the error message
+    Sysout::println(lua_tostring(luaState, -1));
+
+    // Removes that error message
+    lua_pop(luaState, 1);
+}
 
 // Initialize
 void initialize()
 {
     // Set the display width to 80 chars long (for word-wrap)
     Sysout::setDisplayWidth(80);
-
-    Sysout::println(LUA_TTABLE);
 
     // If we are in debug mode, then print that
     #ifdef DEBUG
@@ -51,6 +60,22 @@ void finalize()
 
 int main()
 {
+    Potato potato;
+
+    lua_State* luaState;
+    luaState = luaL_newstate();
+
+    luaL_openlibs(luaState);
+
+    potato.luaify(luaState);
+
+    int luaScript = luaL_dofile(luaState, "potatoProp.lua");
+
+    printLuaErrors(luaState, luaScript);
+
+    Sysout::println(potato.tastiness);
+    Sysout::println(potato.bounciness);
+
     // Initialize
     initialize();
 
