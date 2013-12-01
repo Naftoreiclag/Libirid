@@ -12,27 +12,62 @@
  */
 
 #include <string>
+#include <vector>
 
-// Word types
-enum ScriptType
+#include "../language/Grammar.h"
+
+namespace cmd
 {
-    internal,
-    lua
-};
+    //
+    //typedef bool (*CppCmdFunction)(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
 
-class CmdDictionary
-{
-    private:
-        CmdDictionary();
-    public:
-        // Get the current singleton instance, creating one if it does not exist
-        static CmdDictionary* getInstance();
+    //
+    //typedef std::string* LuaScript;
 
-        //
-        void loadCommand();
-        void getCommand(std::string userInput);
-    private:
-        static CmdDictionary* instance;
-};
+    // Word types
+    namespace ScriptType
+    {
+        enum T
+        {
+            internal,
+            lua
+        };
+    }
+
+    class CmdDictionary
+    {
+        private:
+            CmdDictionary();
+        public:
+            // Get the current singleton instance, creating one if it does not exist
+            static CmdDictionary* getInstance();
+
+            //
+            void loadCmdInternal();
+            void loadCmdLua();
+            void getCmd(std::string userInput);
+        private:
+            static CmdDictionary* instance;
+    };
+
+    class CmdScript
+    {
+        protected:
+            CmdScript(ScriptType::T type);
+        public:
+            void execute();
+        private:
+            ScriptType::T type;
+    };
+
+    class CmdScriptLua : public CmdScript
+    {
+        public:
+            CmdScriptLua(std::string code);
+            void execute();
+        private:
+            std::string code;
+    };
+}
 
 #endif // CMDDICTIONARY_H

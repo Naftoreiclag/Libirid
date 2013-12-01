@@ -6,6 +6,10 @@
 
 #include "CmdDictionary.h"
 
+#include <iostream>
+
+using namespace cmd;
+
 // Singleton pattern
 CmdDictionary* CmdDictionary::instance;
 CmdDictionary* CmdDictionary::getInstance()
@@ -21,9 +25,23 @@ CmdDictionary* CmdDictionary::getInstance()
 CmdDictionary::CmdDictionary()
 {
 }
-void CmdDictionary::loadCommand();
 
-void CmdDictionary::getCommand(std::string userInput)
+CmdScript::CmdScript(ScriptType::T type)
+: type(type)
 {
+}
 
+void CmdScript::execute()
+{
+}
+
+CmdScriptLua::CmdScriptLua(std::string code)
+: CmdScript(ScriptType::lua),
+code(code)
+{
+}
+
+void CmdScriptLua::execute()
+{
+    std::cout << "thisislua" << std::endl;
 }

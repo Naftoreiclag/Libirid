@@ -14,6 +14,8 @@
 
 #include "Potato.h"
 
+#include "cmd/CmdDictionary.h"
+
 // Print lua errors (Gee, this place is becoming a mess...)
 void printLuaErrors(lua_State* luaState, int luaScript)
 {
@@ -83,6 +85,10 @@ int main()
     Sysout::println(potato.bounciness);
 
     lua_close(luaState);
+
+    cmd::CmdScriptLua luascr("hello");
+
+    luascr.execute();
 
     // Initialize
     initialize();
