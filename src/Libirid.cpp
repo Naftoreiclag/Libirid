@@ -10,6 +10,8 @@
 
 #include "Luastuff.h"
 
+#include "Filestuff.h"
+
 #include "Potato.h"
 
 #include <iostream>
@@ -75,7 +77,7 @@ int main()
 
     potato.luaify(luaState);
 
-    int luaScript = luaL_dofile(luaState, "../bin/potatoProp.lua");
+    int luaScript = luaL_dofile(luaState, getLocalFilePath("potatoProp.lua"));
 
     printLuaErrors(luaState, luaScript);
 
