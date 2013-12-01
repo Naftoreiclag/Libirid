@@ -2,8 +2,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <streambuf>
-#include <string>
 
 ScriptLibrary::ScriptLibrary()
 {
