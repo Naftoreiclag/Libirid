@@ -13,6 +13,7 @@
 #include "Filestuff.h"
 
 #include "Potato.h"
+#include "scriptloader/ScriptLibrary.h"
 
 #include "cmd/CmdDictionary.h"
 
@@ -89,6 +90,8 @@ int main()
     cmd::CmdScriptLua luascr("hello");
 
     luascr.execute();
+
+    ScriptLibrary::getInstance()->loadLua(getLocalFilePath("potatoProp.lua"));
 
     // Initialize
     initialize();
