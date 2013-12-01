@@ -54,7 +54,6 @@
 		<Unit filename="LuaBridge/detail/TypeTraits.h" />
 		<Unit filename="LuaBridge/detail/Userdata.h" />
 		<Unit filename="LuaBridge/detail/dump.h" />
-		<Unit filename="Lua_5-2-2/Makefile" />
 		<Unit filename="Lua_5-2-2/lapi.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -182,6 +181,8 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Lua_5-2-2/lzio.h" />
+		<Unit filename="Potato.cpp" />
+		<Unit filename="Potato.h" />
 		<Unit filename="Title.cpp" />
 		<Unit filename="Title.h" />
 		<Unit filename="cmd/CmdDictionary.cpp" />
