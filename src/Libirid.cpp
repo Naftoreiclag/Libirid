@@ -14,8 +14,6 @@
 
 #include "Potato.h"
 
-#include <iostream>
-
 // Print lua errors (Gee, this place is becoming a mess...)
 void printLuaErrors(lua_State* luaState, int luaScript)
 {
@@ -23,7 +21,7 @@ void printLuaErrors(lua_State* luaState, int luaScript)
     if(luaScript != 0)
     {
         // Print the error message
-        std::cout << lua_tostring(luaState, -1) << std::endl;
+        Sysout::println(lua_tostring(luaState, -1));
 
         // Removes that error message
         lua_pop(luaState, 1);
