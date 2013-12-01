@@ -9,13 +9,15 @@
 #include "Game.h"
 
 #include "Lua_5-2-2/lua.h"
-#include "LuaBridge/luabridge.h"
+//#include "LuaBridge/luabridge.h"
 
 // Initialize
 void initialize()
 {
     // Set the display width to 80 chars long (for word-wrap)
     Sysout::setDisplayWidth(80);
+
+    Sysout::println(LUA_TTABLE);
 
     // If we are in debug mode, then print that
     #ifdef DEBUG
