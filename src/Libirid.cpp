@@ -12,14 +12,20 @@
 
 #include "Potato.h"
 
+#include <iostream>
+
 // Print lua errors (Gee, this place is becoming a mess...)
 void printLuaErrors(lua_State* luaState, int luaScript)
 {
-    // Print the error message
-    Sysout::println(lua_tostring(luaState, -1));
+    // Does something
+    if(luaScript != 0)
+    {
+        // Print the error message
+        std::cout << lua_tostring(luaState, -1) << std::endl;
 
-    // Removes that error message
-    lua_pop(luaState, 1);
+        // Removes that error message
+        lua_pop(luaState, 1);
+    }
 }
 
 // Initialize
@@ -69,7 +75,7 @@ int main()
 
     potato.luaify(luaState);
 
-    int luaScript = luaL_dofile(luaState, "potatoProp.lua");
+    int luaScript = luaL_dofile(luaState, "../bin/potatoProp.lua");
 
     printLuaErrors(luaState, luaScript);
 
