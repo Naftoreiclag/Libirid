@@ -11,6 +11,7 @@ src/obj/
 tools/command-frame-generator/*.exe
 src-cmdFrameGen/bin/
 src-cmdFrameGen/obj/
+trash/
 
 # Gource
 gource.bat
