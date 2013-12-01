@@ -13,15 +13,22 @@
 
 #include <string>
 
+// Word types
+enum ScriptType
+{
+    internal,
+    lua
+};
+
 class CmdDictionary
 {
     private:
         CmdDictionary();
-        virtual ~CmdDictionary();
     public:
         // Get the current singleton instance, creating one if it does not exist
         static CmdDictionary* getInstance();
 
+        //
         void loadCommand();
         void getCommand(std::string userInput);
     private:

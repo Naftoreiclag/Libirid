@@ -21,11 +21,7 @@ CmdDictionary* CmdDictionary::getInstance()
 CmdDictionary::CmdDictionary()
 {
 }
-
-CmdDictionary::~CmdDictionary()
-{
-}
-
+void CmdDictionary::loadCommand();
 
 void CmdDictionary::getCommand(std::string userInput)
 {
