@@ -89,18 +89,6 @@ int main()
 
     lua_close(luaState);
 
-    cmd::CmdScriptLua luascr("hello");
-
-    luascr.execute();
-
-    ScriptLibrary* lib = ScriptLibrary::getInstance();
-    std::cout << lib->getLuaCode(getLocalFilePath("potatoProp.lua")) << std::endl;
-    std::cout << lib->getLuaCode(getLocalFilePath("potatoProp.lua")) << std::endl;
-    std::cout << lib->getLuaCode(getLocalFilePath("tomatoProp.lua")) << std::endl;
-    std::cout << lib->getLuaCode(getLocalFilePath("potatoProp.lua")) << std::endl;
-    std::cout << *(lib->getLuaCode(getLocalFilePath("potatoProp.lua"))) << std::endl;
-    std::cout << *(lib->getLuaCode(getLocalFilePath("tomatoProp.lua"))) << std::endl;
-
     // Initialize
     initialize();
 

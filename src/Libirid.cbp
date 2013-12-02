@@ -189,6 +189,11 @@
 		<Unit filename="Title.h" />
 		<Unit filename="cmd/CmdDictionary.cpp" />
 		<Unit filename="cmd/CmdDictionary.h" />
+		<Unit filename="cmd/CmdScript.cpp" />
+		<Unit filename="cmd/CmdScript.h" />
+		<Unit filename="cmd/CmdScriptLua.cpp" />
+		<Unit filename="cmd/CmdScriptLua.h" />
+		<Unit filename="cmd/Cmdstuff.h" />
 		<Unit filename="expanse/Area.cpp" />
 		<Unit filename="expanse/Area.h" />
 		<Unit filename="expanse/Entity.cpp" />

@@ -16,25 +16,15 @@
 
 #include "../language/Grammar.h"
 
+#include "Cmdstuff.h"
+
 namespace cmd
 {
-    // Word types
-    namespace ScriptType
-    {
-        enum T
-        {
-            internal,
-            lua
-        };
-    }
-
     class CmdScript
     {
         protected:
             CmdScript(ScriptType::T type);
-            std::vector<std::string> aliases;
         public:
-            void addAlias(std::string)
             void execute();
         private:
             ScriptType::T type;
@@ -59,7 +49,8 @@ namespace cmd
             static CmdDictionary* getInstance();
 
             //
-            void addCmd(CmdScript* cmd);
+            //void newCmdScriptInternal(std::string[] aliases);
+            //void newCmdScriptLua(std::string[] aliases, std::string* code);
             void getCmd(std::string userInput);
         private:
             static CmdDictionary* instance;
