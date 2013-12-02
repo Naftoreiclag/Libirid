@@ -20,25 +20,7 @@
 
 namespace cmd
 {
-    class CmdScript
-    {
-        protected:
-            CmdScript(ScriptType::T type);
-        public:
-            void execute();
-        private:
-            ScriptType::T type;
-    };
-
-    class CmdScriptLua : public CmdScript
-    {
-        public:
-            CmdScriptLua(std::string* code);
-        public:
-            void execute();
-        private:
-            std::string* code;
-    };
+    class CmdScript;
 
     class CmdDictionary
     {

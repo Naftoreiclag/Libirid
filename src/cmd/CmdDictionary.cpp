@@ -8,6 +8,9 @@
 
 #include <iostream>
 
+#include "CmdScript.h"
+#include "CmdScriptLua.h"
+
 using namespace cmd;
 
 // Singleton pattern
@@ -33,5 +36,7 @@ void CmdDictionary::newCmdScriptInternal(std::string alias)
 
 void CmdDictionary::newCmdScriptLua(std::string alias, std::string* code)
 {
+    CmdScriptLua* cmd = new CmdScriptLua(code);
 
+    cmd->execute();
 }

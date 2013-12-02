@@ -93,7 +93,7 @@ int main()
     cmd::CmdDictionary* dict = cmd::CmdDictionary::getInstance();
     //std::string aliases[] = {"dance", "bogey"};
 
-    std::string* codePointer = lib->getLuaCode(getLocalFilePath("potatoProp.lua"));
+    std::string* codePointer = lib->getLuaCode(getLocalFilePath("tomatoProp.lua"));
     dict->newCmdScriptLua("dance", codePointer);
 
     // Initialize
