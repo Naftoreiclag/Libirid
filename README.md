@@ -21,10 +21,3 @@ Some Plans
 =======================
 * Make some plans.
 * Do something with Lua scripting.
-
-Thanks
-=======================
-People who have done things that helped somehow with this "project":
-* "JellyBuyer"
-* Vinnie Falco
-* Nathan Reed
