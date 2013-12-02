@@ -10,38 +10,38 @@
 
 using namespace cmd;
 
-// Singleton pattern
-CmdDictionary* CmdDictionary::instance;
-CmdDictionary* CmdDictionary::getInstance()
-{
-    if(instance == NULL)
+    // Singleton pattern
+    CmdDictionary* CmdDictionary::instance;
+    CmdDictionary* CmdDictionary::getInstance()
     {
-        instance = new CmdDictionary();
+        if(instance == NULL)
+        {
+            instance = new CmdDictionary();
+        }
+
+        return instance;
     }
 
-    return instance;
-}
+    CmdDictionary::CmdDictionary()
+    {
+    }
 
-CmdDictionary::CmdDictionary()
-{
-}
+    CmdScript::CmdScript(ScriptType::T type)
+    : type(type)
+    {
+    }
 
-CmdScript::CmdScript(ScriptType::T type)
-: type(type)
-{
-}
+    void CmdScript::execute()
+    {
+    }
 
-void CmdScript::execute()
-{
-}
+    CmdScriptLua::CmdScriptLua(std::string code)
+    : CmdScript(ScriptType::lua),
+    code(code)
+    {
+    }
 
-CmdScriptLua::CmdScriptLua(std::string code)
-: CmdScript(ScriptType::lua),
-code(code)
-{
-}
-
-void CmdScriptLua::execute()
-{
-    std::cout << "thisislua" << std::endl;
-}
+    void CmdScriptLua::execute()
+    {
+        std::cout << "thisislua" << std::endl;
+    }
