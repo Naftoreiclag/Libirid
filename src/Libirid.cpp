@@ -17,6 +17,8 @@
 
 #include "cmd/CmdDictionary.h"
 
+#include <iostream>
+
 // Print lua errors (Gee, this place is becoming a mess...)
 void printLuaErrors(lua_State* luaState, int luaScript)
 {
@@ -91,7 +93,13 @@ int main()
 
     luascr.execute();
 
-    ScriptLibrary::getInstance()->getLuaCode(getLocalFilePath("potatoProp.lua"));
+    ScriptLibrary* lib = ScriptLibrary::getInstance();
+    std::cout << lib->getLuaCode(getLocalFilePath("potatoProp.lua")) << std::endl;
+    std::cout << lib->getLuaCode(getLocalFilePath("potatoProp.lua")) << std::endl;
+    std::cout << lib->getLuaCode(getLocalFilePath("tomatoProp.lua")) << std::endl;
+    std::cout << lib->getLuaCode(getLocalFilePath("potatoProp.lua")) << std::endl;
+    std::cout << *(lib->getLuaCode(getLocalFilePath("potatoProp.lua"))) << std::endl;
+    std::cout << *(lib->getLuaCode(getLocalFilePath("tomatoProp.lua"))) << std::endl;
 
     // Initialize
     initialize();
