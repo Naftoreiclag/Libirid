@@ -12,7 +12,7 @@
 #include "util/Sysin.h"
 #include "util/SentenceStateBuilder.h"
 
-#include "command/CmdDictionary.h"
+//#include "command/CmdDictionary.h"
 
 #include "language/Grammar.h"
 
