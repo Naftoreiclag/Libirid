@@ -12,18 +12,12 @@
  */
 
 #include <string>
-#include <vector>
+#include <map>
 
 #include "../language/Grammar.h"
 
 namespace cmd
 {
-    //
-    //typedef bool (*CppCmdFunction)(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias);
-
-    //
-    //typedef std::string* LuaScript;
-
     // Word types
     namespace ScriptType
     {
@@ -34,6 +28,28 @@ namespace cmd
         };
     }
 
+    class CmdScript
+    {
+        protected:
+            CmdScript(ScriptType::T type);
+            std::vector<std::string> aliases;
+        public:
+            void addAlias(std::string)
+            void execute();
+        private:
+            ScriptType::T type;
+    };
+
+    class CmdScriptLua : public CmdScript
+    {
+        public:
+            CmdScriptLua(std::string* code);
+        public:
+            void execute();
+        private:
+            std::string* code;
+    };
+
     class CmdDictionary
     {
         private:
@@ -43,30 +59,12 @@ namespace cmd
             static CmdDictionary* getInstance();
 
             //
-            void loadCmdInternal();
-            void loadCmdLua();
+            void addCmd(CmdScript* cmd);
             void getCmd(std::string userInput);
         private:
             static CmdDictionary* instance;
-    };
 
-    class CmdScript
-    {
-        protected:
-            CmdScript(ScriptType::T type);
-        public:
-            void execute();
-        private:
-            ScriptType::T type;
-    };
-
-    class CmdScriptLua : public CmdScript
-    {
-        public:
-            CmdScriptLua(std::string code);
-            void execute();
-        private:
-            std::string code;
+            std::vector<CmdScript*> registeredCmds;
     };
 }
 
