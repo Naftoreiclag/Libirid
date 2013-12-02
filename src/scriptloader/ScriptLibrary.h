@@ -2,7 +2,7 @@
 #define SCRIPTLIBRARY_H
 
 #include <string>
-#include <vector>
+#include <map>
 
 class ScriptLibrary
 {
@@ -12,11 +12,11 @@ class ScriptLibrary
     public:
         static ScriptLibrary* getInstance();
 
-        std::string* loadLua(std::string path);
+        std::string* getLuaCode(std::string path);
     private:
         static ScriptLibrary* instance;
 
-        std::vector<std::string> luaScripts;
+        std::map<std::string, std::string> luaScripts;
 };
 
 #endif // SCRIPTLIBRARY_H

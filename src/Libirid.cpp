@@ -91,7 +91,7 @@ int main()
 
     luascr.execute();
 
-    ScriptLibrary::getInstance()->loadLua(getLocalFilePath("potatoProp.lua"));
+    ScriptLibrary::getInstance()->getLuaCode(getLocalFilePath("potatoProp.lua"));
 
     // Initialize
     initialize();

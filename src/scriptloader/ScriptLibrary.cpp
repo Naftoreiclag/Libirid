@@ -1,6 +1,7 @@
 #include "ScriptLibrary.h"
 
-#include <iostream>
+#include <string>
+
 #include <fstream>
 
 ScriptLibrary::ScriptLibrary()
@@ -22,8 +23,17 @@ ScriptLibrary::~ScriptLibrary()
 {
 }
 
-std::string* ScriptLibrary::loadLua(std::string path)
+std::string* ScriptLibrary::getLuaCode(std::string path)
 {
+    std::map<std::string, std::string>::iterator it;
+
+    it = luaScripts.find(path);
+
+    if(it != luaScripts.end())
+    {
+        return &(it->second);
+    }
+
     // Create a new file stream
     std::ifstream fileStream;
 
@@ -44,5 +54,7 @@ std::string* ScriptLibrary::loadLua(std::string path)
     // Close the file
     fileStream.close();
 
-    std::cout << buffer;
+    luaScripts.insert(std::make_pair(path, buffer));
+
+    return &(luaScripts.find(path)->second);
 }
