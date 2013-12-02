@@ -25,3 +25,13 @@ CmdDictionary* CmdDictionary::getInstance()
 CmdDictionary::CmdDictionary()
 {
 }
+
+void CmdDictionary::newCmdScriptInternal(std::string alias)
+{
+
+}
+
+void CmdDictionary::newCmdScriptLua(std::string alias, std::string* code)
+{
+
+}

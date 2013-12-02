@@ -49,8 +49,8 @@ namespace cmd
             static CmdDictionary* getInstance();
 
             //
-            //void newCmdScriptInternal(std::string[] aliases);
-            //void newCmdScriptLua(std::string[] aliases, std::string* code);
+            void newCmdScriptInternal(std::string alias);
+            void newCmdScriptLua(std::string alias, std::string* code);
             void getCmd(std::string userInput);
         private:
             static CmdDictionary* instance;

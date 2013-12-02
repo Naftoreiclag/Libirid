@@ -89,6 +89,13 @@ int main()
 
     lua_close(luaState);
 
+    ScriptLibrary* lib = ScriptLibrary::getInstance();
+    cmd::CmdDictionary* dict = cmd::CmdDictionary::getInstance();
+    //std::string aliases[] = {"dance", "bogey"};
+
+    std::string* codePointer = lib->getLuaCode(getLocalFilePath("potatoProp.lua"));
+    dict->newCmdScriptLua("dance", codePointer);
+
     // Initialize
     initialize();
 
