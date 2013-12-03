@@ -19,5 +19,4 @@ As already stated, the source code (*.h, *.hpp *.c *.cpp *.lua ...) in this repo
 
 Some Plans
 =======================
-* Make some plans.
-* Do something with Lua scripting.
+* Make dis ting a MMORPG bro! Yeah, right.
