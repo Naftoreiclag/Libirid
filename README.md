@@ -1,4 +1,4 @@
-![alt tag](https://github.com/Naftoreiclag/Libirid/raw/master/logo_vector.svg)
+![alt tag](http://naftoreiclag.github.io/libirid_vector.svg)
 =======================
 Licenced under the [MIT License (MIT)](http://opensource.org/licenses/mit-license.html).  
 No official pronunciation. Just say it however you last heard it pronounced.
