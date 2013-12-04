@@ -10,6 +10,7 @@
 
 #include "CmdScript.h"
 #include "CmdScriptLua.h"
+#include "CmdScriptInternal.h"
 
 using namespace cmd;
 
@@ -34,9 +35,11 @@ CmdDictionary::~CmdDictionary()
     CmdDictionary::instance = NULL;
 }
 
-void CmdDictionary::newCmdScriptInternal(std::string alias)
+void CmdDictionary::newCmdScriptInternal(std::string alias, CmdScriptInternalFunction func)
 {
+    CmdScriptInternal* cmd = new CmdScriptInternal(func);
 
+    cmd->execute();
 }
 
 void CmdDictionary::newCmdScriptLua(std::string alias, std::string* code)

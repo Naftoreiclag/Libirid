@@ -7,8 +7,12 @@
 #ifndef CMDSTUFF_H
 #define CMDSTUFF_H
 
+#include <string>
+
 namespace cmd
 {
+    typedef bool (*CmdScriptInternalFunction)(std::string string);
+
     typedef unsigned char ScriptType;
 }
 

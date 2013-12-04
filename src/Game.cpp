@@ -27,6 +27,20 @@
 #include "expanse/PlayerScript.h"
 #include "expanse/StringValue.h"
 
+namespace cmd
+{
+namespace scr
+{
+    bool dance(std::string string)
+    {
+        Sysout::println("break it down!");
+        Sysout::println(string);
+
+        return true;
+    }
+}
+}
+
 #include <iostream>
 
 //  Command Stuff
@@ -43,7 +57,7 @@ Game::Game()
 
     // Load commands
     cmdDict = cmd::CmdDictionary::getInstance();
-    cmdDict->newCmdScriptInternal("dance");
+    cmdDict->newCmdScriptInternal("dance", cmd::scr::dance);
 }
 
 // Finalize
@@ -69,19 +83,6 @@ void Game::run()
         // Prompt
         Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(&lastInput);
         Sysout::println();
-
-        // Run command from the raw input
-        //bool success = runCommandFromRawInput(&lastInput);
-        /*if(!success)
-        {
-            // Inform
-            #ifdef DEBUG
-            Sysout::print("Could not understand input: ");
-            Sysout::println(Sysout::toFriendlyString(&lastInput));
-            #endif // DEBUG
-            Sysout::println("Misunderstanding.");
-            Sysout::println();
-        }*/
     }
 }
 

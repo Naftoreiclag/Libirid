@@ -10,16 +10,16 @@
 #include <vector>
 #include <string>
 
-namespace cmd
+/*namespace cmd
 {
 namespace scr
 {
-    bool dance(gmr::SentenceState* stnc, std::vector<std::string>* argumentWords, std::string alias)
+    bool dance(std::string string)
     {
         Sysout::println("break it down!");
-        Sysout::println();
+        Sysout::println(string);
 
         return true;
     }
 }
-}
+}*/

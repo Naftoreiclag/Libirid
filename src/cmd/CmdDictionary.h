@@ -34,7 +34,7 @@ namespace cmd
             ~CmdDictionary();
 
             //
-            void newCmdScriptInternal(std::string alias);
+            void newCmdScriptInternal(std::string alias, CmdScriptInternalFunction func);
             void newCmdScriptLua(std::string alias, std::string* code);
             void getCmd(std::string userInput);
         private:

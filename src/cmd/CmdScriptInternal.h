@@ -18,9 +18,10 @@ namespace cmd
     class CmdScriptInternal : public CmdScript
     {
         public:
-            CmdScriptInternal();
+            CmdScriptInternal(CmdScriptInternalFunction func);
         public:
             void execute();
+            CmdScriptInternalFunction func;
     };
 }
 

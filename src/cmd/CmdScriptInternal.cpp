@@ -12,11 +12,13 @@
 
 using namespace cmd;
 
-CmdScriptInternal::CmdScriptInternal()
-: CmdScript(SRT_INTERNAL)
+CmdScriptInternal::CmdScriptInternal(CmdScriptInternalFunction func)
+: CmdScript(SRT_INTERNAL),
+func(func)
 {
 }
 
 void CmdScriptInternal::execute()
 {
+    func("efjiawoklgjraeoigjd");
 }
