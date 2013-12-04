@@ -12,6 +12,8 @@
 #include <iostream>
 #endif // DEBUG
 
+using namespace exp;
+
 Node::Node(std::string name, NodeType nodeType, Node* parent)
 : name(name),
 nodeType(nodeType),

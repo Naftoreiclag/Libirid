@@ -29,6 +29,11 @@ CmdDictionary::CmdDictionary()
 {
 }
 
+CmdDictionary::~CmdDictionary()
+{
+    CmdDictionary::instance = NULL;
+}
+
 void CmdDictionary::newCmdScriptInternal(std::string alias)
 {
 

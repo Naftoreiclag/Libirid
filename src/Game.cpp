@@ -49,8 +49,8 @@ Game::Game()
 // Finalize
 Game::~Game()
 {
+    // Delete everything
     delete nodeExpanse;
-
     delete cmdDict;
 }
 
@@ -94,14 +94,14 @@ void Game::load()
     new exp::Area("Plains", nodeExpanse->getChild("Earth"));
     new exp::Area("Forest", nodeExpanse->getChild("Earth"));
 
-    Node* theSpawnPoint = new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
+    exp::Node* theSpawnPoint = new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
 
     nodeSpawnAreaChild = theSpawnPoint;
 }
 
 void Game::addPlayer(std::string playerName)
 {
-    Node* thePlayer = new exp::Entity("Player", nodeSpawnAreaChild->getParent());
+    exp::Node* thePlayer = new exp::Entity("Player", nodeSpawnAreaChild->getParent());
     new exp::PlayerScript("PlayerScript", thePlayer);
     new exp::StringValue("PlayerName", thePlayer, playerName);
 }

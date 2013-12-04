@@ -28,63 +28,66 @@ typedef unsigned char NodeType;
 #define NT_SHORTVALUE       0x0C
 #define NT_BYTEVALUE        0x0D
 
-class Node
+namespace exp
 {
-    protected:
-        Node(std::string name, NodeType nodeType, Node* parent);
-    public:
-        // Name
-        std::string getName();
+    class Node
+    {
+        protected:
+            Node(std::string name, NodeType nodeType, Node* parent);
+        public:
+            // Name
+            std::string getName();
 
-        //
-        Node* getChild(std::string name);
+            //
+            Node* getChild(std::string name);
 
-        //
-        NodeType getType();
+            //
+            NodeType getType();
 
-        //
-        virtual ~Node();
+            //
+            virtual ~Node();
 
-        // Returns parent
-        Node* getParent();
+            // Returns parent
+            Node* getParent();
 
-        // Adopts a parent
-        // - New parent calls adoptChild(me);
-        void setParent(Node* newParent);
+            // Adopts a parent
+            // - New parent calls adoptChild(me);
+            void setParent(Node* newParent);
 
-        // Returns the first child
-        Node* getFirstChild();
+            // Returns the first child
+            Node* getFirstChild();
 
-        // Adopts a child
-        // - New child knows who his siblings are
-        // - Old parent knows that he is no longer her child
-        // - I know that he is my new son
-        // - New child knows that I am his new parent
-        void adoptChild(Node* newChild);
+            // Adopts a child
+            // - New child knows who his siblings are
+            // - Old parent knows that he is no longer her child
+            // - I know that he is my new son
+            // - New child knows that I am his new parent
+            void adoptChild(Node* newChild);
 
-        // Forgets a child
-        // - I know that he is no longer my child
-        // - My children know that he is no longer their sibling.
-        // ! Disowned child does NOT know that he has been disowned, and still thinks that I am his parent!
-        void forgetChild(Node* childToDisown);
+            // Forgets a child
+            // - I know that he is no longer my child
+            // - My children know that he is no longer their sibling.
+            // ! Disowned child does NOT know that he has been disowned, and still thinks that I am his parent!
+            void forgetChild(Node* childToDisown);
 
-        // Returns sibling
-        Node* getSibling();
+            // Returns sibling
+            Node* getSibling();
 
-        // Sets the sibling
-        void setSibling(Node* newSibling);
+            // Sets the sibling
+            void setSibling(Node* newSibling);
 
-        #ifdef DEBUG
-        void printHeirachy(int layer);
-        #endif // DEBUG
-    private:
-        std::string name;
+            #ifdef DEBUG
+            void printHeirachy(int layer);
+            #endif // DEBUG
+        private:
+            std::string name;
 
-        NodeType nodeType;
+            NodeType nodeType;
 
-        Node* parent;
-        Node* firstChild;
-        Node* sibling;
-};
+            Node* parent;
+            Node* firstChild;
+            Node* sibling;
+    };
+}
 
 #endif // NODE_H
