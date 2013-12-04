@@ -11,6 +11,8 @@
  *
  */
 
+#include <string>
+
 class Node;
 class lua_State;
 

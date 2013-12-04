@@ -27,9 +27,19 @@
 #include "expanse/PlayerScript.h"
 #include "expanse/StringValue.h"
 
+//
+#include "SimpleClass.h"
+
 //  Lua Stuff
 // ===========
 #include "luaStuff.h"
+
+#include <iostream>
+
+struct Donkey
+{
+    int donkeyVar;
+};
 
 // Initialize
 Game::Game()
@@ -41,12 +51,17 @@ Game::Game()
 
     // Lua State
     luaState = luaL_newstate();
+    std::cout << luabridge::getGlobalNamespace(luaState);
 
-    luabridge::getGlobalNamespace(luaState)
-        .beginClass<Expanse> ("Expanse")
-            .addData("parent", &Node::parent)
-            .addFunction("sayFoo", &Expanse::sayFoo)
-        .endClass();
+    //luabridge::getGlobalNamespace(luaState)
+        //.beginClass<Donkey>("Donkey")
+            //.addFunction("sayFoo", &SimpleClass::sayFoo)
+        //.endClass();
+        /*.beginClass<exp::Expanse> ("Expanse")
+            //.addProperty("parent", &Node::getParent)
+            .addFunction("sayFoo", &exp::Expanse::sayFoo)
+        .endClass()
+        .addVariable("dexp", &nodeExpanse)*/
 }
 
 // Finalize
@@ -58,6 +73,9 @@ Game::~Game()
 // Run
 void Game::run()
 {
+
+    //luaL_dostring(luaState, "egg.dexp:sayFoo()");
+
     addPlayer("Dylan");
 
     nodeExpanse->printHeirachy(0);
