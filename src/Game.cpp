@@ -27,19 +27,11 @@
 #include "expanse/PlayerScript.h"
 #include "expanse/StringValue.h"
 
-//
-#include "SimpleClass.h"
-
-//  Lua Stuff
-// ===========
-#include "luaStuff.h"
-
 #include <iostream>
 
-struct Donkey
-{
-    int donkeyVar;
-};
+//  Command Stuff
+// ===============
+#include "cmd/CmdDictionary.h"
 
 // Initialize
 Game::Game()
@@ -49,38 +41,22 @@ Game::Game()
     nodeExpanse = new exp::Expanse();
     nodeSpawnAreaChild = NULL;
 
-    // Lua State
-    luaState = luaL_newstate();
-    std::cout << luabridge::getGlobalNamespace(luaState);
-
-    //luabridge::getGlobalNamespace(luaState)
-        //.beginClass<Donkey>("Donkey")
-            //.addFunction("sayFoo", &SimpleClass::sayFoo)
-        //.endClass();
-        /*.beginClass<exp::Expanse> ("Expanse")
-            //.addProperty("parent", &Node::getParent)
-            .addFunction("sayFoo", &exp::Expanse::sayFoo)
-        .endClass()
-        .addVariable("dexp", &nodeExpanse)*/
+    // Load commands
+    cmdDict = cmd::CmdDictionary::getInstance();
+    cmdDict->newCmdScriptInternal("dance");
 }
 
 // Finalize
 Game::~Game()
 {
-    // Do something
+    delete nodeExpanse;
+
+    delete cmdDict;
 }
 
 // Run
 void Game::run()
 {
-
-    //luaL_dostring(luaState, "egg.dexp:sayFoo()");
-
-    addPlayer("Dylan");
-
-    nodeExpanse->printHeirachy(0);
-
-
     // We are running now
     isRunning = true;
 

@@ -4,22 +4,24 @@
  * See accompanying file LICENSE
  */
 
-#ifndef CMDSCRIPT_H
-#define CMDSCRIPT_H
+#ifndef CMDSCRIPTINTERNAL_H
+#define CMDSCRIPTINTERNAL_H
 
-#include "CmdStuff.h"
+#include <string>
+
+#include "Cmdstuff.h"
+
+#include "CmdScript.h"
 
 namespace cmd
 {
-    class CmdScript
+    class CmdScriptInternal : public CmdScript
     {
-        protected:
-            CmdScript(ScriptType type);
+        public:
+            CmdScriptInternal();
         public:
             void execute();
-        private:
-            ScriptType type;
     };
 }
 
-#endif // CMDSCRIPT_H
+#endif // CMDSCRIPTINTERNAL_H

@@ -9,6 +9,15 @@
 
 namespace cmd
 {
+    typedef unsigned char ScriptType;
+}
+
+#define SRT_INTERNAL     0x02
+#define SRT_LUA          0x03
+
+/*
+namespace cmd
+{
     // Word types
     namespace ScriptType
     {
@@ -18,6 +27,6 @@ namespace cmd
             lua
         };
     }
-}
+}*/
 
 #endif // CMDSTUFF_H

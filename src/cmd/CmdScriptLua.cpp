@@ -29,7 +29,7 @@ void printLuaErrorz(lua_State* luaState, int luaScript)
 }
 
 CmdScriptLua::CmdScriptLua(std::string* code)
-: CmdScript(ScriptType::lua),
+: CmdScript(SRT_LUA),
 code(code)
 {
 }

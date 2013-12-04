@@ -14,7 +14,10 @@
 #include <string>
 
 class Node;
-class lua_State;
+namespace cmd
+{
+    class CmdDictionary;
+}
 
 class Game
 {
@@ -35,8 +38,8 @@ class Game
         Node* nodeExpanse;
         Node* nodeSpawnAreaChild;
 
-        // Lua state
-        lua_State* luaState;
+        // Command dictionary
+        cmd::CmdDictionary* cmdDict;
     public:
         // Save to disk
         void save();

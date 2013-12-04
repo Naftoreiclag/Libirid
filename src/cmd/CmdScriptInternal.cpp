@@ -4,15 +4,19 @@
  * See accompanying file LICENSE
  */
 
-#include "CmdScript.h"
+#include "CmdScriptInternal.h"
+
+#include <string>
+
+#include <iostream>
 
 using namespace cmd;
 
-CmdScript::CmdScript(ScriptType type)
-: type(type)
+CmdScriptInternal::CmdScriptInternal()
+: CmdScript(SRT_INTERNAL)
 {
 }
 
-void CmdScript::execute()
+void CmdScriptInternal::execute()
 {
 }
