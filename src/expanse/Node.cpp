@@ -6,6 +6,8 @@
 
 #include "Node.h"
 
+#define MACRO_CHILD_ITERATOR Node* child = firstChild; child != NULL; child = child->sibling
+
 #ifdef DEBUG
 #include <iostream>
 #endif // DEBUG
@@ -23,7 +25,7 @@ sibling(NULL)
 
 Node::~Node()
 {
-    for(Node* child = firstChild; child != NULL; child = child->sibling)
+    for(MACRO_CHILD_ITERATOR)
     {
         delete child;
     }
@@ -72,7 +74,7 @@ void Node::setParent(Node* newParent)
 
 Node* Node::getChild(std::string name)
 {
-    for(Node* child = firstChild; child != NULL; child = child->sibling)
+    for(MACRO_CHILD_ITERATOR)
     {
         if(child->getName() == name)
         {
@@ -106,7 +108,7 @@ void Node::forgetChild(Node* childToDisown)
 {
     // Iterate through all children
     Node* previousNode = NULL;
-    for(Node* child = firstChild; child != NULL; child = child->sibling)
+    for(MACRO_CHILD_ITERATOR)
     {
         // If this one is the one to disown
         if(child == childToDisown)
