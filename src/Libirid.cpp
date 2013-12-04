@@ -4,106 +4,55 @@
  * See accompanying file LICENSE
  */
 
-#include "util/Sysout.h"
+/* The Libirid application
+ *
+ */
 
 #include "Game.h"
 
-#include "Luastuff.h"
-
-#include "Filestuff.h"
-
-#include "Potato.h"
-#include "scriptloader/ScriptLibrary.h"
-
-#include "cmd/CmdDictionary.h"
-
-#include <iostream>
-
-// Print lua errors (Gee, this place is becoming a mess...)
-void printLuaErrors(lua_State* luaState, int luaScript)
+namespace Libirid
 {
-    // Does something
-    if(luaScript != 0)
-    {
-        // Print the error message
-        Sysout::println(lua_tostring(luaState, -1));
-
-        // Removes that error message
-        lua_pop(luaState, 1);
-    }
-}
-
-// Initialize
-void initialize()
-{
-    // Set the display width to 80 chars long (for word-wrap)
-    Sysout::setDisplayWidth(80);
-
-    // If we are in debug mode, then print that
-    #ifdef DEBUG
-    Sysout::println("Running in DEBUG mode!");
-    Sysout::printDictionaryEntries();
-    #endif
-}
-
-// Run
-void run()
-{
-    bool running = true;
-
-    while(running)
-    {
-        // Put a title screen here
-
-        // Run a game
-        Game* game = new Game();
-        game->load();
-        game->run();
-        delete game;
-    }
-}
-
-// Finalize
-void finalize()
-{
-
-}
-
-int main()
-{
-    Potato potato;
-
-    lua_State* luaState;
-    luaState = luaL_newstate();
-
-    luaL_openlibs(luaState);
-
-    potato.luaify(luaState);
-
-    int luaScript = luaL_dofile(luaState, getLocalFilePath("potatoProp.lua"));
-
-    printLuaErrors(luaState, luaScript);
-
-    Sysout::println(potato.tastiness);
-    Sysout::println(potato.bounciness);
-
-    lua_close(luaState);
-
-    ScriptLibrary* lib = ScriptLibrary::getInstance();
-    cmd::CmdDictionary* dict = cmd::CmdDictionary::getInstance();
-    //std::string aliases[] = {"dance", "bogey"};
-
-    std::string* codePointer = lib->getLuaCode(getLocalFilePath("tomatoProp.lua"));
-    dict->newCmdScriptLua("dance", codePointer);
-
     // Initialize
-    initialize();
+    void initialize()
+    {
+        // Do something
+    }
+
+    // Finalize
+    void finalize()
+    {
+        // Do something
+    }
 
     // Run
-    run();
+    void run()
+    {
+        // Initialize
+        initialize();
 
-    // Clean-up
-    finalize();
+        bool running = true;
+
+        while(running)
+        {
+            // Put a title screen here
+
+            // Run a game
+            Game* game = new Game();
+            game->load();
+            game->run();
+            delete game;
+        }
+
+        // Clean-up
+        finalize();
+    }
+}
+
+// This is where the magic happens
+int main()
+{
+    // Run
+    Libirid::run();
 
     // Died quietly
     return 0;
