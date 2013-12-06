@@ -9,7 +9,7 @@ Whenever I play a new video game, I always test the limits to what can and canno
 
 In this game, I hope to eventually give the player the freedom to do *everything* imaginable. Don't feel like giving that goblin the 5 gold coins to cross the bridge? Just slice his head off! Don't feel like searching for a key to the dungeon? Blow the door clean off with your C-4! Don't feel like not eating rocks for health? Then eat all the stone you want! (Just make sure you are willing to take the "broken teeth" debuff...)
 
-It's a text-adventure game, so it utilizes the second-most powerful graphics-rendering engine known to humanity: your imagination!
+It's a text-adventure game, so it utilizes the second-most powerful graphics-rendering engine known to humanity: your imagination! (Second only to the rendering engine in the [RL Series](http://uncyclopedia.wikia.com/wiki/Real_Life).)
 
 Happy 300th commit! It's funny how it happened to be the one I added lua in!
 
