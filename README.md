@@ -17,14 +17,27 @@ License
 =======================
 As already stated, the source code (*.h, *.hpp *.c *.cpp *.lua ...) in this repository is licensed entirely under the [MIT License (MIT)](http://opensource.org/licenses/mit-license.html). The MIT license is very permissive in terms of redistribution, and is not ["copyleft"](http://www.gnu.org/copyleft/index.html). However, not all portions of the source code are under the same copyright holders. See individual files for a list of copyright holders.
 
+Some Plans
+=======================
+* Make dis ting a MMORPG bro! Yeah, right.
+* Add more disclaimers
+
+Recommended Hardware Requirements
+=======================
+* Computer
+* Some RAM
+* Keyboard (I recommend one that has labeled keys.)
+* Mouse (optional)
+* Hard drive (> 1 Byte)
+* Imagination 1.5.2 or greater
+* Dictionary (optional)
+* Willingness to accept brutal truths (not optional)
+
 Disclaimer(s?)
 =======================
 * This game (Libirid) is not affiliated with any website or organization linked to via the links.
 * "Libirid" is a purely fictional word, and is intended to be nonsensical. Any resemblance to an actual word of any language is purely coincidental.
-* If you become addicted to this game to the point where you can no longer function as a physical human being, then the software cannot be held liable. Take frequent breaks from playing this game if you notice that you are no longer connected to reality.
+* If you become addicted to this game to the point where you can no longer function as a physical human being, then the developers of this software cannot be held liable. Take frequent breaks from playing this game if you notice that you are no longer connected to reality.
 * If you have libiridphobia, then you probably should not play this game.
 * Typing "pinocho" into the program has been rumored to have adverse effects on gameplay, and should never be typed. Developers are not liable for damages caused by typing that string of letters.
-
-Some Plans
-=======================
-* Make dis ting a MMORPG bro! Yeah, right.
+* Despite what this file has said earlier, this game does not utilize any graphics libraries.
