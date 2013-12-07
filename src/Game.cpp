@@ -27,19 +27,7 @@
 #include "expanse/PlayerScript.h"
 #include "expanse/StringValue.h"
 
-namespace cmd
-{
-namespace scr
-{
-    bool dance(std::string string)
-    {
-        Sysout::println("break it down!");
-        Sysout::println(string);
-
-        return true;
-    }
-}
-}
+#include "cmd/internalscripts/Dance.h"
 
 #include <iostream>
 

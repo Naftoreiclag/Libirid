@@ -10,7 +10,7 @@
 #include <vector>
 #include <string>
 
-/*namespace cmd
+namespace cmd
 {
 namespace scr
 {
@@ -22,4 +22,4 @@ namespace scr
         return true;
     }
 }
-}*/
+}

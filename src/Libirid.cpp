@@ -27,9 +27,6 @@ namespace Libirid
     // Run
     void run()
     {
-        // Initialize
-        initialize();
-
         bool running = true;
 
         while(running)
@@ -42,17 +39,20 @@ namespace Libirid
             game->run();
             delete game;
         }
-
-        // Clean-up
-        finalize();
     }
 }
 
 // This is where the magic happens
 int main()
 {
+    // Initialize
+    Libirid::initialize();
+
     // Run
     Libirid::run();
+
+    // Clean-up
+    Libirid::finalize();
 
     // Died quietly
     return 0;

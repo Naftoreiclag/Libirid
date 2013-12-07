@@ -197,6 +197,7 @@
 		<Unit filename="cmd/CmdScriptLua.h" />
 		<Unit filename="cmd/Cmdstuff.h" />
 		<Unit filename="cmd/internalscripts/Dance.cpp" />
+		<Unit filename="cmd/internalscripts/Dance.h" />
 		<Unit filename="expanse/Area.cpp" />
 		<Unit filename="expanse/Area.h" />
 		<Unit filename="expanse/Entity.cpp" />
