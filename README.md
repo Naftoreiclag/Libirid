@@ -17,6 +17,10 @@ License
 =======================
 As already stated, the source code (*.h, *.hpp *.c *.cpp *.lua ...) in this repository is licensed entirely under the [MIT License (MIT)](http://opensource.org/licenses/mit-license.html). The MIT license is very permissive in terms of redistribution, and is not ["copyleft"](http://www.gnu.org/copyleft/index.html). However, not all portions of the source code are under the same copyright holders. See individual files for a list of copyright holders.
 
+Contributing
+=======================
+[*See main page for Contributing*](contribute.md)
+
 Some Plans
 =======================
 * Make dis ting a MMORPG bro! Yeah, right.
