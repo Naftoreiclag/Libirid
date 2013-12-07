@@ -33,3 +33,10 @@ As long as it does not conflict with the Terms and Conditions.
 1.  It cannot be a [copyleft](https://www.gnu.org/copyleft/index.html) license. It would force the other licenses to become copyleft.  
 2.  It cannot restrict redistribution of the source code.  
 3.  It must be licensed under something.
+
+Some examples of acceptable licenses:
+* [Apache License 2.0](http://opensource.org/licenses/Apache-2.0)
+* BSD [3-Clause](http://opensource.org/licenses/BSD-3-Clause) or [2-Clause](http://opensource.org/licenses/BSD-2-Clause)
+* [Public Domain](http://en.wikipedia.org/wiki/Public_domain)
+* [zlib/libpng License (Zlib)](http://opensource.org/licenses/Zlib)
+* [Boost License](http://opensource.org/licenses/BSL-1.0)*
