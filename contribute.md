@@ -23,7 +23,7 @@ Also, try to make any code you submit as bug-free as possible. Also pretty obvio
 
 Questions (and Answers?)
 -----------------------
-**Is my idea dumb?**  
+**Is my idea for a contribution dumb?**  
 No more than the idea of this whole project.
 
 **Can I add X?**  
@@ -40,3 +40,12 @@ Some examples of acceptable licenses:
 * [Public Domain](http://en.wikipedia.org/wiki/Public_domain)
 * [zlib/libpng License (Zlib)](http://opensource.org/licenses/Zlib)
 * [Boost License](http://opensource.org/licenses/BSL-1.0)*
+
+**Are you insane?**  
+Not clinically.
+
+**Can I use some of this repository's code for my own project?**  
+Yes! Just make sure you comply with the licenses, which don't ask for much other than including a few lines of comments at the top of each file. Some credit for the original author(s) would be nice, though.
+
+**What does the word "Libirid" mean?**  
+That does not relate to contributions, but I'm sure you are curious. It is a combination of the latin roots *libr*, meaning "book," and *irid*, meaning "rainbow." Libirid's name literally means "Book-Rainbow." The book part is obvious; reading is essential to gameplay. The rainbow part refers to the wide variety of things you can do in the book - as vast or vast-er as the rainbow! 
