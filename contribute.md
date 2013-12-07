@@ -32,7 +32,7 @@ As long as it does not conflict with the Terms and Conditions.
 **Can I license my code under something other than MIT?**  
 1.  It cannot be a [copyleft](https://www.gnu.org/copyleft/index.html) license. It would force the other licenses to become copyleft.  
 2.  It cannot restrict redistribution of the source code.  
-3.  It must be licensed under something.
+3.  It must be licensed under something. (i.e. the source code must explicitly specify what license it is under. Saying "no license" is not good enough.)
 
 Some examples of acceptable licenses:
 * [Apache License 2.0](http://opensource.org/licenses/Apache-2.0)
