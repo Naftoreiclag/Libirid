@@ -41,6 +41,8 @@ Some examples of acceptable licenses:
 * [zlib/libpng License (Zlib)](http://opensource.org/licenses/Zlib)
 * [Boost License](http://opensource.org/licenses/BSL-1.0)*
 
+Right now, we are comfortably sitting on the statement "Our entire repository is under the MIT License." You don't wanna be the first to break that statement int "Most of our repository," do you?
+
 **Are you insane?**  
 Not clinically.
 
