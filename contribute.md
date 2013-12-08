@@ -43,11 +43,11 @@ Some examples of acceptable licenses:
 
 Right now, we are comfortably sitting on the statement "Our entire repository is under the MIT License." You don't wanna be the first to turn our statement into "Most of our repository," do you?
 
-**Are you insane?**  
-Not clinically.
-
 **Can I use some of this repository's code for my own project?**  
 Yes! Just make sure you comply with the licenses, which don't ask for much other than including a few lines of comments at the top of each file. Some credit for the original author(s) would be nice, though.
 
 **What does the word "Libirid" mean?**  
-That does not relate to contributions, but I'm sure you are curious. It is a combination of the Latin roots *libr*, meaning "book," and *irid*, meaning "rainbow." Libirid's name literally means "Book-Rainbow." The book part is obvious; reading is essential to gameplay. The rainbow part refers to the wide variety of things you can do in the book - as vast or vast-er as the rainbow! 
+That does not relate to contributions, but I'm sure you are curious. It is a combination of the Latin roots *libr*, meaning "book," and *irid*, meaning "rainbow." Libirid's name literally means "Book-Rainbow." The book part is obvious; reading is essential to gameplay. The rainbow part refers to the wide variety of things you can do in the book - as vast or vast-er as the rainbow!
+
+**Are you insane?**  
+Not clinically.
