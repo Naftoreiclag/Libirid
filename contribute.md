@@ -32,7 +32,7 @@ As long as it does not conflict with the Terms and Conditions.
 **Can I license my code under something other than MIT?**  
 1.  It cannot be a [copyleft](https://www.gnu.org/copyleft/index.html) license. It would force the other licenses to become copyleft.  
 2.  It cannot restrict redistribution of the source code.  
-3.  It must be licensed under something. (i.e. the source code must explicitly specify what license it is under. Saying "no license" is not good enough. (not to be confused with "Public domain" which is sometimes referred to as "Unlicenced." What I'm saying is that you don't say *anything* about your license. (Sorry, was that confusing?)))
+3.  It must be licensed under something. (i.e. the source code must explicitly specify what license it is under. Even if it is in public domain, the source code must read "public domain" somewhere in it.)
 
 Some examples of acceptable licenses:
 * [Apache License 2.0](http://opensource.org/licenses/Apache-2.0)
@@ -41,7 +41,7 @@ Some examples of acceptable licenses:
 * [zlib/libpng License (Zlib)](http://opensource.org/licenses/Zlib)
 * [Boost License](http://opensource.org/licenses/BSL-1.0)*
 
-Right now, we are comfortably sitting on the statement "Our entire repository is under the MIT License." You don't wanna be the first to break that statement int "Most of our repository," do you?
+Right now, we are comfortably sitting on the statement "Our entire repository is under the MIT License." You don't wanna be the first to turn our statement into "Most of our repository," do you?
 
 **Are you insane?**  
 Not clinically.
