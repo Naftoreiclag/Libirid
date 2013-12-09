@@ -61,7 +61,7 @@ Node* Node::getChild(std::string name)
 }
 
 // Get first descendant (a child, grandchild, nephew, grandnephew... etc)
-Node* getDescendant(std::string name)
+Node* Node::getDescendant(std::string name)
 {
     for(MACRO_CHILD_ITERATOR)
     {

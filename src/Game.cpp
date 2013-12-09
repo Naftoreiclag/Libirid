@@ -86,6 +86,8 @@ void Game::load()
     exp::Node* theSpawnPoint = new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
 
     nodeSpawnAreaChild = theSpawnPoint;
+
+    std::cout << nodeExpanse->getDescendant("_SpawnPoint")->getName() << "thatisit" << std::endl;
 }
 
 void Game::addPlayer(std::string playerName)
