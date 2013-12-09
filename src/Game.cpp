@@ -59,6 +59,9 @@ Game::~Game()
 // Run
 void Game::run()
 {
+    // Detect spawn point
+    nodeSpawnAreaChild = nodeExpanse->getDescendant("_SpawnPoint");
+
     // We are running now
     isRunning = true;
 
@@ -74,6 +77,7 @@ void Game::run()
     }
 }
 
+// Load
 void Game::load()
 {
     new exp::World("Earth", nodeExpanse);
@@ -82,14 +86,10 @@ void Game::load()
     new exp::Area("Desert", nodeExpanse->getChild("Earth"));
     new exp::Area("Plains", nodeExpanse->getChild("Earth"));
     new exp::Area("Forest", nodeExpanse->getChild("Earth"));
-
-    exp::Node* theSpawnPoint = new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
-
-    nodeSpawnAreaChild = theSpawnPoint;
-
-    std::cout << nodeExpanse->getDescendant("_SpawnPoint")->getName() << "thatisit" << std::endl;
+    new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
 }
 
+// Add player
 void Game::addPlayer(std::string playerName)
 {
     exp::Node* thePlayer = new exp::Entity("Player", nodeSpawnAreaChild->getParent());
