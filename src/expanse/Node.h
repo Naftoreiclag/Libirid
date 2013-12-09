@@ -61,10 +61,6 @@ namespace exp
             Node* getFirstChild();
 
             // Adopts a child
-            // - New child knows who his siblings are
-            // - Old parent knows that he is no longer her child
-            // - I know that he is my new son
-            // - New child knows that I am his new parent
             void adoptChild(Node* newChild);
 
             // Forgets a child
