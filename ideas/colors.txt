@@ -1,0 +1,12 @@
+Text/background colors: (windows only... sad...)
+
+Sunrise: color 05
+Daytime: color 0f
+Sunset: color 09
+Nighttime: color 01
+Indoors: color 07
+Darkness: color 08
+
+Near death: color 04 (overrides other colors)
+Even nearer death: color 0c (yes, it's supposed to be brighter. It's the adrenaline pumpin man)
+Dead: color 4c
