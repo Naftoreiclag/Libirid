@@ -7,7 +7,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-/* Nodes. THE COMMENTS ARE SUPER CREEPY!!!
+/* Nodes
  *
  */
 
@@ -33,25 +33,28 @@ namespace exp
     class Node
     {
         protected:
+            // Nodes themselves are not instantainable, so you need to make a subclass of this.
             Node(std::string name, NodeType nodeType, Node* parent);
         public:
+            // Deleter. Also deletes all children, and their children's children and so on
+            virtual ~Node();
+
+            // Type
+            NodeType getType();
+
             // Name
             std::string getName();
 
-            //
+            // Get first DIRECT (i.e. not a grandchild or nephew) child named "name"
             Node* getChild(std::string name);
 
-            //
-            NodeType getType();
+            // Get first descendant (a child, grandchild, nephew, grandnephew... etc)
+            Node* getDescendant(std::string name);
 
-            //
-            virtual ~Node();
-
-            // Returns parent
+            // Parent
             Node* getParent();
 
             // Adopts a parent
-            // - New parent calls adoptChild(me);
             void setParent(Node* newParent);
 
             // Returns the first child
@@ -65,9 +68,6 @@ namespace exp
             void adoptChild(Node* newChild);
 
             // Forgets a child
-            // - I know that he is no longer my child
-            // - My children know that he is no longer their sibling.
-            // ! Disowned child does NOT know that he has been disowned, and still thinks that I am his parent!
             void forgetChild(Node* childToDisown);
 
             // Returns sibling

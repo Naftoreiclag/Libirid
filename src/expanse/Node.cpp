@@ -25,6 +25,7 @@ sibling(NULL)
     setParent(parent);
 }
 
+// Deleter. Also deletes all children, and their children's children and so on
 Node::~Node()
 {
     for(MACRO_CHILD_ITERATOR)
@@ -33,17 +34,60 @@ Node::~Node()
     }
 }
 
-std::string Node::getName()
-{
-    return name;
-}
-
+// Type
 NodeType Node::getType()
 {
     return nodeType;
 }
 
+// Name
+std::string Node::getName()
+{
+    return name;
+}
+
+// Get first DIRECT (i.e. not a grandchild or nephew) child named "name"
+Node* Node::getChild(std::string name)
+{
+    for(MACRO_CHILD_ITERATOR)
+    {
+        if(child->getName() == name)
+        {
+            return child;
+        }
+    }
+
+    return NULL;
+}
+
+// Get first descendant (a child, grandchild, nephew, grandnephew... etc)
+Node* getDescendant(std::string name)
+{
+    for(MACRO_CHILD_ITERATOR)
+    {
+        if(child->getName() == name)
+        {
+            return child;
+        }
+        else
+        {
+            Node* returnVal = child->getDescendant(name);
+
+            if(returnVal != NULL)
+            {
+                return returnVal;
+            }
+        }
+    }
+
+    return NULL;
+}
+
+// Parent
 Node* Node::getParent() { return parent; }
+
+// Adopts a parent
+// - New parent calls adoptChild(me);
 void Node::setParent(Node* newParent)
 {
     // If the new parent is nobody
@@ -74,20 +118,14 @@ void Node::setParent(Node* newParent)
     }
 }
 
-Node* Node::getChild(std::string name)
-{
-    for(MACRO_CHILD_ITERATOR)
-    {
-        if(child->getName() == name)
-        {
-            return child;
-        }
-    }
-
-    return NULL;
-}
-
+// Returns the first child
 Node* Node::getFirstChild() { return firstChild; }
+
+// Adopts a child
+// - New child knows who his siblings are
+// - Old parent knows that he is no longer her child
+// - I know that he is my new son
+// - New child knows that I am his new parent
 void Node::adoptChild(Node* newChild)
 {
     // If child is not orphan
@@ -106,6 +144,11 @@ void Node::adoptChild(Node* newChild)
     // My first child is him
     firstChild = newChild;
 }
+
+// Forgets a child
+// - I know that he is no longer my child
+// - My children know that he is no longer their sibling.
+// ! Disowned child does NOT know that he has been disowned, and still thinks that I am his parent!
 void Node::forgetChild(Node* childToDisown)
 {
     // Iterate through all children
@@ -138,7 +181,10 @@ void Node::forgetChild(Node* childToDisown)
     }
 }
 
+// Returns sibling
 Node* Node::getSibling() { return sibling; }
+
+// Sets the sibling
 void Node::setSibling(Node* newSibling) { sibling = newSibling; }
 
 #ifdef DEBUG
