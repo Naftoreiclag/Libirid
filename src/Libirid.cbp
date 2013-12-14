@@ -33,156 +33,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Filestuff.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
-		<Unit filename="IdList.h" />
 		<Unit filename="Libirid.cpp" />
-		<Unit filename="LuaBridge/LuaBridge.h" />
-		<Unit filename="LuaBridge/RefCountedObject.h" />
-		<Unit filename="LuaBridge/RefCountedPtr.h" />
-		<Unit filename="LuaBridge/detail/CFunctions.h" />
-		<Unit filename="LuaBridge/detail/ClassInfo.h" />
-		<Unit filename="LuaBridge/detail/Constructor.h" />
-		<Unit filename="LuaBridge/detail/FuncTraits.h" />
-		<Unit filename="LuaBridge/detail/Iterator.h" />
-		<Unit filename="LuaBridge/detail/LuaException.h" />
-		<Unit filename="LuaBridge/detail/LuaHelpers.h" />
-		<Unit filename="LuaBridge/detail/LuaRef.h" />
-		<Unit filename="LuaBridge/detail/Namespace.h" />
-		<Unit filename="LuaBridge/detail/Stack.h" />
-		<Unit filename="LuaBridge/detail/TypeList.h" />
-		<Unit filename="LuaBridge/detail/TypeTraits.h" />
-		<Unit filename="LuaBridge/detail/Userdata.h" />
-		<Unit filename="LuaBridge/detail/dump.h" />
-		<Unit filename="Lua_5-2-2/lapi.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lapi.h" />
-		<Unit filename="Lua_5-2-2/lauxlib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lauxlib.h" />
-		<Unit filename="Lua_5-2-2/lbaselib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lbitlib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lcode.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lcode.h" />
-		<Unit filename="Lua_5-2-2/lcorolib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lctype.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lctype.h" />
-		<Unit filename="Lua_5-2-2/ldblib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/ldebug.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/ldebug.h" />
-		<Unit filename="Lua_5-2-2/ldo.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/ldo.h" />
-		<Unit filename="Lua_5-2-2/ldump.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lfunc.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lfunc.h" />
-		<Unit filename="Lua_5-2-2/lgc.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lgc.h" />
-		<Unit filename="Lua_5-2-2/linit.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/liolib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/llex.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/llex.h" />
-		<Unit filename="Lua_5-2-2/llimits.h" />
-		<Unit filename="Lua_5-2-2/lmathlib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lmem.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lmem.h" />
-		<Unit filename="Lua_5-2-2/loadlib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lobject.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lobject.h" />
-		<Unit filename="Lua_5-2-2/lopcodes.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lopcodes.h" />
-		<Unit filename="Lua_5-2-2/loslib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lparser.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lparser.h" />
-		<Unit filename="Lua_5-2-2/lstate.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lstate.h" />
-		<Unit filename="Lua_5-2-2/lstring.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lstring.h" />
-		<Unit filename="Lua_5-2-2/lstrlib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/ltable.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/ltable.h" />
-		<Unit filename="Lua_5-2-2/ltablib.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/ltm.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/ltm.h" />
-		<Unit filename="Lua_5-2-2/lua.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lua.h" />
-		<Unit filename="Lua_5-2-2/lua.hpp" />
-		<Unit filename="Lua_5-2-2/luac.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/luaconf.h" />
-		<Unit filename="Lua_5-2-2/lualib.h" />
-		<Unit filename="Lua_5-2-2/lundump.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lundump.h" />
-		<Unit filename="Lua_5-2-2/lvm.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lvm.h" />
-		<Unit filename="Lua_5-2-2/lzio.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lua_5-2-2/lzio.h" />
-		<Unit filename="Luastuff.h" />
 		<Unit filename="Potato.cpp" />
 		<Unit filename="Potato.h" />
 		<Unit filename="Title.cpp" />
@@ -193,8 +46,6 @@
 		<Unit filename="cmd/CmdScript.h" />
 		<Unit filename="cmd/CmdScriptInternal.cpp" />
 		<Unit filename="cmd/CmdScriptInternal.h" />
-		<Unit filename="cmd/CmdScriptLua.cpp" />
-		<Unit filename="cmd/CmdScriptLua.h" />
 		<Unit filename="cmd/Cmdstuff.h" />
 		<Unit filename="cmd/internalscripts/Dance.cpp" />
 		<Unit filename="cmd/internalscripts/Dance.h" />
@@ -235,8 +86,6 @@
 		<Unit filename="language/SentenceState.cpp" />
 		<Unit filename="language/Thesaurus.cpp" />
 		<Unit filename="language/Thesaurus.h" />
-		<Unit filename="scriptloader/ScriptLibrary.cpp" />
-		<Unit filename="scriptloader/ScriptLibrary.h" />
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
 		<Unit filename="util/Point3i.cpp" />

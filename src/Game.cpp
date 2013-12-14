@@ -45,7 +45,7 @@ Game::Game()
 
     // Load commands
     cmdDict = cmd::CmdDictionary::getInstance();
-    cmdDict->newCmdScriptInternal("dance", cmd::scr::dance);
+    cmdDict->newCmdScriptInternal(cmd::scr::dance);
 }
 
 // Finalize

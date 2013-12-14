@@ -35,16 +35,20 @@ CmdDictionary::~CmdDictionary()
     CmdDictionary::instance = NULL;
 }
 
-void CmdDictionary::newCmdScriptInternal(std::string alias, CmdScriptInternalFunction func)
+CmdScript* CmdDictionary::newCmdScriptInternal(CmdScriptInternalFunction func)
 {
     CmdScriptInternal* cmd = new CmdScriptInternal(func);
 
-    cmd->execute();
-}
+    registeredCmds.push_back(cmd);
 
-void CmdDictionary::newCmdScriptLua(std::string alias, std::string* code)
+    return cmd;
+}
+/*
+CmdScript* CmdDictionary::newCmdScriptLua(std::string* code)
 {
     CmdScriptLua* cmd = new CmdScriptLua(code);
 
-    cmd->execute();
-}
+    registeredCmds.push_back(cmd);
+
+    return cmd;
+}*/

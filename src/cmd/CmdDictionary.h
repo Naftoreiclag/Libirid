@@ -30,14 +30,17 @@ namespace cmd
             // Get the current singleton instance, creating one if it does not exist
             static CmdDictionary* getInstance();
 
-            //
+            // Destroyer
             ~CmdDictionary();
 
             //
-            void newCmdScriptInternal(std::string alias, CmdScriptInternalFunction func);
-            void newCmdScriptLua(std::string alias, std::string* code);
-            void getCmd(std::string userInput);
+            CmdScript* newCmdScriptInternal(CmdScriptInternalFunction func);
+            //CmdScript* newCmdScriptLua(std::string* code);
+
+            // Returns the command script based on input
+            CmdScript* getCmd(std::string userInput);
         private:
+            // The static singleton instance
             static CmdDictionary* instance;
 
             std::vector<CmdScript*> registeredCmds;
