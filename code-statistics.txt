@@ -1,0 +1,10 @@
+Last updated:
+December 14th 2013
+
+Number of lines:
+3039
+
+Code only:          54%
+Code and comments:   2%
+Comments:           25%
+Whitespace:         19%
