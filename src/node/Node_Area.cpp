@@ -4,18 +4,16 @@
  * See accompanying file LICENSE
  */
 
-#include "NodeIntegerValue.h"
+#include "Node_Area.h"
 
 using namespace node;
 
-NodeIntegerValue::NodeIntegerValue(std::string name, Node* parent, int value)
-: Node(name, NT_INTEGERVALUE, parent),
-value(value)
+Node_Area::Node_Area(std::string name, Node* parent)
+: Node(name, NT_AREA, parent)
 {
-    //ctor
 }
 
-NodeIntegerValue::~NodeIntegerValue()
+Node_Area::~Node_Area()
 {
     //dtor
 }

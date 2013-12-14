@@ -4,20 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef WORLD_H
-#define WORLD_H
+#ifndef NODE_EXPANSE_H
+#define NODE_EXPANSE_H
 
 #include "Node.h"
 
 namespace node
 {
-    class NodeWorld : public Node
+    class Node_Expanse : public Node
     {
         public:
-            NodeWorld(std::string name, Node* parent);
-            virtual ~NodeWorld();
+            Node_Expanse();
+            virtual ~Node_Expanse();
         private:
+
     };
 }
 
-#endif // WORLD_H
+#endif // NODE_EXPANSE_H

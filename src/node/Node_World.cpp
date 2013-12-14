@@ -4,17 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "NodeWorld.h"
+#include "Node_World.h"
 
 using namespace node;
 
-NodeWorld::NodeWorld(std::string name, Node* parent)
+Node_World::Node_World(std::string name, Node* parent)
 : Node(name, NT_WORLD, parent)
 {
     //ctor
 }
 
-NodeWorld::~NodeWorld()
+Node_World::~Node_World()
 {
     //dtor
 }

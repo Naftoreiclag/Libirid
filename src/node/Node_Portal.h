@@ -4,20 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef ENTITY_H
-#define ENTITY_H
+#ifndef NODE_PORTAL_H
+#define NODE_PORTAL_H
 
 #include "Node.h"
 
 namespace node
 {
-    class NodeEntity : public Node
+    class Node_Portal : public Node
     {
         public:
-            NodeEntity(std::string name, Node* parent);
-            virtual ~NodeEntity();
+            Node_Portal(std::string name, Node* parent, std::string exitAreaName);
+            virtual ~Node_Portal();
+        protected:
         private:
     };
 }
 
-#endif // ENTITY_H
+#endif // NODE_PORTAL_H

@@ -4,16 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "NodePlayerScript.h"
+#include "Node_Expanse.h"
 
 using namespace node;
 
-NodePlayerScript::NodePlayerScript(std::string name, Node* parent)
-: Node(name, NT_PLAYERSCRIPT, parent)
+Node_Expanse::Node_Expanse()
+: Node("Expanse", NT_EXPANSE, NULL)
 {
+    //ctor
 }
 
-NodePlayerScript::~NodePlayerScript()
+Node_Expanse::~Node_Expanse()
 {
     //dtor
 }

@@ -4,17 +4,18 @@
  * See accompanying file LICENSE
  */
 
-#include "NodePortal.h"
+#include "Node_StringValue.h"
 
 using namespace node;
 
-NodePortal::NodePortal(std::string name, Node* parent, std::string exitAreaName)
-: Node(name, NT_PORTAL, parent)
+Node_StringValue::Node_StringValue(std::string name, Node* parent, std::string value)
+: Node(name, NT_STRINGVALUE, parent),
+value(value)
 {
     //ctor
 }
 
-NodePortal::~NodePortal()
+Node_StringValue::~Node_StringValue()
 {
     //dtor
 }

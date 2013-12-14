@@ -4,21 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef AREA_H
-#define AREA_H
+#ifndef NODE_PLAYERSCRIPT_H
+#define NODE_PLAYERSCRIPT_H
 
 #include "Node.h"
 
 namespace node
 {
-    class NodeArea : public Node
+    class Node_PlayerScript : public Node
     {
         public:
-            NodeArea(std::string name, Node* parent);
-            virtual ~NodeArea();
+            Node_PlayerScript(std::string name, Node* parent);
+            virtual ~Node_PlayerScript();
         protected:
         private:
     };
 }
 
-#endif // AREA_H
+#endif // NODE_PLAYERSCRIPT_H

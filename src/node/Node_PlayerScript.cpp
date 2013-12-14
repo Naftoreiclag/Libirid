@@ -4,17 +4,16 @@
  * See accompanying file LICENSE
  */
 
-#include "NodeEntity.h"
+#include "Node_PlayerScript.h"
 
 using namespace node;
 
-NodeEntity::NodeEntity(std::string name, Node* parent)
-: Node(name, NT_ENTITY, parent)
+Node_PlayerScript::Node_PlayerScript(std::string name, Node* parent)
+: Node(name, NT_PLAYERSCRIPT, parent)
 {
-
 }
 
-NodeEntity::~NodeEntity()
+Node_PlayerScript::~Node_PlayerScript()
 {
     //dtor
 }

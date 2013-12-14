@@ -4,21 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef EXPANSE_H
-#define EXPANSE_H
+#ifndef NODE_AREA_H
+#define NODE_AREA_H
 
 #include "Node.h"
 
 namespace node
 {
-    class NodeExpanse : public Node
+    class Node_Area : public Node
     {
         public:
-            NodeExpanse();
-            virtual ~NodeExpanse();
+            Node_Area(std::string name, Node* parent);
+            virtual ~Node_Area();
+        protected:
         private:
-
     };
 }
 
-#endif // EXPANSE_H
+#endif // NODE_AREA_H

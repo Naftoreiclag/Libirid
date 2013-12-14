@@ -4,18 +4,16 @@
  * See accompanying file LICENSE
  */
 
-#include "NodeStringValue.h"
+#include "Node_Script.h"
 
 using namespace node;
 
-NodeStringValue::NodeStringValue(std::string name, Node* parent, std::string value)
-: Node(name, NT_STRINGVALUE, parent),
-value(value)
+Node_Script::Node_Script(std::string name, Node* parent)
+: Node(name, NT_SCRIPT, parent)
 {
-    //ctor
 }
 
-NodeStringValue::~NodeStringValue()
+Node_Script::~Node_Script()
 {
     //dtor
 }

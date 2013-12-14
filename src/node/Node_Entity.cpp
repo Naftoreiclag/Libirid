@@ -4,17 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "NodeExpanse.h"
+#include "Node_Entity.h"
 
 using namespace node;
 
-NodeExpanse::NodeExpanse()
-: Node("Expanse", NT_EXPANSE, NULL)
+Node_Entity::Node_Entity(std::string name, Node* parent)
+: Node(name, NT_ENTITY, parent)
 {
-    //ctor
+
 }
 
-NodeExpanse::~NodeExpanse()
+Node_Entity::~Node_Entity()
 {
     //dtor
 }

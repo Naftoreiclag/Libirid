@@ -4,16 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "NodeScript.h"
+#include "Node_Portal.h"
 
 using namespace node;
 
-NodeScript::NodeScript(std::string name, Node* parent)
-: Node(name, NT_SCRIPT, parent)
+Node_Portal::Node_Portal(std::string name, Node* parent, std::string exitAreaName)
+: Node(name, NT_PORTAL, parent)
 {
+    //ctor
 }
 
-NodeScript::~NodeScript()
+Node_Portal::~Node_Portal()
 {
     //dtor
 }
