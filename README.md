@@ -19,7 +19,7 @@ As already stated, the source code (*.h, *.hpp *.c *.cpp *.lua ...) in this repo
 
 Contributing
 ===
-[*See main page for Contributing*](contribute.md)
+[*See main page for Contributing*](docs/contribute.md)
 
 Some Plans
 ===
