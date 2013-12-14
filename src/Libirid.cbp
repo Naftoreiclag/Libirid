@@ -86,6 +86,10 @@
 		<Unit filename="node/Node_World.h" />
 		<Unit filename="script/ListOfScripts.cpp" />
 		<Unit filename="script/ListOfScripts.h" />
+		<Unit filename="script/Script.cpp" />
+		<Unit filename="script/Script.h" />
+		<Unit filename="script/ScriptCommand.cpp" />
+		<Unit filename="script/ScriptCommand.h" />
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
 		<Unit filename="util/Point3i.cpp" />
