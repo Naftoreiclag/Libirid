@@ -4,21 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef PLAYERSCRIPT_H
-#define PLAYERSCRIPT_H
+#ifndef PORTAL_H
+#define PORTAL_H
 
 #include "Node.h"
 
 namespace node
 {
-    class PlayerScript : public Node
+    class NodePortal : public Node
     {
         public:
-            PlayerScript(std::string name, Node* parent);
-            virtual ~PlayerScript();
+            NodePortal(std::string name, Node* parent, std::string exitAreaName);
+            virtual ~NodePortal();
         protected:
         private:
     };
 }
 
-#endif // PLAYERSCRIPT_H
+#endif // PORTAL_H

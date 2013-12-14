@@ -4,18 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "StringValue.h"
+#include "NodeExpanse.h"
 
 using namespace node;
 
-StringValue::StringValue(std::string name, Node* parent, std::string value)
-: Node(name, NT_STRINGVALUE, parent),
-value(value)
+NodeExpanse::NodeExpanse()
+: Node("Expanse", NT_EXPANSE, NULL)
 {
     //ctor
 }
 
-StringValue::~StringValue()
+NodeExpanse::~NodeExpanse()
 {
     //dtor
 }

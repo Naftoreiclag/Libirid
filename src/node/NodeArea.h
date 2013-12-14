@@ -11,11 +11,11 @@
 
 namespace node
 {
-    class Area : public Node
+    class NodeArea : public Node
     {
         public:
-            Area(std::string name, Node* parent);
-            virtual ~Area();
+            NodeArea(std::string name, Node* parent);
+            virtual ~NodeArea();
         protected:
         private:
     };

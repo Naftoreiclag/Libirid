@@ -4,20 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef ENTITY_H
-#define ENTITY_H
+#ifndef EXPANSE_H
+#define EXPANSE_H
 
 #include "Node.h"
 
 namespace node
 {
-    class Entity : public Node
+    class NodeExpanse : public Node
     {
         public:
-            Entity(std::string name, Node* parent);
-            virtual ~Entity();
+            NodeExpanse();
+            virtual ~NodeExpanse();
         private:
+
     };
 }
 
-#endif // ENTITY_H
+#endif // EXPANSE_H

@@ -4,16 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "Area.h"
+#include "NodeWorld.h"
 
 using namespace node;
 
-Area::Area(std::string name, Node* parent)
-: Node(name, NT_AREA, parent)
+NodeWorld::NodeWorld(std::string name, Node* parent)
+: Node(name, NT_WORLD, parent)
 {
+    //ctor
 }
 
-Area::~Area()
+NodeWorld::~NodeWorld()
 {
     //dtor
 }

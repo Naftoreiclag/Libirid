@@ -4,17 +4,16 @@
  * See accompanying file LICENSE
  */
 
-#include "World.h"
+#include "NodeScript.h"
 
 using namespace node;
 
-World::World(std::string name, Node* parent)
-: Node(name, NT_WORLD, parent)
+NodeScript::NodeScript(std::string name, Node* parent)
+: Node(name, NT_SCRIPT, parent)
 {
-    //ctor
 }
 
-World::~World()
+NodeScript::~NodeScript()
 {
     //dtor
 }

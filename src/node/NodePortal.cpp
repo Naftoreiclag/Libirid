@@ -4,25 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "Expanse.h"
+#include "NodePortal.h"
 
 using namespace node;
 
-Expanse::Expanse()
-: Node("Expanse", NT_EXPANSE, NULL)
+NodePortal::NodePortal(std::string name, Node* parent, std::string exitAreaName)
+: Node(name, NT_PORTAL, parent)
 {
     //ctor
 }
 
-Expanse::~Expanse()
+NodePortal::~NodePortal()
 {
     //dtor
 }
-
-#ifdef DEBUG
-#include <iostream>
-void Expanse::sayFoo()
-{
-    std::cout << "Foo!" << std::endl;
-}
-#endif

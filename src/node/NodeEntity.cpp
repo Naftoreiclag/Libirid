@@ -4,16 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "Script.h"
+#include "NodeEntity.h"
 
 using namespace node;
 
-Script::Script(std::string name, Node* parent)
-: Node(name, NT_SCRIPT, parent)
+NodeEntity::NodeEntity(std::string name, Node* parent)
+: Node(name, NT_ENTITY, parent)
 {
+
 }
 
-Script::~Script()
+NodeEntity::~NodeEntity()
 {
     //dtor
 }

@@ -4,16 +4,18 @@
  * See accompanying file LICENSE
  */
 
-#include "PlayerScript.h"
+#include "NodeStringValue.h"
 
 using namespace node;
 
-PlayerScript::PlayerScript(std::string name, Node* parent)
-: Node(name, NT_PLAYERSCRIPT, parent)
+NodeStringValue::NodeStringValue(std::string name, Node* parent, std::string value)
+: Node(name, NT_STRINGVALUE, parent),
+value(value)
 {
+    //ctor
 }
 
-PlayerScript::~PlayerScript()
+NodeStringValue::~NodeStringValue()
 {
     //dtor
 }

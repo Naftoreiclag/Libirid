@@ -11,11 +11,11 @@
 
 namespace node
 {
-    class StringValue : public Node
+    class NodeStringValue : public Node
     {
         public:
-            StringValue(std::string name, Node* parent, std::string value);
-            virtual ~StringValue();
+            NodeStringValue(std::string name, Node* parent, std::string value);
+            virtual ~NodeStringValue();
 
             std::string value;
     };

@@ -4,17 +4,18 @@
  * See accompanying file LICENSE
  */
 
-#include "Entity.h"
+#include "NodeIntegerValue.h"
 
 using namespace node;
 
-Entity::Entity(std::string name, Node* parent)
-: Node(name, NT_ENTITY, parent)
+NodeIntegerValue::NodeIntegerValue(std::string name, Node* parent, int value)
+: Node(name, NT_INTEGERVALUE, parent),
+value(value)
 {
-
+    //ctor
 }
 
-Entity::~Entity()
+NodeIntegerValue::~NodeIntegerValue()
 {
     //dtor
 }

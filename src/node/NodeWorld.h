@@ -4,21 +4,20 @@
  * See accompanying file LICENSE
  */
 
-#ifndef INTEGERVALUE_H
-#define INTEGERVALUE_H
+#ifndef WORLD_H
+#define WORLD_H
 
 #include "Node.h"
 
 namespace node
 {
-    class IntegerValue : public Node
+    class NodeWorld : public Node
     {
         public:
-            IntegerValue(std::string name, Node* parent, int value);
-            virtual ~IntegerValue();
-
-            int value;
+            NodeWorld(std::string name, Node* parent);
+            virtual ~NodeWorld();
+        private:
     };
 }
 
-#endif // INTEGERVALUE_H
+#endif // WORLD_H

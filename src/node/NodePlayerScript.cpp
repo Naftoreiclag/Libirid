@@ -4,17 +4,16 @@
  * See accompanying file LICENSE
  */
 
-#include "Portal.h"
+#include "NodePlayerScript.h"
 
 using namespace node;
 
-Portal::Portal(std::string name, Node* parent, std::string exitAreaName)
-: Node(name, NT_PORTAL, parent)
+NodePlayerScript::NodePlayerScript(std::string name, Node* parent)
+: Node(name, NT_PLAYERSCRIPT, parent)
 {
-    //ctor
 }
 
-Portal::~Portal()
+NodePlayerScript::~NodePlayerScript()
 {
     //dtor
 }

@@ -4,21 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef PORTAL_H
-#define PORTAL_H
+#ifndef INTEGERVALUE_H
+#define INTEGERVALUE_H
 
 #include "Node.h"
 
 namespace node
 {
-    class Portal : public Node
+    class NodeIntegerValue : public Node
     {
         public:
-            Portal(std::string name, Node* parent, std::string exitAreaName);
-            virtual ~Portal();
-        protected:
-        private:
+            NodeIntegerValue(std::string name, Node* parent, int value);
+            virtual ~NodeIntegerValue();
+
+            int value;
     };
 }
 
-#endif // PORTAL_H
+#endif // INTEGERVALUE_H
