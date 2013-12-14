@@ -6,12 +6,14 @@
 
 #include "PlayerScript.h"
 
-node::PlayerScript::PlayerScript(std::string name, Node* parent)
+using namespace node;
+
+PlayerScript::PlayerScript(std::string name, Node* parent)
 : Node(name, NT_PLAYERSCRIPT, parent)
 {
 }
 
-node::PlayerScript::~PlayerScript()
+PlayerScript::~PlayerScript()
 {
     //dtor
 }

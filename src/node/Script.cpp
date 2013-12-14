@@ -6,12 +6,14 @@
 
 #include "Script.h"
 
-node::Script::Script(std::string name, Node* parent)
+using namespace node;
+
+Script::Script(std::string name, Node* parent)
 : Node(name, NT_SCRIPT, parent)
 {
 }
 
-node::Script::~Script()
+Script::~Script()
 {
     //dtor
 }

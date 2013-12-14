@@ -6,14 +6,16 @@
 
 #include "IntegerValue.h"
 
-node::IntegerValue::IntegerValue(std::string name, Node* parent, int value)
+using namespace node;
+
+IntegerValue::IntegerValue(std::string name, Node* parent, int value)
 : Node(name, NT_INTEGERVALUE, parent),
 value(value)
 {
     //ctor
 }
 
-node::IntegerValue::~IntegerValue()
+IntegerValue::~IntegerValue()
 {
     //dtor
 }

@@ -6,13 +6,15 @@
 
 #include "Portal.h"
 
-node::Portal::Portal(std::string name, Node* parent, std::string exitAreaName)
+using namespace node;
+
+Portal::Portal(std::string name, Node* parent, std::string exitAreaName)
 : Node(name, NT_PORTAL, parent)
 {
     //ctor
 }
 
-node::Portal::~Portal()
+Portal::~Portal()
 {
     //dtor
 }

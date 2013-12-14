@@ -6,20 +6,22 @@
 
 #include "Expanse.h"
 
-node::Expanse::Expanse()
+using namespace node;
+
+Expanse::Expanse()
 : Node("Expanse", NT_EXPANSE, NULL)
 {
     //ctor
 }
 
-node::Expanse::~Expanse()
+Expanse::~Expanse()
 {
     //dtor
 }
 
 #ifdef DEBUG
 #include <iostream>
-void node::Expanse::sayFoo()
+void Expanse::sayFoo()
 {
     std::cout << "Foo!" << std::endl;
 }

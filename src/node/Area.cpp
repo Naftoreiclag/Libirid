@@ -6,12 +6,14 @@
 
 #include "Area.h"
 
-node::Area::Area(std::string name, Node* parent)
+using namespace node;
+
+Area::Area(std::string name, Node* parent)
 : Node(name, NT_AREA, parent)
 {
 }
 
-node::Area::~Area()
+Area::~Area()
 {
     //dtor
 }

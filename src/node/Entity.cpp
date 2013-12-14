@@ -6,13 +6,15 @@
 
 #include "Entity.h"
 
-node::Entity::Entity(std::string name, Node* parent)
+using namespace node;
+
+Entity::Entity(std::string name, Node* parent)
 : Node(name, NT_ENTITY, parent)
 {
 
 }
 
-node::Entity::~Entity()
+Entity::~Entity()
 {
     //dtor
 }

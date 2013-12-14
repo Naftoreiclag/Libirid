@@ -6,14 +6,16 @@
 
 #include "StringValue.h"
 
-node::StringValue::StringValue(std::string name, Node* parent, std::string value)
+using namespace node;
+
+StringValue::StringValue(std::string name, Node* parent, std::string value)
 : Node(name, NT_STRINGVALUE, parent),
 value(value)
 {
     //ctor
 }
 
-node::StringValue::~StringValue()
+StringValue::~StringValue()
 {
     //dtor
 }

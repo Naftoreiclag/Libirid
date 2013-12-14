@@ -6,13 +6,15 @@
 
 #include "World.h"
 
-node::World::World(std::string name, Node* parent)
+using namespace node;
+
+World::World(std::string name, Node* parent)
 : Node(name, NT_WORLD, parent)
 {
     //ctor
 }
 
-node::World::~World()
+World::~World()
 {
     //dtor
 }
