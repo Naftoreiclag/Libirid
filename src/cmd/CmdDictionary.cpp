@@ -9,7 +9,6 @@
 #include <iostream>
 
 #include "CmdScript.h"
-#include "CmdScriptLua.h"
 #include "CmdScriptInternal.h"
 
 using namespace cmd;

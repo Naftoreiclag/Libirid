@@ -19,18 +19,4 @@ namespace cmd
 #define SRT_INTERNAL     0x02
 #define SRT_LUA          0x03
 
-/*
-namespace cmd
-{
-    // Word types
-    namespace ScriptType
-    {
-        enum T
-        {
-            internal,
-            lua
-        };
-    }
-}*/
-
 #endif // CMDSTUFF_H
