@@ -7,32 +7,35 @@
 #ifndef LISTOFSCRIPTS_H
 #define LISTOFSCRIPTS_H
 
-class ListOfScripts
+namespace script
 {
-    /////////////////////////////////
-    // Singleton Pattern
-    /////////////////////////////////
+    class ListOfScripts
+    {
+        /////////////////////////////////
+        // Singleton Pattern
+        /////////////////////////////////
 
-    private:
-        // Constructor; private so we can have singletons FTW
-        ListOfScripts();
-    public:
-        // Singleton instance
-        static ListOfScripts* getInstance();
+        private:
+            // Constructor; private so we can have singletons FTW
+            ListOfScripts();
+        public:
+            // Singleton instance
+            static ListOfScripts* getInstance();
 
-        // Destructor
-        ~ListOfScripts();
-    private:
-        // Singleton instance
-        static ListOfScripts* instance;
+            // Destructor
+            ~ListOfScripts();
+        private:
+            // Singleton instance
+            static ListOfScripts* instance;
 
-    /////////////////////////////////
-    // Functionality
-    /////////////////////////////////
+        /////////////////////////////////
+        // Functionality
+        /////////////////////////////////
 
-    public:
-        //
+        public:
+            //
 
-};
+    };
+}
 
 #endif // LISTOFSCRIPTS_H
