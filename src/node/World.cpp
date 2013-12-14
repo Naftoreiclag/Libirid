@@ -4,16 +4,15 @@
  * See accompanying file LICENSE
  */
 
-#include "StringValue.h"
+#include "World.h"
 
-exp::StringValue::StringValue(std::string name, Node* parent, std::string value)
-: Node(name, NT_STRINGVALUE, parent),
-value(value)
+node::World::World(std::string name, Node* parent)
+: Node(name, NT_WORLD, parent)
 {
     //ctor
 }
 
-exp::StringValue::~StringValue()
+node::World::~World()
 {
     //dtor
 }

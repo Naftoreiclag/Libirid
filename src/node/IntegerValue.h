@@ -9,7 +9,7 @@
 
 #include "Node.h"
 
-namespace exp
+namespace node
 {
     class IntegerValue : public Node
     {

@@ -4,15 +4,14 @@
  * See accompanying file LICENSE
  */
 
-#include "Entity.h"
+#include "Script.h"
 
-exp::Entity::Entity(std::string name, Node* parent)
-: Node(name, NT_ENTITY, parent)
+node::Script::Script(std::string name, Node* parent)
+: Node(name, NT_SCRIPT, parent)
 {
-
 }
 
-exp::Entity::~Entity()
+node::Script::~Script()
 {
     //dtor
 }

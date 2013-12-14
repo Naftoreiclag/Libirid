@@ -12,7 +12,7 @@
 #include <iostream>
 #endif // DEBUG
 
-using namespace exp;
+using namespace node;
 
 Node::Node(std::string name, NodeType nodeType, Node* parent)
 : name(name),

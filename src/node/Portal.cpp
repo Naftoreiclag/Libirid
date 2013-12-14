@@ -4,14 +4,15 @@
  * See accompanying file LICENSE
  */
 
-#include "Area.h"
+#include "Portal.h"
 
-exp::Area::Area(std::string name, Node* parent)
-: Node(name, NT_AREA, parent)
+node::Portal::Portal(std::string name, Node* parent, std::string exitAreaName)
+: Node(name, NT_PORTAL, parent)
 {
+    //ctor
 }
 
-exp::Area::~Area()
+node::Portal::~Portal()
 {
     //dtor
 }

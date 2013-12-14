@@ -4,21 +4,20 @@
  * See accompanying file LICENSE
  */
 
-#ifndef AREA_H
-#define AREA_H
+#ifndef WORLD_H
+#define WORLD_H
 
 #include "Node.h"
 
-namespace exp
+namespace node
 {
-    class Area : public Node
+    class World : public Node
     {
         public:
-            Area(std::string name, Node* parent);
-            virtual ~Area();
-        protected:
+            World(std::string name, Node* parent);
+            virtual ~World();
         private:
     };
 }
 
-#endif // AREA_H
+#endif // WORLD_H

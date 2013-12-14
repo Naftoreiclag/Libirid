@@ -28,7 +28,7 @@ typedef unsigned char NodeType;
 #define NT_SHORTVALUE       0x0C
 #define NT_BYTEVALUE        0x0D
 
-namespace exp
+namespace node
 {
     class Node
     {

@@ -13,7 +13,7 @@
 
 #include <string>
 
-namespace exp
+namespace node
 {
     class Node;
 }
@@ -38,8 +38,8 @@ class Game
         bool isRunning;
 
         // Nodes of interest
-        exp::Node* nodeExpanse;
-        exp::Node* nodeSpawnAreaChild;
+        node::Node* nodeExpanse;
+        node::Node* nodeSpawnAreaChild;
 
         // Command dictionary
         cmd::CmdDictionary* cmdDict;

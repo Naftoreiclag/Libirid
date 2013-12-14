@@ -4,15 +4,15 @@
  * See accompanying file LICENSE
  */
 
-#include "Portal.h"
+#include "Entity.h"
 
-exp::Portal::Portal(std::string name, Node* parent, std::string exitAreaName)
-: Node(name, NT_PORTAL, parent)
+node::Entity::Entity(std::string name, Node* parent)
+: Node(name, NT_ENTITY, parent)
 {
-    //ctor
+
 }
 
-exp::Portal::~Portal()
+node::Entity::~Entity()
 {
     //dtor
 }

@@ -4,20 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef WORLD_H
-#define WORLD_H
+#ifndef SCRIPT_H
+#define SCRIPT_H
 
 #include "Node.h"
 
-namespace exp
+namespace node
 {
-    class World : public Node
+    class Script : public Node
     {
         public:
-            World(std::string name, Node* parent);
-            virtual ~World();
+            Script(std::string name, Node* parent);
+            virtual ~Script();
+        protected:
         private:
     };
 }
 
-#endif // WORLD_H
+#endif // SCRIPT_H

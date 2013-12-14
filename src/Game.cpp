@@ -16,16 +16,16 @@
 
 //  Node Stuff
 // ============
-#include "expanse/Node.h"
+#include "node/Node.h"
 
-#include "expanse/Expanse.h"
-#include "expanse/World.h"
-#include "expanse/Area.h"
-#include "expanse/Portal.h"
-#include "expanse/Entity.h"
-#include "expanse/Script.h"
-#include "expanse/PlayerScript.h"
-#include "expanse/StringValue.h"
+#include "node/Expanse.h"
+#include "node/World.h"
+#include "node/Area.h"
+#include "node/Portal.h"
+#include "node/Entity.h"
+#include "node/Script.h"
+#include "node/PlayerScript.h"
+#include "node/StringValue.h"
 
 #include "cmd/internalscripts/Dance.h"
 
@@ -40,7 +40,7 @@ Game::Game()
 : isRunning(false)
 {
     // Important nodes
-    nodeExpanse = new exp::Expanse();
+    nodeExpanse = new node::Expanse();
     nodeSpawnAreaChild = NULL;
 
     // Load commands
@@ -80,19 +80,19 @@ void Game::run()
 // Load
 void Game::load()
 {
-    new exp::World("Earth", nodeExpanse);
-    new exp::Area("Ocean", nodeExpanse->getChild("Earth"));
-    new exp::Area("Jungle", nodeExpanse->getChild("Earth"));
-    new exp::Area("Desert", nodeExpanse->getChild("Earth"));
-    new exp::Area("Plains", nodeExpanse->getChild("Earth"));
-    new exp::Area("Forest", nodeExpanse->getChild("Earth"));
-    new exp::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
+    new node::World("Earth", nodeExpanse);
+    new node::Area("Ocean", nodeExpanse->getChild("Earth"));
+    new node::Area("Jungle", nodeExpanse->getChild("Earth"));
+    new node::Area("Desert", nodeExpanse->getChild("Earth"));
+    new node::Area("Plains", nodeExpanse->getChild("Earth"));
+    new node::Area("Forest", nodeExpanse->getChild("Earth"));
+    new node::Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
 }
 
 // Add player
 void Game::addPlayer(std::string playerName)
 {
-    exp::Node* thePlayer = new exp::Entity("Player", nodeSpawnAreaChild->getParent());
-    new exp::PlayerScript("PlayerScript", thePlayer);
-    new exp::StringValue("PlayerName", thePlayer, playerName);
+    node::Node* thePlayer = new node::Entity("Player", nodeSpawnAreaChild->getParent());
+    new node::PlayerScript("PlayerScript", thePlayer);
+    new node::StringValue("PlayerName", thePlayer, playerName);
 }

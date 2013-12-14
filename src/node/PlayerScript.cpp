@@ -4,14 +4,14 @@
  * See accompanying file LICENSE
  */
 
-#include "Script.h"
+#include "PlayerScript.h"
 
-exp::Script::Script(std::string name, Node* parent)
-: Node(name, NT_SCRIPT, parent)
+node::PlayerScript::PlayerScript(std::string name, Node* parent)
+: Node(name, NT_PLAYERSCRIPT, parent)
 {
 }
 
-exp::Script::~Script()
+node::PlayerScript::~PlayerScript()
 {
     //dtor
 }

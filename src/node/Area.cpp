@@ -4,16 +4,14 @@
  * See accompanying file LICENSE
  */
 
-#include "IntegerValue.h"
+#include "Area.h"
 
-exp::IntegerValue::IntegerValue(std::string name, Node* parent, int value)
-: Node(name, NT_INTEGERVALUE, parent),
-value(value)
+node::Area::Area(std::string name, Node* parent)
+: Node(name, NT_AREA, parent)
 {
-    //ctor
 }
 
-exp::IntegerValue::~IntegerValue()
+node::Area::~Area()
 {
     //dtor
 }

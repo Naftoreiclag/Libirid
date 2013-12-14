@@ -4,15 +4,16 @@
  * See accompanying file LICENSE
  */
 
-#include "World.h"
+#include "IntegerValue.h"
 
-exp::World::World(std::string name, Node* parent)
-: Node(name, NT_WORLD, parent)
+node::IntegerValue::IntegerValue(std::string name, Node* parent, int value)
+: Node(name, NT_INTEGERVALUE, parent),
+value(value)
 {
     //ctor
 }
 
-exp::World::~World()
+node::IntegerValue::~IntegerValue()
 {
     //dtor
 }

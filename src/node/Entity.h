@@ -4,21 +4,20 @@
  * See accompanying file LICENSE
  */
 
-#ifndef SCRIPT_H
-#define SCRIPT_H
+#ifndef ENTITY_H
+#define ENTITY_H
 
 #include "Node.h"
 
-namespace exp
+namespace node
 {
-    class Script : public Node
+    class Entity : public Node
     {
         public:
-            Script(std::string name, Node* parent);
-            virtual ~Script();
-        protected:
+            Entity(std::string name, Node* parent);
+            virtual ~Entity();
         private:
     };
 }
 
-#endif // SCRIPT_H
+#endif // ENTITY_H

@@ -4,21 +4,24 @@
  * See accompanying file LICENSE
  */
 
-#ifndef PORTAL_H
-#define PORTAL_H
+#ifndef EXPANSE_H
+#define EXPANSE_H
 
 #include "Node.h"
 
-namespace exp
+namespace node
 {
-    class Portal : public Node
+    class Expanse : public Node
     {
         public:
-            Portal(std::string name, Node* parent, std::string exitAreaName);
-            virtual ~Portal();
-        protected:
+            Expanse();
+            virtual ~Expanse();
+            #ifdef DEBUG
+            void sayFoo();
+            #endif
         private:
+
     };
 }
 
-#endif // PORTAL_H
+#endif // EXPANSE_H

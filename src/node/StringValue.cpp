@@ -4,14 +4,16 @@
  * See accompanying file LICENSE
  */
 
-#include "PlayerScript.h"
+#include "StringValue.h"
 
-exp::PlayerScript::PlayerScript(std::string name, Node* parent)
-: Node(name, NT_PLAYERSCRIPT, parent)
+node::StringValue::StringValue(std::string name, Node* parent, std::string value)
+: Node(name, NT_STRINGVALUE, parent),
+value(value)
 {
+    //ctor
 }
 
-exp::PlayerScript::~PlayerScript()
+node::StringValue::~StringValue()
 {
     //dtor
 }
