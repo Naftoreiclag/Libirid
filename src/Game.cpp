@@ -66,9 +66,9 @@ Game::~Game()
 // Run
 void Game::run()
 {
-    script::ScriptCommand* egg = new script::ScriptCommand(foop);
+//script::ScriptCommand* egg = new script::ScriptCommand(foop);
 
-    egg->execute();
+    //egg->execute(1, 2);
 
     // Detect spawn point
     nodeSpawnAreaChild = nodeExpanse->getDescendant("_SpawnPoint");

@@ -13,8 +13,6 @@
 #include "AdjunctDefinition.h"
 #include "ModifierDefinition.h"
 
-#include "../IdList.h"
-
 void Lexicographer::graph()
 {
     // Na-Ooh-Nu-S
@@ -36,7 +34,7 @@ void Lexicographer::graph()
     Dictionary::addNoun(   14, new NounDefinition("sheep", "sheep"));
     Dictionary::addNoun(   15, new NounDefinition("shoe"));
     Dictionary::addNoun(   16, new NounDefinition("sock"));
-    Dictionary::addNoun(N_STICK, new NounDefinition("stick"));
+    Dictionary::addNoun(    4, new NounDefinition("stick"));
     Dictionary::addNoun(   18, new NounDefinition("tomato"));
     Dictionary::addNoun(   19, new NounDefinition("tree"));
 
