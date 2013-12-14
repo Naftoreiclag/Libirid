@@ -29,6 +29,13 @@
 
 #include "cmd/internalscripts/Dance.h"
 
+int foop(int a, int b)
+{
+    //
+}
+
+#include "script/ScriptCommand.h"
+
 #include <iostream>
 
 //  Command Stuff
@@ -59,6 +66,10 @@ Game::~Game()
 // Run
 void Game::run()
 {
+    script::ScriptCommand* egg = new script::ScriptCommand(foop);
+
+    egg->execute();
+
     // Detect spawn point
     nodeSpawnAreaChild = nodeExpanse->getDescendant("_SpawnPoint");
 

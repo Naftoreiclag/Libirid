@@ -4,18 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#include "Script.h"
+#include "ScriptCommand.h"
 
 using namespace script;
 
-Script::Script()
+ScriptCommand::ScriptCommand(CommandFunction func)
+: Script(),
+function(func)
 {
 }
 
-Script::~Script()
+ScriptCommand::~ScriptCommand()
 {
 }
 
-Script::execute()
+ScriptCommand::execute(int a, int b)
 {
+    function(a, b);
 }

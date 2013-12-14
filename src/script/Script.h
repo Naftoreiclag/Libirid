@@ -7,13 +7,14 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
-namespace scr
+namespace script
 {
     class Script
     {
         public:
             Script();
             virtual ~Script();
+        public:
             void execute();
     };
 }
