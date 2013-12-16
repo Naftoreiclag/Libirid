@@ -13,11 +13,11 @@ namespace script
 {
     typedef int (*CommandFunction)(int, int);
 
-    class ScriptCommand : public Script
+    class Script_Command : public Script
     {
         public:
-            ScriptCommand(CommandFunction func);
-            virtual ~ScriptCommand();
+            Script_Command(CommandFunction func);
+            virtual ~Script_Command();
         public:
             char execute(int a, int b);
             CommandFunction function;

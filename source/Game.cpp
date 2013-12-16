@@ -64,7 +64,7 @@ Game::~Game()
 // Run
 void Game::run()
 {
-//script::ScriptCommand* egg = new script::ScriptCommand(foop);
+//script::Script_Command* egg = new script::Script_Command(foop);
 
     //egg->execute(1, 2);
 

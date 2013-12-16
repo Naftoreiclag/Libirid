@@ -8,17 +8,17 @@
 
 using namespace script;
 
-ScriptCommand::ScriptCommand(CommandFunction func)
+Script_Command::Script_Command(CommandFunction func)
 : Script(),
 function(func)
 {
 }
 
-ScriptCommand::~ScriptCommand()
+Script_Command::~Script_Command()
 {
 }
 
-char ScriptCommand::execute(int a, int b)
+char Script_Command::execute(int a, int b)
 {
     function(a, b);
 }
