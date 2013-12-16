@@ -90,6 +90,8 @@
 		<Unit filename="script/Script.h" />
 		<Unit filename="script/Script_Command.cpp" />
 		<Unit filename="script/Script_Command.h" />
+		<Unit filename="script/Script_Node.cpp" />
+		<Unit filename="script/Script_Node.h" />
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
 		<Unit filename="util/Point3i.cpp" />

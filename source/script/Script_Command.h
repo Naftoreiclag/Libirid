@@ -9,8 +9,13 @@
 
 #include "Script.h"
 
+/* A script that takes command arguments
+ *
+ */
+
 namespace script
 {
+    // A pointer to a function that accepts certain command-like arguments
     typedef int (*CommandFunction)(int, int);
 
     class Script_Command : public Script
