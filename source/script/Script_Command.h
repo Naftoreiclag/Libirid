@@ -4,8 +4,8 @@
  * See accompanying file LICENSE
  */
 
-#ifndef SCRIPTCOMMAND_H
-#define SCRIPTCOMMAND_H
+#ifndef SCRIPT_COMMAND_H
+#define SCRIPT_COMMAND_H
 
 #include "Script.h"
 
@@ -19,9 +19,9 @@ namespace script
             ScriptCommand(CommandFunction func);
             virtual ~ScriptCommand();
         public:
-            void execute(int a, int b);
+            char execute(int a, int b);
             CommandFunction function;
     };
 }
 
-#endif // SCRIPTCOMMAND_H
+#endif // SCRIPT_COMMAND_H

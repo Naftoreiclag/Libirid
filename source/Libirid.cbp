@@ -7,8 +7,8 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="../bin/libirid-debug" prefix_auto="1" extension_auto="1" />
-				<Option object_output="../obj/Debug/" />
+				<Option output="../builds/libirid-debug" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../assembly/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -17,8 +17,8 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="../bin/libirid-release" prefix_auto="1" extension_auto="1" />
-				<Option object_output="../obj/Release/" />
+				<Option output="../builds/libirid-release" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../assembly/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -88,8 +88,8 @@
 		<Unit filename="script/ListOfScripts.h" />
 		<Unit filename="script/Script.cpp" />
 		<Unit filename="script/Script.h" />
-		<Unit filename="script/ScriptCommand.cpp" />
-		<Unit filename="script/ScriptCommand.h" />
+		<Unit filename="script/Script_Command.cpp" />
+		<Unit filename="script/Script_Command.h" />
 		<Unit filename="util/Cardinal.cpp" />
 		<Unit filename="util/Cardinal.h" />
 		<Unit filename="util/Point3i.cpp" />

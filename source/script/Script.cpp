@@ -16,6 +16,6 @@ Script::~Script()
 {
 }
 
-void Script::execute()
+char Script::execute()
 {
 }

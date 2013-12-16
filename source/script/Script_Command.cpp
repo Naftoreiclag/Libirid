@@ -4,7 +4,7 @@
  * See accompanying file LICENSE
  */
 
-#include "ScriptCommand.h"
+#include "Script_Command.h"
 
 using namespace script;
 
@@ -18,7 +18,7 @@ ScriptCommand::~ScriptCommand()
 {
 }
 
-void ScriptCommand::execute(int a, int b)
+char ScriptCommand::execute(int a, int b)
 {
     function(a, b);
 }

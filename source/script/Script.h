@@ -11,11 +11,12 @@ namespace script
 {
     class Script
     {
-        public:
+        protected:
             Script();
+        public:
             virtual ~Script();
         public:
-            void execute();
+            char execute();
     };
 }
 
