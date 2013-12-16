@@ -16,7 +16,7 @@ namespace script
         public:
             virtual ~Script();
         public:
-            char execute();
+            virtual char execute() = 0;
     };
 }
 

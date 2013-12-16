@@ -15,7 +15,3 @@ Script::Script()
 Script::~Script()
 {
 }
-
-char Script::execute()
-{
-}
