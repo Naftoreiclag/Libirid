@@ -49,8 +49,8 @@ Game::Game()
     nodePlayerScript = NULL;
 
     // Load commands
-    cmdDict = cmd::CmdDictionary::getInstance();
-    cmdDict->newCmdScriptInternal(cmd::scr::dance);
+    //cmdDict = cmd::CmdDictionary::getInstance();
+    //cmdDict->newCmdScriptInternal(cmd::scr::dance);
 }
 
 // Finalize
@@ -58,7 +58,7 @@ Game::~Game()
 {
     // Delete everything
     delete nodeExpanse;
-    delete cmdDict;
+    //delete cmdDict;
 }
 
 // Run
@@ -73,16 +73,24 @@ void Game::run()
     // Last input vector
     std::vector<std::string> lastInput;
 
-    //
+    // Juan
     addPlayer("Juan");
 
     // While running, run!
     while(isRunning)
     {
-        // Prompt
+        // Arrow prompt
         std::cout << "> ";
-        getWordsLowercase(&lastInput);
+
+        // Extract line
+        std::string line;
+        std::getline(std::cin, line);
+
+        // Make a space
         std::cout << std::endl;
+
+        // Run it
+        runPlayerCommand("Juan", line);
     }
 }
 
@@ -106,22 +114,20 @@ void Game::addPlayer(std::string playerName)
     new node::Node_StringValue("PlayerName", thePlayer, playerName);
 }
 
+// Process input
+void Game::runPlayerCommand(std::string playerName, std::string theirInput)
+{
+    std::cout << theirInput;
+}
+
 ///////////////
 // Utilities //
 ///////////////
 
-// Get input in lowercase
-void Game::getWordsLowercase(std::vector<std::string>* wordList)
+// Split words
+void Game::splitWordsLowercase(std::string line, std::vector<std::string>* wordList)
 {
-    // Clear out the vector
-    wordList->clear();
-
-    // Extract a buffer for the input
-    std::string line;
-    std::getline(std::cin, line);
     std::stringstream sBuffer(line);
-
-    // Get words
     std::string word;
     while(sBuffer >> word)
     {

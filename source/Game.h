@@ -45,8 +45,8 @@ class Game
         //
         node::Node* nodePlayerScript;
 
-        // Command dictionary
-        cmd::CmdDictionary* cmdDict;
+        //
+        void runPlayerCommand(std::string playerName, std::string theirInput);
     public:
         // Save to disk
         void save();
@@ -62,8 +62,8 @@ class Game
     ///////////////
 
     public:
-        // Pauses program and gets the stuff typed in and puts each word into wordList in lowercase
-        static void getWordsLowercase(std::vector<std::string>* wordList);
+        // Split a line into words
+        static void splitWordsLowercase(std::string line, std::vector<std::string>* wordList);
 };
 
 #endif // GAME_H
