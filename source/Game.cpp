@@ -90,7 +90,7 @@ void Game::run()
         std::cout << std::endl;
 
         // Run it
-        runPlayerCommand("Juan", line);
+        runPlayerCommand(nodePlayerScript, line);
     }
 }
 
@@ -115,9 +115,14 @@ void Game::addPlayer(std::string playerName)
 }
 
 // Process input
-void Game::runPlayerCommand(std::string playerName, std::string theirInput)
+void Game::runPlayerCommand(node::Node* nodePlayerScript, std::string theirInput)
 {
-    std::cout << theirInput;
+    if(theirInput == "whereami")
+    {
+        std::cout << nodePlayerScript->getParent()->getParent()->getName();
+    }
+    std::cout << std::endl;
+    std::cout << std::endl;
 }
 
 ///////////////

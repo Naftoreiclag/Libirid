@@ -46,7 +46,7 @@ class Game
         node::Node* nodePlayerScript;
 
         //
-        void runPlayerCommand(std::string playerName, std::string theirInput);
+        void runPlayerCommand(node::Node* nodePlayerScript, std::string theirInput);
     public:
         // Save to disk
         void save();
