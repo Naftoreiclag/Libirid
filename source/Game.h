@@ -12,6 +12,7 @@
  */
 
 #include <string>
+#include <vector>
 
 namespace node
 {
@@ -41,6 +42,9 @@ class Game
         node::Node* nodeExpanse;
         node::Node* nodeSpawnAreaChild;
 
+        //
+        node::Node* nodePlayerScript;
+
         // Command dictionary
         cmd::CmdDictionary* cmdDict;
     public:
@@ -52,6 +56,14 @@ class Game
     private:
         //
         void addPlayer(std::string playerName);
+
+    ///////////////
+    // Utilities //
+    ///////////////
+
+    public:
+        // Pauses program and gets the stuff typed in and puts each word into wordList in lowercase
+        static void getWordsLowercase(std::vector<std::string>* wordList);
 };
 
 #endif // GAME_H

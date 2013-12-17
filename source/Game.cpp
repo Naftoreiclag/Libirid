@@ -6,10 +6,13 @@
 
 #include "Game.h"
 
+#include <algorithm>
+#include <string>
+#include <sstream>
 #include <vector>
 
-#include "util/Sysout.h"
-#include "util/Sysin.h"
+#include <iostream>
+
 #include "util/SentenceStateBuilder.h"
 
 #include "language/Grammar.h"
@@ -29,12 +32,6 @@
 
 #include "cmd/internalscripts/Dance.h"
 
-int foop(int a, int b)
-{
-    //
-}
-
-#include <iostream>
 
 //  Command Stuff
 // ===============
@@ -47,6 +44,9 @@ Game::Game()
     // Important nodes
     nodeExpanse = new node::Node_Expanse();
     nodeSpawnAreaChild = NULL;
+
+    //
+    nodePlayerScript = NULL;
 
     // Load commands
     cmdDict = cmd::CmdDictionary::getInstance();
@@ -64,10 +64,6 @@ Game::~Game()
 // Run
 void Game::run()
 {
-//script::Script_Command* egg = new script::Script_Command(foop);
-
-    //egg->execute(1, 2);
-
     // Detect spawn point
     nodeSpawnAreaChild = nodeExpanse->getDescendant("_SpawnPoint");
 
@@ -77,12 +73,16 @@ void Game::run()
     // Last input vector
     std::vector<std::string> lastInput;
 
+    //
+    addPlayer("Juan");
+
     // While running, run!
     while(isRunning)
     {
         // Prompt
-        Sysout::print("FCM:\\>"); Sysin::getWordsLowercase(&lastInput);
-        Sysout::println();
+        std::cout << "> ";
+        getWordsLowercase(&lastInput);
+        std::cout << std::endl;
     }
 }
 
@@ -102,6 +102,30 @@ void Game::load()
 void Game::addPlayer(std::string playerName)
 {
     node::Node* thePlayer = new node::Node_Entity("Player", nodeSpawnAreaChild->getParent());
-    new node::Node_PlayerScript("PlayerScript", thePlayer);
+    nodePlayerScript = new node::Node_PlayerScript("PlayerScript", thePlayer);
     new node::Node_StringValue("PlayerName", thePlayer, playerName);
+}
+
+///////////////
+// Utilities //
+///////////////
+
+// Get input in lowercase
+void Game::getWordsLowercase(std::vector<std::string>* wordList)
+{
+    // Clear out the vector
+    wordList->clear();
+
+    // Extract a buffer for the input
+    std::string line;
+    std::getline(std::cin, line);
+    std::stringstream sBuffer(line);
+
+    // Get words
+    std::string word;
+    while(sBuffer >> word)
+    {
+        std::transform(word.begin(), word.end(), word.begin(), ::tolower);
+        wordList->push_back(word);
+    }
 }

@@ -38,6 +38,8 @@ namespace Libirid
             game->load();
             game->run();
             delete game;
+
+            running = false;
         }
     }
 }
