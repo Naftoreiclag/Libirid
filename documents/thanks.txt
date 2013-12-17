@@ -7,3 +7,5 @@ Vinnie Falco
 Nigel Atkinson
 Nathan Reed
 Andrei Alexandrescu
+
+(Note: The people and/or organizations listed here are not necessarily associated with Libirid.)
