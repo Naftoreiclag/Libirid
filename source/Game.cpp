@@ -13,10 +13,6 @@
 
 #include <iostream>
 
-#include "util/SentenceStateBuilder.h"
-
-#include "language/Grammar.h"
-
 //  Node Stuff
 // ============
 #include "node/Node.h"
@@ -30,12 +26,10 @@
 #include "node/Node_PlayerScript.h"
 #include "node/Node_StringValue.h"
 
-#include "cmd/internalscripts/Dance.h"
-
 
 //  Command Stuff
 // ===============
-#include "cmd/CmdDictionary.h"
+//#include "cmd/CmdDictionary.h"
 
 // Initialize
 Game::Game()

@@ -38,32 +38,6 @@
 		<Unit filename="Libirid.cpp" />
 		<Unit filename="Title.cpp" />
 		<Unit filename="Title.h" />
-		<Unit filename="cmd/CmdDictionary.cpp" />
-		<Unit filename="cmd/CmdDictionary.h" />
-		<Unit filename="cmd/CmdScript.cpp" />
-		<Unit filename="cmd/CmdScript.h" />
-		<Unit filename="cmd/CmdScriptInternal.cpp" />
-		<Unit filename="cmd/CmdScriptInternal.h" />
-		<Unit filename="cmd/Cmdstuff.h" />
-		<Unit filename="cmd/internalscripts/Dance.cpp" />
-		<Unit filename="cmd/internalscripts/Dance.h" />
-		<Unit filename="language/AdjunctDefinition.cpp" />
-		<Unit filename="language/AdjunctDefinition.h" />
-		<Unit filename="language/AdjunctState.cpp" />
-		<Unit filename="language/Dictionary.cpp" />
-		<Unit filename="language/Dictionary.h" />
-		<Unit filename="language/Grammar.h" />
-		<Unit filename="language/Lexicographer.cpp" />
-		<Unit filename="language/Lexicographer.h" />
-		<Unit filename="language/ModifierDefinition.cpp" />
-		<Unit filename="language/ModifierDefinition.h" />
-		<Unit filename="language/ModifierState.cpp" />
-		<Unit filename="language/NounDefinition.cpp" />
-		<Unit filename="language/NounDefinition.h" />
-		<Unit filename="language/NounState.cpp" />
-		<Unit filename="language/SentenceState.cpp" />
-		<Unit filename="language/Thesaurus.cpp" />
-		<Unit filename="language/Thesaurus.h" />
 		<Unit filename="node/Node.cpp" />
 		<Unit filename="node/Node.h" />
 		<Unit filename="node/Node_Area.cpp" />
@@ -92,17 +66,6 @@
 		<Unit filename="script/Script_Command.h" />
 		<Unit filename="script/Script_Node.cpp" />
 		<Unit filename="script/Script_Node.h" />
-		<Unit filename="util/Cardinal.cpp" />
-		<Unit filename="util/Cardinal.h" />
-		<Unit filename="util/Point3i.cpp" />
-		<Unit filename="util/Point3i.h" />
-		<Unit filename="util/SentenceStateBuilder.cpp" />
-		<Unit filename="util/SentenceStateBuilder.h" />
-		<Unit filename="util/SequencedMap.h" />
-		<Unit filename="util/Sysin.cpp" />
-		<Unit filename="util/Sysin.h" />
-		<Unit filename="util/Sysout.cpp" />
-		<Unit filename="util/Sysout.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
