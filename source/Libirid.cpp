@@ -8,7 +8,10 @@
  *
  */
 
-#include "Game.h"
+#include "Title.h"
+
+#include "Server.h"
+#include "Client.h"
 
 namespace Libirid
 {
@@ -27,19 +30,21 @@ namespace Libirid
     // Run
     void run()
     {
-        bool running = true;
+        // Make a new client
+        Client client;
 
-        while(running)
+        // Make a new server
+        Server server;
+
+        bool appIsRunning = true;
+            Title title;
+            title.run();
+
+        while(appIsRunning)
         {
-            // Put a title screen here
 
-            // Run a game
-            Game* game = new Game();
-            game->load();
-            game->run();
-            delete game;
-
-            running = false;
+            //server.run();
+            //client.getInput();
         }
     }
 }

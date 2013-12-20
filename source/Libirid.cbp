@@ -33,9 +33,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Client.cpp" />
+		<Unit filename="Client.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
 		<Unit filename="Libirid.cpp" />
+		<Unit filename="Server.cpp" />
+		<Unit filename="Server.h" />
 		<Unit filename="Title.cpp" />
 		<Unit filename="Title.h" />
 		<Unit filename="node/Node.cpp" />
