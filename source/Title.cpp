@@ -8,13 +8,10 @@
 
 #include <iostream>
 
-void Title::run()
+void Title::printPrettyScreen(std::string centerifier, char solid)
 {
-    //
-    std::cout << std::endl << std::endl;
-
-    // Solid char
-    char solid = 219;
+    // Some space
+    std::cout << std::endl;
 
     // The logo
     std::string logo[9] =
@@ -34,7 +31,7 @@ void Title::run()
     for(int i = 0; i < 9; ++ i)
     {
         // Some space
-        std::cout << "                      ";
+        std::cout << centerifier;
 
         // For every char
         for(int j = 0; j < 33; ++ j)
@@ -56,5 +53,53 @@ void Title::run()
 
         // Make space for next line
         std::cout << std::endl;
+    }
+
+    // Some space
+    std::cout << std::endl;
+
+    // Version number
+    std::cout << centerifier << "Version 0.0.0.1   By Naftoreiclag" << std::endl;
+
+    // Some space
+    std::cout << std::endl;
+
+    // Some more space
+    std::cout << std::endl;
+
+    // Display options
+    std::cout << centerifier << "Select a number:" << std::endl;
+    std::cout << std::endl;
+    std::cout << centerifier << "1. Return to Game" << std::endl;
+    std::cout << std::endl;
+    std::cout << centerifier << "2. Player Creation" << std::endl;
+    std::cout << centerifier << "3. Join Game" << std::endl;
+    std::cout << centerifier << "4. Adjust Settings" << std::endl;
+    std::cout << centerifier << "5. Exit Program" << std::endl;
+
+    // Some space
+    std::cout << std::endl;
+}
+
+void Title::run()
+{
+    // Print pretty prompt
+    printPrettyScreen("  ", 219);
+
+    int choice = 0;
+
+    while(choice == 0)
+    {
+        // Print little triangle thing
+        std::cout << "> ";
+
+        // Extract line
+        std::string line;
+        std::getline(std::cin, line);
+
+        if(line == "1")
+        {
+            choice = 1;
+        }
     }
 }

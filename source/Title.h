@@ -7,10 +7,13 @@
 #ifndef TITLE_H
 #define TITLE_H
 
+#include <string>
+
 class Title
 {
     public:
-        static void run();
+        void printPrettyScreen(std::string centerifier, char solid);
+        void run();
 };
 
 #endif // TITLE_H
