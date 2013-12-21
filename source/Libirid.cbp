@@ -38,6 +38,8 @@
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
 		<Unit filename="Libirid.cpp" />
+		<Unit filename="PersonalityFactory.cpp" />
+		<Unit filename="PersonalityFactory.h" />
 		<Unit filename="Server.cpp" />
 		<Unit filename="Server.h" />
 		<Unit filename="Title.cpp" />
