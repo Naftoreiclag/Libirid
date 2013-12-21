@@ -68,8 +68,6 @@ void Title::printPrettyScreen(std::string centerifier, char solid)
     std::cout << std::endl;
 
     // Display options
-    std::cout << centerifier << "Select a number:" << std::endl;
-    std::cout << std::endl;
     std::cout << centerifier << "1. Return to Game" << std::endl;
     std::cout << std::endl;
     std::cout << centerifier << "2. Player Creation" << std::endl;
@@ -81,13 +79,53 @@ void Title::printPrettyScreen(std::string centerifier, char solid)
     std::cout << std::endl;
 }
 
-void Title::run()
+void Title::getInformativeMessageBasedOnFailNumber(int numFails)
+{
+    if(numFails == 0)
+    {
+        std::cout << "Type a selection." << std::endl;
+    }
+    else if(numFails == 1)
+    {
+        std::cout << "Please type a selection." << std::endl;
+    }
+    else if(numFails == 2 || numFails == 3)
+    {
+        std::cout << "Examples of a good selection:" << std::endl;
+        std::cout << "1, 2, 3... or \"Return to Game\" or \"r\"" << std::endl;
+    }
+    else if(numFails == 4)
+    {
+        std::cout << "This game is more than typing random inputs." << std::endl;
+        std::cout << "Okay, maybe it is..." << std::endl;
+    }
+    else if(numFails == 5)
+    {
+        std::cout << "Is your keyboard broken?" << std::endl;
+    }
+    else if(numFails == 6)
+    {
+        std::cout << "Hello? You might want to report this as a " << std::endl;
+        std::cout << "bug in the program, if you really are " << std::endl;
+        std::cout << "typing correct inputs." << std::endl;
+    }
+    else
+    {
+    }
+}
+
+int Title::run()
 {
     // Print pretty prompt
     printPrettyScreen("  ", 219);
 
+    // What choice they make
     int choice = 0;
 
+    // Number of fails
+    int numFails = 0;
+
+    // So long as they have no choice
     while(choice == 0)
     {
         // Print little triangle thing
@@ -97,9 +135,67 @@ void Title::run()
         std::string line;
         std::getline(std::cin, line);
 
-        if(line == "1")
+        // If they just press enter
+        if(line.length() == 0)
         {
-            choice = 1;
+            // There is no need to do anything
+            choice = 0;
+        }
+
+        // Potentially good input
+        else
+        {
+            // Iterate though the message
+            for(std::string::iterator charPtr = line.begin(); charPtr != line.end(); ++ charPtr)
+            {
+                // Get this letter
+                char letter = *charPtr;
+
+                // Compare it to find what selection the player is making
+                if(letter == '1' || letter == 'R' || letter == 'r')
+                {
+                    choice = 1;
+
+                    break;
+                }
+                else if(letter == '2' || letter == 'P' || letter == 'p')
+                {
+                    choice = 2;
+
+                    break;
+                }
+                else if(letter == '3' || letter == 'J' || letter == 'j')
+                {
+                    choice = 3;
+
+                    break;
+                }
+                else if(letter == '4' || letter == 'A' || letter == 'a')
+                {
+                    choice = 4;
+
+                    break;
+                }
+                else if(letter == '5' || letter == 'E' || letter == 'e')
+                {
+                    choice = 5;
+
+                    break;
+                }
+            }
+        }
+
+        // If they failed
+        if(choice == 0)
+        {
+            // Tell them how to improve themselves
+            getInformativeMessageBasedOnFailNumber(numFails);
+
+            // Increment
+            ++ numFails;
         }
     }
+
+    // Return their choice
+    return choice;
 }

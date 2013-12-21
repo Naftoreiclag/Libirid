@@ -30,22 +30,49 @@ namespace Libirid
     // Run
     void run()
     {
+        bool appIsRunning = true;
+
+        while(appIsRunning)
+        {
+            Title title;
+            int choice = title.run();
+
+            // Return to game
+            if(choice == 1)
+            {
+
+            }
+
+            // Player creation
+            else if(choice == 2)
+            {
+
+            }
+
+            // Join game
+            else if(choice == 3)
+            {
+
+            }
+
+            // Adjust Settings
+            else if(choice == 4)
+            {
+
+            }
+
+            // Exit Program
+            else if(choice = 5)
+            {
+                appIsRunning = false;
+            }
+        }
+
         // Make a new client
         Client client;
 
         // Make a new server
         Server server;
-
-        bool appIsRunning = true;
-            Title title;
-            title.run();
-
-        while(appIsRunning)
-        {
-
-            //server.run();
-            //client.getInput();
-        }
     }
 }
 

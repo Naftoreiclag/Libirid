@@ -12,8 +12,9 @@
 class Title
 {
     public:
+        static void getInformativeMessageBasedOnFailNumber(int numFails);
         void printPrettyScreen(std::string centerifier, char solid);
-        void run();
+        int run();
 };
 
 #endif // TITLE_H
