@@ -109,6 +109,37 @@ void Title::getInformativeMessageBasedOnFailNumber(int numFails)
         std::cout << "bug in the program, if you really are " << std::endl;
         std::cout << "typing correct inputs." << std::endl;
     }
+    else if(numFails == 20)
+    {
+        std::cout << "At this point, the developers of this game" << std::endl;
+        std::cout << "are assuming that you are just holding down" << std::endl;
+        std::cout << "the button for the lols." << std::endl;
+    }
+    else if(numFails == 50)
+    {
+        std::cout << "Please uninstall the game." << std::endl;
+    }
+    else if(numFails == 100)
+    {
+        std::cout << "One hundred CPU cycles... wasted." << std::endl;
+    }
+    else if(numFails == 300)
+    {
+        std::cout << "I hope you realize that this game is more" << std::endl;
+        std::cout << "Than just holding down \"Enter,\" right?" << std::endl;
+    }
+    else if(numFails == 1000)
+    {
+        std::cout << "Achievement get! Waste your time and mine!" << std::endl;
+    }
+    else if(numFails == 5000)
+    {
+        std::cout << "< " << std::endl;
+    }
+    else if(numFails == 9001)
+    {
+        std::cout << "Old meme from 2007!" << std::endl;
+    }
     else
     {
     }
