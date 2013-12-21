@@ -8,10 +8,10 @@
  *
  */
 
-#include "Title.h"
+#include "Libirid_Title.h"
 
-#include "Server.h"
-#include "Client.h"
+#include "Libirid_Server.h"
+#include "Libirid_Client.h"
 
 namespace Libirid
 {
@@ -69,10 +69,10 @@ namespace Libirid
         }
 
         // Make a new client
-        Client client;
+        Libirid_Client client;
 
         // Make a new server
-        Server server;
+        Libirid_Server server;
     }
 }
 

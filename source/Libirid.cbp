@@ -33,17 +33,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Client.cpp" />
-		<Unit filename="Client.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
 		<Unit filename="Libirid.cpp" />
-		<Unit filename="PersonalityFactory.cpp" />
-		<Unit filename="PersonalityFactory.h" />
-		<Unit filename="Server.cpp" />
-		<Unit filename="Server.h" />
-		<Unit filename="Title.cpp" />
-		<Unit filename="Title.h" />
+		<Unit filename="Libirid_Client.cpp" />
+		<Unit filename="Libirid_Client.h" />
+		<Unit filename="Libirid_Options.cpp" />
+		<Unit filename="Libirid_Options.h" />
+		<Unit filename="Libirid_PersonalityFactory.cpp" />
+		<Unit filename="Libirid_PersonalityFactory.h" />
+		<Unit filename="Libirid_Server.cpp" />
+		<Unit filename="Libirid_Server.h" />
+		<Unit filename="Libirid_Title.cpp" />
+		<Unit filename="Libirid_Title.h" />
 		<Unit filename="node/Node.cpp" />
 		<Unit filename="node/Node.h" />
 		<Unit filename="node/Node_Area.cpp" />

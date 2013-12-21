@@ -4,8 +4,8 @@
  * See accompanying file LICENSE
  */
 
-#ifndef TITLE_H
-#define TITLE_H
+#ifndef LIBIRID_TITLE_H
+#define LIBIRID_TITLE_H
 
 #include <string>
 
@@ -17,4 +17,4 @@ class Title
         int run();
 };
 
-#endif // TITLE_H
+#endif // LIBIRID_TITLE_H
