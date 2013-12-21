@@ -10,6 +10,9 @@
 
 #include "Libirid_Title.h"
 
+#include "Libirid_Options.h"
+#include "Libirid_PersonalityFactory.h"
+
 #include "Libirid_Server.h"
 #include "Libirid_Client.h"
 
@@ -38,9 +41,13 @@ namespace Libirid
             int choice = title.run();
 
             // Return to game
-            if(choice == 1)
+            if(choice == 1 || choice == 3)
             {
+                // Make a new client
+                Libirid_Client client;
 
+                // Make a new server
+                Libirid_Server server;
             }
 
             // Player creation
@@ -50,7 +57,7 @@ namespace Libirid
             }
 
             // Join game
-            else if(choice == 3)
+            else if(choice == 4356789)
             {
 
             }
@@ -62,17 +69,11 @@ namespace Libirid
             }
 
             // Exit Program
-            else if(choice = 5)
+            else if(choice == 5)
             {
                 appIsRunning = false;
             }
         }
-
-        // Make a new client
-        Libirid_Client client;
-
-        // Make a new server
-        Libirid_Server server;
     }
 }
 

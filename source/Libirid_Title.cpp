@@ -92,7 +92,7 @@ void Title::getInformativeMessageBasedOnFailNumber(int numFails)
     else if(numFails == 2 || numFails == 3)
     {
         std::cout << "Examples of a good selection:" << std::endl;
-        std::cout << "1, 2, 3... or \"Return to Game\" or \"r\"" << std::endl;
+        std::cout << "1, 2, 3..." << std::endl;
     }
     else if(numFails == 4)
     {
@@ -145,43 +145,25 @@ int Title::run()
         // Potentially good input
         else
         {
-            // Iterate though the message
-            for(std::string::iterator charPtr = line.begin(); charPtr != line.end(); ++ charPtr)
+            if(line == "1")
             {
-                // Get this letter
-                char letter = *charPtr;
-
-                // Compare it to find what selection the player is making
-                if(letter == '1' || letter == 'R' || letter == 'r')
-                {
-                    choice = 1;
-
-                    break;
-                }
-                else if(letter == '2' || letter == 'P' || letter == 'p')
-                {
-                    choice = 2;
-
-                    break;
-                }
-                else if(letter == '3' || letter == 'J' || letter == 'j')
-                {
-                    choice = 3;
-
-                    break;
-                }
-                else if(letter == '4' || letter == 'A' || letter == 'a')
-                {
-                    choice = 4;
-
-                    break;
-                }
-                else if(letter == '5' || letter == 'E' || letter == 'e')
-                {
-                    choice = 5;
-
-                    break;
-                }
+                choice = 1;
+            }
+            else if(line == "2")
+            {
+                choice = 2;
+            }
+            else if(line == "3")
+            {
+                choice = 3;
+            }
+            else if(line == "4")
+            {
+                choice = 4;
+            }
+            else if(line == "5")
+            {
+                choice = 5;
             }
         }
 
