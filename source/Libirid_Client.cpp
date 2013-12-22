@@ -19,8 +19,4 @@ Libirid_Client::~Libirid_Client()
 }
 void Libirid_Client::run()
 {
-    while(true)
-    {
-        std::cout << "derp" << std::endl;
-    }
 }

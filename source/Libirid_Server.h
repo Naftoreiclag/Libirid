@@ -22,6 +22,9 @@ class Libirid_Server
         void finalize();
 
         //
+        int numbah;
+
+        //
         void run();
 
         // Executes a single tick in the expanse

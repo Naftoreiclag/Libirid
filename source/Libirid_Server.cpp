@@ -35,7 +35,7 @@ void Libirid_Server::run()
 {
     while(true)
     {
-        std::cout << "herp" << std::endl;
+        std::cout << numbah << std::endl;
     }
 }
 
