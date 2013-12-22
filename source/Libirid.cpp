@@ -66,7 +66,7 @@ namespace Libirid
 
                 std::cout << ms.count() << "hi" << std::endl;;
 
-                std::thread t1(localServer.run);
+                //std::thread t1(localServer.run);
 
 
                 while(true)
