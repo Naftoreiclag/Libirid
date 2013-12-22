@@ -7,6 +7,8 @@
 #ifndef LIBIRID_SERVER_H
 #define LIBIRID_SERVER_H
 
+#include <string>
+
 class Libirid_Server
 {
     public:
@@ -21,8 +23,18 @@ class Libirid_Server
 
         // Executes a single tick in the expanse
         void doTick();
-    protected:
+
+        // Receive input packet from a client
+        void receiveInput(std::string input);
     private:
+        // Send a message to the a client
+        void sendMessage(std::string message);
+
+        // Pulse rate, time to wait in between ticks
+        unsigned int pulseRate;
+
+        // How old the expanse is, in ticks
+        long long expanseAge;
 
 };
 

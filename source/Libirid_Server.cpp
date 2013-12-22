@@ -24,5 +24,8 @@ void Libirid_Server::finalize()
 // Run a single tick
 void Libirid_Server::doTick()
 {
+    // Do something
 
+    // Increment age
+    ++ expanseAge;
 }

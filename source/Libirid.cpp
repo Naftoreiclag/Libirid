@@ -37,36 +37,37 @@ namespace Libirid
 
         while(appIsRunning)
         {
+            // Title Screen
             Title title;
             int choice = title.run();
 
             // Return to game
             if(choice == 1 || choice == 3)
             {
-                //std::cout << "This will automatically do whatever you did last time. If you connected to a server with ip 12.345.678.910, then you will do that again. If you connected to localhost, then you will connect to localhost." std::endl;
+                // Make a server
+                Libirid_Server localServer;
 
+                // Make a client
                 Libirid_Client client;
 
-                Libirid_Server server;
+                // Ticking
 
                 while(true)
                 {
-                    server.doTick();
+                    localServer.doTick();
                 }
 
-                client.getString();
+                //client.getString();
             }
 
             // Player creation
             else if(choice == 2)
             {
-                //std::cout << "Player creation screen here" std::endl;
             }
 
             // Join game
             else if(choice == 2332423432)
             {
-                //std::cout << "Connecting to ioeafkwfmwgreafdcaexryje." std::endl;
             }
 
             // Adjust Settings
@@ -77,7 +78,6 @@ namespace Libirid
             // Exit Program
             else if(choice == 5)
             {
-                //std::cout << "Good-bye." std::endl;
                 appIsRunning = false;
             }
         }

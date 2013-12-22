@@ -1,0 +1,4 @@
+max number of ticks in a LL
+2^64 : 18446744073709551616
+
+at 1 tick every 2 seconds
