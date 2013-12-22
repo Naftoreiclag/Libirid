@@ -1,9 +1,8 @@
 [![alt tag](http://naftoreiclag.github.io/libirid_vector.svg "Libirid")](https://github.com/Naftoreiclag/Libirid)
 ===
-Non-copyleft licenced under the 
-[MIT License (MIT)](http://opensource.org/licenses/mit-license.html), 
-[zlib/libpng License (Zlib)](http://opensource.org/licenses/zlib-license.html).
-
+Non-copyleft licenced under: 
+[MIT License (MIT)](http://opensource.org/licenses/mit-license.html) and 
+[zlib/libpng License (Zlib)](http://opensource.org/licenses/zlib-license.html).  
 *No official pronunciation. Just say it however you last heard it pronounced.*
 
 Lore
