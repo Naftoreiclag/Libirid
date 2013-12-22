@@ -6,6 +6,8 @@
 
 #include "Libirid_Server.h"
 
+#include <iostream>
+
 Libirid_Server::Libirid_Server() { initialize(); }
 Libirid_Server::~Libirid_Server() { finalize(); }
 
@@ -28,4 +30,21 @@ void Libirid_Server::doTick()
 
     // Increment age
     ++ expanseAge;
+}
+void Libirid_Server::run()
+{
+    while(true)
+    {
+        std::cout << "herp" << std::endl;
+    }
+}
+
+void Libirid_Server::receiveInput(std::string input)
+{
+
+}
+
+void Libirid_Server::sendMessage(std::string message)
+{
+
 }

@@ -21,6 +21,9 @@ class Libirid_Server
         // Finalize server
         void finalize();
 
+        //
+        void run();
+
         // Executes a single tick in the expanse
         void doTick();
 

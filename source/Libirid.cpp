@@ -16,6 +16,11 @@
 #include "Libirid_Server.h"
 #include "Libirid_Client.h"
 
+#include <chrono>
+#include <iostream>
+
+#include <thread>
+
 namespace Libirid
 {
     // Initialize
@@ -51,10 +56,23 @@ namespace Libirid
                 Libirid_Client client;
 
                 // Ticking
+                typedef std::chrono::high_resolution_clock SuperClock;
+                typedef std::chrono::milliseconds Milliseconds;
+
+                auto timeOne = SuperClock::now();
+                auto timeTwo = SuperClock::now();
+
+                Milliseconds ms = std::chrono::duration_cast<Milliseconds>(timeTwo - timeOne);
+
+                std::cout << ms.count() << "hi" << std::endl;;
+
+                std::thread t1(localServer.run);
+
 
                 while(true)
                 {
-                    localServer.doTick();
+                    std::cout << "derp" << std::endl;
+                    //localServer.doTick();
                 }
 
                 //client.getString();
