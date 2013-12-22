@@ -13,8 +13,6 @@ In this game, I hope to eventually give the player the freedom to do *everything
 
 It's a text-adventure game, so it utilizes the second-most powerful graphics-rendering engine known to humanity: your imagination! (Second only to the rendering engine in the [RL Series](http://uncyclopedia.wikia.com/wiki/Real_Life).)
 
-Happy 300th commit! It's funny how it happened to be the one I added lua in!
-
 License
 ---
 As already stated, the source code (*.h, *.hpp *.c *.cpp *.lua ...) in this repository is licensed entirely under licenses which are very permissive in terms of redistribution, and are not ["copyleft"](http://www.gnu.org/copyleft/index.html). However, not all portions of the source code are under the same copyright holders or licenses. See individual files for a list of copyright holders.
