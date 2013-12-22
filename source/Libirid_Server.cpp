@@ -6,12 +6,23 @@
 
 #include "Libirid_Server.h"
 
-Libirid_Server::Libirid_Server()
+Libirid_Server::Libirid_Server() { initialize(); }
+Libirid_Server::~Libirid_Server() { finalize(); }
+
+// Initialize
+void Libirid_Server::initialize()
 {
-    //ctor
+    //
 }
 
-Libirid_Server::~Libirid_Server()
+// Finalize
+void Libirid_Server::finalize()
 {
-    //dtor
+
+}
+
+// Run a single tick
+void Libirid_Server::doTick()
+{
+
 }

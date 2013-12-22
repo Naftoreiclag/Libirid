@@ -7,14 +7,23 @@
 #ifndef LIBIRID_SERVER_H
 #define LIBIRID_SERVER_H
 
-
 class Libirid_Server
 {
     public:
         Libirid_Server();
-        virtual ~Libirid_Server();
+        ~Libirid_Server();
+
+        // Initialize server
+        void initialize();
+
+        // Finalize server
+        void finalize();
+
+        // Executes a single tick in the expanse
+        void doTick();
     protected:
     private:
+
 };
 
 #endif // LIBIRID_SERVER_H
