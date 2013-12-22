@@ -1,6 +1,9 @@
 [![alt tag](http://naftoreiclag.github.io/libirid_vector.svg "Libirid")](https://github.com/Naftoreiclag/Libirid)
 ===
-Licenced under the [MIT License (MIT)](http://opensource.org/licenses/mit-license.html).  
+Non-copyleft licenced under the 
+[MIT License (MIT)](http://opensource.org/licenses/mit-license.html), 
+[zlib/libpng License (Zlib)](http://opensource.org/licenses/zlib-license.html).
+
 *No official pronunciation. Just say it however you last heard it pronounced.*
 
 Lore
@@ -15,11 +18,13 @@ Happy 300th commit! It's funny how it happened to be the one I added lua in!
 
 License
 ---
-As already stated, the source code (*.h, *.hpp *.c *.cpp *.lua ...) in this repository is licensed entirely under the [MIT License (MIT)](http://opensource.org/licenses/mit-license.html). The MIT license is very permissive in terms of redistribution, and is not ["copyleft"](http://www.gnu.org/copyleft/index.html). However, not all portions of the source code are under the same copyright holders. See individual files for a list of copyright holders.
+As already stated, the source code (*.h, *.hpp *.c *.cpp *.lua ...) in this repository is licensed entirely under licenses which are very permissive in terms of redistribution, and are not ["copyleft"](http://www.gnu.org/copyleft/index.html). However, not all portions of the source code are under the same copyright holders or licenses. See individual files for a list of copyright holders.
+
+[*See details on what portions are licensed under what*](documents/list-of-licenses.txt)
 
 Contributing
 ---
-[*See main page for Contributing*](docs/contribute.md)
+[*See main page for Contributing*](documents/contribute.md)
 
 Some Plans
 ---

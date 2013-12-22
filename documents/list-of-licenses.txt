@@ -1,0 +1,14 @@
+This project utilizes code from multiple authors. The authors are not under a common license.
+Below is a list of code used with the following format:
+
+ExampleCodesName:
+http://example.com/project-webpage.html/
+/source/path/to/code/*.*
+Licensed under the terms of the WTFPL.
+
+Begin of list:
+
+TinyThread:
+http://tinythreadpp.bitsnbites.eu/
+/source/TinyThread/*.*
+Licensed under the terms of the zlib/libpng license.
