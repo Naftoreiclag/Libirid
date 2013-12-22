@@ -41,8 +41,6 @@ Some examples of acceptable licenses:
 * [zlib/libpng License (Zlib)](http://opensource.org/licenses/Zlib)
 * [Boost License](http://opensource.org/licenses/BSL-1.0)*
 
-Right now, we are comfortably sitting on the statement "Our entire repository is under the MIT License." You don't wanna be the first to turn our statement into "Most of our repository," do you?
-
 **Can I use some of this repository's code for my own project?**  
 Yes! Just make sure you comply with the licenses, which don't ask for much other than including a few lines of comments at the top of each file. Some credit for the original author(s) would be nice, though.
 
