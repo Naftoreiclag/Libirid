@@ -19,7 +19,7 @@
 #include <chrono>
 #include <iostream>
 
-#include <thread>
+#include "TinyThread/tinythread.h"
 
 namespace Libirid
 {
@@ -102,9 +102,32 @@ namespace Libirid
     }
 }
 
+void threadTest(void* num)
+{
+    for(int i = 0; i < 123456789; ++ i)
+    {
+    }
+
+    std::cout << "Hello threads1!" << std::endl;
+}
+void threadTest2(void* num)
+{
+    for(int i = 0; i < 12345678; ++ i)
+    {
+    }
+
+    std::cout << "Hello threads2!" << std::endl;
+}
+
 // This is where the magic happens
 int main()
 {
+    tthread::thread t1(threadTest, 0);
+    tthread::thread t2(threadTest2, 0);
+
+    t1.join();
+    t2.join();
+
     // Initialize
     Libirid::initialize();
 
