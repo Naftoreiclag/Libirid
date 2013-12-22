@@ -23,6 +23,36 @@
 
 namespace Libirid
 {
+    Libirid_Server server;
+    Libirid_Client client;
+
+    void runServer(void* _)
+    {
+        server.run();
+    }
+
+    void runClient(void* _)
+    {
+        client.run();
+    }
+}
+
+// This is where the magic happens
+int main()
+{
+    // Make a new thread for the server
+    tthread::thread serverThread(Libirid::runServer, 0);
+    tthread::thread clientThread(Libirid::runClient, 0);
+
+    // Make a new thread for the client
+
+    // Died quietly
+    return 0;
+}
+
+/*
+namespace Libirid
+{
     // Initialize
     void initialize()
     {
@@ -49,33 +79,12 @@ namespace Libirid
             // Return to game
             if(choice == 1 || choice == 3)
             {
-                // Make a server
-                Libirid_Server localServer;
+                tthread::thread serverThread()
 
-                // Make a client
+                Libirid_Server server;
+
                 Libirid_Client client;
 
-                // Ticking
-                typedef std::chrono::high_resolution_clock SuperClock;
-                typedef std::chrono::milliseconds Milliseconds;
-
-                auto timeOne = SuperClock::now();
-                auto timeTwo = SuperClock::now();
-
-                Milliseconds ms = std::chrono::duration_cast<Milliseconds>(timeTwo - timeOne);
-
-                std::cout << ms.count() << "hi" << std::endl;;
-
-                //std::thread t1(localServer.run);
-
-
-                while(true)
-                {
-                    std::cout << "derp" << std::endl;
-                    //localServer.doTick();
-                }
-
-                //client.getString();
             }
 
             // Player creation
@@ -122,12 +131,6 @@ void threadTest2(void* num)
 // This is where the magic happens
 int main()
 {
-    tthread::thread t1(threadTest, 0);
-    tthread::thread t2(threadTest2, 0);
-
-    t1.join();
-    t2.join();
-
     // Initialize
     Libirid::initialize();
 
@@ -140,3 +143,4 @@ int main()
     // Died quietly
     return 0;
 }
+*/

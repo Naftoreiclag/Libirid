@@ -6,6 +6,8 @@
 
 #include "Libirid_Client.h"
 
+#include <iostream>
+
 Libirid_Client::Libirid_Client()
 {
     //ctor
@@ -14,4 +16,11 @@ Libirid_Client::Libirid_Client()
 Libirid_Client::~Libirid_Client()
 {
     //dtor
+}
+void Libirid_Client::run()
+{
+    while(true)
+    {
+        std::cout << "derp" << std::endl;
+    }
 }

@@ -13,6 +13,8 @@ class Libirid_Client
     public:
         Libirid_Client();
         virtual ~Libirid_Client();
+
+        void run();
     protected:
     private:
 };
