@@ -8,4 +8,6 @@ Nigel Atkinson
 Nathan Reed
 Andrei Alexandrescu
 
+Marcus Geelnard
+
 (Note: The people and/or organizations listed here are not necessarily associated with Libirid.)

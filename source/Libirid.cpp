@@ -6,6 +6,16 @@
 
 /* The Libirid application
  *
+ * #        #                      #
+ * #        #                      #
+ * #     #  #      #         #     #
+ * #        #                      #
+ * #   ###  ###  ###  # ## ###   ###
+ * #     #  #  #   #  ##     #  #  #
+ * #     #  #  #   #  #      #  #  #
+ * #     #  #  #   #  #      #  #  #
+ * ####  #  ###    #  #      #   ###
+ *
  */
 
 #include "Libirid_Title.h"
@@ -26,45 +36,33 @@ namespace Libirid
     Libirid_Server server;
     Libirid_Client client;
 
-    void runServer(void* _)
-    {
-        server.run();
-    }
+    void runServer(void* _) { server.run(); }
+    void runClient(void* _) { client.run(); }
 
-    void runClient(void* _)
+    void initialize() {}
+    void finalize() {}
+
+    void run()
     {
-        client.run();
+        initialize();
+
+        tthread::thread serverThread(runServer, nullptr);
+        tthread::thread clientThread(runClient, nullptr);
+
+        finalize();
     }
 }
 
-// This is where the magic happens
 int main()
 {
-    // Make a new thread for the server
-    tthread::thread serverThread(Libirid::runServer, 0);
-    tthread::thread clientThread(Libirid::runClient, 0);
+    Libirid::run();
 
-    // Make a new thread for the client
-
-    // Died quietly
     return 0;
 }
 
 /*
 namespace Libirid
 {
-    // Initialize
-    void initialize()
-    {
-        // Do something
-    }
-
-    // Finalize
-    void finalize()
-    {
-        // Do something
-    }
-
     // Run
     void run()
     {
@@ -131,15 +129,8 @@ void threadTest2(void* num)
 // This is where the magic happens
 int main()
 {
-    // Initialize
-    Libirid::initialize();
-
     // Run
     Libirid::run();
-
-    // Clean-up
-    Libirid::finalize();
-
     // Died quietly
     return 0;
 }
