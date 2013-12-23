@@ -21,6 +21,12 @@ class Libirid_Server
         // Finalize server
         void finalize();
 
+        // Pauses the game
+        void pause();
+
+        // Resumes the game
+        void unpause();
+
         //
         long long numbah;
 
@@ -33,6 +39,9 @@ class Libirid_Server
         // Receive input packet from a client
         void receiveInput(std::string input);
     private:
+        //
+        bool isPaused;
+
         // Send a message to the a client
         void sendMessage(std::string message);
 
