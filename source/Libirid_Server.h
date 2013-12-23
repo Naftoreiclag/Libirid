@@ -22,7 +22,7 @@ class Libirid_Server
         void finalize();
 
         //
-        int numbah;
+        long long numbah;
 
         //
         void run();

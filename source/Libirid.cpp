@@ -49,7 +49,7 @@ namespace Libirid
         tthread::thread serverThread(runServer, nullptr);
         tthread::thread clientThread(runClient, nullptr);
 
-        for(int i = 0; i < 999999999; ++i)
+        for(long long i = 0; i < 999999999999; ++i)
         {
             server.numbah = i;
         }
