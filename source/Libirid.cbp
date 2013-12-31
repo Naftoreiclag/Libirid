@@ -35,8 +35,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Game.cpp" />
-		<Unit filename="Game.h" />
 		<Unit filename="Libirid.cpp" />
 		<Unit filename="Libirid_Client.cpp" />
 		<Unit filename="Libirid_Client.h" />
@@ -59,6 +57,8 @@
 		<Unit filename="node/Node_Entity.h" />
 		<Unit filename="node/Node_Expanse.cpp" />
 		<Unit filename="node/Node_Expanse.h" />
+		<Unit filename="node/Node_Folder.cpp" />
+		<Unit filename="node/Node_Folder.h" />
 		<Unit filename="node/Node_IntegerValue.cpp" />
 		<Unit filename="node/Node_IntegerValue.h" />
 		<Unit filename="node/Node_PlayerScript.cpp" />
