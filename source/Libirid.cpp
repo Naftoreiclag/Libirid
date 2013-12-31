@@ -31,6 +31,7 @@
 
 #include "TinyThread/tinythread.h"
 
+//
 namespace Libirid
 {
     Libirid_Server server;
@@ -55,85 +56,12 @@ namespace Libirid
     }
 }
 
+// This is where the magic begins
 int main()
 {
+    // Run the application
     Libirid::run();
 
+    // Ended with hopefully no problems
     return 0;
 }
-
-/*
-namespace Libirid
-{
-    // Run
-    void run()
-    {
-        bool appIsRunning = true;
-
-        while(appIsRunning)
-        {
-            // Title Screen
-            Title title;
-            int choice = title.run();
-
-            // Return to game
-            if(choice == 1 || choice == 3)
-            {
-                tthread::thread serverThread()
-
-                Libirid_Server server;
-
-                Libirid_Client client;
-
-            }
-
-            // Player creation
-            else if(choice == 2)
-            {
-            }
-
-            // Join game
-            else if(choice == 2332423432)
-            {
-            }
-
-            // Adjust Settings
-            else if(choice == 4)
-            {
-            }
-
-            // Exit Program
-            else if(choice == 5)
-            {
-                appIsRunning = false;
-            }
-        }
-    }
-}
-
-void threadTest(void* num)
-{
-    for(int i = 0; i < 123456789; ++ i)
-    {
-    }
-
-    std::cout << "Hello threads1!" << std::endl;
-}
-void threadTest2(void* num)
-{
-    for(int i = 0; i < 12345678; ++ i)
-    {
-    }
-
-    std::cout << "Hello threads2!" << std::endl;
-}
-
-// This is where the magic happens
-int main()
-{
-    // Run
-    Libirid::run();
-    // Died quietly
-    return 0;
-}
-*/

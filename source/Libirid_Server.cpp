@@ -16,7 +16,7 @@ Libirid_Server::~Libirid_Server() { finalize(); }
 // Initialize
 void Libirid_Server::initialize()
 {
-    pulseRate = 750;
+    pulseRate = 1000;
 }
 
 // Finalize
@@ -29,15 +29,7 @@ void Libirid_Server::finalize()
 void Libirid_Server::doTick()
 {
     // Do something
-    std::cout << expanseAge << std::endl;
 
-    long long big = 99999999 + expanseAge;
-    long long foo = 1;
-    for(long long i = expanseAge; i < big; ++ i)
-    {
-        foo += i * i;
-    }
-    std::cout << "got " << foo << std::endl;
 
     // Increment age
     ++ expanseAge;
@@ -54,13 +46,29 @@ void Libirid_Server::run()
 
     auto whenLastTickBegan = SuperClock::now();
 
+    // Do this forever
     while(true)
     {
+        // If the game is paused
+        if(isPaused)
+        {
+            // don't tick
+            continue;
+        }
+
+        // Measure how long it has been since we last ticked
         int timeSinceLastTickBegan = (std::chrono::duration_cast<Milliseconds>(SuperClock::now() - whenLastTickBegan)).count();
+
+        // If it's time to tick, then do so
         if(timeSinceLastTickBegan >= pulseRate)
         {
+            // Remember when we started calculating this tick
             whenLastTickBegan = SuperClock::now();
+
+            // Calculate game logic
             doTick();
+
+            // Debug stuff: if a tick took longer than allowed, then report it
             #ifdef DEBUG
             int howLongThatTickTook = (std::chrono::duration_cast<Milliseconds>(SuperClock::now() - whenLastTickBegan)).count();
             if(howLongThatTickTook >= pulseRate)

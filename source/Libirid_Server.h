@@ -27,10 +27,7 @@ class Libirid_Server
         // Resumes the game
         void unpause();
 
-        //
-        long long numbah;
-
-        //
+        // Does everything
         void run();
 
         // Executes a single tick in the expanse
