@@ -4,8 +4,8 @@
  * See accompanying file LICENSE
  */
 
-#ifndef GAME_H
-#define GAME_H
+#ifndef LIBIRID_GAME_H
+#define LIBIRID_GAME_H
 
 /* Game instance. Load from file, play some games, save to file.
  *
@@ -23,14 +23,14 @@ namespace cmd
     class CmdDictionary;
 }
 
-class Game
+class Libirid_Game
 {
     public:
         // Initialize
-        Game();
+        Libirid_Game();
 
         // Finalize
-        virtual ~Game();
+        virtual ~Libirid_Game();
 
         // Runs this game; hangs main program until game finishes
         void run();
@@ -66,4 +66,4 @@ class Game
         static void splitWordsLowercase(std::string line, std::vector<std::string>* wordList);
 };
 
-#endif // GAME_H
+#endif // LIBIRID_GAME_H
