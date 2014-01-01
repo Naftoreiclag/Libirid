@@ -1,4 +1,4 @@
-/* Copyright (c) 2013 "Naftoreiclag" https://github.com/Naftoreiclag
+/* Copyright (c) 2013-2014 "Naftoreiclag" https://github.com/Naftoreiclag
  *
  * Distributed under the MIT License (http://opensource.org/licenses/mit-license.html)
  * See accompanying file LICENSE
@@ -9,17 +9,16 @@
 
 #include <string>
 
+#include "Libirid_Game.h"
+
 class Libirid_Server
 {
     public:
         Libirid_Server();
         ~Libirid_Server();
 
-        // Initialize server
-        void initialize();
-
-        // Finalize server
-        void finalize();
+        // Does everything
+        void run();
 
         // Pauses the game
         void pause();
@@ -27,16 +26,16 @@ class Libirid_Server
         // Resumes the game
         void unpause();
 
-        // Does everything
-        void run();
-
-        // Executes a single tick in the expanse
+        // Executes a single game tick
         void doTick();
 
         // Receive input packet from a client
         void receiveInput(std::string input);
     private:
-        //
+        // The game to simulate
+        Libirid_Game* game;
+
+        // If we are to execute ticks or not
         bool isPaused;
 
         // Send a message to the a client
@@ -44,9 +43,6 @@ class Libirid_Server
 
         // Pulse rate, time to wait in between ticks
         unsigned int pulseRate;
-
-        // How old the expanse is, in ticks
-        long long expanseAge;
 
 };
 

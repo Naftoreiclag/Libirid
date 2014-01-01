@@ -1,4 +1,4 @@
-/* Copyright (c) 2013 "Naftoreiclag" https://github.com/Naftoreiclag
+/* Copyright (c) 2013-2014 "Naftoreiclag" https://github.com/Naftoreiclag
  *
  * Distributed under the MIT License (http://opensource.org/licenses/mit-license.html)
  * See accompanying file LICENSE
@@ -20,14 +20,21 @@ typedef unsigned char NodeType;
 #define NT_AREA             0x04
 #define NT_ENTITY           0x05
 #define NT_PORTAL           0x06
-#define NT_SCRIPT           0x07
-#define NT_PLAYERSCRIPT     0x08
-#define NT_STRINGVALUE      0x09
-#define NT_LONGVALUE        0x0A
-#define NT_INTEGERVALUE     0x0B
-#define NT_SHORTVALUE       0x0C
-#define NT_BYTEVALUE        0x0D
-#define NT_FOLDER           0x0E
+
+#define NT_FOLDER           0x07
+
+#define NT_SCRIPT           0x10
+#define NT_PLAYERSCRIPT     0x11
+
+#define NT_STRINGVALUE      0x22
+#define NT_BYTEVALUE        0x23
+#define NT_16VALUE          0x24
+#define NT_32VALUE          0x25
+#define NT_64VALUE          0x26
+#define NT_128VALUE         0x27
+#define NT_256VALUE         0x28
+#define NT_512VALUE         0x29
+#define NT_1024VALUE        0x2A
 
 namespace node
 {

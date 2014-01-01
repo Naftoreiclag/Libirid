@@ -1,4 +1,4 @@
-/* Copyright (c) 2013 "Naftoreiclag" https://github.com/Naftoreiclag
+/* Copyright (c) 2013-2014 "Naftoreiclag" https://github.com/Naftoreiclag
  *
  * Distributed under the MIT License (http://opensource.org/licenses/mit-license.html)
  * See accompanying file LICENSE
@@ -10,40 +10,42 @@
 
 #include <chrono>
 
-Libirid_Server::Libirid_Server() { initialize(); }
-Libirid_Server::~Libirid_Server() { finalize(); }
-
-// Initialize
-void Libirid_Server::initialize()
+Libirid_Server::Libirid_Server() {}
+Libirid_Server::~Libirid_Server()
 {
-    pulseRate = 1000;
-}
-
-// Finalize
-void Libirid_Server::finalize()
-{
-
+    // Delete the game
+    delete game;
 }
 
 // Run a single tick
 void Libirid_Server::doTick()
 {
-    // Do something
-
-
-    // Increment age
-    ++ expanseAge;
+    // Run a single game tick
+    game->doTick();
 }
 
 void Libirid_Server::run()
 {
-    //
-    initialize();
+    // Initialization
+    // ==============
 
-    // Ticking
+    // Make a new game
+    game = new Libirid_Game();
+
+    // How fast should the ticks be in ms
+    pulseRate = 1000;
+
+    // Load the game map
+    game->load();
+
+    // Ticking handling
     typedef std::chrono::high_resolution_clock SuperClock;
     typedef std::chrono::milliseconds Milliseconds;
 
+    // Clock stuff
+    // ===========
+
+    // Variable to hold when the last tick began
     auto whenLastTickBegan = SuperClock::now();
 
     // Do this forever
@@ -79,8 +81,8 @@ void Libirid_Server::run()
         }
     }
 
-    //
-    finalize();
+    // Delete self
+    delete this;
 }
 
 void Libirid_Server::pause()

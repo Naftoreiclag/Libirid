@@ -4,19 +4,18 @@
  * See accompanying file LICENSE
  */
 
-#include "Libirid_Client.h"
+#include "Node_ByteValue.h"
 
-#include <iostream>
+using namespace node;
 
-Libirid_Client::Libirid_Client()
+Node_ByteValue::Node_ByteValue(std::string name, Node* parent, int value)
+: Node(name, NT_BYTEVALUE, parent),
+value(value)
 {
     //ctor
 }
 
-Libirid_Client::~Libirid_Client()
+Node_ByteValue::~Node_ByteValue()
 {
     //dtor
-}
-void Libirid_Client::run()
-{
 }

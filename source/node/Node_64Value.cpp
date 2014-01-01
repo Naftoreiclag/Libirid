@@ -4,19 +4,18 @@
  * See accompanying file LICENSE
  */
 
-#include "Libirid_Client.h"
+#include "Node_64Value.h"
 
-#include <iostream>
+using namespace node;
 
-Libirid_Client::Libirid_Client()
+Node_64Value::Node_64Value(std::string name, Node* parent, int value)
+: Node(name, NT_64VALUE, parent),
+value(value)
 {
     //ctor
 }
 
-Libirid_Client::~Libirid_Client()
+Node_64Value::~Node_64Value()
 {
     //dtor
-}
-void Libirid_Client::run()
-{
 }

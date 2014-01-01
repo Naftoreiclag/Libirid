@@ -4,20 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef NODE_FOLDER_H
-#define NODE_FOLDER_H
+#ifndef NODE_16VALUE_H
+#define NODE_16VALUE_H
 
 #include "Node.h"
 
 namespace node
 {
-    class Node_Folder : public Node
+    class Node_16Value : public Node
     {
         public:
-            Node_Folder(std::string name, Node* parent);
-            virtual ~Node_Folder();
-        private:
+            Node_16Value(std::string name, Node* parent, int value);
+            virtual ~Node_16Value();
+
+            int value;
     };
 }
 
-#endif // NODE_FOLDER_H
+#endif // NODE_16VALUE_H

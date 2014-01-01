@@ -4,20 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef NODE_FOLDER_H
-#define NODE_FOLDER_H
+#ifndef NODE_BYTEVALUE_H
+#define NODE_BYTEVALUE_H
 
 #include "Node.h"
 
 namespace node
 {
-    class Node_Folder : public Node
+    class Node_ByteValue : public Node
     {
         public:
-            Node_Folder(std::string name, Node* parent);
-            virtual ~Node_Folder();
-        private:
+            Node_ByteValue(std::string name, Node* parent, int value);
+            virtual ~Node_ByteValue();
+
+            int value;
     };
 }
 
-#endif // NODE_FOLDER_H
+#endif // NODE_BYTEVALUE_H

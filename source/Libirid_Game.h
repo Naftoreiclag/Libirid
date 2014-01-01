@@ -1,4 +1,4 @@
-/* Copyright (c) 2013 "Naftoreiclag" https://github.com/Naftoreiclag
+/* Copyright (c) 2013-2014 "Naftoreiclag" https://github.com/Naftoreiclag
  *
  * Distributed under the MIT License (http://opensource.org/licenses/mit-license.html)
  * See accompanying file LICENSE
@@ -31,22 +31,18 @@ class Libirid_Game
 
         // Finalize
         virtual ~Libirid_Game();
-
-        // Runs this game; hangs main program until game finishes
-        void run();
     private:
-        // Is it running?
-        bool isRunning;
-
         // Nodes of interest
         node::Node* nodeExpanse;
+        node::Node* nodeConcepts;
         node::Node* nodeSpawnAreaChild;
-
-        //
         node::Node* nodePlayerScript;
 
-        //
+        // Run a player command
         void runPlayerCommand(node::Node* nodePlayerScript, std::string theirInput);
+    public:
+        // Do a tick
+        void doTick();
     public:
         // Save to disk
         void save();
@@ -54,8 +50,11 @@ class Libirid_Game
         // Load from disk
         void load();
     private:
-        //
+        // Add a player
         void addPlayer(std::string playerName);
+
+        // How old the expanse is, in ticks
+        long long expanseAge;
 
     ///////////////
     // Utilities //

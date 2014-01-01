@@ -1,10 +1,10 @@
-/* Copyright (c) 2013 "Naftoreiclag" https://github.com/Naftoreiclag
+/* Copyright (c) 2013-2014 "Naftoreiclag" https://github.com/Naftoreiclag
  *
  * Distributed under the MIT License (http://opensource.org/licenses/mit-license.html)
  * See accompanying file LICENSE
  */
 
-#include "Game.h"
+#include "Libirid_Game.h"
 
 #include <algorithm>
 #include <string>
@@ -25,72 +25,39 @@
 #include "node/Node_Script.h"
 #include "node/Node_PlayerScript.h"
 #include "node/Node_StringValue.h"
-
-
-//  Command Stuff
-// ===============
-//#include "cmd/CmdDictionary.h"
+#include "node/Node_Folder.h"
 
 // Initialize
-Game::Game()
-: isRunning(false)
+Libirid_Game::Libirid_Game()
 {
-    // Important nodes
+    // Make an expanse to store everything
     nodeExpanse = new node::Node_Expanse();
-    nodeSpawnAreaChild = NULL;
 
-    //
-    nodePlayerScript = NULL;
-
-    // Load commands
-    //cmdDict = cmd::CmdDictionary::getInstance();
-    //cmdDict->newCmdScriptInternal(cmd::scr::dance);
+    // Make somewhere to store concepts
+    nodeConcepts = new node::Node_Folder("concepts", nullptr);
 }
 
 // Finalize
-Game::~Game()
+Libirid_Game::~Libirid_Game()
 {
-    // Delete everything
+    // Delete expanse
     delete nodeExpanse;
-    //delete cmdDict;
+
+    // Delete concept folder
+    delete nodeConcepts;
 }
 
-// Run
-void Game::run()
+//
+void Libirid_Game::doTick()
 {
-    // Detect spawn point
-    nodeSpawnAreaChild = nodeExpanse->getDescendant("_SpawnPoint");
-
-    // We are running now
-    isRunning = true;
-
-    // Last input vector
-    std::vector<std::string> lastInput;
-
-    // Juan
-    addPlayer("Juan");
-
-    // While running, run!
-    while(isRunning)
-    {
-        // Arrow prompt
-        std::cout << "> ";
-
-        // Extract line
-        std::string line;
-        std::getline(std::cin, line);
-
-        // Make a space
-        std::cout << std::endl;
-
-        // Run it
-        runPlayerCommand(nodePlayerScript, line);
-    }
+    std::cout << "tick" << std::endl;
 }
 
 // Load
-void Game::load()
+void Libirid_Game::load()
 {
+    // BEGIN FAKE GAME LOADING
+
     new node::Node_World("Earth", nodeExpanse);
     new node::Node_Area("Ocean", nodeExpanse->getChild("Earth"));
     new node::Node_Area("Jungle", nodeExpanse->getChild("Earth"));
@@ -98,10 +65,15 @@ void Game::load()
     new node::Node_Area("Plains", nodeExpanse->getChild("Earth"));
     new node::Node_Area("Forest", nodeExpanse->getChild("Earth"));
     new node::Node_Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
+
+    // END FAKE GAME LOADING
+
+    // Detect spawn point
+    nodeSpawnAreaChild = nodeExpanse->getDescendant("_SpawnPoint");
 }
 
 // Add player
-void Game::addPlayer(std::string playerName)
+void Libirid_Game::addPlayer(std::string playerName)
 {
     node::Node* thePlayer = new node::Node_Entity("Player", nodeSpawnAreaChild->getParent());
     nodePlayerScript = new node::Node_PlayerScript("PlayerScript", thePlayer);
@@ -109,7 +81,7 @@ void Game::addPlayer(std::string playerName)
 }
 
 // Process input
-void Game::runPlayerCommand(node::Node* nodePlayerScript, std::string theirInput)
+void Libirid_Game::runPlayerCommand(node::Node* nodePlayerScript, std::string theirInput)
 {
     if(theirInput == "whereami")
     {
@@ -124,7 +96,7 @@ void Game::runPlayerCommand(node::Node* nodePlayerScript, std::string theirInput
 ///////////////
 
 // Split words
-void Game::splitWordsLowercase(std::string line, std::vector<std::string>* wordList)
+void Libirid_Game::splitWordsLowercase(std::string line, std::vector<std::string>* wordList)
 {
     std::stringstream sBuffer(line);
     std::string word;
