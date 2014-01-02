@@ -10,6 +10,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <fstream>
 
 #include <iostream>
 
@@ -56,15 +57,103 @@ void Libirid_Game::doTick()
 // Load
 void Libirid_Game::load()
 {
-    // BEGIN FAKE GAME LOADING
+    // Attempt to load the save file
+    // Note: this path only works when running from CB's debug console
+    // if running the .exe this should be changed to just "save"
+    std::ifstream saveFile("../builds/save");
 
-    new node::Node_World("Earth", nodeExpanse);
-    new node::Node_Area("Ocean", nodeExpanse->getChild("Earth"));
-    new node::Node_Area("Jungle", nodeExpanse->getChild("Earth"));
-    new node::Node_Area("Desert", nodeExpanse->getChild("Earth"));
-    new node::Node_Area("Plains", nodeExpanse->getChild("Earth"));
-    new node::Node_Area("Forest", nodeExpanse->getChild("Earth"));
-    new node::Node_Entity("_SpawnPoint", nodeExpanse->getChild("Earth")->getChild("Forest"));
+    // If the file is actually open
+    if(saveFile.is_open())
+    {
+        // Make a string to hold the statement
+        std::string statement;
+
+        // Iterate through all statements
+        while(std::getline(saveFile, statement))
+        {
+            // Iterator through chars
+            auto charPtr = statement.begin();
+
+            // Get what type this is ===========
+
+            // Store the type name
+            std::string nodeTypeStr = "";
+
+            // While this is not the end
+            while(charPtr != statement.end())
+            {
+                // If this is a space
+                if(*charPtr == ' ')
+                {
+                    // Skip it
+                    ++ charPtr;
+                    continue;
+                }
+
+                // If we reach the colon
+                if(*charPtr == ':')
+                {
+                    // Break, because now we finished finding the name
+                    // Skip the char and break loop
+                    ++ charPtr;
+                    break;
+                }
+
+                // Valid char
+                nodeTypeStr += *charPtr;
+
+                ++ charPtr;
+            }
+
+            // Get path ========================
+            std::string pathStr = "";
+            while(charPtr != statement.end())
+            {
+                // If this is a space
+                if(*charPtr == ' ')
+                {
+                    // Skip it
+                    ++ charPtr;
+                    continue;
+                }
+
+                // Valid char
+                pathStr += *charPtr;
+
+                ++ charPtr;
+            }
+
+            std::cout << "The type is " << nodeTypeStr << " And the path is " << pathStr << std::endl;
+        }
+
+        // Close it when we are done
+        saveFile.close();
+    }
+
+    // File could not be opened
+    else
+    {
+        // File must be missing
+        std::cout << "File is missing!";
+    }
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    nodeExpanse->printHeirachy(0);
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    // BEGIN FAKE GAME LOADING
+    /*new node::Node_World("Fooland", nodeExpanse);
+    new node::Node_Area("Lake", nodeExpanse->getChild("Fooland"));
+    new node::Node_Area("River", nodeExpanse->getChild("Fooland"));
+    new node::Node_Area("Plains", nodeExpanse->getChild("Fooland"));
+    new node::Node_Area("Forest", nodeExpanse->getChild("Fooland"));
+    new node::Node_Entity("_SpawnPoint", nodeExpanse->getChild("Fooland")->getChild("Forest"));*/
 
     // END FAKE GAME LOADING
 

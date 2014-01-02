@@ -40,19 +40,15 @@ namespace Libirid
     void runServer(void* _) { server.run(); }
     void runClient(void* _) { client.run(); }
 
-    void initialize() {}
-    void finalize() {}
-
     void run()
     {
-        initialize();
+        //server = new Libirid_Server();
+        //client = new Libirid_Client();
 
         tthread::thread serverThread(runServer, nullptr);
         tthread::thread clientThread(runClient, nullptr);
 
         while(true){}
-
-        finalize();
     }
 }
 

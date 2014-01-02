@@ -10,10 +10,13 @@
 
 #include <chrono>
 
+//
 Libirid_Server::Libirid_Server() {}
+
+// When we are deleted
 Libirid_Server::~Libirid_Server()
 {
-    // Delete the game
+    // Delete our stuff too
     delete game;
 }
 
