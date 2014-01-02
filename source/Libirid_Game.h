@@ -63,6 +63,9 @@ class Libirid_Game
     public:
         // Split a line into words
         static void splitWordsLowercase(std::string line, std::vector<std::string>* wordList);
+    private:
+        // Auxiliary function which processes a save file line, returns if successful
+        bool processSaveLine(std::string statement);
 };
 
 #endif // LIBIRID_GAME_H
