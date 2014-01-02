@@ -209,6 +209,8 @@ bool Libirid_Game::processSaveLine(std::string statement)
                 // Check for errors
                 if(parentNodePtr == nullptr)
                 {
+                    std::cout << "Error: could not load " << statement << std::endl;
+
                     return false;
                 }
             }
