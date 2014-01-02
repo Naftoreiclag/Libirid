@@ -106,7 +106,8 @@ void Libirid_Game::load()
             }
 
             // Get path ========================
-            std::string pathStr = "";
+            std::string nodeName = "";
+            node::Node* parentNodePtr;
             while(charPtr != statement.end())
             {
                 // If this is a space
@@ -117,13 +118,43 @@ void Libirid_Game::load()
                     continue;
                 }
 
+                // If this is a dot
+                if(*charPtr == '.')
+                {
+                    if(nodeName == "Expanse")
+                    {
+                        parentNodePtr = nodeExpanse;
+                    }
+                    else
+                    {
+                        parentNodePtr = parentNodePtr->getChild(nodeName);
+                    }
+                    nodeName = "";
+                    ++ charPtr;
+                    continue;
+                }
+
                 // Valid char
-                pathStr += *charPtr;
+                nodeName += *charPtr;
 
                 ++ charPtr;
             }
 
-            std::cout << "The type is " << nodeTypeStr << " And the path is " << pathStr << std::endl;
+            // Make it ==========================
+            if(nodeTypeStr == "World")
+            {
+                new node::Node_World(nodeName, parentNodePtr);
+            }
+            else if(nodeTypeStr == "Area")
+            {
+                new node::Node_Area(nodeName, parentNodePtr);
+            }
+            else if(nodeTypeStr == "Entity")
+            {
+                new node::Node_Entity(nodeName, parentNodePtr);
+            }
+
+            std::cout << "Creating a [" << nodeTypeStr << "] named [" << nodeName << "] and parented to [" << parentNodePtr->getName() << "]" << std::endl;
         }
 
         // Close it when we are done
