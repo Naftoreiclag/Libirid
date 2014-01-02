@@ -105,9 +105,15 @@ void Libirid_Game::load()
                 ++ charPtr;
             }
 
-            // Get path ========================
+            // Get name and path ========================
+
+            // Store the name of the node that is currently being processed
             std::string nodeName = "";
+
+            // Simultaneously construct a pointer to the right parent
             node::Node* parentNodePtr;
+
+            // While this is not the end of the statement
             while(charPtr != statement.end())
             {
                 // If this is a space
@@ -118,18 +124,33 @@ void Libirid_Game::load()
                     continue;
                 }
 
-                // If this is a dot
+                // If this is a dot, then continue finding the path
                 if(*charPtr == '.')
                 {
+                    // If the name is Expanse, that is special
                     if(nodeName == "Expanse")
                     {
+                        // Because we mean to get the expanse
                         parentNodePtr = nodeExpanse;
                     }
+
+                    // Otherwise
                     else
                     {
+                        // Try find the parent
                         parentNodePtr = parentNodePtr->getChild(nodeName);
+
+                        // Check for errors
+                        if(parentNodePtr == nullptr)
+                        {
+                            std::cout << "ERROR" << std::endl;
+                        }
                     }
+
+                    // Reset the name of the node, since we were finding the parent in actuality
                     nodeName = "";
+
+                    // Skip the dot
                     ++ charPtr;
                     continue;
                 }
