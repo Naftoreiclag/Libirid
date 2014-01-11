@@ -42,7 +42,10 @@ namespace Libirid
 
     void run()
     {
+        // Run the server on a new thread
         tthread::thread serverThread(runServer, nullptr);
+
+        // Run the client on this thread
         runClient(nullptr);
     }
 }
