@@ -55,48 +55,138 @@ void Libirid_Game::doTick()
 }
 
 // Load
-void Libirid_Game::load()
+void Libirid_Game::load(std::string saveFileName)
 {
-    // Attempt to load the save file
-    // Note: this path only works when running from CB's debug console
-    // if running the .exe this should be changed to just "save"
-    std::ifstream saveFile("../builds/save");
+    // Load file
+    std::ifstream saveFile(saveFileName);
 
-    // If the file is actually open
-    if(saveFile.is_open())
+    // Check if we could not open the file for some reason
+    if(!saveFile.is_open())
     {
-        // Make a string to hold the statement
-        std::string statement;
+        throw "Could not open file " + saveFileName;
+    }
 
-        // Iterate through all statements
-        while(std::getline(saveFile, statement))
+    // Make a string to hold the statement
+    std::string statement;
+
+    // Iterate through all statements
+    while(std::getline(saveFile, statement))
+    {
+        // Iterator through chars
+        auto charPtr = statement.begin();
+
+        // Get what type this is ===========
+
+        // Store the type name
+        std::string nodeTypeStr = "";
+
+        // While this is not the end
+        while(charPtr != statement.end())
         {
-            processSaveLine(statement);
+            // If this is a space
+            if(*charPtr == ' ')
+            {
+                // Skip it
+                ++ charPtr;
+                continue;
+            }
+
+            // If we reach the colon
+            if(*charPtr == ':')
+            {
+                // Break, because now we finished finding the name
+                // Skip the char and break loop
+                ++ charPtr;
+                break;
+            }
+
+            // Valid char
+            nodeTypeStr += *charPtr;
+
+            ++ charPtr;
         }
 
-        // Close it when we are done
-        saveFile.close();
+        // Get name and path ========================
+
+        // Store the name of the node that is currently being processed
+        std::string nodeName = "";
+
+        // Simultaneously construct a pointer to the right parent
+        node::Node* parentNodePtr;
+
+        // While this is not the end of the statement
+        while(charPtr != statement.end())
+        {
+            // If this is a space
+            if(*charPtr == ' ')
+            {
+                // Skip it
+                ++ charPtr;
+                continue;
+            }
+
+            // If this is a dot, then continue finding the path
+            if(*charPtr == '.')
+            {
+                // If the name is Expanse, that is special
+                if(nodeName == "Expanse")
+                {
+                    // Because we mean to get the expanse
+                    parentNodePtr = nodeExpanse;
+                }
+
+                // Otherwise
+                else
+                {
+                    // Try find the parent
+                    parentNodePtr = parentNodePtr->getChild(nodeName);
+
+                    // Check for errors
+                    if(parentNodePtr == nullptr)
+                    {
+                        throw "Could not find node referenced by " + statement + "!";
+                    }
+                }
+
+                // Reset the name of the node, since we were finding the parent in actuality
+                nodeName = "";
+
+                // Skip the dot
+                ++ charPtr;
+                continue;
+            }
+
+            // Valid char
+            nodeName += *charPtr;
+
+            ++ charPtr;
+        }
+
+        // Make it ==========================
+        if(nodeTypeStr == "World")
+        {
+            new node::Node_World(nodeName, parentNodePtr);
+        }
+        else if(nodeTypeStr == "Area")
+        {
+            new node::Node_Area(nodeName, parentNodePtr);
+        }
+        else if(nodeTypeStr == "Entity")
+        {
+            new node::Node_Entity(nodeName, parentNodePtr);
+        }
     }
 
-    // File could not be opened
-    else
-    {
-        // File must be missing
-        std::cout << "File is missing!";
-    }
-
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << std::endl;
-
-    nodeExpanse->printHeirachy(0);
-
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << std::endl;
+    // Close it when we are done
+    saveFile.close();
 
     // Detect spawn point
     nodeSpawnAreaChild = nodeExpanse->getDescendant("_SpawnPoint");
+
+    if(nodeSpawnAreaChild == nullptr)
+    {
+        throw "No node named \"_SpawnPoint\"!";
+    }
 }
 
 // Add player
@@ -132,118 +222,4 @@ void Libirid_Game::splitWordsLowercase(std::string line, std::vector<std::string
         std::transform(word.begin(), word.end(), word.begin(), ::tolower);
         wordList->push_back(word);
     }
-}
-
-//
-bool Libirid_Game::processSaveLine(std::string statement)
-{
-    // Iterator through chars
-    auto charPtr = statement.begin();
-
-    // Get what type this is ===========
-
-    // Store the type name
-    std::string nodeTypeStr = "";
-
-    // While this is not the end
-    while(charPtr != statement.end())
-    {
-        // If this is a space
-        if(*charPtr == ' ')
-        {
-            // Skip it
-            ++ charPtr;
-            continue;
-        }
-
-        // If we reach the colon
-        if(*charPtr == ':')
-        {
-            // Break, because now we finished finding the name
-            // Skip the char and break loop
-            ++ charPtr;
-            break;
-        }
-
-        // Valid char
-        nodeTypeStr += *charPtr;
-
-        ++ charPtr;
-    }
-
-    // Get name and path ========================
-
-    // Store the name of the node that is currently being processed
-    std::string nodeName = "";
-
-    // Simultaneously construct a pointer to the right parent
-    node::Node* parentNodePtr;
-
-    // While this is not the end of the statement
-    while(charPtr != statement.end())
-    {
-        // If this is a space
-        if(*charPtr == ' ')
-        {
-            // Skip it
-            ++ charPtr;
-            continue;
-        }
-
-        // If this is a dot, then continue finding the path
-        if(*charPtr == '.')
-        {
-            // If the name is Expanse, that is special
-            if(nodeName == "Expanse")
-            {
-                // Because we mean to get the expanse
-                parentNodePtr = nodeExpanse;
-            }
-
-            // Otherwise
-            else
-            {
-                // Try find the parent
-                parentNodePtr = parentNodePtr->getChild(nodeName);
-
-                // Check for errors
-                if(parentNodePtr == nullptr)
-                {
-                    std::cout << "Error: could not load " << statement << std::endl;
-
-                    return false;
-                }
-            }
-
-            // Reset the name of the node, since we were finding the parent in actuality
-            nodeName = "";
-
-            // Skip the dot
-            ++ charPtr;
-            continue;
-        }
-
-        // Valid char
-        nodeName += *charPtr;
-
-        ++ charPtr;
-    }
-
-    // Make it ==========================
-    if(nodeTypeStr == "World")
-    {
-        new node::Node_World(nodeName, parentNodePtr);
-    }
-    else if(nodeTypeStr == "Area")
-    {
-        new node::Node_Area(nodeName, parentNodePtr);
-    }
-    else if(nodeTypeStr == "Entity")
-    {
-        new node::Node_Entity(nodeName, parentNodePtr);
-    }
-
-    std::cout << "Creating a [" << nodeTypeStr << "] named [" << nodeName << "] and parented to [" << parentNodePtr->getName() << "]" << std::endl;
-
-    return true;
 }

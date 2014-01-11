@@ -39,7 +39,17 @@ void Libirid_Server::run()
     pulseRate = 1000;
 
     // Load the game map
-    game->load();
+    try
+    {
+        // Attempt to load the save file
+        // Note: this path only works when running from CB's debug console
+        // if running the .exe this should be changed to just "save"
+        game->load("../builds/save");
+    }
+    catch(const std::string error)
+    {
+        std::cout << "ERROR " << error << std::endl;
+    }
 
     // Ticking handling
     typedef std::chrono::high_resolution_clock SuperClock;

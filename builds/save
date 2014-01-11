@@ -1,6 +1,6 @@
-World: Expanse.Fooland
-Area: Expanse.Fooland.Lake
-Area: Expanse.Fooland.River
-Area: Expanse.Fooland.Plains
-Area: Expanse.Fooland.Forest
+World:  Expanse.Fooland
+Area:   Expanse.Fooland.Lake
+Area:   Expanse.Fooland.River
+Area:   Expanse.Fooland.Plains
+Area:   Expanse.Fooland.Forest
 Entity: Expanse.Fooland.Forest._SpawnPoint

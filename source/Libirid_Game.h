@@ -44,11 +44,11 @@ class Libirid_Game
         // Do a tick
         void doTick();
     public:
-        // Save to disk
-        void save();
+        // Save to file
+        void save(std::string fileName);
 
-        // Load from disk
-        void load();
+        // Load from file
+        void load(std::string fileName);
     private:
         // Add a player
         void addPlayer(std::string playerName);
@@ -63,9 +63,6 @@ class Libirid_Game
     public:
         // Split a line into words
         static void splitWordsLowercase(std::string line, std::vector<std::string>* wordList);
-    private:
-        // Auxiliary function which processes a save file line, returns if successful
-        bool processSaveLine(std::string statement);
 };
 
 #endif // LIBIRID_GAME_H

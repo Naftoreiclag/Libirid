@@ -42,13 +42,8 @@ namespace Libirid
 
     void run()
     {
-        //server = new Libirid_Server();
-        //client = new Libirid_Client();
-
         tthread::thread serverThread(runServer, nullptr);
-        tthread::thread clientThread(runClient, nullptr);
-
-        while(true){}
+        runClient(nullptr);
     }
 }
 
