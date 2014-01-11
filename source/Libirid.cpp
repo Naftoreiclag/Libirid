@@ -42,6 +42,9 @@ namespace Libirid
 
     void run()
     {
+        // Declare that this is the creature version
+        std::cout << "This is the creature version." << std::endl;
+
         // Run the server on a new thread
         tthread::thread serverThread(runServer, nullptr);
 
