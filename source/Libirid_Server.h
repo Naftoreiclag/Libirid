@@ -17,7 +17,7 @@ class Libirid_Server
         Libirid_Server();
         ~Libirid_Server();
 
-        // Does everything
+        // Take over thread and do stuff
         void run();
 
         // Pauses the game
@@ -26,14 +26,20 @@ class Libirid_Server
         // Resumes the game
         void unpause();
 
-        // Executes a single game tick
-        void doTick();
-
         // Receive input packet from a client
         void receiveInput(std::string input);
     private:
         // The game to simulate
         Libirid_Game* game;
+
+        // Load game stuff
+        void load();
+
+        // Save game stuff
+        void save();
+
+        // Executes a single game tick
+        void doTick();
 
         // If we are to execute ticks or not
         bool isPaused;

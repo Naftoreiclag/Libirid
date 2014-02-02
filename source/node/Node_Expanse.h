@@ -17,7 +17,10 @@ namespace node
             Node_Expanse();
             virtual ~Node_Expanse();
         private:
-
+            long long age;
+        public:
+            void incrementAge();
+            long long getAge();
     };
 }
 

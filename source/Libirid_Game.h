@@ -17,6 +17,8 @@
 namespace node
 {
     class Node;
+    class Node_Expanse;
+    class Node_Folder;
 }
 namespace cmd
 {
@@ -27,42 +29,22 @@ class Libirid_Game
 {
     public:
         // Initialize
-        Libirid_Game();
+        Libirid_Game(node::Node_Expanse* nodeExpanse, node::Node_Folder* nodeConcepts);
 
         // Finalize
         virtual ~Libirid_Game();
     private:
         // Nodes of interest
-        node::Node* nodeExpanse;
-        node::Node* nodeConcepts;
+        node::Node_Expanse* nodeExpanse;
+        node::Node_Concepts* nodeConcepts;
         node::Node* nodeSpawnAreaChild;
         node::Node* nodePlayerScript;
-
-        // Run a player command
-        void runPlayerCommand(node::Node* nodePlayerScript, std::string theirInput);
     public:
         // Do a tick
         void doTick();
-    public:
-        // Save to file
-        void save(std::string fileName);
-
-        // Load from file
-        void load(std::string fileName);
     private:
         // Add a player
         void addPlayer(std::string playerName);
-
-        // How old the expanse is, in ticks
-        long long expanseAge;
-
-    ///////////////
-    // Utilities //
-    ///////////////
-
-    public:
-        // Split a line into words
-        static void splitWordsLowercase(std::string line, std::vector<std::string>* wordList);
 };
 
 #endif // LIBIRID_GAME_H

@@ -8,8 +8,9 @@
 
 using namespace node;
 
-Node_Expanse::Node_Expanse()
-: Node("Expanse", NT_EXPANSE, NULL)
+Node_Expanse::Node_Expanse(long long age)
+: Node("Expanse", NT_EXPANSE, NULL),
+age(age)
 {
     //ctor
 }
@@ -17,4 +18,14 @@ Node_Expanse::Node_Expanse()
 Node_Expanse::~Node_Expanse()
 {
     //dtor
+}
+
+void Node_Expanse::incrementAge()
+{
+    ++ age;
+}
+
+long long Node_Expanse::getAge()
+{
+    return age;
 }
