@@ -10,6 +10,20 @@
 
 #include <chrono>
 
+//  Node Stuff
+// ============
+#include "node/Node.h"
+
+#include "node/Node_Expanse.h"
+#include "node/Node_World.h"
+#include "node/Node_Area.h"
+#include "node/Node_Portal.h"
+#include "node/Node_Entity.h"
+#include "node/Node_Script.h"
+#include "node/Node_PlayerScript.h"
+#include "node/Node_StringValue.h"
+#include "node/Node_Folder.h"
+
 //
 Libirid_Server::Libirid_Server() {}
 
@@ -29,27 +43,23 @@ void Libirid_Server::doTick()
 
 void Libirid_Server::run()
 {
+    // Load Concepts
+    // =============
+    node::Node_Folder* loadedConcepts = new node::Node_Folder("concepts", nullptr);
+
+    // Load Expanse
+    // ============
+    node::Node_Expanse* loadedExpanse = new node::Node_Expanse(0LL);
+
+
     // Initialization
     // ==============
 
     // Make a new game
-    game = new Libirid_Game();
+    Libirid_Game game(loadedExpanse, loadedConcepts);
 
     // How fast should the ticks be in ms
     pulseRate = 1000;
-
-    // Load the game map
-    try
-    {
-        // Attempt to load the save file
-        // Note: this path only works when running from CB's debug console
-        // if running the .exe this should be changed to just "save"
-        game->load("../builds/save");
-    }
-    catch(const std::string error)
-    {
-        std::cout << "ERROR " << error << std::endl;
-    }
 
     // Ticking handling
     typedef std::chrono::high_resolution_clock SuperClock;
@@ -81,7 +91,7 @@ void Libirid_Server::run()
             whenLastTickBegan = SuperClock::now();
 
             // Calculate game logic
-            doTick();
+            game.doTick();
 
             // Debug stuff: if a tick took longer than allowed, then report it
             #ifdef DEBUG

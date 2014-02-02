@@ -29,7 +29,7 @@
 #include "node/Node_Folder.h"
 
 // Initialize
-Libirid_Game::Libirid_Game()
+Libirid_Game::Libirid_Game(node::Node_Expanse* nodeExpanse, node::Node_Folder* nodeConcepts)
 : nodeExpanse(nodeExpanse),
 nodeConcepts(nodeConcepts)
 {

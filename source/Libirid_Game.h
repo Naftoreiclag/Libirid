@@ -36,7 +36,7 @@ class Libirid_Game
     private:
         // Nodes of interest
         node::Node_Expanse* nodeExpanse;
-        node::Node_Concepts* nodeConcepts;
+        node::Node_Folder* nodeConcepts;
         node::Node* nodeSpawnAreaChild;
         node::Node* nodePlayerScript;
     public:

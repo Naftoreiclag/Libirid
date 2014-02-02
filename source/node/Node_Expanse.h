@@ -14,7 +14,7 @@ namespace node
     class Node_Expanse : public Node
     {
         public:
-            Node_Expanse();
+            Node_Expanse(long long age);
             virtual ~Node_Expanse();
         private:
             long long age;
