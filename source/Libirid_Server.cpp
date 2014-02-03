@@ -78,7 +78,7 @@ void Libirid_Server::run()
         }
 
         // Measure how long it has been since we last ticked
-        int timeSinceLastTickBegan = (std::chrono::duration_cast<Milliseconds>(SuperClock::now() - whenLastTickBegan)).count();
+        unsigned int timeSinceLastTickBegan = (std::chrono::duration_cast<Milliseconds>(SuperClock::now() - whenLastTickBegan)).count();
 
         // If it's time to tick, then do so
         if(timeSinceLastTickBegan >= pulseRate)
@@ -91,7 +91,7 @@ void Libirid_Server::run()
 
             // Debug stuff: if a tick took longer than allowed, then report it
             #ifdef DEBUG
-            int howLongThatTickTook = (std::chrono::duration_cast<Milliseconds>(SuperClock::now() - whenLastTickBegan)).count();
+            unsigned int howLongThatTickTook = (std::chrono::duration_cast<Milliseconds>(SuperClock::now() - whenLastTickBegan)).count();
             if(howLongThatTickTook >= pulseRate)
             {
                 std::cout << "Could not keep up! Took " << howLongThatTickTook << " to tick, but deadline is " << pulseRate << "!" << std::endl;
