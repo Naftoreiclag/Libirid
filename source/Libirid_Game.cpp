@@ -45,3 +45,9 @@ void Libirid_Game::doTick()
 {
     std::cout << "tick" << std::endl;
 }
+
+//
+void Libirid_Game::findTickableNodes()
+{
+    nodeExpanse->getDescendant();
+}

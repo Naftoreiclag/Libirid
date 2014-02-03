@@ -40,13 +40,13 @@ class Libirid_Game
         node::Node_Folder* nodeConcepts;
 
         //
-        std::vector<node::Node_Script*> tickableNodes;
+        std::vector<node::TickableNode*> tickableNodes;
     public:
         // Do a tick
         void doTick();
     private:
         //
-        void registerTickableNodes();
+        void findTickableNodes();
     private:
         // Add a player
         void addPlayer(std::string playerName);

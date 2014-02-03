@@ -46,7 +46,7 @@ std::string Node::getName()
     return name;
 }
 
-// Get first DIRECT (i.e. not a grandchild or nephew) child named "name"
+// Get first DIRECT (i.e. not a grandchild, great-grandchild... etc) child named "name"
 Node* Node::getChild(std::string name)
 {
     for(MACRO_CHILD_ITERATOR)
@@ -60,7 +60,7 @@ Node* Node::getChild(std::string name)
     return NULL;
 }
 
-// Get first descendant (a child, grandchild, nephew, grandnephew... etc)
+// Get first descendant (i.e. a child, grandchild, great-grandchild... etc)
 Node* Node::getDescendant(std::string name)
 {
     for(MACRO_CHILD_ITERATOR)
@@ -81,6 +81,20 @@ Node* Node::getDescendant(std::string name)
     }
 
     return NULL;
+}
+
+// Fill a vector with descendants (i.e. a child, grandchild, great-grandchild... etc) that are of a particular type
+void Node::getDescendants(std::vector<Node*> descendants, NodeType nodeType)
+{
+    for(MACRO_CHILD_ITERATOR)
+    {
+        if(child->getType() == nodeType)
+        {
+            descendants.push_back(child);
+        }
+
+        child->getDescendants(descendants, nodeType);
+    }
 }
 
 // Parent

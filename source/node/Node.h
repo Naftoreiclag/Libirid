@@ -59,6 +59,9 @@ namespace node
             // Get first descendant (a child, grandchild, nephew, grandnephew... etc)
             Node* getDescendant(std::string name);
 
+            // Fill a vector with descendants (i.e. a child, grandchild, great-grandchild... etc) that are of a particular type
+            void getDescendants(std::vector<Node*> descendants, NodeType nodeType);
+
             // Parent
             Node* getParent();
 
