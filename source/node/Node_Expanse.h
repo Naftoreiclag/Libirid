@@ -7,6 +7,8 @@
 #ifndef NODE_EXPANSE_H
 #define NODE_EXPANSE_H
 
+#include <vector>
+
 #include "Node.h"
 
 namespace node

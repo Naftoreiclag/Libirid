@@ -14,8 +14,8 @@
 
 #include <iostream>
 
-//  Node Stuff
-// ============
+// Node Stuff
+// ==========
 #include "node/Node.h"
 
 #include "node/Node_Expanse.h"
@@ -49,5 +49,4 @@ void Libirid_Game::doTick()
 //
 void Libirid_Game::findTickableNodes()
 {
-    nodeExpanse->getDescendant();
 }

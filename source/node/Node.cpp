@@ -6,11 +6,11 @@
 
 #include "Node.h"
 
-#define MACRO_CHILD_ITERATOR Node* child = firstChild; child != NULL; child = child->getSibling()
-
 #ifdef DEBUG
 #include <iostream>
 #endif // DEBUG
+
+#define MACRO_CHILD_ITERATOR Node* child = firstChild; child != NULL; child = child->getSibling()
 
 using namespace node;
 
@@ -84,16 +84,31 @@ Node* Node::getDescendant(std::string name)
 }
 
 // Fill a vector with descendants (i.e. a child, grandchild, great-grandchild... etc) that are of a particular type
-void Node::getDescendants(std::vector<Node*> descendants, NodeType nodeType)
+void Node::getDescendants(std::vector<Node*> vectorToFillWithDescendants, NodeType targetNodeType)
 {
     for(MACRO_CHILD_ITERATOR)
     {
-        if(child->getType() == nodeType)
+        if(child->getType() == targetNodeType)
         {
-            descendants.push_back(child);
+            vectorToFillWithDescendants.push_back(child);
         }
 
-        child->getDescendants(descendants, nodeType);
+        child->getDescendants(vectorToFillWithDescendants, targetNodeType);
+    }
+}
+
+// Fill a vector with descendants (i.e. a child, grandchild, great-grandchild... etc) that are TickableNodes
+void Node::getTickableDescendants(std::vector<TickableNode*>* vectorToFillWithTickableDescendants)
+{
+    for(MACRO_CHILD_ITERATOR)
+    {
+        if(child->getType() == NT_SCRIPT ||
+           child->getType() == NT_PLAYERSCRIPT)
+        {
+            vectorToFillWithTickableDescendants->push_back((TickableNode*) (child));
+        }
+
+        child->getTickableDescendants(vectorToFillWithTickableDescendants);
     }
 }
 
@@ -183,7 +198,7 @@ void Node::forgetChild(Node* childToDisown)
             else
             {
                 // The previous child's sibling is now the childToDisown's sibling
-                previousNode->setSibling(child->getSibling());
+                previousNode->sibling = child->getSibling();
             }
 
             // Stop checking

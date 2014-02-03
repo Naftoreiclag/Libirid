@@ -17,6 +17,7 @@
 namespace node
 {
     class Node;
+    class TickableNode;
     class Node_Expanse;
     class Node_Folder;
     class Node_Script;

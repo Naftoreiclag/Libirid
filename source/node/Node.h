@@ -12,6 +12,7 @@
  */
 
 #include <string>
+#include <vector>
 
 typedef unsigned char NodeType;
 
@@ -38,6 +39,8 @@ typedef unsigned char NodeType;
 
 namespace node
 {
+    class TickableNode;
+
     class Node
     {
         protected:
@@ -60,7 +63,10 @@ namespace node
             Node* getDescendant(std::string name);
 
             // Fill a vector with descendants (i.e. a child, grandchild, great-grandchild... etc) that are of a particular type
-            void getDescendants(std::vector<Node*> descendants, NodeType nodeType);
+            void getDescendants(std::vector<Node*> vectorToFillWithDescendants, NodeType targetNodeType);
+
+            // Fill a vector with descendants (i.e. a child, grandchild, great-grandchild... etc) that are TickableNodes
+            void getTickableDescendants(std::vector<TickableNode*>* vectorToFillWithTickableDescendants);
 
             // Parent
             Node* getParent();
