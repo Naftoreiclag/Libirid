@@ -1,0 +1,8 @@
+For deconstructors, here is a better solution:
+
+When a tickable node is deleted, the game will check if it has a tilde (~) as the first character in its name. If so, that will mark it as a "deconstructor" meaning that it will tick only when it is deleted.
+
+What if I wanted an entity to have a specific behavor when it is deleted?
+When a node is deleted, the game will already be going through its children, so no big deal. All you need is that entity to have a script named "~decon" or something, which would allow it to be called only on deletion.
+
+Maybe in addition to the tilde, I should have an exclamation point or something else denote that it is a constructor.
