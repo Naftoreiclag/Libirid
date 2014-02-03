@@ -34,29 +34,25 @@ Libirid_Server::~Libirid_Server()
     delete game;
 }
 
-// Run a single tick
-void Libirid_Server::doTick()
-{
-    // Run a single game tick
-    game->doTick();
-}
-
 void Libirid_Server::run()
 {
     // Load Concepts
     // =============
+
+    // Load
     node::Node_Folder* loadedConcepts = new node::Node_Folder("concepts", nullptr);
 
     // Load Expanse
     // ============
-    node::Node_Expanse* loadedExpanse = new node::Node_Expanse(0LL);
 
+    // Load
+    node::Node_Expanse* loadedExpanse = new node::Node_Expanse(0LL);
 
     // Initialization
     // ==============
 
     // Make a new game
-    Libirid_Game game(loadedExpanse, loadedConcepts);
+    game = new Libirid_Game(loadedExpanse, loadedConcepts);
 
     // How fast should the ticks be in ms
     pulseRate = 1000;
@@ -65,7 +61,7 @@ void Libirid_Server::run()
     typedef std::chrono::high_resolution_clock SuperClock;
     typedef std::chrono::milliseconds Milliseconds;
 
-    // Clock stuff
+    // Tick Timing
     // ===========
 
     // Variable to hold when the last tick began
@@ -91,7 +87,7 @@ void Libirid_Server::run()
             whenLastTickBegan = SuperClock::now();
 
             // Calculate game logic
-            game.doTick();
+            game->doTick();
 
             // Debug stuff: if a tick took longer than allowed, then report it
             #ifdef DEBUG
@@ -103,6 +99,9 @@ void Libirid_Server::run()
             #endif // DEBUG
         }
     }
+
+    // Clean Up
+    // ========
 
     // Delete self
     delete this;

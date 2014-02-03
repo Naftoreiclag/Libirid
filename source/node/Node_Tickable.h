@@ -4,23 +4,21 @@
  * See accompanying file LICENSE
  */
 
-#ifndef NODE_SCRIPT_H
-#define NODE_SCRIPT_H
+#ifndef NODE_TICKABLE_H
+#define NODE_TICKABLE_H
 
 #include "Node.h"
 
-#include "Node_Tickable.h"
-
 namespace node
 {
-    class Node_Script : public Node, public Node_Tickable
+    class Node_Tickable
     {
         public:
-            Node_Script(std::string name, Node* parent);
-            virtual ~Node_Script();
+            //Node_Tickable(std::string name, Node* parent);
+            //virtual ~Node_Tickable();
         protected:
         private:
     };
 }
 
-#endif // NODE_SCRIPT_H
+#endif // NODE_TICKABLE_H

@@ -19,6 +19,7 @@ namespace node
     class Node;
     class Node_Expanse;
     class Node_Folder;
+    class Node_Script;
 }
 namespace cmd
 {
@@ -37,11 +38,15 @@ class Libirid_Game
         // Nodes of interest
         node::Node_Expanse* nodeExpanse;
         node::Node_Folder* nodeConcepts;
-        node::Node* nodeSpawnAreaChild;
-        node::Node* nodePlayerScript;
+
+        //
+        std::vector<node::Node_Script*> tickableNodes;
     public:
         // Do a tick
         void doTick();
+    private:
+        //
+        void registerTickableNodes();
     private:
         // Add a player
         void addPlayer(std::string playerName);

@@ -77,6 +77,7 @@
 		<Unit filename="node/Node_Script.h" />
 		<Unit filename="node/Node_StringValue.cpp" />
 		<Unit filename="node/Node_StringValue.h" />
+		<Unit filename="node/Node_Tickable.h" />
 		<Unit filename="node/Node_World.cpp" />
 		<Unit filename="node/Node_World.h" />
 		<Unit filename="script/ListOfScripts.cpp" />
