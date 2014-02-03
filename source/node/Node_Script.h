@@ -7,13 +7,11 @@
 #ifndef NODE_SCRIPT_H
 #define NODE_SCRIPT_H
 
-#include "Node.h"
-
-#include "Node_Tickable.h"
+#include "TickableNode.h"
 
 namespace node
 {
-    class Node_Script : public Node, public Node_Tickable
+    class Node_Script : public TickableNode
     {
         public:
             Node_Script(std::string name, Node* parent);

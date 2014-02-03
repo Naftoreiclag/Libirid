@@ -4,16 +4,17 @@
  * See accompanying file LICENSE
  */
 
-#include "Node_Script.h"
+#include "TickableNode.h"
 
 using namespace node;
 
-Node_Script::Node_Script(std::string name, Node* parent)
-: TickableNode(name, NT_SCRIPT, parent)
+TickableNode::TickableNode(std::string name, NodeType nodeType, Node* parent)
+: Node(name, nodeType, parent)
 {
+    //ctor
 }
 
-Node_Script::~Node_Script()
+TickableNode::~TickableNode()
 {
     //dtor
 }
