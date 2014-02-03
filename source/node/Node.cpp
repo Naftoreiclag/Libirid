@@ -6,7 +6,7 @@
 
 #include "Node.h"
 
-#define MACRO_CHILD_ITERATOR Node* child = firstChild; child != NULL; child = child->sibling
+#define MACRO_CHILD_ITERATOR Node* child = firstChild; child != NULL; child = child->getSibling()
 
 #ifdef DEBUG
 #include <iostream>
@@ -197,9 +197,6 @@ void Node::forgetChild(Node* childToDisown)
 
 // Returns sibling
 Node* Node::getSibling() { return sibling; }
-
-// Sets the sibling
-void Node::setSibling(Node* newSibling) { sibling = newSibling; }
 
 #ifdef DEBUG
 void Node::printHeirachy(int layer)

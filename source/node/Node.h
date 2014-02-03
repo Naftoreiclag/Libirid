@@ -80,9 +80,6 @@ namespace node
             // Returns sibling
             Node* getSibling();
 
-            // Sets the sibling
-            void setSibling(Node* newSibling);
-
             #ifdef DEBUG
             void printHeirachy(int layer);
             #endif // DEBUG
