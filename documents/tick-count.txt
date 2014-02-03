@@ -2,3 +2,10 @@ max number of ticks in a LL
 2^64 : 18446744073709551616
 
 at 1 tick every 2 seconds
+
+an expanse would hypothetically last for 36893488147419103232 seconds
+
+which, according to WolframAlpha, would equate to 
+1.169x10^12 average Gregorian years
+
+or about 85 times the age of the universe
