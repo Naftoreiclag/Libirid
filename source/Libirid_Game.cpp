@@ -49,4 +49,5 @@ void Libirid_Game::doTick()
 //
 void Libirid_Game::findTickableNodes()
 {
+    nodeExpanse->getTickableDescendants(&tickableNodes);
 }
