@@ -28,6 +28,9 @@ class Libirid_Server
 
         // Receive input packet from a client
         void receiveInput(std::string input);
+    // Maybe make these static someday? Maybe in Node_Expanse?
+    private:
+        node::Node_Expanse* loadExpanse(std::string saveFileName);
     private:
         // The game to simulate
         Libirid_Game* game;
