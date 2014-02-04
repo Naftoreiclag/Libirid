@@ -18,6 +18,8 @@
 // ==========
 #include "node/Node.h"
 
+#include "node/TickableNode.h"
+
 #include "node/Node_Expanse.h"
 #include "node/Node_World.h"
 #include "node/Node_Area.h"
@@ -50,4 +52,15 @@ void Libirid_Game::doTick()
 void Libirid_Game::findTickableNodes()
 {
     nodeExpanse->getTickableDescendants(&tickableNodes);
+
+    // Remove all the deconstructor nodes
+    for(auto it = tickableNodes.begin(); it != tickableNodes.end(); ++ it)
+    {
+        node::TickableNode* tn = *it;
+
+        if(tn->getName().front() == '~')
+        {
+            tickableNodes.erase(it);
+        }
+    }
 }

@@ -17,6 +17,7 @@ Libirid_Client::~Libirid_Client()
 {
     //dtor
 }
+
 void Libirid_Client::run()
 {
     while(true){}
