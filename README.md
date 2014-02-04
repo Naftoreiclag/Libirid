@@ -1,4 +1,4 @@
-[![Libirid](http://naftoreiclag.github.io/libirid_raster.png "Libirid")](https://github.com/Naftoreiclag/Libirid)
+[![Libirid](http://naftoreiclag.github.io/libirid_raster_resize.png "Libirid")](https://github.com/Naftoreiclag/Libirid)
 ===
 Non-copyleft licenced under: 
 [MIT License (MIT)](http://opensource.org/licenses/mit-license.html) and 
