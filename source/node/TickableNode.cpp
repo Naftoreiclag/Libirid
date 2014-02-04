@@ -15,6 +15,10 @@ TickableNode::TickableNode(std::string name, NodeType nodeType, Node* parent)
 
 TickableNode::~TickableNode()
 {
+    if(this->name.front() == '~')
+    {
+        this->forceTick();
+    }
 }
 
 void TickableNode::tickIfReady()
@@ -34,6 +38,11 @@ void TickableNode::tickIfReady()
     }
 
     // If the value is already zero when this function is called, then the tick will not be called
+}
+
+void TickableNode::forceTick()
+{
+
 }
 
 unsigned int TickableNode::getCountDown()

@@ -27,7 +27,7 @@ namespace node
 
             // Force a tick
             // Override this function to add some sort of functionality to the ticks
-            virtual void forceTick() = 0;
+            virtual void forceTick();
 
         // Time remaining until tick
         // When it reaches zero then it will immediately tick

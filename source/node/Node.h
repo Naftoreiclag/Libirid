@@ -89,7 +89,7 @@ namespace node
             #ifdef DEBUG
             void printHeirachy(int layer);
             #endif // DEBUG
-        private:
+        protected:
             std::string name;
 
             NodeType nodeType;
