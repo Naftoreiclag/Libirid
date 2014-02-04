@@ -204,7 +204,7 @@ node::Node_Expanse* Libirid_Server::loadExpanse(std::string saveFileName)
             if(*charPtr == '.')
             {
                 // If the name is Expanse, that is special
-                if(nodeName == "expanse")
+                if(nodeName == "Expanse")
                 {
                     // Because we mean to get the expanse
                     parentNodePtr = nodeExpanse;
