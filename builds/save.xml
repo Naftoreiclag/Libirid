@@ -3,7 +3,7 @@
     <world name="FooLand">
         <area name="Forest">
             <entity name="Tree">
-                <32value name="NumberOfLeaves" value=1337 />
+                <32value name="NumberOfLeaves" value="1337"></32value>
             </entity>
         </area>
     </world>
