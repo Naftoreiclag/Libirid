@@ -6,6 +6,7 @@
 
 #include "XmlSaveLoader.h"
 
+#include <string>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -27,6 +28,10 @@
 // XML Stuff
 // =========
 #include "RapidXml/rapidxml.hpp"
+
+// Stoux Stuff
+// ===========
+#include "Stox/stox.hpp"
 
 using namespace rapidxml;
 
@@ -95,6 +100,10 @@ namespace XmlSaveLoader
         // ====================
 
         xml_node<>* root_node = doc.first_node("expanse");
+
+        unsigned long long ageStr = stox::stoull(root_node->first_attribute("age"));
+
+        node::Node* expanse = new node::NodeExpanse(ageStr);
 
         recusiveFunc(nullptr, root_node);
     }
