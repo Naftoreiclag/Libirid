@@ -6,9 +6,16 @@ http://example.com/project-webpage.html/
 /source/path/to/code/*.*
 Licensed under the terms of the WTFPL.
 
+==============
 Begin of list:
+==============
 
 TinyThread:
 http://tinythreadpp.bitsnbites.eu/
 /source/TinyThread/*.*
 Licensed under the terms of the zlib/libpng license.
+
+RapidXml:
+http://rapidxml.sourceforge.net/
+/source/RapidXml/*.*
+Licensed under the terms of the MIT license.
