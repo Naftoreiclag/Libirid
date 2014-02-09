@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<expanse age=315>
+<expanse age="315">
     <world name="FooLand">
         <area name="Forest">
             <entity name="Tree">
