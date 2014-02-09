@@ -48,6 +48,10 @@
 		<Unit filename="Libirid_Server.h" />
 		<Unit filename="Libirid_Title.cpp" />
 		<Unit filename="Libirid_Title.h" />
+		<Unit filename="RapidXml/rapidxml.hpp" />
+		<Unit filename="RapidXml/rapidxml_iterators.hpp" />
+		<Unit filename="RapidXml/rapidxml_print.hpp" />
+		<Unit filename="RapidXml/rapidxml_utils.hpp" />
 		<Unit filename="TinyThread/fast_mutex.h" />
 		<Unit filename="TinyThread/tinythread.cpp" />
 		<Unit filename="TinyThread/tinythread.h" />
