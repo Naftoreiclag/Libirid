@@ -6,9 +6,9 @@
 
 #include "Libirid_Server.h"
 
+#ifdef DEBUG
 #include <iostream>
-#include <fstream>
-#include <sstream>
+#endif // DEBUG
 
 #include <chrono>
 
@@ -28,8 +28,7 @@
 
 // XML Stuff
 // =========
-#include "RapidXml/rapidxml.hpp"
-
+#include "XmlSaveLoader.h"
 
 //
 Libirid_Server::Libirid_Server(unsigned int pulseRate, std::string expanseSave, std::string conceptsSave)
@@ -60,7 +59,9 @@ void Libirid_Server::run()
     node::Node_Expanse* loadedExpanse;
     try
     {
-        loadedExpanse = loadExpanse(expanseSave);
+        node::Node* rootNode = XmlSaveLoader::loadFromFile(expanseSave);
+
+        loadedExpanse = (node::Node_Expanse*) rootNode;
     }
     catch(std::string e)
     {
@@ -131,33 +132,4 @@ void Libirid_Server::pause()
 void Libirid_Server::unpause()
 {
     isPaused = false;
-}
-
-// Load
-using namespace rapidxml;
-node::Node_Expanse* Libirid_Server::loadExpanse(std::string saveFileName)
-{
-    // The save XML document
-    xml_document<> doc;
-
-    // The generic document and vector buffer
-    std::ifstream saveFile(saveFileName);
-
-    // Check if we could not open the file for some reason
-    if(!saveFile.is_open())
-    {
-        throw "Could not open file " + saveFileName;
-    }
-
-
-    std::stringstream buffer;
-    buffer << saveFile.rdbuf();
-    saveFile.close();
-    std::string saveFileContent(buffer.str());
-    doc.parse<0>(&saveFileContent[0]);
-    xml_node<>* root_node = doc.first_node("expanse");
-    for(xml_node<>* node = root_node->first_node(); node; node = node->next_sibling())
-    {
-        std::cout << node->first_attribute("name")->value();
-    }
 }

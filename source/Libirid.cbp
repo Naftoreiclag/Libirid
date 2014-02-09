@@ -55,6 +55,8 @@
 		<Unit filename="TinyThread/fast_mutex.h" />
 		<Unit filename="TinyThread/tinythread.cpp" />
 		<Unit filename="TinyThread/tinythread.h" />
+		<Unit filename="XmlSaveLoader.cpp" />
+		<Unit filename="XmlSaveLoader.h" />
 		<Unit filename="node/Node.cpp" />
 		<Unit filename="node/Node.h" />
 		<Unit filename="node/Node_16Value.cpp" />
