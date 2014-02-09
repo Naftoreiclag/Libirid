@@ -26,7 +26,11 @@
 #include "node/Node_Folder.h"
 
 //
-Libirid_Server::Libirid_Server() {}
+Libirid_Server::Libirid_Server(unsigned int pulseRate, std::string expanseSave, std::string conceptsSave)
+: pulseRate(pulseRate),
+expanseSave(expanseSave),
+conceptsSave(conceptsSave)
+{}
 
 // When we are deleted
 Libirid_Server::~Libirid_Server()
@@ -62,9 +66,6 @@ void Libirid_Server::run()
 
     // Make a new game
     game = new Libirid_Game(loadedExpanse, loadedConcepts);
-
-    // How fast should the ticks be in ms
-    pulseRate = 1000;
 
     // Ticking handling
     typedef std::chrono::high_resolution_clock SuperClock;
@@ -257,14 +258,4 @@ node::Node_Expanse* Libirid_Server::loadExpanse(std::string saveFileName)
 
     //
     return nodeExpanse;
-}
-
-void Libirid_Server::receiveInput(std::string input)
-{
-
-}
-
-void Libirid_Server::sendMessage(std::string message)
-{
-
 }

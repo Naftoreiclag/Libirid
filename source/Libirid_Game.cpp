@@ -45,7 +45,7 @@ Libirid_Game::~Libirid_Game()
 //
 void Libirid_Game::doTick()
 {
-    std::cout << "-" << std::endl;
+    std::cout << "tick" << std::endl;
 
     for(auto it = tickableNodes.begin(); it != tickableNodes.end(); ++ it)
     {

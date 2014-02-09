@@ -14,7 +14,7 @@
 class Libirid_Server
 {
     public:
-        Libirid_Server();
+        Libirid_Server(unsigned int pulseRate, std::string expanseSave, std::string conceptsSave);
         ~Libirid_Server();
 
         // Take over thread and do stuff
@@ -26,20 +26,13 @@ class Libirid_Server
         // Resumes the game
         void unpause();
 
-        // Receive input packet from a client
-        void receiveInput(std::string input);
     // Maybe make these static someday? Maybe in Node_Expanse?
     private:
         node::Node_Expanse* loadExpanse(std::string saveFileName);
+
     private:
         // The game to simulate
         Libirid_Game* game;
-
-        // Load game stuff
-        void load();
-
-        // Save game stuff
-        void save();
 
         // Executes a single game tick
         void doTick();
@@ -47,10 +40,11 @@ class Libirid_Server
         // If we are to execute ticks or not
         bool isPaused;
 
-        // Send a message to the a client
-        void sendMessage(std::string message);
+        // Save file paths
+        std::string expanseSave;
+        std::string conceptsSave;
 
-        // Pulse rate, time to wait in between ticks
+        // How fast should the ticks be in ms
         unsigned int pulseRate;
 
 };
