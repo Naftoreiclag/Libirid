@@ -5,9 +5,6 @@
  */
 
 #include "ListOfScripts.h"
-#ifndef NULL
-#define NULL 0
-#endif // NULL
 
 using namespace script;
 
@@ -19,7 +16,7 @@ using namespace script;
 ListOfScripts* ListOfScripts::instance;
 ListOfScripts* ListOfScripts::getInstance()
 {
-    if(instance == NULL)
+    if(instance == nullptr)
     {
         instance = new ListOfScripts();
     }
@@ -35,7 +32,7 @@ ListOfScripts::ListOfScripts()
 // Destructor
 ListOfScripts::~ListOfScripts()
 {
-    ListOfScripts::instance = NULL;
+    ListOfScripts::instance = nullptr;
 }
 
 ///////////////////////////////////

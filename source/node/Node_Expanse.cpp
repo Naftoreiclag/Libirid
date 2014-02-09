@@ -9,7 +9,7 @@
 using namespace node;
 
 Node_Expanse::Node_Expanse(long long age)
-: Node("Expanse", NT_EXPANSE, NULL),
+: Node("Expanse", NT_EXPANSE, nullptr),
 age(age)
 {
     //ctor
