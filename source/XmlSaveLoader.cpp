@@ -101,9 +101,11 @@ namespace XmlSaveLoader
 
         xml_node<>* root_node = doc.first_node("expanse");
 
-        unsigned long long ageStr = stox::stoull(root_node->first_attribute("age"));
+        xml_attribute<>* attr = root_node->first_attribute("age");
 
-        node::Node* expanse = new node::NodeExpanse(ageStr);
+        unsigned long long ageStr = stox::stoull(attr->value());
+
+        node::Node* expanse = new node::Node_Expanse(ageStr);
 
         recusiveFunc(nullptr, root_node);
     }
