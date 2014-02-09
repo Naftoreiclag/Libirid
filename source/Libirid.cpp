@@ -34,7 +34,7 @@
 //
 namespace Libirid
 {
-    Libirid_Server server(1000, "../builds/save", "../builds/save");
+    Libirid_Server server(1000, "../builds/save.xml", "../builds/save");
     Libirid_Client client;
 
     void runServer(void* _) { server.run(); }
